@@ -1,0 +1,36 @@
+name: check
+
+# The four boundary checks (spec: Curriculum -> Platform, 2026-09-02).
+# Every step fails red on a missing file — nothing here is skippable,
+# because a skipped check reads as a passed one from the other side of
+# the boundary. Green on main is what the boundary page's stamp row
+# claims; this workflow is what makes the claim true by construction.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: "Check 1 — authoring_principles byte-identical to authoring-principles.md"
+        run: python3 scripts/check_principles.py thread-01-rate-of-change.json authoring-principles.md
+
+      - name: "Check 2 — regenerating the registries produces no diff"
+        # chain-registry.txt is deliberately excluded: its display titles
+        # are authored prose with no source in the graph (spec §1.2 note).
+        run: |
+          python3 generate-registries.py thread-01-rate-of-change.json
+          git diff --exit-code -- skill-registry.txt misconception-registry.txt external-prereq-registry.txt
+
+      - name: "Check 3 — partition-check passes (prose restates no threshold, D25)"
+        # Invocation to confirm against the seeded script; if it takes no
+        # argument or a different one, fix THIS line, not the script.
+        run: python3 partition-check.py thread-01-rate-of-change.json
+
+      - name: "Check 4 — referential integrity (graph + registries)"
+        run: python3 scripts/check_integrity.py thread-01-rate-of-change.json
