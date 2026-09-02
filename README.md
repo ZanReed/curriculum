@@ -71,6 +71,8 @@ the hand-carried-copy failure with a new name. This repo carries
 | `scripts/check_integrity.py` | check 4 |
 | `validate.js` | the curriculum-owned §11 thread checks — runs in CI (`node validate.js <graph>`); green against v0.13.0 on joining (2026-09-02) |
 | `builder.html` | the authoring UI (serve over HTTP, never `file://`). Provenance caveat: this is the July 2026 workspace copy, joined 2026-09-02 so its Save & load prompt text is diffable; reconcile if the Claude project holds a newer descendant |
+| `docs/` | reasoning records: reconciliation, the D24 audit, pedagogical concerns, hook screen, the retired architecture doc (kept only so the retirement is visible — do not restore) |
+| `channel/` | the boundary-channel rules and page URLs, the repo spec, the catalogue agent brief, the two handoffs |
 
 **Deliberately NOT here: `generate-capabilities.mjs`.** The July copy fails
 the curriculum side's own join criterion in the dangerous direction: it still
@@ -81,8 +83,6 @@ term the D8 amendment corrected), and its importer-fence join FATALs on
 v0.13.0 capabilities with v0.10-era output. It regenerates graph fields from
 platform code, so under the regeneration-ownership rule its rebuild is
 platform-side work; it joins when rebuilt against current schema and code.
-| `docs/` | reasoning records: reconciliation, the D24 audit, pedagogical concerns, hook screen, the retired architecture doc (kept only so the retirement is visible — do not restore) |
-| `channel/` | the boundary-channel rules and page URLs, the repo spec, the catalogue agent brief, the two handoffs |
 
 ## The boundary stamp
 
