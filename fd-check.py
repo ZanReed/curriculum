@@ -64,4 +64,4 @@ def main(path):
     return 0
 
 if __name__ == '__main__':
-    sys.exit(main(sys.argv[1] if len(sys.argv) > 1 else 'thread-01-rate-of-change.v0.11.2.json'))
+    sys.exit(main(sys.argv[1] if len(sys.argv) > 1 else 'thread-01-rate-of-change.json'))

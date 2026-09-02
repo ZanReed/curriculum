@@ -6,7 +6,10 @@
 # A folder with no entry warns and fails --strict. All 17 chains are listed so
 # the numbering is fixed now; only folders that exist are read.
 #
-# Generated from thread-01-rate-of-change.json v0.10.0.
+# NOT GENERATED. Hand-maintained, and deliberately carries no generation stamp:
+# the display titles are authored prose with no source in the graph, so this file
+# cannot claim a provenance. A file that cannot claim provenance must not have a
+# line that looks like one.
 
 01-chain.rate.proportional              = Rates and Proportional Relationships
 02-chain.linear.slope                   = Slope
