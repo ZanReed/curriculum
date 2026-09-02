@@ -34,3 +34,9 @@ jobs:
 
       - name: "Check 4 — referential integrity (graph + registries)"
         run: python3 scripts/check_integrity.py thread-01-rate-of-change.json
+
+      - name: "Thread checks — validate.js (curriculum-owned §11 rules)"
+        # Joined per the curriculum side's criterion (2026-09-02): the one
+        # implementation of the thread checks belongs with the graph it
+        # validates, under the same CI.
+        run: node validate.js thread-01-rate-of-change.json

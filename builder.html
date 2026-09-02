@@ -1,0 +1,1086 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thread builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#EEF1EF;--card:#FFF;--ink:#17211E;--muted:#6C7B76;--faint:#9AA8A3;--rule:#DCE3E0;
+    --signal:#6D28D9;--signal-bg:#F1EBFD;--down:#0F766E;--down-bg:#E4F2F0;--warn:#9A3412;--warn-bg:#FBEAE3;
+    --sans:"IBM Plex Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;--serif:"IBM Plex Serif",Georgia,serif;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:14.5px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1240px;margin:0 auto;padding:24px 20px 90px}
+  header{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;border-bottom:1px solid var(--rule);padding-bottom:16px;flex-wrap:wrap}
+  h1{font-family:var(--serif);font-weight:400;font-size:27px;margin:0;letter-spacing:-.01em}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--faint);text-transform:uppercase}
+  .hstat{font-family:var(--mono);font-size:11.5px;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap}
+  .hstat b{color:var(--ink);font-weight:500}
+  nav{display:flex;gap:2px;margin:18px 0 20px;border-bottom:1px solid var(--rule)}
+  nav button{background:none;border:none;border-bottom:2px solid transparent;padding:8px 14px;font:inherit;font-size:13px;color:var(--muted);cursor:pointer;margin-bottom:-1px}
+  nav button:hover{color:var(--ink)}
+  nav button.on{color:var(--signal);border-bottom-color:var(--signal);font-weight:500}
+  nav .badge{font-family:var(--mono);font-size:10px;background:var(--warn-bg);color:var(--warn);border-radius:8px;padding:0 5px;margin-left:5px}
+  .view{display:none}.view.on{display:block}
+  .split{display:grid;grid-template-columns:290px 1fr;gap:18px;align-items:start}
+  @media(max-width:820px){.split{grid-template-columns:1fr}}
+  .panel{background:var(--card);border:1px solid var(--rule);border-radius:3px}
+  .plist{max-height:640px;overflow:auto}
+  .plist .row{padding:8px 12px;border-bottom:1px solid var(--rule);cursor:pointer;display:flex;justify-content:space-between;gap:8px;align-items:center}
+  .plist .row:hover{background:var(--paper)}
+  .plist .row.on{background:var(--signal-bg);box-shadow:inset 3px 0 0 var(--signal)}
+  .plist .row .lab{font-size:13px;line-height:1.3}
+  .plist .row .meta{font-family:var(--mono);font-size:10px;color:var(--faint);white-space:nowrap}
+  .plist .hd{padding:8px 12px;background:var(--paper);font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);position:sticky;top:0;border-bottom:1px solid var(--rule)}
+  .dot{width:7px;height:7px;border-radius:50%;border:1px solid #CFD8D5;display:inline-block;flex:none}
+  .dot.f{background:var(--down);border-color:var(--down)}
+  .dot.h{background:#C4B5FD;border-color:var(--signal)}
+  .nd.drafted .gd{fill:#C4B5FD;stroke:var(--signal)}
+  .dimm .nd.drafted .gd{fill:#E7DEFB;stroke:#E7DEFB}
+  .draftbar{background:var(--signal-bg);border:1px solid #DCCBFA;border-radius:2px;padding:10px 12px;margin-bottom:14px;font-size:13px;color:#3B1580;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .draftbar .sp{flex:1}
+  .comp{border:1px solid var(--rule);border-radius:3px;margin:18px 0 0;overflow:hidden}
+  .comp .comph{display:flex;gap:9px;align-items:center;background:var(--paper);padding:8px 12px;border-bottom:1px solid var(--rule)}
+  .comp .comph b{font-size:13.5px}
+  .comp .cn{font-family:var(--mono);font-size:10px;background:var(--signal);color:#fff;width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
+  .comp .cm{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-left:auto;text-align:right}
+  .comp>.grid2,.comp>label,.comp>.picker,.comp>.hint,.comp>fieldset,.comp>div:not(.comph),.comp>button{margin-left:14px;margin-right:14px}
+  .comp>fieldset{margin-top:12px;margin-bottom:12px}
+  .comp>button{margin-bottom:14px}
+  pre.prompt{font-family:var(--mono);font-size:11.5px;line-height:1.5;background:var(--paper);border:1px solid var(--rule);border-radius:2px;padding:12px;max-height:420px;overflow:auto;white-space:pre-wrap;margin:0}
+  .form{padding:20px 22px}
+  .form h3{font-family:var(--serif);font-size:19px;font-weight:400;margin:0 0 2px}
+  .form .sub{font-family:var(--mono);font-size:11px;color:var(--faint);margin-bottom:16px}
+  label.f{display:block;margin:12px 0 0}
+  label.f>span{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+  input[type=text],input[type=number],select,textarea{width:100%;font:inherit;font-size:14px;padding:6px 9px;border:1px solid var(--rule);border-radius:2px;background:#fff;color:var(--ink)}
+  textarea{resize:vertical;min-height:60px;line-height:1.5}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--signal);box-shadow:0 0 0 2px var(--signal-bg)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+  .picker{border:1px solid var(--rule);border-radius:2px;max-height:180px;overflow:auto;background:#fff}
+  .picker .fi{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--rule);padding:5px}
+  .picker .fi input{border:none;padding:3px 4px;font-size:13px}
+  .picker .fi input:focus{box-shadow:none}
+  .picker .o{display:flex;gap:7px;align-items:flex-start;padding:4px 9px;font-size:13px;cursor:pointer;line-height:1.35}
+  .picker .o:hover{background:var(--paper)}
+  .picker .o input{margin:3px 0 0;flex:none;accent-color:var(--signal)}
+  .picker .o .id{font-family:var(--mono);font-size:10px;color:var(--faint)}
+  .btn{font:inherit;font-size:13px;padding:6px 13px;border:1px solid var(--rule);background:#fff;color:var(--ink);border-radius:2px;cursor:pointer}
+  .btn:hover{border-color:var(--ink)}
+  .btn.p{background:var(--signal);border-color:var(--signal);color:#fff}
+  .btn.p:hover{background:#5B21B6}
+  .btn.d{color:var(--warn);border-color:#EBD3C7}
+  .btn.d:hover{background:var(--warn-bg);border-color:var(--warn)}
+  .btn:disabled{opacity:.4;cursor:not-allowed}
+  .bar{display:flex;gap:8px;padding:12px 22px;border-top:1px solid var(--rule);background:var(--paper);flex-wrap:wrap;align-items:center}
+  .bar .sp{flex:1}
+  .toolbar{display:flex;gap:8px;padding:10px 12px;border-bottom:1px solid var(--rule);align-items:center}
+  .toolbar input{font-size:13px}
+  .empty{padding:60px 22px;text-align:center;color:var(--faint);font-family:var(--mono);font-size:13px}
+  fieldset{border:1px solid var(--rule);border-radius:2px;padding:12px 14px;margin:16px 0 0}
+  legend{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding:0 6px}
+  .rep{border:1px solid var(--rule);border-radius:2px;padding:10px;margin-bottom:8px;background:var(--paper)}
+  .rep .rh{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .rep .rh span{font-family:var(--mono);font-size:10px;color:var(--faint)}
+  .x{background:none;border:none;color:var(--faint);cursor:pointer;font:inherit;font-size:15px;line-height:1;padding:0 4px}
+  .x:hover{color:var(--warn)}
+  .iss{padding:10px 14px;border-bottom:1px solid var(--rule);display:flex;gap:10px;align-items:flex-start}
+  .iss .k{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;padding:2px 6px;border-radius:2px;flex:none;margin-top:2px}
+  .iss.e .k{background:var(--warn-bg);color:var(--warn)}
+  .iss.w .k{background:#FAEEDA;color:#854F0B}
+  .iss.o .k{background:var(--down-bg);color:var(--down)}
+  .iss code{font-family:var(--mono);font-size:12px;background:var(--paper);padding:1px 4px;border-radius:2px}
+  .ok{padding:40px;text-align:center;color:var(--down);font-family:var(--mono);font-size:13px}
+  .plot{background:var(--card);border:1px solid var(--rule);border-radius:3px;overflow:auto;max-height:660px}
+  svg{display:block}
+  .nd rect{fill:#fff;stroke:var(--rule);stroke-width:1}
+  .nd text{font-family:var(--sans);font-size:11.5px;fill:var(--ink)}
+  .nd{cursor:pointer}.nd:hover rect{stroke:var(--ink)}
+  .nd .gd{fill:none;stroke:#CFD8D5}
+  .nd.built .gd{fill:var(--down);stroke:var(--down)}
+  .edge{stroke:var(--rule);stroke-width:1;fill:none}
+  .dimm .nd rect{stroke:#ECEFEE}.dimm .nd text{fill:#C3CCC8}.dimm .edge{stroke:#EDF0EF}.dimm .nd .gd{stroke:#E6EAE9;fill:none}
+  .nd.anc rect{fill:var(--signal-bg);stroke:var(--signal)}.nd.anc text{fill:#3B1580}
+  .nd.sel rect{fill:var(--signal);stroke:var(--signal)}.nd.sel text{fill:#fff;font-weight:500}
+  .edge.hot{stroke:var(--signal);stroke-width:1.6}
+  .axl{stroke:var(--rule);stroke-width:1;stroke-dasharray:2 4}
+  .axt{font-family:var(--mono);font-size:10px;fill:var(--faint)}
+  .toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;font-family:var(--mono);font-size:12px;padding:8px 16px;border-radius:3px;opacity:0;pointer-events:none;transition:opacity .2s}
+  .toast.on{opacity:1}
+  .hint{font-size:12.5px;color:var(--muted);margin-top:5px}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow" id="tid">thread</div>
+      <h1 id="tlabel">Thread builder</h1>
+    </div>
+    <div class="hstat" id="hstat"></div>
+  </header>
+
+  <nav>
+    <button data-v="graph" class="on">Graph</button>
+    <button data-v="skills">Skills</button>
+    <button data-v="acts">Activities</button>
+    <button data-v="chains">Chains</button>
+    <button data-v="caps">Capabilities</button>
+    <button data-v="draft">Draft with an LLM</button>
+    <button data-v="check">Check<span class="badge" id="nbad" style="display:none">0</span></button>
+    <button data-v="data">Save &amp; load</button>
+  </nav>
+
+  <div class="view on" id="v-graph">
+    <div class="plot" id="plot"></div>
+    <div class="hint">Click a skill to light its review pool, then jump to its editor. Filled dots have at least one authored activity.</div>
+    <div class="panel" id="gdetail" style="margin-top:14px"><div class="empty">Select a skill.</div></div>
+  </div>
+
+  <div class="view" id="v-skills">
+    <div class="split">
+      <div class="panel">
+        <div class="toolbar"><input type="text" id="sfilter" placeholder="Filter skills"><button class="btn p" id="snew">Add</button></div>
+        <div class="plist" id="slist"></div>
+      </div>
+      <div class="panel" id="sform"><div class="empty">Select a skill, or add one.</div></div>
+    </div>
+  </div>
+
+  <div class="view" id="v-acts">
+    <div class="split">
+      <div class="panel">
+        <div class="toolbar"><input type="text" id="afilter" placeholder="Filter activities"><button class="btn p" id="anew">Add</button></div>
+        <div class="plist" id="alist"></div>
+      </div>
+      <div class="panel" id="aform"><div class="empty">Select an activity, or add one.</div></div>
+    </div>
+  </div>
+
+  <div class="view" id="v-chains"><div class="panel" id="clist"></div></div>
+  <div class="view" id="v-caps"><div class="panel" id="caplist"></div></div>
+
+  <div class="view" id="v-draft">
+    <div class="split">
+      <div class="panel">
+        <div class="toolbar"><input type="text" id="dfilter" placeholder="Filter skills"></div>
+        <div class="plist" id="dlist"></div>
+      </div>
+      <div class="panel" id="dform"><div class="empty">Pick a skill to draft an activity for.</div></div>
+    </div>
+  </div>
+  <div class="view" id="v-check"><div class="panel" id="checks"></div></div>
+
+  <div class="view" id="v-data">
+    <div class="panel form">
+      <h3>Save &amp; load</h3>
+      <div class="sub">work autosaves to this browser · the JSON export is the real artifact</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin:14px 0">
+        <button class="btn p" id="dl">Download JSON</button>
+        <button class="btn" id="imp">Load a JSON file</button>
+        <input type="file" id="fin" accept=".json,application/json" style="display:none">
+        <button class="btn d" id="cleardrafts">Discard unreviewed drafts</button>
+        <button class="btn d" id="clearacts">Clear all activities</button>
+        <button class="btn d" id="reset">Reset to the seed thread</button>
+      </div>
+      <label class="f"><span>Thread label</span><input type="text" id="mlabel"></label>
+      <div class="grid2">
+        <label class="f"><span>Thread id</span><input type="text" id="mtid"></label>
+        <label class="f"><span>Version</span><input type="text" id="mver"></label>
+      </div>
+      <label class="f"><span>Notes</span><textarea id="mnotes"></textarea></label>
+      <label class="f"><span>Import-format rules — pasted once, injected into every render prompt so there is one copy</span><textarea id="mfmt" style="min-height:120px;font-family:var(--mono);font-size:11.5px" placeholder="Paste the classroom import-format prompt here."></textarea></label>
+      <div class="hint" id="saved"></div>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="validate.js"></script>
+<script>
+var SEED = null; // loaded by fetch() from thread-01-rate-of-change.json — the single source of truth
+var KEY = 'thread-builder-v1';
+var D, selSkill = null, selAct = null, gsel = null;
+
+function clone(x){ return JSON.parse(JSON.stringify(x)); }
+function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function el(id){ return document.getElementById(id); }
+function toast(m){ var t=el('toast'); t.textContent=m; t.classList.add('on'); clearTimeout(t._t); t._t=setTimeout(function(){t.classList.remove('on');},1600); }
+function slug(s){ return String(s).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,44); }
+
+function save(){
+  try{ localStorage.setItem(KEY, JSON.stringify(D)); el('saved').textContent='saved to this browser · '+new Date().toLocaleTimeString(); }
+  catch(e){ el('saved').textContent='this browser refused to store the draft — download the JSON before you close the tab'; }
+}
+function boot(){
+  var raw=null; try{ raw=localStorage.getItem(KEY); }catch(e){}
+  D = raw ? JSON.parse(raw) : clone(SEED);
+  if(!D.activities) D.activities=[];
+  if(!D.misconceptions) D.misconceptions=[];
+  D.activities.forEach(migrate);
+  D.activities.forEach(function(a){ if(!a.uses_capabilities) a.uses_capabilities=[]; });
+  render();
+  if(raw && D.version!==SEED.version)
+    el('saved').textContent='browser draft is v'+D.version+' but the file on disk is v'+SEED.version+' — Reset (Save & load tab) to pick up the disk version';
+}
+
+function migrate(a){
+  if(a.components) return a;
+  var ph=a.phases||{}, rs=a.review_slice||{};
+  a.components={
+    review:{mode:rs.mode||'prereq_targeted',target_skills:rs.target_skills||[],items:rs.items||3,note:rs.note||''},
+    lesson:{worked:ph.worked_example||{},faded:ph.faded_example||{},independent:ph.independent||{}},
+    dol:{locale:'us-teks',items:(ph.exit_check||{}).items||[]}
+  };
+  delete a.phases; delete a.review_slice;
+  return a;
+}
+function LOC(){ return (D.activity_defaults.locales)||[{id:'generic',label:'Locale-neutral'}]; }
+function CAPS(){ return D.capabilities||[]; }
+function capById(){ var m={}; CAPS().forEach(function(c){m[c.id]=c;}); return m; }
+function shippedIds(){ var o={}; CAPS().forEach(function(c){ if(c.status!=='proposed') o[c.id]=1; }); return o; }
+function bandLabel(s){ if(s.band_nz&&s.band_us) return s.band_nz+' / '+s.band_us; return s.band||s.band_nz||''; }
+function capUsage(){ var m={}; D.activities.forEach(function(a){ (a.uses_capabilities||[]).forEach(function(c){ (m[c]=m[c]||[]).push(a.id); }); }); return m; }
+function dolSignal(a){
+  // What does this activity's DoL actually yield? Look at the capabilities its dol items imply.
+  var cb=capById(), items=(((a.components||{}).dol)||{}).items||[];
+  var hasAuto=false, hasRubric=false, hasDistractor=false, distractorOnRubric=false;
+  items.forEach(function(it){
+    // heuristic: an item with a distractor_map wants auto+captured to yield signal
+    var dm=it.distractor_map&&Object.keys(it.distractor_map).length;
+    if(dm) hasDistractor=true;
+  });
+  (a.uses_capabilities||[]).forEach(function(c){
+    var g=(cb[c]||{}).grading||{};
+    if(g.scoring==='auto') hasAuto=true;
+    if(g.scoring==='rubric') hasRubric=true;
+  });
+  // distractor signal only materializes on auto+captured types
+  if(hasDistractor && !hasAuto) distractorOnRubric=true;
+  return {hasAuto:hasAuto,hasRubric:hasRubric,hasDistractor:hasDistractor,distractorOnRubric:distractorOnRubric};
+}
+
+/* ---------- derived ---------- */
+function S(){ var m={}; D.skills.forEach(function(s){m[s.id]=s;}); return m; }
+function inG(id){ return !!S()[id]; }
+function extIds(){ return (D.external_prereqs||[]).map(function(e){return e.id;}); }
+function parents(){ var m={}; D.skills.forEach(function(s){ m[s.id]=(s.prereqs||[]).filter(inG); }); return m; }
+function children(){ var m={}; D.skills.forEach(function(s){m[s.id]=[];}); D.skills.forEach(function(s){ (s.prereqs||[]).forEach(function(p){ if(m[p]) m[p].push(s.id); }); }); return m; }
+function depths(){
+  var P=parents(), d={}, stack={};
+  function go(n){ if(d[n]!==undefined) return d[n]; if(stack[n]) return 0; stack[n]=1; var m=0;
+    P[n].forEach(function(p){ m=Math.max(m,go(p)+1); }); stack[n]=0; d[n]=m; return m; }
+  D.skills.forEach(function(s){ go(s.id); }); return d;
+}
+function ancOf(n){ var P=parents(), out={}; (function go(x){ (P[x]||[]).forEach(function(p){ if(!out[p]){out[p]=1;go(p);} }); })(n); return out; }
+function stat(a){ return a.status==='approved'?'approved':'draft'; }
+function builtSet(){ var b={}; D.activities.forEach(function(a){ if(b[a.primary_skill]!=='approved') b[a.primary_skill]=stat(a); }); return b; }
+function chainCount(){ var m={}; D.activities.forEach(function(a){ var c=m[a.chain_id]=m[a.chain_id]||{draft:0,approved:0}; c[stat(a)]++; }); return m; }
+function tally(){ var t={draft:0,approved:0}; D.activities.forEach(function(a){ t[stat(a)]++; }); return t; }
+function chainIds(){ return (D.chunking_plan.chains||[]).map(function(c){return c.chain_id;}); }
+
+/* ---------- validation (shared logic lives in validate.js) ---------- */
+function validate(){
+  return validateThread(D).map(function(i){
+    return {k:i.level, t:esc(i.message).replace(/`([^`]+)`/g,'<code>$1</code>')};
+  });
+}
+
+/* ---------- pickers ---------- */
+function picker(name, all, chosen, onchange){
+  var id='pk'+Math.random().toString(36).slice(2,8);
+  var h='<div class="picker" id="'+id+'"><div class="fi"><input type="text" placeholder="Filter"></div><div class="opts">';
+  all.forEach(function(o){
+    h+='<label class="o"><input type="checkbox" value="'+esc(o.id)+'"'+(chosen.indexOf(o.id)>-1?' checked':'')+'>'
+      +'<span>'+esc(o.label)+'<br><span class="id">'+esc(o.id)+'</span></span></label>';
+  });
+  h+='</div></div>';
+  setTimeout(function(){
+    var box=el(id); if(!box) return;
+    box.querySelector('.fi input').addEventListener('input',function(){
+      var q=this.value.toLowerCase();
+      box.querySelectorAll('.o').forEach(function(o){ o.style.display=o.textContent.toLowerCase().indexOf(q)>-1?'':'none'; });
+    });
+    box.querySelectorAll('input[type=checkbox]').forEach(function(c){
+      c.addEventListener('change',function(){
+        var v=[]; box.querySelectorAll('input[type=checkbox]:checked').forEach(function(k){ v.push(k.value); });
+        onchange(v);
+      });
+    });
+  },0);
+  return h;
+}
+
+/* ---------- skills ---------- */
+function renderSkills(){
+  var q=(el('sfilter').value||'').toLowerCase(), b=builtSet(), dep=depths();
+  var by={}; D.skills.forEach(function(s){ (by[s.band]=by[s.band]||[]).push(s); });
+  var h='';
+  Object.keys(by).sort().forEach(function(band){
+    var rows=by[band].filter(function(s){ return (s.label+' '+s.id).toLowerCase().indexOf(q)>-1; });
+    if(!rows.length) return;
+    h+='<div class="hd">'+esc(band)+'</div>';
+    rows.forEach(function(s){
+      h+='<div class="row'+(selSkill===s.id?' on':'')+'" data-id="'+esc(s.id)+'">'
+        +'<span class="dot'+(b[s.id]==='approved'?' f':(b[s.id]?' h':''))+'"></span>'
+        +'<span class="lab" style="flex:1">'+esc(s.label)+'</span>'
+        +'<span class="meta">r'+dep[s.id]+'</span></div>';
+    });
+  });
+  el('slist').innerHTML=h||'<div class="empty">Nothing matches.</div>';
+  el('slist').querySelectorAll('.row').forEach(function(r){ r.onclick=function(){ selSkill=r.getAttribute('data-id'); renderSkills(); skillForm(); }; });
+  skillForm();
+}
+function skillForm(){
+  var box=el('sform');
+  if(!selSkill||!S()[selSkill]){ box.innerHTML='<div class="empty">Select a skill, or add one.</div>'; return; }
+  var s=S()[selSkill], A=ancOf(s.id), dep=depths();
+  var others=D.skills.filter(function(x){return x.id!==s.id;}).map(function(x){return {id:x.id,label:x.label};});
+  var exts=(D.external_prereqs||[]).map(function(e){return {id:e.id,label:e.label+' (outside this thread)'};});
+  var acts=D.activities.filter(function(a){return a.primary_skill===s.id;});
+  box.innerHTML='<div class="form">'
+    +'<h3>'+esc(s.label)+'</h3><div class="sub">'+esc(s.id)+' · '+esc(bandLabel(s))+' · row '+dep[s.id]+' · '+Object.keys(A).length+' upstream · '+acts.length+' activit'+(acts.length===1?'y':'ies')+'</div>'
+    +'<label class="f"><span>Name</span><input type="text" id="s-label" value="'+esc(s.label)+'"></label>'
+    +'<div class="grid3">'
+      +'<label class="f"><span>Band (NZ)</span><input type="text" id="s-bnz" value="'+esc(s.band_nz||s.band||'')+'"></label>'
+      +'<label class="f"><span>Band (US)</span><input type="text" id="s-bus" value="'+esc(s.band_us||'')+'"></label>'
+      +'<label class="f"><span>Id</span><input type="text" id="s-id" value="'+esc(s.id)+'"></label>'
+    +'</div>'
+    +'<label class="f"><span>Depends on</span></label>'+picker('pr',others.concat(exts),s.prereqs||[],function(v){ s.prereqs=v; save(); renderAll(); })
+    +'<label class="f"><span>Known misconceptions</span></label>'+picker('mi',D.misconceptions,s.misconceptions||[],function(v){ s.misconceptions=v; save(); })
+    +'<label class="f"><span>Note to yourself</span><textarea id="s-notes">'+esc(s.notes||'')+'</textarea></label>'
+    +'</div>'
+    +'<div class="bar"><button class="btn p" id="s-save">Save skill</button><span class="sp"></span><button class="btn d" id="s-del">Delete</button></div>';
+  el('s-save').onclick=function(){
+    var nid=el('s-id').value.trim();
+    if(!nid){ toast('A skill needs an id'); return; }
+    if(nid!==s.id && S()[nid]){ toast('That id is already taken'); return; }
+    if(nid!==s.id){
+      var old=s.id;
+      D.skills.forEach(function(x){ x.prereqs=(x.prereqs||[]).map(function(p){return p===old?nid:p;}); });
+      (D.chunking_plan.chains||[]).forEach(function(c){ c.skills=c.skills.map(function(k){return k===old?nid:k;}); });
+      D.activities.forEach(function(a){
+        if(a.primary_skill===old) a.primary_skill=nid;
+        a.secondary_skills=(a.secondary_skills||[]).map(function(k){return k===old?nid:k;});
+        if(a.review_slice) a.review_slice.target_skills=(a.review_slice.target_skills||[]).map(function(k){return k===old?nid:k;});
+      });
+      s.id=nid; selSkill=nid;
+    }
+    s.label=el('s-label').value.trim();
+    s.band_nz=el('s-bnz').value.trim(); s.band_us=el('s-bus').value.trim(); s.band=s.band_nz;
+    var n=el('s-notes').value.trim(); if(n) s.notes=n; else delete s.notes;
+    save(); renderAll(); toast('Saved');
+  };
+  el('s-del').onclick=function(){
+    var users=D.skills.filter(function(x){return (x.prereqs||[]).indexOf(s.id)>-1;});
+    var ua=D.activities.filter(function(a){return a.primary_skill===s.id;});
+    var msg='Delete "'+s.label+'"?';
+    if(users.length) msg+='\n\n'+users.length+' skill(s) depend on it. Those links will be dropped.';
+    if(ua.length) msg+='\n'+ua.length+' authored activit'+(ua.length===1?'y':'ies')+' target it and will be deleted too.';
+    if(!confirm(msg)) return;
+    D.skills=D.skills.filter(function(x){return x.id!==s.id;});
+    D.skills.forEach(function(x){ x.prereqs=(x.prereqs||[]).filter(function(p){return p!==s.id;}); });
+    D.activities=D.activities.filter(function(a){return a.primary_skill!==s.id;});
+    (D.chunking_plan.chains||[]).forEach(function(c){ c.skills=c.skills.filter(function(k){return k!==s.id;}); });
+    selSkill=null; save(); renderAll(); toast('Deleted');
+  };
+}
+
+/* ---------- activities ---------- */
+function renderActs(){
+  var q=(el('afilter').value||'').toLowerCase(), s=S();
+  var by={}; D.activities.forEach(function(a){ (by[a.chain_id]=by[a.chain_id]||[]).push(a); });
+  var h='';
+  Object.keys(by).sort().forEach(function(c){
+    var rows=by[c].filter(function(a){ return (a.id+' '+(s[a.primary_skill]?s[a.primary_skill].label:'')).toLowerCase().indexOf(q)>-1; });
+    if(!rows.length) return;
+    h+='<div class="hd">'+esc(c)+'</div>';
+    rows.sort(function(a,b){return a.chain_position-b.chain_position;}).forEach(function(a){
+      h+='<div class="row'+(selAct===a.id?' on':'')+'" data-id="'+esc(a.id)+'">'
+        +'<span class="dot'+(stat(a)==='approved'?' f':' h')+'"></span>'
+        +'<span class="lab" style="flex:1">'+esc(s[a.primary_skill]?s[a.primary_skill].label:a.primary_skill)+'</span>'
+        +'<span class="meta">'+(stat(a)==='draft'?'draft · ':'')+a.chain_position+'/'+a.chain_length+'</span></div>';
+    });
+  });
+  el('alist').innerHTML=h||'<div class="empty">No activities yet.</div>';
+  el('alist').querySelectorAll('.row').forEach(function(r){ r.onclick=function(){ selAct=r.getAttribute('data-id'); renderActs(); actForm(); }; });
+  actForm();
+}
+function actForm(){
+  var box=el('aform');
+  var a=D.activities.filter(function(x){return x.id===selAct;})[0];
+  if(!a){ box.innerHTML='<div class="empty">Select an activity, or add one.</div>'; return; }
+  migrate(a);
+  var s=S(), skl=D.skills.map(function(x){return {id:x.id,label:x.label};});
+  var A=ancOf(a.primary_skill);
+  var pool=D.skills.filter(function(x){return A[x.id];}).map(function(x){return {id:x.id,label:x.label};});
+  var C=a.components, R=C.review, L=C.lesson, Q=C.dol;
+  var d=depths(), far=0;
+  (R.target_skills||[]).forEach(function(t){ if(A[t]) far=Math.max(far,d[a.primary_skill]-d[t]); });
+  var b=D.activity_defaults.phase_budget_min||{};
+
+  box.innerHTML='<div class="form">'
+    +'<h3>'+esc(s[a.primary_skill]?s[a.primary_skill].label:a.primary_skill)+'</h3><div class="sub">'+esc(a.id)+'</div>'
+    +(stat(a)==='draft'
+      ? '<div class="draftbar"><span>Draft — not counted yet. Read it end to end, fix what is wrong, then approve.</span><span class="sp"></span><button class="btn p" id="a-appr">Approve</button></div>'
+      : '<div class="draftbar" style="background:var(--down-bg);border-color:#BFDDD8;color:#0A4E48"><span>Approved.</span><span class="sp"></span><button class="btn" id="a-render">Get render prompt</button><button class="btn" id="a-unappr">Send back to draft</button></div>')
+    +'<div class="grid2">'
+      +'<label class="f"><span>Teaches</span><select id="a-prim">'+skl.map(function(x){return '<option value="'+esc(x.id)+'"'+(x.id===a.primary_skill?' selected':'')+'>'+esc(x.label)+'</option>';}).join('')+'</select></label>'
+      +'<label class="f"><span>Chain</span><select id="a-chain">'+chainIds().map(function(c){return '<option value="'+esc(c)+'"'+(c===a.chain_id?' selected':'')+'>'+esc(c)+'</option>';}).join('')+'</select></label>'
+    +'</div>'
+    +'<div class="grid3">'
+      +'<label class="f"><span>Part</span><input type="number" id="a-pos" min="1" value="'+a.chain_position+'"></label>'
+      +'<label class="f"><span>Of</span><input type="number" id="a-len" min="1" value="'+a.chain_length+'"></label>'
+      +'<label class="f"><span>Minutes</span><input type="number" id="a-dur" min="5" max="40" value="'+a.duration_min+'"></label>'
+    +'</div>'
+
+    +'<div class="comp"><div class="comph"><span class="cn">1</span><b>Review</b><span class="cm">'+(b.review||4)+' min · what they already know</span></div>'
+      +'<div class="grid2">'
+        +'<label class="f"><span>Mode</span><select id="r-mode">'
+          +['prereq_targeted','chain_previous'].map(function(m){return '<option value="'+m+'"'+(R.mode===m?' selected':'')+'>'+(m==='prereq_targeted'?'reach back into prerequisites':'retrieve the previous part')+'</option>';}).join('')
+        +'</select></label>'
+        +'<label class="f"><span>Items</span><input type="number" id="r-items" min="1" max="6" value="'+(R.items||2)+'"></label>'
+      +'</div>'
+      +'<label class="f"><span>Retrieve which skills</span></label>'
+      +(pool.length?picker('rv',pool,R.target_skills||[],function(v){ R.target_skills=v; save(); actForm(); })
+        :'<div class="hint">Nothing is upstream — this skill sits at a root, so there is nothing to retrieve.</div>')
+      +'<div class="hint">'+(far?('Reaches '+far+' row'+(far===1?'':'s')+' back.'+(far<2?' That is just yesterday — reach further.':'')):(pool.length?'Pick something upstream.':''))+'</div>'
+    +'</div>'
+
+    +'<div class="comp"><div class="comph"><span class="cn">2</span><b>Lesson</b><span class="cm">'+((b.worked||3)+(b.faded||6)+(b.independent||8))+' min · three beats, in order</span></div>'
+      +'<fieldset><legend>I do — worked example</legend>'
+        +'<label class="f"><span>Prompt</span><textarea id="w-p">'+esc(L.worked.prompt||'')+'</textarea></label>'
+        +'<label class="f"><span>Steps to show, one per line</span><textarea id="w-s">'+esc((L.worked.shown_steps||[]).join('\n'))+'</textarea></label>'
+        +'<label class="f"><span>What you say out loud</span><textarea id="w-n">'+esc(L.worked.narration||'')+'</textarea></label>'
+      +'</fieldset>'
+      +'<fieldset><legend>We do — faded example'+(L.faded.prompt?'':' — MISSING')+'</legend>'
+        +(L.faded.prompt?'':'<div class="hint" style="color:var(--warn)">Without this the activity jumps from demonstration to independent practice. That is the failure explicit instruction exists to prevent.</div>')
+        +'<label class="f"><span>Prompt</span><textarea id="f-p">'+esc(L.faded.prompt||'')+'</textarea></label>'
+        +'<label class="f"><span>Fade level (1 = most support)</span><input type="number" id="f-l" min="1" max="3" value="'+(L.faded.fade_level||1)+'"></label>'
+      +'</fieldset>'
+      +'<fieldset><legend>You do — independent</legend>'
+        +'<div class="grid2">'
+          +'<label class="f"><span>Items</span><input type="number" id="i-c" min="1" value="'+(L.independent.item_count||5)+'"></label>'
+          +'<label class="f"><span>Response type</span><input type="text" id="i-r" value="'+esc(L.independent.response_type||'')+'"></label>'
+        +'</div>'
+        +'<label class="f"><span>Task</span><textarea id="i-t">'+esc(L.independent.task||'')+'</textarea></label>'
+      +'</fieldset>'
+    +'</div>'
+
+    +'<div class="comp"><div class="comph"><span class="cn">3</span><b>DoL</b><span class="cm">'+(b.dol||3)+' min · the swappable one</span></div>'
+      +'<label class="f"><span>Assessment locale</span><select id="q-loc">'
+        +LOC().map(function(l){return '<option value="'+esc(l.id)+'"'+(Q.locale===l.id?' selected':'')+'>'+esc(l.label)+'</option>';}).join('')
+      +'</select></label>'
+      +'<div class="hint">Review and lesson travel anywhere. What counts as evidence of the skill does not — this is where locale lives.</div>'
+      +'<div id="qw" style="margin-top:12px">'
+      +(Q.items||[]).map(function(it,i){
+        return '<div class="rep"><div class="rh"><span>item '+(i+1)+'</span><button class="x" data-rm="'+i+'">×</button></div>'
+          +'<label class="f"><span>Checks</span><select data-q="skill" data-i="'+i+'">'+skl.map(function(x){return '<option value="'+esc(x.id)+'"'+(x.id===it.skill?' selected':'')+'>'+esc(x.label)+'</option>';}).join('')+'</select></label>'
+          +'<label class="f"><span>Prompt</span><textarea data-q="prompt" data-i="'+i+'">'+esc(it.prompt||'')+'</textarea></label>'
+          +(it.distractor_map?'<div class="hint">carries a distractor map — '+Object.keys(it.distractor_map).length+' mapped wrong answer(s)</div>':'')
+          +'</div>';
+      }).join('')
+      +'</div><button class="btn" id="qadd">Add an item</button>'
+    +'</div>'
+
+    +'<label class="f"><span>Platform capabilities this activity uses</span></label>'
+    +picker('cap',CAPS().map(function(c){return {id:c.id,label:c.label+(c.status==='proposed'?'  — NOT BUILT YET':'')};}),a.uses_capabilities||[],function(v){ a.uses_capabilities=v; save(); actForm(); })
+    +(function(){ var cb=capById(), prop=(a.uses_capabilities||[]).filter(function(c){return cb[c]&&cb[c].status==='proposed';});
+        return prop.length?'<div class="hint" style="color:var(--warn);margin-top:6px">Depends on '+prop.length+' capability that is not built: '+prop.map(function(c){return '<b>'+esc(cb[c].label)+'</b>';}).join(', ')+'. This activity cannot be approved until it ships — it is a wish, and it belongs in the queue.</div>':''; })()
+    +'</div>'
+    +'<div class="bar"><button class="btn p" id="a-save">Save activity</button><span class="sp"></span><button class="btn d" id="a-del">Delete</button></div>';
+
+  if(el('a-appr')) el('a-appr').onclick=function(){
+    var cb=capById(), prop=(a.uses_capabilities||[]).filter(function(c){return cb[c]&&cb[c].status==='proposed';});
+    if(prop.length){ toast('Blocked — needs '+cb[prop[0]].label+', not built yet'); return; }
+    el('a-save').click(); a.status='approved'; save(); renderAll(); toast('Approved'); };
+  if(el('a-unappr')) el('a-unappr').onclick=function(){ a.status='draft'; save(); renderAll(); toast('Back to draft'); };
+  if(el('a-render')) el('a-render').onclick=function(){
+    var t=buildRenderPrompt(a);
+    var w=el('a-renderbox');
+    if(w){ w.remove(); return; }
+    var pre=document.createElement('div'); pre.id='a-renderbox'; pre.style.marginTop='12px';
+    pre.innerHTML='<div class="hint" style="margin-bottom:6px">Copy this into an LLM. It returns the Markdown you paste into the activity builder.'
+      +(FMT().rules?'':' <b style="color:var(--warn)">No format rules stored yet — paste them in Save &amp; load first.</b>')+'</div>'
+      +'<pre class="prompt">'+esc(t)+'</pre><button class="btn p" id="a-rcopy" style="margin-top:8px">Copy render prompt</button>';
+    el('aform').querySelector('.form').appendChild(pre);
+    el('a-rcopy').onclick=function(){
+      if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(function(){toast('Render prompt copied');});
+      else { var ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy');toast('Copied');}catch(e){} ta.remove(); }
+    };
+  };
+  box.querySelectorAll('[data-rm]').forEach(function(btn){ btn.onclick=function(){ Q.items.splice(+btn.getAttribute('data-rm'),1); save(); actForm(); }; });
+  el('qadd').onclick=function(){ Q.items=Q.items||[]; Q.items.push({skill:a.primary_skill,prompt:''}); save(); actForm(); };
+  el('a-save').onclick=function(){
+    a.primary_skill=el('a-prim').value; a.chain_id=el('a-chain').value;
+    a.chain_position=+el('a-pos').value; a.chain_length=+el('a-len').value; a.duration_min=+el('a-dur').value;
+    R.mode=el('r-mode').value; R.items=+el('r-items').value;
+    L.worked.prompt=el('w-p').value.trim();
+    L.worked.shown_steps=el('w-s').value.split('\n').map(function(x){return x.trim();}).filter(Boolean);
+    L.worked.narration=el('w-n').value.trim();
+    L.faded.prompt=el('f-p').value.trim(); L.faded.fade_level=+el('f-l').value;
+    L.independent.item_count=+el('i-c').value; L.independent.task=el('i-t').value.trim();
+    var rt=el('i-r').value.trim(); if(rt) L.independent.response_type=rt; else delete L.independent.response_type;
+    Q.locale=el('q-loc').value;
+    (Q.items||[]).forEach(function(it,i){
+      var sk=box.querySelector('[data-q=skill][data-i="'+i+'"]'), pr=box.querySelector('[data-q=prompt][data-i="'+i+'"]');
+      if(sk) it.skill=sk.value; if(pr) it.prompt=pr.value.trim();
+    });
+    save(); renderAll(); toast('Saved');
+  };
+  el('a-del').onclick=function(){
+    if(!confirm('Delete '+a.id+'?')) return;
+    D.activities=D.activities.filter(function(x){return x.id!==a.id;});
+    selAct=null; save(); renderAll(); toast('Deleted');
+  };
+}
+
+/* ---------- chains ---------- */
+function renderChains(){
+  var cc=chainCount(), b=builtSet(), s=S();
+  var h='<div class="hd" style="display:flex;justify-content:space-between"><span>chain · projected activities · progress</span></div>';
+  (D.chunking_plan.chains||[]).forEach(function(c,i){
+    var q=cc[c.chain_id]||{draft:0,approved:0}, done=q.approved+q.draft;
+    var cov=c.skills.filter(function(k){return b[k]==='approved';}).length;
+    var pa=Math.min(100,Math.round(q.approved/Math.max(1,c.activities)*100));
+    var pd=Math.min(100-pa,Math.round(q.draft/Math.max(1,c.activities)*100));
+    h+='<div style="padding:12px 14px;border-bottom:1px solid var(--rule)">'
+      +'<div style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap">'
+        +'<div><div style="font-size:13.5px">'+esc(c.chain_id)+'</div>'
+        +'<div style="font-family:var(--mono);font-size:10.5px;color:var(--faint)">'+c.skills.length+' skills · '+cov+' covered · '+q.approved+' approved'+(q.draft?' · '+q.draft+' in review':'')+'</div></div>'
+        +'<label style="font-family:var(--mono);font-size:10.5px;color:var(--muted)">projected <input type="number" min="1" value="'+c.activities+'" data-ch="'+i+'" style="width:62px;margin-left:6px"></label>'
+      +'</div>'
+      +'<details style="margin-top:8px"><summary style="font-family:var(--mono);font-size:10.5px;color:'+(((c.hooks||[]).length>=Math.ceil(c.activities/2))?'var(--down)':'var(--warn)')+';cursor:pointer">'+(c.hooks||[]).length+' hook'+((c.hooks||[]).length===1?'':'s')+' (contract: at least '+Math.ceil(c.activities/2)+')</summary>'
+        +'<textarea data-hk="'+i+'" placeholder="One hook per line — a question students can think about in under a minute." style="margin-top:6px;min-height:64px;font-size:13px">'+esc((c.hooks||[]).join('\n'))+'</textarea>'
+      +'</details>'
+      +'<div style="display:flex;height:6px;border-radius:2px;overflow:hidden;margin-top:8px"><span style="width:'+pa+'%;background:'+(done>c.activities?'var(--warn)':'var(--signal)')+'"></span><span style="width:'+pd+'%;background:#C4B5FD"></span><span style="width:'+(100-pa-pd)+'%;background:var(--rule)"></span></div>'
+      +'</div>';
+  });
+  el('clist').innerHTML=h;
+  el('clist').querySelectorAll('[data-ch]').forEach(function(inp){
+    inp.onchange=function(){ D.chunking_plan.chains[+inp.getAttribute('data-ch')].activities=+inp.value; save(); renderAll(); };
+  });
+  el('clist').querySelectorAll('[data-hk]').forEach(function(ta){
+    ta.onchange=function(){
+      D.chunking_plan.chains[+ta.getAttribute('data-hk')].hooks=ta.value.split('\n').map(function(x){return x.trim();}).filter(Boolean);
+      save(); renderChecks();
+    };
+  });
+}
+
+/* ---------- checks ---------- */
+function renderChecks(){
+  var iss=validate();
+  var order={error:0,warn:1,note:2};
+  iss.sort(function(a,b){return order[a.k]-order[b.k];});
+  el('nbad').style.display=iss.filter(function(i){return i.k==='error';}).length?'':'none';
+  el('nbad').textContent=iss.filter(function(i){return i.k==='error';}).length;
+  if(!iss.length){ el('checks').innerHTML='<div class="ok">Nothing wrong. The graph is acyclic, every reference resolves, and every skill sits in a chain.</div>'; return; }
+  el('checks').innerHTML=iss.map(function(i){
+    var cls=i.k==='error'?'e':(i.k==='warn'?'w':'o');
+    return '<div class="iss '+cls+'"><span class="k">'+(i.k==='note'?'idea':i.k)+'</span><span>'+i.t+'</span></div>';
+  }).join('');
+}
+
+/* ---------- graph ---------- */
+var NW=158,NH=34,GX=12,GY=58,PX=54,PY=26;
+function renderGraph(){
+  var s=S(),P=parents(),d=depths(),b=builtSet();
+  var ids=D.skills.map(function(x){return x.id;});
+  if(!ids.length){ el('plot').innerHTML='<div class="empty">No skills yet.</div>'; return; }
+  var maxD=Math.max.apply(null,ids.map(function(i){return d[i];}));
+  var rows=[]; for(var i=0;i<=maxD;i++) rows.push([]);
+  ids.forEach(function(i){ rows[d[i]].push(i); });
+  var pos={};
+  rows.forEach(function(row,ri){
+    if(ri>0) row.sort(function(x,y){
+      function med(n){ var ps=P[n].filter(function(p){return pos[p];}); if(!ps.length) return 0;
+        return ps.reduce(function(t,p){return t+pos[p].x;},0)/ps.length; }
+      return med(x)-med(y);
+    });
+    var tot=row.length*NW+(row.length-1)*GX, sx=PX+Math.max(0,(900-tot)/2);
+    row.forEach(function(n,ci){ pos[n]={x:sx+ci*(NW+GX),y:PY+ri*GY}; });
+  });
+  var W=900; ids.forEach(function(i){ W=Math.max(W,pos[i].x+NW+PX); });
+  var H=PY+(maxD+1)*GY+20;
+  var g=['<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'">'];
+  for(var r=0;r<=maxD;r++){ var y=PY+r*GY+NH/2;
+    g.push('<line class="axl" x1="30" y1="'+y+'" x2="'+(W-12)+'" y2="'+y+'"/><text class="axt" x="12" y="'+(y+3.5)+'">'+r+'</text>'); }
+  ids.forEach(function(n){ P[n].forEach(function(p){
+    var a=pos[p],c=pos[n],x1=a.x+NW/2,y1=a.y+NH,x2=c.x+NW/2,y2=c.y,my=(y1+y2)/2;
+    g.push('<path class="edge" data-f="'+p+'" data-t="'+n+'" d="M'+x1+' '+y1+' C'+x1+' '+my+' '+x2+' '+my+' '+x2+' '+y2+'"/>');
+  }); });
+  ids.forEach(function(n){ var p=pos[n],x=s[n];
+    var lab=x.label.length>24?x.label.slice(0,23)+'…':x.label;
+    g.push('<g class="nd'+(b[n]==='approved'?' built':(b[n]?' drafted':''))+'" data-id="'+n+'"><title>'+esc(x.label)+(b[n]?' — '+b[n]:' — nothing authored')+'</title>'
+      +'<rect x="'+p.x+'" y="'+p.y+'" width="'+NW+'" height="'+NH+'" rx="3"/>'
+      +'<circle class="gd" cx="'+(p.x+NW-9)+'" cy="'+(p.y+NH/2)+'" r="3.5"/>'
+      +'<text x="'+(p.x+NW/2-6)+'" y="'+(p.y+NH/2+4)+'" text-anchor="middle">'+esc(lab)+'</text></g>');
+  });
+  g.push('</svg>');
+  el('plot').innerHTML=g.join('');
+  el('plot').querySelectorAll('.nd').forEach(function(node){
+    node.onclick=function(){ gsel=node.getAttribute('data-id'); paintGraph(); };
+  });
+  if(gsel&&s[gsel]) paintGraph(); else el('gdetail').innerHTML='<div class="empty">Select a skill.</div>';
+}
+function paintGraph(){
+  var s=S(),A=ancOf(gsel),d=depths(),svg=el('plot').querySelector('svg');
+  if(!svg) return;
+  svg.classList.add('dimm');
+  svg.querySelectorAll('.nd').forEach(function(g){ var i=g.getAttribute('data-id');
+    g.classList.toggle('anc',!!A[i]); g.classList.toggle('sel',i===gsel); });
+  svg.querySelectorAll('.edge').forEach(function(e){
+    var f=e.getAttribute('data-f'),t=e.getAttribute('data-t');
+    e.classList.toggle('hot',(A[f]||f===gsel)&&(A[t]||t===gsel));
+  });
+  var x=s[gsel],n=Object.keys(A).length,far=0;
+  Object.keys(A).forEach(function(a){ far=Math.max(far,d[gsel]-d[a]); });
+  var acts=D.activities.filter(function(a){return a.primary_skill===gsel;});
+  el('gdetail').innerHTML='<div class="form"><h3>'+esc(x.label)+'</h3>'
+    +'<div class="sub">'+esc(x.id)+' · band '+esc(x.band)+' · row '+d[gsel]+'</div>'
+    +'<p style="margin:0"><b>'+n+'</b> skill'+(n===1?'':'s')+' upstream, furthest <b>'+far+'</b> row'+(far===1?'':'s')+' back. '
+    +(acts.length?acts.length+' activit'+(acts.length===1?'y':'ies')+' authored.':'Nothing authored yet.')+'</p>'
+    +(x.notes?'<div class="hint" style="font-family:var(--serif);font-style:italic;margin-top:10px">'+esc(x.notes)+'</div>':'')
+    +'</div><div class="bar"><button class="btn" id="g-edit">Edit this skill</button>'
+    +'<button class="btn" id="g-add">Write an activity for it</button></div>';
+  el('g-edit').onclick=function(){ selSkill=gsel; go('skills'); };
+  el('g-add').onclick=function(){ newAct(gsel); };
+}
+
+/* ---------- create ---------- */
+function newSkill(){
+  var n=1; while(S()['skill.new'+n]) n++;
+  var id='skill.new'+n;
+  D.skills.push({id:id,label:'Untitled skill',band:'',prereqs:[],misconceptions:[],alignment:{teks:null,ccss:null,nzc_phase:null}});
+  var c=(D.chunking_plan.chains||[])[0]; if(c) c.skills.push(id);
+  selSkill=id; save(); renderAll(); go('skills');
+}
+function newAct(forSkill){
+  var sk=forSkill||(D.skills[0]||{}).id; if(!sk){ toast('Add a skill first'); return; }
+  var chain=(D.chunking_plan.chains||[]).filter(function(c){return c.skills.indexOf(sk)>-1;})[0]||(D.chunking_plan.chains||[])[0];
+  var base='act.'+sk, n=1; while(D.activities.some(function(a){return a.id===base+'.'+String(n).padStart(2,'0');})) n++;
+  var id=base+'.'+String(n).padStart(2,'0');
+  var pos=D.activities.filter(function(a){return a.chain_id===(chain&&chain.chain_id);}).length+1;
+  D.activities.push({id:id,primary_skill:sk,secondary_skills:[],chain_id:chain?chain.chain_id:'',status:'draft',
+    chain_position:pos,chain_length:pos,duration_min:D.activity_defaults.duration_min||24,schema_stress:[],
+    components:{
+      review:{mode:'prereq_targeted',target_skills:[],items:3},
+      lesson:{worked:{prompt:'',shown_steps:[],narration:''},faded:{prompt:'',fade_level:1},independent:{item_count:5,task:''}},
+      dol:{locale:(LOC()[0]||{}).id||'generic',items:[]}
+    }});
+  selAct=id; save(); renderAll(); go('acts');
+}
+
+/* ---------- llm drafting ---------- */
+function reviewPool(id){
+  var A=ancOf(id), d=depths(), s=S();
+  return Object.keys(A).map(function(a){ return {id:a,label:s[a].label,back:d[id]-d[a]}; })
+    .sort(function(x,y){ return y.back-x.back; });
+}
+function buildPrompt(id, pos, len, chain, dur, loc){
+  var s=S(), x=s[id], d=depths(), C=children(), M={};
+  D.misconceptions.forEach(function(m){ M[m.id]=m; });
+  var pool=reviewPool(id);
+  var exts={}; (D.external_prereqs||[]).forEach(function(e){ exts[e.id]=e; });
+  var pr=(x.prereqs||[]).map(function(p){ return s[p]?('- `'+p+'` — '+s[p].label):('- `'+p+'` — '+(exts[p]?exts[p].label:'(outside this thread)')+' [assumed, taught elsewhere]'); });
+  var kids=(C[id]||[]).map(function(c){ return '- `'+c+'` — '+s[c].label; });
+  var mis=(x.misconceptions||[]).map(function(m){ return '- `'+m+'` — '+(M[m]?M[m].label:'?'); });
+  var poolLines=pool.map(function(p){ return '- `'+p.id+'` — '+p.label+' — **'+p.back+' row'+(p.back===1?'':'s')+' back**'; });
+  var b=D.activity_defaults.phase_budget_min||{};
+  var first=(pos===1);
+  var lo=LOC().filter(function(l){return l.id===loc;})[0]||LOC()[0];
+  var built=builtSet();
+  var chainDef=(D.chunking_plan.chains||[]).filter(function(c){return c.chain_id===chain;})[0]||{skills:[]};
+  var plantFor={};  // ancestorId -> [later chain skills that need it]
+  (chainDef.skills||[]).forEach(function(cs){
+    if(cs===id) return;
+    var CA=ancOf(cs);
+    Object.keys(CA).forEach(function(anc){
+      if(anc===id) return;
+      (plantFor[anc]=plantFor[anc]||[]).push(cs);
+    });
+  });
+  var siblings=D.activities.filter(function(z){return z.chain_id===chain;})
+    .sort(function(x,y){return x.chain_position-y.chain_position;});
+  var prev=siblings.filter(function(z){return z.chain_position===pos-1;})[0];
+  var L=[];
+  L.push('Draft one activity for an explicit-instruction maths curriculum. Return JSON only — no prose, no markdown fences.');
+  if(D.authoring_principles){
+    L.push('');
+    L.push('# Authoring principles — these govern every choice below; a draft that satisfies the schema but violates a principle is wrong');
+    L.push(D.authoring_principles);
+  }
+  L.push('');
+  L.push('## The contract — every activity has exactly three components, in this order');
+  L.push('1. **review** — retrieval of skills learned BEFORE this one');
+  L.push('2. **lesson** — new content, in three beats: worked → faded → independent');
+  L.push('3. **dol** — a short check on whether it landed');
+  L.push('');
+  L.push('Review comes first and is not negotiable. Its job is to activate the prior knowledge the lesson is about to build on, which only works before the lesson. Practising what was just taught belongs in the lesson\'s independent beat, not here.');
+  L.push('');
+  L.push('## The skill this activity teaches');
+  L.push('- id: `'+id+'`');
+  L.push('- name: '+x.label);
+  L.push('- band: '+(x.band||'unspecified'));
+  L.push('- graph row: '+d[id]+' (longest path from a root skill)');
+  if(x.notes) L.push('- author note: '+x.notes);
+  L.push('');
+  L.push('## What students already have');
+  L.push('Direct prerequisites. Assume fluency. Do not reteach them.');
+  L.push(pr.length?pr.join('\n'):'- nothing — this is a root skill');
+  L.push('');
+  if(kids.length){
+    L.push('## What this unlocks later');
+    L.push('Do not teach these. You may plant what they will need.');
+    L.push(kids.join('\n')); L.push('');
+  }
+  L.push('## Known misconceptions for this skill');
+  L.push(mis.length?('Use these exact ids in distractor maps. Do not invent new misconception ids.\n'+mis.join('\n'))
+                   :'None recorded. If you can anticipate a specific wrong answer, describe it in a `note` rather than inventing an id.');
+  L.push('');
+  L.push('## Component 1 — review');
+  if(pool.length){
+    L.push('Every skill below is a genuine ancestor, so the student has met it. "Rows back" is how far they must reach.');
+    L.push(poolLines.join('\n'));
+    L.push('');
+    var poolIds={}; pool.forEach(function(q){poolIds[q.id]=1;});
+    var plants=Object.keys(plantFor).filter(function(k){return !poolIds[k]&&s[k];});
+    if(plants.length){
+      L.push('');
+      L.push('**Planting candidates** — not ancestors of this skill, but ancestors of later skills in this chain. Retrieving one now warms it for when the chain needs it. Mark any such item with `"planting_for": "<the later skill id>"`:');
+      plants.forEach(function(k){ L.push('- `'+k+'` — '+s[k].label+' — needed by '+plantFor[k].slice(0,3).map(function(x){return '`'+x+'`';}).join(', ')); });
+    }
+    L.push('');
+    L.push('**At least one review item must reach 2 or more rows back.** Retrieving only the immediately preceding skill is not spaced retrieval, it is yesterday\'s lesson repeated. Prefer prerequisites the student has not touched recently over ones they just used.');
+    L.push('');
+    var taught=pool.filter(function(q){return built[q.id]==='approved';});
+    var untaught=pool.filter(function(q){return built[q.id]!=='approved';});
+    if(untaught.length){
+      L.push('**Curriculum state — which ancestors have actually been taught:** '+(taught.length?taught.map(function(q){return '`'+q.id+'`';}).join(', '):'none yet')+' have approved activities. The rest ('+untaught.map(function(q){return '`'+q.id+'`';}).join(', ')+') exist only in the graph — no activity teaches them yet, so a student in this curriculum has NOT met them here. Draw review items from the taught set. If the pedagogically necessary retrieval target is untaught, still write the item but flag it in a `note` — that is a sequencing gap the author needs to see.');
+    }
+    L.push(first
+      ? 'This is part 1, so use mode `prereq_targeted`: a full slice drawn from the pool above.'
+      : 'This is part '+pos+', so use mode `chain_previous`: a 60-second retrieval on part '+(pos-1)+' only, NOT a fresh prerequisite slice. Reallocate the recovered ~3 minutes to the independent beat. Do not repeat the part 1 review.');
+  var chainObj=(D.chunking_plan.chains||[]).filter(function(c){return c.chain_id===chain;})[0]||{};
+  var hooksHave=(chainObj.hooks||[]).length, hooksNeed=Math.ceil((chainObj.activities||len)/2);
+  L.push('');
+  L.push('## Hooks — chain-level, not activity-level');
+  L.push('This activity carries NO hook. Hooks belong to the chain as a pool ('+hooksHave+' exist, contract minimum '+hooksNeed+'); a teacher fires one when their class day starts, because period boundaries are classroom facts the data model cannot see.');
+  if(hooksHave<hooksNeed){
+    L.push('The pool is short. Alongside the activity JSON, propose '+(hooksNeed-hooksHave)+' hook'+((hooksNeed-hooksHave)===1?'':'s')+' in a top-level `proposed_hooks` array (strings). Rules: thinkable in under a minute, engageable by intuition with no prerequisite knowledge, genuinely connected to this chain\'s skills — and the hook raises the question while the lesson earns the answer. If answering it requires the worked example, it is discovery through the back door. Strong shapes: a surprising claim to evaluate, a prediction to commit to, a fictional student\'s wrong answer to react to. Weak: trivia, anything answerable with a shrug.');
+  }
+  if(hooksHave){ L.push('Existing hooks (do not duplicate): '+(chainObj.hooks||[]).map(function(x){return '"'+x+'"';}).join(' · ')); }
+  if(siblings.length){
+    L.push('');
+    L.push('**Already authored in this chain** — do not repeat their examples, contexts, or DoL items; build on them:');
+    siblings.forEach(function(z){
+      var zc=z.components||{}, zw=((zc.lesson||{}).worked||{}), zd=((zc.dol||{}).items)||[];
+      L.push('- part '+z.chain_position+' ('+(z.status||'draft')+'): teaches `'+z.primary_skill+'`'
+        +(zw.prompt?'; worked example: "'+zw.prompt.slice(0,110)+(zw.prompt.length>110?'…':'')+'"':'')
+        +(zd.length?'; DoL checks '+zd.map(function(it){return '`'+it.skill+'`';}).join(', '):''));
+    });
+  }
+  if(prev){
+    var pc=prev.components||{}, pw=((pc.lesson||{}).worked||{}), pf=((pc.lesson||{}).faded||{});
+    L.push('');
+    L.push('**The previous part in detail** (part '+(pos-1)+', which your chain_previous retrieval targets):');
+    if(pw.prompt) L.push('- its worked example: "'+pw.prompt+'"');
+    if(pw.narration) L.push('- its narration: "'+pw.narration.slice(0,180)+(pw.narration.length>180?'…':'')+'"');
+    if(pf.prompt) L.push('- its faded example: "'+pf.prompt.slice(0,140)+(pf.prompt.length>140?'…':'')+'" (fade level '+(pf.fade_level||1)+')');
+    L.push('- Your retrieval items should reference THIS content specifically, and your faded example should fade one level deeper than part '+(pos-1)+'\'s where sensible.');
+  }
+  } else {
+    L.push('Nothing is upstream — this is a root skill. Keep the review component present but minimal, and give the recovered minutes to the independent beat.');
+  }
+  L.push('');
+  L.push('## Component 2 — lesson, three beats');
+  L.push('- **worked** — fully worked. Every step shown. No discovery, no "what do you notice" as the mechanism for acquiring new content. The narration says the reasoning out loud, including the step an expert leaves implicit.');
+  L.push('- **faded** — the same procedure with support removed from the END, start left intact. **This beat is mandatory.** Going from demonstration straight to independent practice is the single most common failure in explicit-instruction materials and will be rejected.');
+  L.push('- **independent** — practice on the skill itself.');
+  L.push('');
+  L.push('## Component 3 — dol');
+  L.push('Assessment locale: **'+lo.label+'** (`'+lo.id+'`).');
+  L.push('Mathematics is universal; assessment of mathematical skill is not. Write the check as this locale would ask for it — its response format, its idea of what counts as evidence of the skill. The review and lesson above are locale-neutral; only this component changes.');
+  L.push('Exactly 2 items: one on this skill, one on a review-pool skill 2+ rows back.');
+  L.push('Every wrong answer you can anticipate maps to a misconception id from the list above via `distractor_map`.');
+  L.push('');
+  L.push('**Where a distractor map actually yields data:** only auto-scored, per-item captured types (fill-in-the-blank, mc, graph) turn a distractor map into aggregate misconception signal. A rubric-graded short answer captures the student text but produces no per-distractor signal until a human grades it. So if this DoL carries a distractor map, put that item on an auto-scored type. Use a rubric short answer when the locale genuinely wants a justification — not as the carrier of a misconception map.');
+  L.push('Contextual items require units in the answer, not a bare number.');
+  L.push('');
+  L.push('## Reference sheet — optional, with one hard rule');
+  L.push('You may include a `reference` object: a read-only formula/vocab panel the student can open at ANY time while working. Because it is ambient, **nothing a review item retrieves may appear on it** — the sheet scaffolds the new content; the review retrieves what the sheet omits. Content lines support headings, lists, displayed math, and comparison graphs. No questions, no blanks.');
+  L.push('');
+  L.push('## Time budget — '+dur+' minutes total');
+  L.push('review '+(b.review||4)+' · worked '+(b.worked||3)+' · faded '+(b.faded||6)+' · independent '+(b.independent||8)+' · dol '+(b.dol||3));
+  L.push('');
+  L.push('## Valid skill ids — reference no others');
+  L.push(D.skills.map(function(k){return '`'+k.id+'`';}).join(', '));
+  L.push('');
+  L.push('## Return exactly this shape');
+  L.push(JSON.stringify({
+    id:'act.'+id+'.NN', primary_skill:id, secondary_skills:['<ids from the list above>'],
+    chain_id:chain, chain_position:pos, chain_length:len, duration_min:dur, status:'draft',
+    schema_stress:['<what this makes the platform do>'],
+    components:{
+      review:{mode:first?'prereq_targeted':'chain_previous', target_skills:['<ids from the pool>'], items:first?3:2},
+      lesson:{
+        worked:{prompt:'<the problem>', shown_steps:['<step>','<step>'], narration:'<what you say out loud>'},
+        faded:{prompt:'<same procedure, support removed from the end>', fade_level:1},
+        independent:{item_count:6, task:'<what they do>', response_type:'<optional>'}
+      },
+      reference:{title:'<optional cheat-sheet title>', lines:['<formula or definition line>','<line>']},
+      dol:{locale:lo.id, items:[
+        {skill:id, prompt:'<checks this skill>', distractor_map:{'<wrong answer>':'<misconception id>'}},
+        {skill:'<a review-pool id 2+ rows back>', prompt:'<checks it>', note:'<why this one>'}
+      ]}
+    }
+  },null,2));
+  return L.join('\n');
+}
+function renderDraft(){
+  var q=(el('dfilter').value||'').toLowerCase(), b=builtSet(), d=depths();
+  var rows=D.skills.filter(function(s){ return (s.label+' '+s.id).toLowerCase().indexOf(q)>-1; });
+  el('dlist').innerHTML=rows.length?rows.map(function(s){
+    return '<div class="row'+(selSkill===s.id?' on':'')+'" data-id="'+esc(s.id)+'">'
+      +'<span class="dot'+(b[s.id]==='approved'?' f':(b[s.id]?' h':''))+'"></span>'
+      +'<span class="lab" style="flex:1">'+esc(s.label)+'</span><span class="meta">r'+d[s.id]+'</span></div>';
+  }).join(''):'<div class="empty">Nothing matches.</div>';
+  el('dlist').querySelectorAll('.row').forEach(function(r){ r.onclick=function(){ selSkill=r.getAttribute('data-id'); renderDraft(); }; });
+  draftForm();
+}
+function draftForm(){
+  var box=el('dform'), s=S();
+  if(!selSkill||!s[selSkill]){ box.innerHTML='<div class="empty">Pick a skill to draft an activity for.</div>'; return; }
+  var x=s[selSkill];
+  var chain=(D.chunking_plan.chains||[]).filter(function(c){return c.skills.indexOf(selSkill)>-1;})[0];
+  var existing=D.activities.filter(function(a){return a.primary_skill===selSkill;});
+  var pool=reviewPool(selSkill);
+  box.innerHTML='<div class="form">'
+    +'<h3>'+esc(x.label)+'</h3><div class="sub">'+esc(x.id)+' · '+pool.length+' skills upstream · '+existing.length+' already authored</div>'
+    +'<div class="grid3">'
+      +'<label class="f"><span>Part</span><input type="number" id="d-pos" min="1" value="'+(existing.length+1)+'"></label>'
+      +'<label class="f"><span>Of</span><input type="number" id="d-len" min="1" value="'+Math.max(1,existing.length+1)+'"></label>'
+      +'<label class="f"><span>Minutes</span><input type="number" id="d-dur" min="5" max="40" value="'+(D.activity_defaults.duration_min||24)+'"></label>'
+    +'</div>'
+    +'<div class="grid2">'
+      +'<label class="f"><span>Chain</span><select id="d-chain">'+chainIds().map(function(c){return '<option value="'+esc(c)+'"'+(chain&&c===chain.chain_id?' selected':'')+'>'+esc(c)+'</option>';}).join('')+'</select></label>'
+      +'<label class="f"><span>DoL locale</span><select id="d-loc">'+LOC().map(function(l){return '<option value="'+esc(l.id)+'">'+esc(l.label)+'</option>';}).join('')+'</select></label>'
+    +'</div>'
+    +'<label class="f"><span>The prompt — built from this skill\'s place in the graph</span></label>'
+    +'<pre class="prompt" id="d-prompt"></pre>'
+    +'<div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap"><button class="btn p" id="d-copy">Copy prompt</button><button class="btn" id="d-refresh">Rebuild</button></div>'
+    +'<label class="f" style="margin-top:22px"><span>Paste what the model gives you back</span><textarea id="d-paste" style="min-height:130px;font-family:var(--mono);font-size:12px" placeholder="JSON for one activity, or an array of them. Fences and stray prose are stripped."></textarea></label>'
+    +'<div id="d-report"></div>'
+    +'</div>'
+    +'<div class="bar"><button class="btn p" id="d-check">Check it</button><button class="btn" id="d-add" disabled>Add as draft</button></div>';
+  function rebuild(){
+    el('d-prompt').textContent=buildPrompt(selSkill,+el('d-pos').value,+el('d-len').value,el('d-chain').value,+el('d-dur').value,el('d-loc').value);
+  }
+  rebuild();
+  ['d-pos','d-len','d-dur','d-chain','d-loc'].forEach(function(i){ el(i).onchange=rebuild; });
+  el('d-refresh').onclick=rebuild;
+  el('d-copy').onclick=function(){
+    var t=el('d-prompt').textContent;
+    if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(function(){toast('Prompt copied');},function(){fallback(t);});
+    else fallback(t);
+    function fallback(v){ var a=document.createElement('textarea'); a.value=v; document.body.appendChild(a); a.select();
+      try{document.execCommand('copy');toast('Prompt copied');}catch(e){toast('Select the prompt and copy it');} a.remove(); }
+  };
+  var staged=null;
+  el('d-check').onclick=function(){
+    staged=null; el('d-add').disabled=true;
+    var raw=el('d-paste').value.trim();
+    if(!raw){ el('d-report').innerHTML='<div class="hint">Nothing pasted yet.</div>'; return; }
+    raw=raw.replace(/^[^[{]*/,'').replace(/[^\]}]*$/,'');
+    var j; try{ j=JSON.parse(raw); }catch(e){
+      el('d-report').innerHTML='<div class="draftbar" style="background:var(--warn-bg);border-color:#EBD3C7;color:var(--warn)">That did not parse as JSON: '+esc(e.message)+'</div>'; return; }
+    var proposedHooks=[];
+    if(!Array.isArray(j)&&j.proposed_hooks){ proposedHooks=j.proposed_hooks.filter(function(x){return typeof x==='string'&&x.trim();}); delete j.proposed_hooks; }
+    var arr=Array.isArray(j)?j:[j], probs=[], ok=[];
+    arr.forEach(function(a,i){
+      var w=[];
+      if(!a || typeof a!=='object'){ probs.push('Item '+(i+1)+' is not an object.'); return; }
+      if(!a.primary_skill||!s[a.primary_skill]) w.push('targets an unknown skill <code>'+esc(a.primary_skill)+'</code>');
+      if(!a.id) a.id='act.'+(a.primary_skill||selSkill)+'.'+String(D.activities.length+i+1).padStart(2,'0');
+      if(chainIds().indexOf(a.chain_id)<0) w.push('unknown chain <code>'+esc(a.chain_id)+'</code>');
+      var A=a.primary_skill?ancOf(a.primary_skill):{};
+      ((((a.components||{}).review)||{}).target_skills||[]).forEach(function(t){
+        if(!s[t]) w.push('reviews a skill that does not exist: <code>'+esc(t)+'</code>');
+        else if(!A[t]) w.push('reviews <code>'+esc(t)+'</code>, which is not upstream');
+      });
+      var mis={}; D.misconceptions.forEach(function(m){mis[m.id]=1;});
+      migrate(a);
+      var items=(((a.components||{}).dol)||{}).items||[];
+      items.forEach(function(it){ Object.keys(it.distractor_map||{}).forEach(function(k){
+        var v=it.distractor_map[k]; if(v&&!mis[v]) w.push('invented a misconception id <code>'+esc(v)+'</code>'); }); });
+      if(!((((a.components||{}).lesson)||{}).faded||{}).prompt) w.push('has no faded example — that is the jump from I-do to you-do');
+      if(!(((a.components||{}).dol)||{}).locale) w.push('gives the DoL no assessment locale');
+      a.status='draft';
+      if(w.length) probs.push('<b>'+esc(a.id)+'</b> — '+w.join('; ')); else ok.push(a);
+    });
+    var h='';
+    if(probs.length) h+='<div class="draftbar" style="background:var(--warn-bg);border-color:#EBD3C7;color:var(--warn)"><span>'+probs.join('<br>')+'</span></div>';
+    if(ok.length){ h+='<div class="draftbar"><span>'+ok.length+' activit'+(ok.length===1?'y':'ies')+' ready to stage as draft'+(ok.length===1?'':'s')+(proposedHooks.length?', plus '+proposedHooks.length+' proposed hook'+(proposedHooks.length===1?'':'s')+' for the chain':'')+'.</span></div>'; staged=ok; staged._hooks=proposedHooks; el('d-add').disabled=false; }
+    else if(!probs.length) h+='<div class="hint">Nothing usable found.</div>';
+    el('d-report').innerHTML=h;
+  };
+  el('d-add').onclick=function(){
+    if(!staged) return;
+    if(staged._hooks&&staged._hooks.length){
+      var co=(D.chunking_plan.chains||[]).filter(function(c){return c.chain_id===el('d-chain').value;})[0];
+      if(co){ co.hooks=(co.hooks||[]).concat(staged._hooks.filter(function(x){return (co.hooks||[]).indexOf(x)<0;})); }
+    }
+    staged.forEach(function(a){
+      var i=D.activities.map(function(z){return z.id;}).indexOf(a.id);
+      if(i>-1) D.activities[i]=a; else D.activities.push(a);
+    });
+    var last=staged[staged.length-1].id;
+    el('d-paste').value=''; el('d-report').innerHTML=''; staged=null;
+    selAct=last; save(); renderAll(); go('acts'); toast('Staged as draft — review it');
+  };
+}
+
+/* ---------- capabilities ---------- */
+function renderCaps(){
+  var use=capUsage(), cb=capById();
+  var ship=CAPS().filter(function(c){return c.status!=='proposed';});
+  var prop=CAPS().filter(function(c){return c.status==='proposed';});
+  function card(c){
+    var users=use[c.id]||[];
+    var wish=c.status==='proposed';
+    return '<div style="padding:12px 14px;border-bottom:1px solid var(--rule)">'
+      +'<div style="display:flex;justify-content:space-between;gap:10px;align-items:baseline">'
+        +'<div><b>'+esc(c.label)+'</b> <span style="font-family:var(--mono);font-size:10px;color:var(--faint)">'+esc(c.id)+'</span></div>'
+        +'<span class="chip" style="'+(wish?'background:var(--signal-bg);color:#3B1580;border-color:#DCCBFA':'background:var(--down-bg);color:#0A4E48;border-color:#BFDDD8')+'">'+(wish?'proposed':'shipped')+' · '+esc(c.medium)+'</span>'
+      +'</div>'
+      +'<div style="font-size:13px;color:var(--muted);margin-top:4px">'+esc(c.affords||'')+'</div>'
+      +(c.constraints?'<div class="hint" style="margin-top:3px">constraint: '+esc(c.constraints)+'</div>':'')
+      +(function(){ var g=c.grading||{}; if(!g.scoring) return '';
+          var badge={auto:'auto-scored',rubric:'teacher-graded',none:(g.captures_response?'captured, unscored':'no data')}[g.scoring];
+          var col={auto:'var(--down)',rubric:'var(--signal)',none:'var(--faint)'}[g.scoring];
+          return '<div style="font-family:var(--mono);font-size:10.5px;color:'+col+';margin-top:4px">'+badge
+            +(g.score_shape&&g.score_shape!=='none'?' · '+g.score_shape:'')
+            +(g.authoritative==='teacher'?' · server-authoritative':(g.scoring==='auto'?' · advisory only':''))
+            +'</div>'+(g.note?'<div class="hint">'+esc(g.note)+'</div>':''); })()
+      +'<div style="font-family:var(--mono);font-size:10.5px;color:'+(wish&&users.length?'var(--warn)':'var(--faint)')+';margin-top:6px">'
+        +(users.length?(users.length+' activit'+(users.length===1?'y':'ies')+(wish?' BLOCKED on this':' use this')):'unused')+'</div>'
+      +'</div>';
+  }
+  el('caplist').innerHTML='<div class="hd">Shipped — usable in an approved activity</div>'+ship.map(card).join('')
+    +'<div class="hd">Proposed — the wish queue, ranked by how many activities are blocked</div>'
+    +prop.sort(function(a,b){return (use[b.id]||[]).length-(use[a.id]||[]).length;}).map(card).join('');
+}
+
+/* ---------- render prompt (JSON spec -> your Markdown format) ---------- */
+function FMT(){ return D.render_format||{}; }
+function buildRenderPrompt(a){
+  var s=S(), cb=capById();
+  var C=a.components||{}, R=C.review||{}, L=C.lesson||{}, Q=C.dol||{};
+  var lo=(LOC().filter(function(l){return l.id===Q.locale;})[0]||{}).label||Q.locale;
+  var caps=(a.uses_capabilities||[]).map(function(c){return cb[c];}).filter(Boolean);
+  var P=[];
+  P.push('You are turning one reviewed activity spec into the classroom import format. Output ONE fenced code block and nothing else.');
+  P.push('');
+  P.push('## The format');
+  P.push((FMT().rules||'[[ paste your import-format prompt here once, in the Save & load tab — it is stored with the thread and injected here ]]'));
+  P.push('');
+  P.push('## Map the three components to the format');
+  P.push('- **review** → an opening section. Retrieval items, mostly `mc` or fill-in-the-blank, on the skills named below. Keep it short.');
+  P.push('- **lesson** → a `## Lesson {checkpoint}` section with three beats in order: a ```worked block, then a ```faded block (use {{blanks}} / \\gap{} for the faded steps), then an independent problem set.');
+  P.push('- **dol** → a `## Check {checkpoint}` section. Write each item in the format its capability dictates (below).');
+  P.push('');
+  P.push('## Hard rules, from the capabilities this spec declares');
+  P.push('Only these capabilities are in play. Do not reach for others.');
+  caps.forEach(function(c){ P.push('- **'+c.label+'** (`'+c.id+'`)'+(c.constraints?' — '+c.constraints:'')); });
+  P.push('');
+  P.push('- Any item carrying a distractor map MUST be an `mc` (`::` feedback) or a `graph` (`mistake:` feedback), OR a fill-in-the-blank using `!wrong :: message`. A distractor map on a plain numeric blank has nowhere to render and will be lost.');
+  P.push('- If the spec has a `reference` object, emit it as a ```reference fence (title: line, then one block per line). It must contain no questions or blanks, and nothing the review section\'s items ask students to recall — the panel is open-book for the whole activity.');
+  P.push('- A `shortanswer`/`essay` is teacher-graded — it captures the student text but no per-distractor signal until a human marks it. Never use it as the carrier for a distractor map; use it only when the locale wants a justification the machine cannot score.');
+  P.push('- The faded beat must use \\gap{} inside displayed equations or {{blanks}} in text — that is what makes it student-completed rather than just shown.');
+  P.push('- Graphs grade only linear/quadratic/exponential/logarithmic/vertical. If the spec needs a higher-degree curve, present the cases as ```worked / ```faded, not a graded ```graph.');
+  P.push('');
+  P.push('## Assessment locale for the DoL: '+lo);
+  P.push('Write the check the way this locale asks. A rubric-graded ```shortanswer for a justification locale; auto-graded items for a procedural one.');
+  P.push('');
+  P.push('## The spec');
+  P.push(JSON.stringify({id:a.id,teaches:s[a.primary_skill]?s[a.primary_skill].label:a.primary_skill,
+    chain_position:a.chain_position,chain_length:a.chain_length,duration_min:a.duration_min,
+    review:R,lesson:L,dol:Q,uses_capabilities:a.uses_capabilities},null,2));
+  return P.join('\n');
+}
+
+/* ---------- shell ---------- */
+function go(v){
+  document.querySelectorAll('nav button').forEach(function(b){ b.classList.toggle('on',b.getAttribute('data-v')===v); });
+  document.querySelectorAll('.view').forEach(function(x){ x.classList.toggle('on',x.id==='v-'+v); });
+  if(v==='graph') renderGraph();
+  if(v==='draft') renderDraft();
+  if(v==='caps') renderCaps();
+}
+function renderAll(){
+  var b=builtSet(), planned=(D.chunking_plan.chains||[]).reduce(function(t,c){return t+c.activities;},0);
+  var cov=Object.keys(b).filter(function(k){return inG(k)&&b[k]==='approved';}).length, t=tally();
+  el('tid').textContent=D.thread_id+' · v'+D.version;
+  el('tlabel').textContent=D.label;
+  el('hstat').innerHTML='<span><b>'+D.skills.length+'</b> skills</span><span><b>'+t.approved+'</b> of '+planned+' approved</span>'
+    +(t.draft?'<span style="color:var(--signal)"><b style="color:var(--signal)">'+t.draft+'</b> awaiting review</span>':'')
+    +'<span><b>'+cov+'/'+D.skills.length+'</b> skills covered</span>';
+  renderSkills(); renderActs(); renderChains(); renderChecks(); renderGraph();
+  if(el('v-draft').classList.contains('on')) renderDraft();
+  if(el('v-caps').classList.contains('on')) renderCaps();
+}
+function render(){
+  el('mlabel').value=D.label||''; el('mtid').value=D.thread_id||''; el('mver').value=D.version||''; el('mnotes').value=D.notes||'';
+  el('mfmt').value=(D.render_format&&D.render_format.rules)||'';
+  renderAll();
+}
+document.querySelectorAll('nav button').forEach(function(b){ b.onclick=function(){ go(b.getAttribute('data-v')); }; });
+el('sfilter').oninput=renderSkills; el('afilter').oninput=renderActs; el('dfilter').oninput=renderDraft;
+el('snew').onclick=function(){ newSkill(); };
+el('anew').onclick=function(){ newAct(null); };
+['mlabel','mtid','mver','mnotes','mfmt'].forEach(function(id){ el(id).onchange=function(){
+  D.label=el('mlabel').value; D.thread_id=el('mtid').value; D.version=el('mver').value; D.notes=el('mnotes').value;
+  D.render_format=D.render_format||{}; D.render_format.rules=el('mfmt').value;
+  save(); renderAll(); }; });
+el('dl').onclick=function(){
+  var blob=new Blob([JSON.stringify(D,null,2)],{type:'application/json'});
+  var a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download=(D.thread_id||'thread')+'-v'+(D.version||'0')+'.json'; a.click(); URL.revokeObjectURL(a.href);
+};
+el('imp').onclick=function(){ el('fin').click(); };
+el('fin').onchange=function(e){
+  var f=e.target.files[0]; if(!f) return;
+  var r=new FileReader();
+  r.onload=function(){ try{ var j=JSON.parse(r.result); if(!j.skills) throw new Error('no skills array');
+    D=j; D.activities=D.activities||[]; selSkill=selAct=gsel=null; save(); render(); toast('Loaded '+f.name);
+  }catch(err){ alert('That file did not load: '+err.message); } };
+  r.readAsText(f);
+};
+el('clearacts').onclick=function(){
+  if(!D.activities.length){ toast('Nothing to clear'); return; }
+  if(!confirm('Delete all '+D.activities.length+' activities, drafts and approved alike? The skill graph stays.')) return;
+  D.activities=[]; selAct=null; save(); renderAll(); toast('Cleared');
+};
+el('cleardrafts').onclick=function(){
+  var n=D.activities.filter(function(a){return stat(a)==='draft';}).length;
+  if(!n){ toast('No drafts'); return; }
+  if(!confirm('Discard '+n+' unreviewed draft'+(n===1?'':'s')+'? Approved work is untouched.')) return;
+  D.activities=D.activities.filter(function(a){return stat(a)==='approved';}); selAct=null; save(); renderAll(); toast('Drafts discarded');
+};
+el('reset').onclick=function(){
+  if(!confirm('Throw away everything and go back to the seed thread?')) return;
+  D=clone(SEED); selSkill=selAct=gsel=null; save(); render(); toast('Reset');
+};
+fetch('thread-01-rate-of-change.json',{cache:'no-store'})
+  .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+  .then(function(j){ SEED=j; boot(); })
+  .catch(function(e){
+    document.body.innerHTML='<div style="max-width:600px;margin:80px auto;padding:24px;font:14px/1.6 -apple-system,sans-serif;border:1px solid #ddd;border-radius:8px">'
+      +'<b>Could not load <code>thread-01-rate-of-change.json</code></b> ('+esc(e.message)+').'
+      +'<p>The builder reads the thread from disk, so it must be served over HTTP — browsers refuse <code>fetch()</code> from <code>file://</code>. From this folder run:</p>'
+      +'<pre style="background:#f6f6f6;padding:10px;border-radius:6px">python3 -m http.server 8000</pre>'
+      +'<p>then open <a href="http://localhost:8000/builder.html">http://localhost:8000/builder.html</a>.</p></div>';
+  });
+</script>

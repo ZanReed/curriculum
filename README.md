@@ -19,8 +19,10 @@ filename (the only diff against the export was the generator's own
 source-filename header line). Two things the seed deliberately excludes:
 the correspondence letters (superseded by the boundary pages, per the
 curriculum side's own recommendation) and the activity `.md` files (they
-live in the catalogue). One known gap: `decision-log.md` proper (D1–D17)
-lives in the catalogue repo's `.docs/`; this repo carries
+live in the catalogue). By ruling (curriculum side,
+2026-09-02): `decision-log.md` D1–D17 stays in the catalogue repo's
+`.docs/` and this pointer is the durable answer — a second copy would be
+the hand-carried-copy failure with a new name. This repo carries
 `decision-log-additions.md` (D18–D30 plus amendments).
 
 ## The four checks (`.github/workflows/check.yml`)
@@ -67,6 +69,18 @@ lives in the catalogue repo's `.docs/`; this repo carries
 | `pair-attachment-report.py` | report, never a gate: one-sided pair-confusion attachments (B10; platform-written, runs here) |
 | `scripts/check_principles.py` | check 1 (verify + `--fix` sync) |
 | `scripts/check_integrity.py` | check 4 |
+| `validate.js` | the curriculum-owned §11 thread checks — runs in CI (`node validate.js <graph>`); green against v0.13.0 on joining (2026-09-02) |
+| `builder.html` | the authoring UI (serve over HTTP, never `file://`). Provenance caveat: this is the July 2026 workspace copy, joined 2026-09-02 so its Save & load prompt text is diffable; reconcile if the Claude project holds a newer descendant |
+
+**Deliberately NOT here: `generate-capabilities.mjs`.** The July copy fails
+the curriculum side's own join criterion in the dangerous direction: it still
+writes `grading.authoritative` (deleted from all 22 capability entries at
+v0.11.2, D27 amendment) with the value `client-advisory` (the false fused
+term the D8 amendment corrected), and its importer-fence join FATALs on
+`correspond`/`table`/`seed`/`meta` while exiting 0. Running it would clobber
+v0.13.0 capabilities with v0.10-era output. It regenerates graph fields from
+platform code, so under the regeneration-ownership rule its rebuild is
+platform-side work; it joins when rebuilt against current schema and code.
 | `docs/` | reasoning records: reconciliation, the D24 audit, pedagogical concerns, hook screen, the retired architecture doc (kept only so the retirement is visible — do not restore) |
 | `channel/` | the boundary-channel rules and page URLs, the repo spec, the catalogue agent brief, the two handoffs |
 
