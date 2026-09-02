@@ -1,0 +1,27 @@
+# Chain registry — folder name → display title (the platform's `unit` string).
+#
+# The chain ordinal lives in the FOLDER NAME, not the title. Precedence: a
+# file's own `unit:` wins, then this registry, then unset.
+#
+# A folder with no entry warns and fails --strict. All 17 chains are listed so
+# the numbering is fixed now; only folders that exist are read.
+#
+# Generated from thread-01-rate-of-change.json v0.10.0.
+
+01-chain.rate.proportional              = Rates and Proportional Relationships
+02-chain.linear.slope                   = Slope
+03-chain.linear.forms                   = Forms of a Linear Equation
+04-chain.linear.model                   = Modelling with Linear Functions
+05-chain.function.definition            = What Is a Function?
+06-chain.function.notation              = Function Notation
+07-chain.function.representations       = Representations of a Function
+08-chain.function.domain-range          = Domain and Range
+09-chain.function.families              = Parent Functions
+10-chain.transform.translate            = Translating Graphs
+11-chain.transform.stretch-reflect      = Stretches and Reflections
+12-chain.transform.compose              = Composing Transformations
+13-chain.roc.average                    = Average Rate of Change
+14-chain.limit.intro                    = Introducing Limits
+15-chain.limit.difference-quotient      = The Difference Quotient
+16-chain.deriv.definition               = The Derivative at a Point
+17-chain.deriv.rules                    = Derivatives as Functions

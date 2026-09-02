@@ -1,0 +1,1685 @@
+{
+  "thread_id": "thread.rate-of-change",
+  "label": "Linear → Function → Transformation → Rate of Change → Derivative",
+  "version": "0.13.0",
+  "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment codes are deliberately null — fill from source documents rather than trusting anyone's memory of them.",
+  "external_prereqs": [
+    {
+      "id": "ext.arith.signed",
+      "label": "Operations with signed numbers"
+    },
+    {
+      "id": "ext.arith.fractions",
+      "label": "Fraction arithmetic, including complex fractions"
+    },
+    {
+      "id": "ext.alg.solve-linear-eq",
+      "label": "Solve a one-variable linear equation"
+    },
+    {
+      "id": "ext.alg.expand-factor",
+      "label": "Expand and factor simple polynomial expressions"
+    },
+    {
+      "id": "ext.geom.coordinate-plane",
+      "label": "Plot and read ordered pairs"
+    }
+  ],
+  "misconceptions": [
+    {
+      "id": "mis.slope.rise-run-inverted",
+      "label": "Computes run/rise instead of rise/run"
+    },
+    {
+      "id": "mis.slope.subtraction-order",
+      "label": "Mismatches subtraction order between numerator and denominator"
+    },
+    {
+      "id": "mis.slope.units-dropped",
+      "label": "Reports slope as a bare number, no units, in a contextual problem"
+    },
+    {
+      "id": "mis.slope.steeper-is-bigger",
+      "label": "Treats visual steepness as slope magnitude without reading the scale"
+    },
+    {
+      "id": "mis.form.m-b-swapped",
+      "label": "Reads b as slope and m as intercept"
+    },
+    {
+      "id": "mis.function.notation-multiplication",
+      "label": "Reads f(x) as f times x"
+    },
+    {
+      "id": "mis.function.evaluate-vs-solve",
+      "label": "Answers f(3) when asked to solve f(x)=3, or vice versa"
+    },
+    {
+      "id": "mis.function.f-of-a-plus-h-distributed",
+      "label": "Writes f(a+h) as f(a)+f(h)"
+    },
+    {
+      "id": "mis.transform.horizontal-direction",
+      "label": "Believes a subtraction inside the argument shifts left — f(x−h), and y−y₁=m(x−x₁)"
+    },
+    {
+      "id": "mis.transform.inside-outside",
+      "label": "Applies inside changes to the y-direction and outside changes to the x-direction"
+    },
+    {
+      "id": "mis.transform.stretch-vs-shift",
+      "label": "Confuses a·f(x) with f(x)+a"
+    },
+    {
+      "id": "mis.roc.assumes-constant",
+      "label": "Assumes average rate of change is the same on every interval of a nonlinear function"
+    },
+    {
+      "id": "mis.roc.uses-endpoint-value",
+      "label": "Reports f(b) instead of the change in f over the interval"
+    },
+    {
+      "id": "mis.limit.equals-substitution",
+      "label": "Believes a limit is by definition the value obtained by substitution"
+    },
+    {
+      "id": "mis.limit.h-set-to-zero-early",
+      "label": "Sets h=0 before simplifying the difference quotient"
+    },
+    {
+      "id": "mis.deriv.tangent-touches-once",
+      "label": "Believes a tangent line may only meet the curve at one point"
+    },
+    {
+      "id": "mis.deriv.units-dropped",
+      "label": "Interprets f′(a) without units in a contextual problem"
+    },
+    {
+      "id": "mis.deriv.constant-rule-confused",
+      "label": "Applies the power rule to a constant, yielding a nonzero derivative"
+    },
+    {
+      "id": "mis.rate.ratio-inverted",
+      "label": "Divides the quantities the wrong way round — x ÷ y instead of y ÷ x"
+    },
+    {
+      "id": "mis.rate.compares-totals",
+      "label": "Compares total amounts (or picks by quantity) instead of the amount per one"
+    },
+    {
+      "id": "mis.proportional.one-pair-assumed-constant",
+      "label": "Concludes a relationship is proportional from one pair without checking the ratio is constant"
+    },
+    {
+      "id": "mis.proportional.line-misses-origin",
+      "label": "Believes a proportional graph need not pass through the origin"
+    },
+    {
+      "id": "mis.form.intercept-wrong-variable",
+      "label": "Sets the wrong variable to zero when finding an intercept"
+    },
+    {
+      "id": "mis.form.standard-slope-sign",
+      "label": "Reads the slope of Ax + By = C as A/B, dropping the negative"
+    },
+    {
+      "id": "mis.function.one-to-one-required",
+      "label": "Requires each output to have exactly one input — rejects y = x² as a function, or applies the test horizontally"
+    },
+    {
+      "id": "mis.function.needs-a-formula",
+      "label": "Rejects a correspondence as a function because no equation defines it"
+    },
+    {
+      "id": "mis.function.domain-range-swapped",
+      "label": "Reports the range when asked for the domain, or the reverse"
+    },
+    {
+      "id": "mis.function.endpoint-open-closed",
+      "label": "Includes an open endpoint, or excludes a closed one, when reading an interval"
+    },
+    {
+      "id": "mis.function.context-restriction-ignored",
+      "label": "Gives the mathematical domain of the formula, ignoring what the context permits"
+    },
+    {
+      "id": "mis.family.any-member-is-parent",
+      "label": "Treats any member of a family as the parent rather than the untransformed one — any line for y = x, any parabola for y = x²"
+    },
+    {
+      "id": "mis.arith.negative-squared",
+      "label": "Believes squaring a negative input gives a negative output"
+    },
+    {
+      "id": "mis.roc.secant-vs-tangent",
+      "label": "Treats the average rate of change over an interval as the rate at a point"
+    },
+    {
+      "id": "mis.limit.one-sided-superscript-ignored",
+      "label": "Reads x → a⁻ and x → a⁺ as x → a, and reports the two-sided limit"
+    },
+    {
+      "id": "mis.deriv.f-prime-is-a-number",
+      "label": "Treats f′ as a single value rather than a function that varies with x"
+    },
+    {
+      "id": "mis.deriv.reads-f-graph-as-f-prime",
+      "label": "Reads the graph of f as if it were the graph of f′ — says f′ is positive where f is positive rather than where f is increasing"
+    }
+  ],
+  "skills": [
+    {
+      "id": "rate.unit-rate",
+      "label": "Compute a unit rate from a ratio",
+      "band": "Y8",
+      "prereqs": [
+        "ext.arith.fractions"
+      ],
+      "misconceptions": [
+        "mis.rate.ratio-inverted",
+        "mis.rate.compares-totals"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y8",
+      "band_us": "Grade 7"
+    },
+    {
+      "id": "rate.constant-of-proportionality",
+      "label": "Identify the constant of proportionality k in y = kx from a table, graph, or context",
+      "band": "Y8",
+      "prereqs": [
+        "rate.unit-rate"
+      ],
+      "misconceptions": [
+        "mis.rate.ratio-inverted",
+        "mis.proportional.one-pair-assumed-constant"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y8",
+      "band_us": "Grade 7"
+    },
+    {
+      "id": "rate.proportional-graph",
+      "label": "Recognise a proportional relationship as a line through the origin",
+      "band": "Y8",
+      "prereqs": [
+        "rate.constant-of-proportionality",
+        "ext.geom.coordinate-plane"
+      ],
+      "misconceptions": [
+        "mis.proportional.line-misses-origin"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y8",
+      "band_us": "Grade 7"
+    },
+    {
+      "id": "linear.slope.two-points",
+      "label": "Compute slope from two points",
+      "band": "Y9",
+      "prereqs": [
+        "rate.constant-of-proportionality",
+        "ext.arith.signed"
+      ],
+      "misconceptions": [
+        "mis.slope.rise-run-inverted",
+        "mis.slope.subtraction-order"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y9",
+      "band_us": "Grade 8"
+    },
+    {
+      "id": "linear.slope.from-graph",
+      "label": "Read slope from a graph, attending to axis scale",
+      "band": "Y9",
+      "prereqs": [
+        "linear.slope.two-points",
+        "rate.proportional-graph"
+      ],
+      "misconceptions": [
+        "mis.slope.steeper-is-bigger",
+        "mis.slope.rise-run-inverted"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y9",
+      "band_us": "Grade 8"
+    },
+    {
+      "id": "linear.slope.interpret-context",
+      "label": "Interpret slope as a rate of change in context, with units",
+      "band": "Y9",
+      "prereqs": [
+        "linear.slope.two-points",
+        "rate.unit-rate"
+      ],
+      "misconceptions": [
+        "mis.slope.units-dropped"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "notes": "Long-arc anchor. This is the ancestor of deriv.interpret.context-units, roughly three years downstream.",
+      "band_nz": "Y9",
+      "band_us": "Grade 8"
+    },
+    {
+      "id": "linear.form.slope-intercept-graph",
+      "label": "Graph a line from y = mx + b",
+      "band": "Y9",
+      "prereqs": [
+        "linear.slope.from-graph"
+      ],
+      "misconceptions": [
+        "mis.form.m-b-swapped"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y9",
+      "band_us": "Grade 8"
+    },
+    {
+      "id": "linear.form.slope-intercept-write",
+      "label": "Write y = mx + b from a graph, a table, or two points",
+      "band": "Y9",
+      "prereqs": [
+        "linear.form.slope-intercept-graph",
+        "linear.slope.two-points"
+      ],
+      "misconceptions": [
+        "mis.form.m-b-swapped"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y9",
+      "band_us": "Grade 8"
+    },
+    {
+      "id": "linear.form.point-slope",
+      "label": "Write and use point-slope form",
+      "band": "Y9",
+      "prereqs": [
+        "linear.form.slope-intercept-write"
+      ],
+      "misconceptions": [
+        "mis.transform.horizontal-direction"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "notes": "The sign in (x - x1) is the same cognitive object as the sign in f(x - h). Deliberate edge to transform.horizontal.translate.",
+      "band_nz": "Y9",
+      "band_us": "Grade 8"
+    },
+    {
+      "id": "linear.form.standard",
+      "label": "Use standard form Ax + By = C, including intercepts",
+      "band": "Y9",
+      "prereqs": [
+        "linear.form.slope-intercept-write"
+      ],
+      "misconceptions": [
+        "mis.form.intercept-wrong-variable",
+        "mis.form.standard-slope-sign"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y9",
+      "band_us": "Grade 8"
+    },
+    {
+      "id": "linear.form.convert",
+      "label": "Convert between linear forms and select the efficient form for a given task",
+      "band": "Y9",
+      "prereqs": [
+        "linear.form.point-slope",
+        "linear.form.standard",
+        "ext.alg.solve-linear-eq"
+      ],
+      "misconceptions": [
+        "mis.form.m-b-swapped",
+        "mis.form.standard-slope-sign"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y9",
+      "band_us": "Grade 8"
+    },
+    {
+      "id": "linear.model.contextual",
+      "label": "Build, interpret, and critique a linear model of a scenario",
+      "band": "Y9",
+      "prereqs": [
+        "linear.form.convert",
+        "linear.slope.interpret-context"
+      ],
+      "misconceptions": [
+        "mis.slope.units-dropped",
+        "mis.function.context-restriction-ignored"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y9",
+      "band_us": "Grade 8",
+      "parts": 3
+    },
+    {
+      "id": "function.definition.mapping",
+      "label": "State and apply the definition of a function: each input has exactly one output",
+      "band": "Y10",
+      "prereqs": [
+        "rate.proportional-graph"
+      ],
+      "misconceptions": [
+        "mis.function.one-to-one-required",
+        "mis.function.needs-a-formula"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y10",
+      "band_us": "Algebra I"
+    },
+    {
+      "id": "function.definition.vlt",
+      "label": "Apply the vertical line test and justify why it works",
+      "band": "Y10",
+      "prereqs": [
+        "function.definition.mapping"
+      ],
+      "misconceptions": [
+        "mis.function.one-to-one-required",
+        "mis.function.needs-a-formula"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y10",
+      "band_us": "Algebra I"
+    },
+    {
+      "id": "function.notation.evaluate",
+      "label": "Evaluate f(3), f(a), f(a+h), f(2x)",
+      "band": "Y10",
+      "prereqs": [
+        "function.definition.mapping",
+        "ext.alg.expand-factor"
+      ],
+      "misconceptions": [
+        "mis.function.notation-multiplication",
+        "mis.function.f-of-a-plus-h-distributed",
+        "mis.function.evaluate-vs-solve"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "notes": "Load-bearing. f(a+h) is the hidden prerequisite for the difference quotient and is usually taught two years before it is needed, then never retrieved. This edge is the whole argument for prerequisite-targeted spacing.",
+      "band_nz": "Y10",
+      "band_us": "Algebra I"
+    },
+    {
+      "id": "function.notation.solve",
+      "label": "Solve f(x) = k and distinguish it from evaluating f(k)",
+      "band": "Y10",
+      "prereqs": [
+        "function.notation.evaluate",
+        "ext.alg.solve-linear-eq"
+      ],
+      "misconceptions": [
+        "mis.function.evaluate-vs-solve",
+        "mis.function.notation-multiplication"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y10",
+      "band_us": "Algebra I"
+    },
+    {
+      "id": "function.repr.correspondence",
+      "label": "Identify the same function across graph, table, equation, and context",
+      "band": "Y10",
+      "prereqs": [
+        "function.notation.evaluate",
+        "linear.form.slope-intercept-write",
+        "function.definition.vlt"
+      ],
+      "misconceptions": [
+        "mis.function.notation-multiplication",
+        "mis.function.needs-a-formula"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y10",
+      "band_us": "Algebra I",
+      "parts": 3
+    },
+    {
+      "id": "function.domain-range.graph",
+      "label": "Determine domain and range from a graph",
+      "band": "Y10",
+      "prereqs": [
+        "function.definition.vlt"
+      ],
+      "misconceptions": [
+        "mis.function.domain-range-swapped",
+        "mis.function.endpoint-open-closed"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y10",
+      "band_us": "Algebra I"
+    },
+    {
+      "id": "function.domain-range.context",
+      "label": "Restrict domain and range to fit a context and justify the restriction",
+      "band": "Y10",
+      "prereqs": [
+        "function.domain-range.graph",
+        "linear.model.contextual"
+      ],
+      "misconceptions": [
+        "mis.function.domain-range-swapped",
+        "mis.function.context-restriction-ignored",
+        "mis.function.endpoint-open-closed"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y10",
+      "band_us": "Algebra I"
+    },
+    {
+      "id": "function.family.parent-linear",
+      "label": "Recognise y = x as the linear parent function",
+      "band": "Y10",
+      "prereqs": [
+        "function.repr.correspondence"
+      ],
+      "misconceptions": [
+        "mis.family.any-member-is-parent"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y10",
+      "band_us": "Algebra I"
+    },
+    {
+      "id": "function.family.parent-quadratic",
+      "label": "Recognise y = x² as the quadratic parent function and describe its key features",
+      "band": "Y10",
+      "prereqs": [
+        "function.family.parent-linear",
+        "function.domain-range.graph"
+      ],
+      "misconceptions": [
+        "mis.arith.negative-squared",
+        "mis.family.any-member-is-parent"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y10",
+      "band_us": "Algebra I"
+    },
+    {
+      "id": "transform.vertical.translate",
+      "label": "Describe and apply f(x) + k",
+      "band": "Y11",
+      "prereqs": [
+        "function.family.parent-quadratic"
+      ],
+      "misconceptions": [
+        "mis.transform.stretch-vs-shift",
+        "mis.transform.inside-outside"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y11",
+      "band_us": "Algebra II"
+    },
+    {
+      "id": "transform.horizontal.translate",
+      "label": "Describe and apply f(x - h)",
+      "band": "Y11",
+      "prereqs": [
+        "transform.vertical.translate",
+        "linear.form.point-slope"
+      ],
+      "misconceptions": [
+        "mis.transform.horizontal-direction",
+        "mis.transform.inside-outside"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "notes": "Highest-value misconception in the thread. Prereq edge to point-slope is deliberate: students have already met (x - x1) meaning 'shift right by x1' and did not notice.",
+      "band_nz": "Y11",
+      "band_us": "Algebra II"
+    },
+    {
+      "id": "transform.vertical.stretch",
+      "label": "Describe and apply a·f(x)",
+      "band": "Y11",
+      "prereqs": [
+        "transform.vertical.translate"
+      ],
+      "misconceptions": [
+        "mis.transform.stretch-vs-shift",
+        "mis.transform.inside-outside"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y11",
+      "band_us": "Algebra II"
+    },
+    {
+      "id": "transform.reflect",
+      "label": "Describe and apply -f(x) and f(-x)",
+      "band": "Y11",
+      "prereqs": [
+        "transform.vertical.stretch",
+        "transform.horizontal.translate"
+      ],
+      "misconceptions": [
+        "mis.transform.inside-outside"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y11",
+      "band_us": "Algebra II"
+    },
+    {
+      "id": "transform.horizontal.stretch",
+      "label": "Describe and apply f(bx)",
+      "band": "Y11",
+      "prereqs": [
+        "transform.reflect"
+      ],
+      "misconceptions": [
+        "mis.transform.inside-outside",
+        "mis.transform.horizontal-direction"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y11",
+      "band_us": "Algebra II"
+    },
+    {
+      "id": "transform.compose-order",
+      "label": "Apply multiple transformations in the correct order and explain why order matters",
+      "band": "Y11",
+      "prereqs": [
+        "transform.horizontal.stretch"
+      ],
+      "misconceptions": [
+        "mis.transform.inside-outside"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y11",
+      "band_us": "Algebra II"
+    },
+    {
+      "id": "transform.quadratic.vertex-form",
+      "label": "Read y = a(x - h)² + k as a transformation of the parent quadratic",
+      "band": "Y11",
+      "prereqs": [
+        "transform.compose-order"
+      ],
+      "misconceptions": [
+        "mis.transform.horizontal-direction"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y11",
+      "band_us": "Algebra II"
+    },
+    {
+      "id": "transform.write-from-graph",
+      "label": "Write the equation of a transformed function given its graph",
+      "band": "Y11",
+      "prereqs": [
+        "transform.quadratic.vertex-form",
+        "function.repr.correspondence"
+      ],
+      "misconceptions": [
+        "mis.transform.horizontal-direction",
+        "mis.transform.stretch-vs-shift"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y11",
+      "band_us": "Algebra II"
+    },
+    {
+      "id": "roc.average.from-table",
+      "label": "Compute average rate of change from a table over a stated interval",
+      "band": "Y11",
+      "prereqs": [
+        "linear.slope.two-points",
+        "function.repr.correspondence"
+      ],
+      "misconceptions": [
+        "mis.roc.uses-endpoint-value"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y11",
+      "band_us": "Algebra II"
+    },
+    {
+      "id": "roc.average.secant",
+      "label": "Identify average rate of change as the slope of a secant line",
+      "band": "Y11",
+      "prereqs": [
+        "roc.average.from-table",
+        "linear.slope.from-graph"
+      ],
+      "misconceptions": [
+        "mis.roc.secant-vs-tangent",
+        "mis.roc.uses-endpoint-value"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y11",
+      "band_us": "Algebra II"
+    },
+    {
+      "id": "roc.average.function-notation",
+      "label": "Express average rate of change as [f(b) - f(a)] / (b - a)",
+      "band": "Y11",
+      "prereqs": [
+        "roc.average.secant",
+        "function.notation.evaluate"
+      ],
+      "misconceptions": [
+        "mis.slope.subtraction-order",
+        "mis.roc.uses-endpoint-value"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "notes": "Unification point. Students should be told explicitly that this is the slope formula they learned in Year 9, rewritten. Do not let them discover it.",
+      "band_nz": "Y11",
+      "band_us": "Algebra II"
+    },
+    {
+      "id": "roc.average.varies-nonlinear",
+      "label": "Explain why average rate of change differs across intervals for a nonlinear function",
+      "band": "Y11",
+      "prereqs": [
+        "roc.average.function-notation",
+        "transform.quadratic.vertex-form"
+      ],
+      "misconceptions": [
+        "mis.roc.assumes-constant"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y11",
+      "band_us": "Algebra II"
+    },
+    {
+      "id": "roc.average.interpret-context",
+      "label": "Interpret average rate of change in context, with units",
+      "band": "Y11",
+      "prereqs": [
+        "roc.average.varies-nonlinear",
+        "linear.slope.interpret-context"
+      ],
+      "misconceptions": [
+        "mis.slope.units-dropped"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y11",
+      "band_us": "Algebra II"
+    },
+    {
+      "id": "limit.numeric.table",
+      "label": "Estimate a limit numerically, approaching from both sides",
+      "band": "Y12",
+      "prereqs": [
+        "function.notation.evaluate",
+        "function.domain-range.graph"
+      ],
+      "misconceptions": [
+        "mis.limit.equals-substitution"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y12",
+      "band_us": "Precalculus"
+    },
+    {
+      "id": "limit.graphical.estimate",
+      "label": "Estimate a limit from a graph, including where the function is undefined",
+      "band": "Y12",
+      "prereqs": [
+        "limit.numeric.table"
+      ],
+      "misconceptions": [
+        "mis.limit.equals-substitution",
+        "mis.limit.one-sided-superscript-ignored"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y12",
+      "band_us": "Precalculus"
+    },
+    {
+      "id": "limit.notation",
+      "label": "Read and write limit notation correctly",
+      "band": "Y12",
+      "prereqs": [
+        "limit.graphical.estimate"
+      ],
+      "misconceptions": [
+        "mis.limit.one-sided-superscript-ignored",
+        "mis.limit.equals-substitution"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y12",
+      "band_us": "Precalculus"
+    },
+    {
+      "id": "limit.secant-to-tangent",
+      "label": "Describe the tangent line as the limiting position of secant lines",
+      "band": "Y12",
+      "prereqs": [
+        "limit.notation",
+        "roc.average.secant"
+      ],
+      "misconceptions": [
+        "mis.deriv.tangent-touches-once",
+        "mis.roc.secant-vs-tangent"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y12",
+      "band_us": "Precalculus"
+    },
+    {
+      "id": "limit.difference-quotient.setup",
+      "label": "Set up [f(a + h) - f(a)] / h for a given function",
+      "band": "Y12",
+      "prereqs": [
+        "limit.secant-to-tangent",
+        "roc.average.function-notation",
+        "function.notation.evaluate"
+      ],
+      "misconceptions": [
+        "mis.function.f-of-a-plus-h-distributed"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y12",
+      "band_us": "Precalculus"
+    },
+    {
+      "id": "limit.difference-quotient.simplify",
+      "label": "Simplify the difference quotient and cancel h before taking the limit",
+      "band": "Y12",
+      "prereqs": [
+        "limit.difference-quotient.setup",
+        "ext.alg.expand-factor"
+      ],
+      "misconceptions": [
+        "mis.limit.h-set-to-zero-early",
+        "mis.function.f-of-a-plus-h-distributed"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y12",
+      "band_us": "Precalculus"
+    },
+    {
+      "id": "deriv.definition.at-a-point",
+      "label": "Define f′(a) as the limit of the difference quotient as h → 0",
+      "band": "Y13",
+      "prereqs": [
+        "limit.difference-quotient.simplify"
+      ],
+      "misconceptions": [
+        "mis.limit.h-set-to-zero-early"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y13",
+      "band_us": "Calculus"
+    },
+    {
+      "id": "deriv.interpret.slope-tangent",
+      "label": "Interpret f′(a) as the slope of the tangent line at x = a",
+      "band": "Y13",
+      "prereqs": [
+        "deriv.definition.at-a-point",
+        "limit.secant-to-tangent"
+      ],
+      "misconceptions": [
+        "mis.deriv.tangent-touches-once",
+        "mis.roc.secant-vs-tangent",
+        "mis.deriv.reads-f-graph-as-f-prime"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y13",
+      "band_us": "Calculus"
+    },
+    {
+      "id": "deriv.interpret.context-units",
+      "label": "Interpret f′(a) in context with correct units",
+      "band": "Y13",
+      "prereqs": [
+        "deriv.interpret.slope-tangent",
+        "roc.average.interpret-context",
+        "linear.slope.interpret-context"
+      ],
+      "misconceptions": [
+        "mis.deriv.units-dropped",
+        "mis.slope.units-dropped"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "notes": "Terminal node of the longest arc in the thread. The edge back to linear.slope.interpret-context spans roughly four years and is the flagship demonstration of prerequisite-targeted review.",
+      "band_nz": "Y13",
+      "band_us": "Calculus"
+    },
+    {
+      "id": "deriv.from-definition.polynomial",
+      "label": "Compute the derivative of a low-degree polynomial from the definition",
+      "band": "Y13",
+      "prereqs": [
+        "deriv.definition.at-a-point"
+      ],
+      "misconceptions": [
+        "mis.limit.h-set-to-zero-early"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y13",
+      "band_us": "Calculus"
+    },
+    {
+      "id": "deriv.f-prime-as-function",
+      "label": "Treat f′ as a function rather than a number, and read f′ from the graph of f",
+      "band": "Y13",
+      "prereqs": [
+        "deriv.from-definition.polynomial",
+        "function.repr.correspondence"
+      ],
+      "misconceptions": [
+        "mis.deriv.f-prime-is-a-number",
+        "mis.deriv.reads-f-graph-as-f-prime"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y13",
+      "band_us": "Calculus"
+    },
+    {
+      "id": "deriv.rule.power",
+      "label": "State and apply the power rule, generalised from computed cases",
+      "band": "Y13",
+      "prereqs": [
+        "deriv.f-prime-as-function"
+      ],
+      "misconceptions": [
+        "mis.deriv.constant-rule-confused"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "notes": "Generalise from four worked cases the students have already computed from the definition. This is the one place in the thread where induction from examples is appropriate, because the examples were built explicitly first.",
+      "band_nz": "Y13",
+      "band_us": "Calculus"
+    },
+    {
+      "id": "deriv.justify.constant",
+      "label": "Justify why the derivative of a constant function is zero",
+      "band": "Y13",
+      "prereqs": [
+        "deriv.rule.power",
+        "deriv.interpret.slope-tangent"
+      ],
+      "misconceptions": [
+        "mis.deriv.constant-rule-confused"
+      ],
+      "alignment": {
+        "teks": null,
+        "ccss": null,
+        "nzc_phase": null
+      },
+      "band_nz": "Y13",
+      "band_us": "Calculus"
+    }
+  ],
+  "activity_defaults": {
+    "duration_min": 24,
+    "phase_budget_min": {
+      "review": 4,
+      "worked": 3,
+      "faded": 6,
+      "independent": 8,
+      "dol": 3
+    },
+    "chain_rules": {
+      "position_1": "Full prerequisite-targeted retrieval slice. 2-4 items drawn from ancestors of the primary skill.",
+      "position_gt_1": "Replace the retrieval slice with a 60-second retrieval on the primary skill of the previous chain position. Reallocate the recovered 3 minutes to independent practice.",
+      "final_position": "Exit check must include at least one item on the chain's terminal skill and one review item from an ancestor at edge distance >= 3. Subject to review_selection.constraint's floor where the graph is shallower than 3."
+    },
+    "review_selection": {
+      "algorithm": "weight = f(days_since_last_assessed) * g(edge_distance_from_primary) * h(historical_error_rate)",
+      "candidate_pool": "transitive ancestors of primary_skill in this thread plus external_prereqs, plus transitive ancestors of any later skill in the same chain (marked planting_for). D16: adding a prereq edge instead would assert a dependency that is not real (D2).",
+      "constraint": "at least one item per slice must come from edge_distance >= 2, OR from the deepest ancestor available where the graph is shallower than 2. FLOOR: the graph is shallow at the top of the curriculum (rate.unit-rate has max ancestor depth 1), so without this clause the first activity of the first chain fails validation permanently. chain_rules.final_position and the DoL rule cite this same floor."
+    },
+    "status_values": {
+      "draft": "LLM-drafted or unfinished. Does not count toward progress.",
+      "approved": "Read end to end by a human and judged teachable, AND depending on no capability whose status is 'proposed'. Publishing is the mechanism; this is the predicate."
+    },
+    "contract": {
+      "components": [
+        "review",
+        "lesson",
+        "dol"
+      ],
+      "order": "review first — retrieval of prior skills activates the schema the lesson attaches to",
+      "lesson_beats": [
+        "worked",
+        "faded",
+        "independent"
+      ],
+      "note": "The platform treats all three identically feature-wise. The division is informative to the teacher and the student, not restrictive."
+    },
+    "locales": [
+      {
+        "id": "nz-ncea",
+        "label": "NZ NCEA — Achieved / Merit / Excellence, justification-weighted"
+      },
+      {
+        "id": "us-teks",
+        "label": "Texas / TEKS — procedural, answer-focused"
+      },
+      {
+        "id": "nz-nzce",
+        "label": "NZ NZCE / NZACE — internal plus exam, A–E (staged from 2028)"
+      },
+      {
+        "id": "generic",
+        "label": "Locale-neutral"
+      }
+    ],
+    "band_labels": {
+      "scheme": "dual",
+      "map": [
+        {
+          "nz": "Y8",
+          "us": "Grade 7"
+        },
+        {
+          "nz": "Y9",
+          "us": "Grade 8"
+        },
+        {
+          "nz": "Y10",
+          "us": "Algebra I"
+        },
+        {
+          "nz": "Y11",
+          "us": "Algebra II"
+        },
+        {
+          "nz": "Y12",
+          "us": "Precalculus"
+        },
+        {
+          "nz": "Y13",
+          "us": "Calculus"
+        }
+      ]
+    },
+    "grading_model": {
+      "scoring": "auto = server-computed against a baked key, advisory · rubric = teacher-graded, per-criterion after the fact · none = not scored",
+      "captures_response": "whether machine-readable response data comes back at all. NOTE: explain captures but is never scored.",
+      "authoritative": "Cross-cutting truth: only teacher-entered grades are server-authoritative. Auto scores are server-computed but advisory — the raw responses are the trustworthy signal, the correctness booleans ride along unverified.",
+      "for_misconception_data": "A distractor_map yields aggregate misconception signal only where scoring=auto AND the response is captured per-item (fill_blank, mc, graph). rubric types capture text but no per-distractor signal until a human grades."
+    },
+    "hook_contract": {
+      "level": "chain",
+      "minimum": "ceil(approved_activities / 2) hooks per chain",
+      "deployment": "teacher-timed — period boundaries are classroom facts the data model cannot see",
+      "rules": [
+        "A hook raises the question; the lesson earns the answer. If answering it requires the worked example, it has become discovery through the back door.",
+        "Thinkable in under a minute, engageable by intuition — no prerequisite knowledge needed to have an opinion.",
+        "Must genuinely connect to a skill in the chain. An irrelevant opener teaches students the opener is skippable.",
+        "Activities never carry hooks; days do."
+      ]
+    },
+    "default_locale": "nz-ncea"
+  },
+  "activities": [],
+  "chunking_plan": {
+    "note": "Chains group skills and project an activity count. Authored progress is NOT recorded here — it is derived by counting objects in activities[] whose chain_id matches. To clear authored work, delete the activity objects; nothing else needs touching.",
+    "chains": [
+      {
+        "chain_id": "chain.rate.proportional",
+        "skills": [
+          "rate.unit-rate",
+          "rate.constant-of-proportionality",
+          "rate.proportional-graph"
+        ],
+        "activities": 4,
+        "hooks": [
+          {
+            "id": "hook.rate.better-value",
+            "connects_to": [
+              "rate.unit-rate"
+            ],
+            "prompt": "Two shops sell the same lollies. One sells a bag of 5 for $4. The other sells a bag of 12 for $10. Which bag is better value — and are you sure?",
+            "note": "80c vs about 83c. The bigger bag looks like the obvious deal and is not, so the guess is worth committing to and the reveal is a real surprise. Does not disclose the divide-to-compare method. Not open after activity 01."
+          },
+          {
+            "id": "hook.rate.doubles-or-not",
+            "connects_to": [
+              "rate.proportional-graph"
+            ],
+            "prompt": "After 2 minutes of filling, a paddling pool is 10 cm deep. After 2 weeks of growing, a seedling is 10 cm tall. One of these you can predict at double the time. The other you can't. Which is which?",
+            "note": "Stays OPEN after activities 01-02: a student who can find a unit rate (5 cm/min, 5 cm/week) will confidently double both, which is the error. Probes whether doubling the input doubles the output - what a line through the origin means - so it opens the day on mis.proportional.line-misses-origin. No graph, origin or line named, so it does not front-load. Avoids any fixed-fee framing, which would front-load activity 04's DoL."
+          }
+        ]
+      },
+      {
+        "chain_id": "chain.linear.slope",
+        "skills": [
+          "linear.slope.two-points",
+          "linear.slope.from-graph",
+          "linear.slope.interpret-context"
+        ],
+        "activities": 5,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.linear.forms",
+        "skills": [
+          "linear.form.slope-intercept-graph",
+          "linear.form.slope-intercept-write",
+          "linear.form.point-slope",
+          "linear.form.standard",
+          "linear.form.convert"
+        ],
+        "activities": 8,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.linear.model",
+        "skills": [
+          "linear.model.contextual"
+        ],
+        "activities": 3,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.function.definition",
+        "skills": [
+          "function.definition.mapping",
+          "function.definition.vlt"
+        ],
+        "activities": 3,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.function.notation",
+        "skills": [
+          "function.notation.evaluate",
+          "function.notation.solve"
+        ],
+        "activities": 4,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.function.representations",
+        "skills": [
+          "function.repr.correspondence"
+        ],
+        "activities": 3,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.function.domain-range",
+        "skills": [
+          "function.domain-range.graph",
+          "function.domain-range.context"
+        ],
+        "activities": 3,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.function.families",
+        "skills": [
+          "function.family.parent-linear",
+          "function.family.parent-quadratic"
+        ],
+        "activities": 2,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.transform.translate",
+        "skills": [
+          "transform.vertical.translate",
+          "transform.horizontal.translate"
+        ],
+        "activities": 2,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.transform.stretch-reflect",
+        "skills": [
+          "transform.vertical.stretch",
+          "transform.reflect",
+          "transform.horizontal.stretch"
+        ],
+        "activities": 4,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.transform.compose",
+        "skills": [
+          "transform.compose-order",
+          "transform.quadratic.vertex-form",
+          "transform.write-from-graph"
+        ],
+        "activities": 5,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.roc.average",
+        "skills": [
+          "roc.average.from-table",
+          "roc.average.secant",
+          "roc.average.function-notation",
+          "roc.average.varies-nonlinear",
+          "roc.average.interpret-context"
+        ],
+        "activities": 7,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.limit.intro",
+        "skills": [
+          "limit.numeric.table",
+          "limit.graphical.estimate",
+          "limit.notation"
+        ],
+        "activities": 4,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.limit.difference-quotient",
+        "skills": [
+          "limit.secant-to-tangent",
+          "limit.difference-quotient.setup",
+          "limit.difference-quotient.simplify"
+        ],
+        "activities": 5,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.deriv.definition",
+        "skills": [
+          "deriv.definition.at-a-point",
+          "deriv.interpret.slope-tangent",
+          "deriv.interpret.context-units"
+        ],
+        "activities": 5,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.deriv.rules",
+        "skills": [
+          "deriv.from-definition.polynomial",
+          "deriv.f-prime-as-function",
+          "deriv.rule.power",
+          "deriv.justify.constant"
+        ],
+        "activities": 6,
+        "hooks": []
+      }
+    ],
+    "total_skills": 47,
+    "total_activities_projected": 73
+  },
+  "capabilities": [
+    {
+      "id": "fill_blank",
+      "label": "Fill in the blank",
+      "medium": "electronic",
+      "affords": "Typed answer inside a paragraph. Alternates via |, math-equivalence via ==, numeric via = with tolerance.",
+      "constraints": "Per-answer feedback (!wrong ::) and one hint (?…) per blank. No feedback branching beyond listed wrong answers.",
+      "status": "shipped",
+      "grading": {
+        "scoring": "auto",
+        "captures_response": true,
+        "score_shape": "boolean"
+      }
+    },
+    {
+      "id": "gap_equation",
+      "label": "Gap inside a displayed equation",
+      "medium": "electronic",
+      "affords": "Student completes a missing part of a $$…$$ step. Graded by math equivalence.",
+      "constraints": "Lives only inside displayed math. Ideal for faded \"complete the step\".",
+      "status": "shipped",
+      "grading": {
+        "scoring": "auto",
+        "captures_response": true,
+        "score_shape": "boolean"
+      }
+    },
+    {
+      "id": "graph",
+      "label": "Coordinate-plane answer",
+      "medium": "electronic",
+      "affords": "Student graphs a line/curve/point/region/inequality; auto-graded.",
+      "constraints": "GRADES linear, quadratic, exponential, logarithmic, vertical only. Cubic+ can be shown, not graded. Built-in mistake feedback on by default.",
+      "status": "shipped",
+      "grading": {
+        "scoring": "auto",
+        "captures_response": true,
+        "score_shape": "fraction",
+        "note": "partial-credit yields earned/total per object; plain mode is boolean. Mistake hints are student-facing only, never affect score."
+      }
+    },
+    {
+      "id": "numberline",
+      "label": "1-D number line",
+      "medium": "electronic",
+      "affords": "Student plots points or graphs an interval/ray.",
+      "constraints": "",
+      "status": "shipped",
+      "grading": {
+        "scoring": "auto",
+        "captures_response": true,
+        "score_shape": "boolean"
+      }
+    },
+    {
+      "id": "dataplot",
+      "label": "Statistics chart",
+      "medium": "electronic",
+      "affords": "Student builds a dotplot/histogram/boxplot; chart computed from the data.",
+      "constraints": "Dataset is a literal — no randomness or sampling. Boxplot handle tolerance configurable.",
+      "status": "shipped",
+      "grading": {
+        "scoring": "auto",
+        "captures_response": true,
+        "score_shape": "boolean",
+        "note": "All-or-nothing: exact frequencies, or all five boxplot handles within tolerance."
+      }
+    },
+    {
+      "id": "mc",
+      "label": "Multiple choice / select-all",
+      "medium": "either",
+      "affords": "Single or multi-select; choices may carry images or static graphs; per-choice feedback via ::.",
+      "constraints": "",
+      "status": "shipped",
+      "grading": {
+        "scoring": "auto",
+        "captures_response": true,
+        "score_shape": "boolean",
+        "note": "Exact set equality on selected choices — all-or-nothing even when multi-select."
+      }
+    },
+    {
+      "id": "match",
+      "label": "Two-column matching",
+      "medium": "either",
+      "affords": "Match items to options, shuffled; either side may be math, image, or static graph.",
+      "constraints": "Strictly two columns. No 3+ way correspondence in one object.",
+      "status": "shipped",
+      "grading": {
+        "scoring": "auto",
+        "captures_response": true,
+        "score_shape": "per_pair",
+        "note": "Scores per pair; block boolean is every-pair-correct."
+      }
+    },
+    {
+      "id": "order",
+      "label": "Put-in-order",
+      "medium": "either",
+      "affords": "Drag shuffled items into the correct sequence.",
+      "constraints": "",
+      "status": "shipped",
+      "grading": {
+        "scoring": "auto",
+        "captures_response": true,
+        "score_shape": "boolean",
+        "note": "Exact sequence equality."
+      }
+    },
+    {
+      "id": "worked",
+      "label": "Worked example",
+      "medium": "either",
+      "affords": "A boxed, fully worked example to study. One block per line.",
+      "constraints": "No lists or images inside. The I-do primitive.",
+      "status": "shipped",
+      "grading": {
+        "scoring": "none",
+        "captures_response": false,
+        "score_shape": "none"
+      }
+    },
+    {
+      "id": "faded",
+      "label": "Faded worked example",
+      "medium": "either",
+      "affords": "A worked example where {{blank}} / \\gap{} lines become student steps.",
+      "constraints": "The we-do primitive. Fade from the end.",
+      "status": "shipped",
+      "grading": {
+        "scoring": "auto",
+        "captures_response": true,
+        "score_shape": "per_gap",
+        "note": "Container, not itself scorable. Contributes only its gaps, each auto-scored by math equivalence."
+      }
+    },
+    {
+      "id": "objectives",
+      "label": "Learning objectives",
+      "medium": "either",
+      "affords": "A goals list opening the activity.",
+      "constraints": "",
+      "status": "shipped",
+      "grading": {
+        "scoring": "none",
+        "captures_response": false,
+        "score_shape": "none"
+      }
+    },
+    {
+      "id": "explain",
+      "label": "Self-explanation",
+      "medium": "electronic",
+      "affords": "Ungraded free-text reflection with optional sentence starter.",
+      "constraints": "",
+      "status": "shipped",
+      "grading": {
+        "scoring": "none",
+        "captures_response": true,
+        "score_shape": "none",
+        "note": "Captured but never scored — text rides the same free-response wire as shortanswer/essay, but no grades row is ever created."
+      }
+    },
+    {
+      "id": "shortanswer",
+      "label": "Short answer (rubric)",
+      "medium": "either",
+      "affords": "Graded free-text against a criterion rubric. Teacher-scored.",
+      "constraints": "The justification DoL — the NCEA Merit/Excellence primitive.",
+      "status": "shipped",
+      "grading": {
+        "scoring": "rubric",
+        "captures_response": true,
+        "score_shape": "per_criterion",
+        "note": "Opaque {text} at submit; per-criterion earned/feedback only after a human grades. Rubric optional; rubric-less still teacher-graded."
+      }
+    },
+    {
+      "id": "essay",
+      "label": "Essay (rubric + word count)",
+      "medium": "either",
+      "affords": "Graded long free-text with a live word counter and rubric.",
+      "constraints": "",
+      "status": "shipped",
+      "grading": {
+        "scoring": "rubric",
+        "captures_response": true,
+        "score_shape": "per_criterion",
+        "note": "Same as shortanswer, plus a word-count target."
+      }
+    },
+    {
+      "id": "definition",
+      "label": "Tappable definition",
+      "medium": "electronic",
+      "affords": "[[term :: meaning]] inline vocab pop-up.",
+      "constraints": "",
+      "status": "shipped",
+      "grading": {
+        "scoring": "none",
+        "captures_response": false,
+        "score_shape": "none",
+        "note": "Tap-to-reveal is separate from the scoring runtime; records nothing."
+      }
+    },
+    {
+      "id": "columns",
+      "label": "Columns",
+      "medium": "either",
+      "affords": "2–6 side-by-side blocks.",
+      "constraints": "",
+      "status": "shipped",
+      "grading": {
+        "scoring": "none",
+        "captures_response": false,
+        "score_shape": "none"
+      }
+    },
+    {
+      "id": "callout",
+      "label": "Callout box",
+      "medium": "either",
+      "affords": "Tinted note (info/warning/success/note).",
+      "constraints": "",
+      "status": "shipped",
+      "grading": {
+        "scoring": "none",
+        "captures_response": false,
+        "score_shape": "none"
+      }
+    },
+    {
+      "id": "draggable_curve",
+      "label": "Draggable / manipulable curve",
+      "medium": "electronic",
+      "affords": "Hand the student a parent curve they drag to a target, capturing the drag position independent of any typed equation.",
+      "constraints": "Enables the drag-then-type disagreement diagnostic. NOT the same as graph, which asks the student to produce.",
+      "status": "proposed",
+      "grading": {
+        "scoring": "auto",
+        "captures_response": true,
+        "score_shape": "unknown"
+      }
+    },
+    {
+      "id": "nway_correspondence",
+      "label": "N-way correspondence",
+      "medium": "electronic",
+      "affords": "Match across 3+ sets at once (graph/table/equation/context) with per-edge partial credit.",
+      "constraints": "match is two-column only.",
+      "status": "proposed",
+      "grading": {
+        "scoring": "auto",
+        "captures_response": true,
+        "score_shape": "unknown"
+      }
+    },
+    {
+      "id": "seeded_data",
+      "label": "Seeded / randomised dataset",
+      "medium": "electronic",
+      "affords": "Generate data from a seed so the same activity yields a different correct answer each run.",
+      "constraints": "Required for sampling variability. Every dataplot dataset is currently a literal.",
+      "status": "proposed",
+      "grading": {
+        "scoring": "auto",
+        "captures_response": true,
+        "score_shape": "unknown"
+      }
+    },
+    {
+      "id": "graded_polynomial",
+      "label": "Graded higher-degree curve",
+      "medium": "electronic",
+      "affords": "Auto-grade a student-drawn cubic or higher.",
+      "constraints": "graph grades up to quadratic. Bites the power-rule generalisation (x^3).",
+      "status": "proposed",
+      "grading": {
+        "scoring": "auto",
+        "captures_response": true,
+        "score_shape": "unknown"
+      }
+    },
+    {
+      "id": "reference",
+      "label": "Reference sheet panel",
+      "medium": "either",
+      "status": "shipped",
+      "affords": "A read-only formula/vocab panel students open from a button while working; prints as a box at the top of the page. Supports headings, lists, displayed math, images, and shared-grid comparison graphs.",
+      "constraints": "Never contains questions or blanks. One fence per activity (a second appends). AMBIENT: student-openable at any time during the activity, including the review component — so it is open-book for everything on it.",
+      "grading": {
+        "scoring": "none",
+        "captures_response": false,
+        "score_shape": "none"
+      }
+    }
+  ],
+  "authoring_principles": "# Authoring Principles\n\nThis document is injected into every drafting prompt. It states the *why* behind the\nschema's structure, so a model composing an activity makes the same call the author\nwould make — not a plausible-sounding different one. Where a principle constrains you,\nthe constraint is deliberate. Where it is silent, use judgment and flag the gap.\n\nNothing here is decoration. If a draft satisfies the schema but violates a principle,\nthe draft is wrong.\n\n---\n\n## 1. What this curriculum is\n\nAn explicit-instruction mathematics curriculum, intro algebra through calculus and\nstatistics, delivered as short single-period activities that a platform ingests — the cap\nis `activity_defaults.duration_min`. It is built\nfor novice learners acquiring new content. The design follows the evidence on how\nnovices learn: full guidance during acquisition, support faded gradually, retrieval\nspaced deliberately, misconceptions anticipated and named.\n\nIt is not a discovery curriculum. During acquisition, students do not induce new\ncontent from open-ended tasks — the working-memory cost of unguided search crowds out\nthe learning it is supposed to produce. Open problems and transfer tasks have a real\nplace *after* schema exists; they are consolidation tools, not acquisition tools.\nConcede this openly when challenged: explicit instruction wins for acquiring new\ncontent; the last stretch of a topic, once students have schema, is where richer\ntasks earn their keep.\n\n## 2. The skill graph is the asset\n\nSkills are durable objects. Activities are disposable delivery instances aimed at them.\n\n- Every activity targets exactly one primary skill. Review pointers, DoL items, and\n  data all reference **skill ids**, never activity ids. Activities get rewritten;\n  the graph endures.\n- Prerequisite edges are authored at write time, never as a cleanup pass. An edge is\n  a claim: *you cannot hold this skill without that one.* Sequencing preference is\n  not an edge. Two skills that merely tend to be taught together get no edge.\n- Anything the graph can derive is derived, never hand-declared. Progress, coverage,\n  and review candidates are computed. A hand-maintained duplicate of derivable state\n  will drift, and drifted state that looks authoritative is worse than no state.\n\n## 3. Every activity keeps one contract\n\nThree components, in this order: **review → lesson → DoL.**\n\nThe platform treats all three identically feature-wise; the division informs the\nteacher and the student, it does not gate anything. But the authoring order is not\nnegotiable, because each position has a mechanism:\n\n- **Review comes first** because retrieving prior skills activates the exact schema\n  the new content is about to attach to. Moved after the lesson it becomes practice\n  of what was just taught — a different mechanism with a smaller payoff, which\n  already lives inside the lesson as the independent beat.\n- **The lesson has three beats: worked → faded → independent.** Never fewer.\n- **The DoL closes.** It is the only locale-bearing component (see §8).\n\n## 4. The hook\n\nEvery teaching day opens with a hook: an interesting question, relevant to the day's\ncontent, that students think about before anything else. It is an engagement device,\nnot an instruction device — it buys attention and a reason to care; it does not teach.\n\n**Hooks are a chain-level pool; activities never carry them.** Each chain holds a pool\nsized by `activity_defaults.hook_contract.minimum`. A hook is not welded to any\nactivity: the teacher fires one when *their* class day starts, because period\nboundaries are classroom facts the data model cannot see — one class covers three\nactivities on a block day, another covers one and a half, and only the teacher knows\nwhere the day began. Within every activity, review keeps position one regardless.\n\nRules for a hook:\n- One question, thinkable in under a minute, answerable by intuition or guess —\n  no prerequisite knowledge should be needed to *engage* with it, even if answering\n  it well requires the day's content.\n- It must genuinely connect to a skill in its chain. A fun but irrelevant opener\n  trains students that the opener is skippable.\n- It must not front-load the lesson's content. If answering the hook requires the\n  worked example, the hook has become discovery learning through the back door. The\n  hook raises the question; the lesson earns the answer.\n- Strong hook shapes: a surprising claim to evaluate (\"a 20% discount then 20% tax\n  returns the price to normal — true?\"), a prediction to commit to, a wrong answer\n  from a fictional student to react to, two plausible-looking options to choose\n  between. Weak hooks: trivia, \"have you ever wondered,\" anything answerable with\n  a shrug.\n- Quality beats coverage: the pool minimum exists so no teaching day opens empty,\n  not to manufacture filler. A chain may exceed the minimum only with hooks that\n  earn their place.\n\n## 5. The lesson beats\n\n**Worked (I do).** Fully worked. Every step visible, including the step an expert\nperforms silently. The narration says the reasoning out loud — not what was done but\n*why it was the move*. No \"what do you notice\" as the mechanism for new content; if\nnoticing is doing the teaching, it is discovery wearing a lab coat.\n\n**Faded (we do).** The same procedure with support removed **from the end** — the\nstart intact, the later steps blanked. This beat is mandatory, no exceptions. The\njump from demonstration straight to independent practice is the single most common\nfailure in explicit-instruction materials; the faded beat is where the worked-example\neffect actually pays out. Fade level responds to position in the chain: earlier\nparts fade less, later parts fade more.\n\n**Independent (you do).** Practice on the skill itself, at enough volume to be worth\ngrading (typically 4–8 items). Where the platform supports a decision, prefer items\nthat force the *choice* of method, not just its execution.\n\nOne worked example per new idea. Two ideas in one activity means the activity should\nhave been two activities.\n\n## 6. Review is spaced retrieval, not warm-up filler\n\nThe review component draws from the primary skill's **ancestor pool** — the set of\nskills upstream of it in the graph. Not siblings, not vibes: ancestors.\n\n- **At least one item reaches far enough back**, per\n  `activity_defaults.review_selection.constraint`. Retrieving only yesterday's skill is\n  yesterday's lesson repeated, not spaced retrieval. Where the graph is shallower than the\n  constraint asks — as it is at the very top of the curriculum — the constraint's own floor\n  clause applies; do not invent an intermediate skill to satisfy it.\n- Prefer prerequisites the students have not touched recently — staleness is the\n  point. Prefer prerequisites the lesson is about to lean on — activation is the\n  other point. The best review item is both: stale *and* load-bearing for today.\n- Chain position governs the slice, per `activity_defaults.chain_rules`. Chain position 1\n  gets full prerequisite-targeted review. Chain position 2+ gets a brief retrieval of the\n  previous position only, with the recovered minutes going to independent practice; never\n  repeat chain position 1's review later in the chain. Spaced retrieval is not lost at\n  chain position 2+ — the DoL carries it at every position (§8). The final position in a\n  chain has its own exit-check rule (`chain_rules.final_position`).\n  Note: \"chain position\" is position within the chain. It is unrelated to a *skill part*,\n  which is one of the activities delivering a single skill.\n- Long-arc edges are the flagship. When a skill's ancestor sits years back\n  (units-on-slope feeding units-on-derivatives), reviewing it just before it is\n  needed is the whole argument for the graph. Plant those items deliberately.\n\n## 7. Misconceptions are first-class\n\nA wrong answer is rarely random. Anticipated wrong answers map to **named\nmisconception ids** via distractor maps, and the map is what turns feedback from\n\"incorrect, try again\" into diagnosis.\n\n- **A misconception attaches to every skill that can elicit it** — not merely the one it\n  was first noticed on. The test is whether an author writing distractors for that skill\n  should be anticipating this error; \"conceivably possible\" is too broad and \"names this\n  skill\" is too narrow. The clearest case: **a label naming a confusion *between* two things\n  attaches to both skills.** A pair-confusion instrumented on one side is a sensor pointed at half the\n  phenomenon: items on the unattached skill carry no binding, so the data under-reports the\n  error and attributes all of what it does see to whichever skill holds the attachment. If\n  only one attachment is defensible, the label is describing a one-sided error and should be\n  reworded to say so.\n  Not mechanically checkable: whether a second skill can exhibit an error is a question\n  about the mathematics, not about the label. Ask it once per chain at authoring time, for\n  every misconception attached to any skill in that chain.\n- **A misconception about the FORM of a response binds only where the response format\n  admits that form and the item requires it.** A units-dropped binding on a numeric blank\n  cannot fire on the misconception, because the blank cannot carry units at all — it fires on\n  the format, and reports every correct answer as an error. The carrier is an item where\n  omitting the form is a choice the student makes: an mc whose distractor is the unitless\n  value, or a response type that accepts units and an item that demands them. Same family as\n  the auto-scored rule above — a binding that cannot fire does not mean what it appears to\n  mean.\n- Use only ids that exist in the registry. Never invent one inline — describe the\n  anticipated error in a note instead, so a human can promote it to an id.\n- **Distractor maps go only on auto-scored, per-item captured types** (multiple\n  choice, graph, fill-in-the-blank). On a teacher-graded item the map produces no\n  aggregate signal until a human marks it; it is dead weight there.\n- Feedback attached to a wrong answer names the error's logic, not just the fact of\n  the error. \"That is the third-largest city, not the capital\" beats \"incorrect.\"\n- The misconception data is the platform's most valuable output. Every mapped\n  distractor is a sensor. Author accordingly.\n\n## 8. Assessment is local; instruction is not\n\nMathematics is universal; assessment of mathematical skill is not. The same skill\nterminates in a procedural computation under one qualification and a justified\nargument under another.\n\n- The **DoL is the only component that varies by locale.** Review and lesson are\n  written locale-neutral. When the qualification changes, the DoL swaps and the\n  rest stands.\n- Write the DoL the way the named locale asks — its response format, its idea of\n  evidence. A rubric-graded justification for a Merit/Excellence locale; auto-scored\n  items for a procedural one.\n- Know the data cost: auto-scored DoLs feed misconception aggregates immediately;\n  rubric-graded DoLs capture text now and yield structured per-criterion scores only\n  after a human grades. Neither is wrong. A chain whose every DoL is rubric-graded\n  is a deliberate marking-load decision, not a default.\n- A DoL has exactly 2 items: one on the primary skill, one on a review-pool skill far\n  enough back, per `activity_defaults.review_selection.constraint` and its floor clause.\n  Contextual items require units in the answer.\n\n## 9. Compose only from shipped capabilities\n\nThe capability registry is the platform's truth. Draft only with capabilities marked\nshipped, inside their stated constraints (graded curve families, two-column matching,\nliteral datasets, and the rest).\n\n- If the pedagogically ideal move needs an unshipped capability, author the\n  **fallback** — the best version buildable today — and record the wish against the\n  proposed capability. A wish without a working fallback is a blocker, and a blocker\n  caps the activity at draft.\n- Never assume a capability exists because it plausibly should. The registry, not\n  intuition, is the boundary.\n\n## 10. Time is a budget, not a suggestion\n\nOne period per activity, hard cap: `activity_defaults.duration_min`. The default internal\nsplit across the beats is `activity_defaults.phase_budget_min`; read the values there\nrather than from memory. Content that does not fit becomes another activity\nin the chain — that trade was accepted at the start. Do not compress the faded beat\nto make room; it is the beat that looks most optional and is least.\n\n## 11. Language and tone\n\n- Voice is a teacher talking to students, not a textbook. Narrations are speakable.\n- Precision beats friendliness where they conflict; say \"expression\" when it is an\n  expression and \"equation\" when it is an equation.\n- Lexical simplicity in the prose, full precision in the mathematics. Sentence\n  structure stays simple — the difficulty lives in the maths, not the reading, and a\n  multilingual student who can do the maths must not be assessed on English. But\n  mathematical vocabulary is never simplified away: students need \"coefficient,\"\n  \"vertex,\" and \"rate of change\" flowing naturally, because those are the words the\n  discipline and the exams use.\n- Every technical term is marked with the definition capability\n  ([[term :: meaning]]) in every activity — not just on first use. It is a tap-away\n  reference, not an interruption; forcing a student to scroll back to wherever a\n  word was first defined helps no one. The pop-up serves the student who needs it\n  and is invisible to the one who does not.\n- Name conventions honestly: \"this is the slope formula you already know, renamed\" —\n  unification is taught, not discovered.\n- Contexts are real and checked. A context with fake numbers that fall apart under\n  scrutiny teaches students that context is decoration.\n- In NZ settings, use NZ vocabulary and conventions naturally (Year levels, NZ\n  contexts where they help), without performing them.\n\n## 12. The human gate\n\nEverything a model drafts is a **draft**. It does not count toward progress, it does\nnot ship, until a human has read it end to end and approved it. The model is a\ndrafter whose reasoning gets checked, not a colleague whose judgment is trusted.\nPlausible prose at volume is the failure mode; the gate is the defense. An activity\nthat satisfies every rule in this document can still be wrong in ways only a teacher\nreading it will catch — that reading is not optional overhead, it is the quality\nmechanism.\n\n---\n\n## 13. Examples are minimal pairs\n\nAcross a sequence of worked and faded examples, vary **one feature at a time**:\nsigns, then the position of the variable, then a fraction coefficient. The student's\nattention lands on the thing that changed because everything else held still.\n\"Varied practice\" that shuffles every surface feature at once feels richer and\nteaches less — the structure is buried under noise. This rule exists because\nunprompted drafting defaults to variety; the sequence design is the instruction.\n\n## 14. Practice discriminates\n\nOnce two confusable skills both exist (evaluate f(3) vs solve f(x)=3), independent\npractice interleaves items that force the *choice* between them. Blocked practice —\nsix of one, then six of the other — inflates lesson-end scores and hides the\nconfusion, because the block tells the student which procedure applies and the item\nnever has to. The named misconceptions are the map of what to interleave: students\nwho know skills but not when to apply them is the failure this prevents.\n\n## 15. Retrieval is closed-book\n\nReview items are answerable from memory, with nothing on screen or in notes that\ncontains the answer. An item whose answer is visible tests navigation, not\nretention, and the retrieval effect — the mechanism the review component exists\nfor — only occurs when memory does the work. Phrase accordingly: \"find the slope\nthrough (2,1) and (5,7)\" retrieves; \"state the slope formula\" fails if the formula\nis anywhere in sight.\n\n**The reference panel is open-book for the whole activity, so it is part of \"in\nsight.\"** Nothing a review item retrieves may appear on the activity's `reference`\nfence — not the formula, not a worked instance of the procedure, not the\ndefinition being recalled. The author choosing what goes on the sheet is\nsimultaneously choosing what the review may no longer ask, and the two decisions\nare usually made minutes apart by someone thinking about only one of them. Write\nthe review first, then the sheet.\n\n## 16. Error analysis is a first-class item type\n\n\"A student wrote X — find and explain the error.\" These test the skill and the\nmisconception simultaneously, and the planted error always comes from a named\nmisconception id. Under an NCEA-first curriculum they carry extra weight: they are\nthe one format that keeps misconception targeting in auto-scorable form inside a\njustification locale, so they are the main automatic data source when most DoLs are\nrubric-graded. Use them routinely in DoLs and independent practice.\n",
+  "grading_model": null
+}

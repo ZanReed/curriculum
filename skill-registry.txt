@@ -1,0 +1,88 @@
+# Skill registry — the valid skill id set.
+#
+# A bare id is a one-part skill; `id = n` declares a skill delivered across n
+# activities (D23). External prerequisites are NOT here — valid review and DoL
+# targets, never taught, never counted toward coverage.
+# Generated from thread-01-rate-of-change.json v0.13.0 — 47 skills, 51 parts, 17 chains. Do not hand-edit: regenerate.
+
+
+# chain.rate.proportional  (3 skills, 4 activities projected)
+rate.unit-rate                            # Compute a unit rate from a ratio
+rate.constant-of-proportionality          # Identify the constant of proportionality k in y = kx from a table, graph, or context
+rate.proportional-graph                   # Recognise a proportional relationship as a line through the origin
+
+# chain.linear.slope  (3 skills, 5 activities projected)
+linear.slope.two-points                   # Compute slope from two points
+linear.slope.from-graph                   # Read slope from a graph, attending to axis scale
+linear.slope.interpret-context            # Interpret slope as a rate of change in context, with units
+
+# chain.linear.forms  (5 skills, 8 activities projected)
+linear.form.slope-intercept-graph         # Graph a line from y = mx + b
+linear.form.slope-intercept-write         # Write y = mx + b from a graph, a table, or two points
+linear.form.point-slope                   # Write and use point-slope form
+linear.form.standard                      # Use standard form Ax + By = C, including intercepts
+linear.form.convert                       # Convert between linear forms and select the efficient form for a given task
+
+# chain.linear.model  (1 skills, 3 activities projected)
+linear.model.contextual = 3               # Build, interpret, and critique a linear model of a scenario
+
+# chain.function.definition  (2 skills, 3 activities projected)
+function.definition.mapping               # State and apply the definition of a function: each input has exactly one output
+function.definition.vlt                   # Apply the vertical line test and justify why it works
+
+# chain.function.notation  (2 skills, 4 activities projected)
+function.notation.evaluate                # Evaluate f(3), f(a), f(a+h), f(2x)
+function.notation.solve                   # Solve f(x) = k and distinguish it from evaluating f(k)
+
+# chain.function.representations  (1 skills, 3 activities projected)
+function.repr.correspondence = 3          # Identify the same function across graph, table, equation, and context
+
+# chain.function.domain-range  (2 skills, 3 activities projected)
+function.domain-range.graph               # Determine domain and range from a graph
+function.domain-range.context             # Restrict domain and range to fit a context and justify the restriction
+
+# chain.function.families  (2 skills, 2 activities projected)
+function.family.parent-linear             # Recognise y = x as the linear parent function
+function.family.parent-quadratic          # Recognise y = x² as the quadratic parent function and describe its key features
+
+# chain.transform.translate  (2 skills, 2 activities projected)
+transform.vertical.translate              # Describe and apply f(x) + k
+transform.horizontal.translate            # Describe and apply f(x - h)
+
+# chain.transform.stretch-reflect  (3 skills, 4 activities projected)
+transform.vertical.stretch                # Describe and apply a·f(x)
+transform.reflect                         # Describe and apply -f(x) and f(-x)
+transform.horizontal.stretch              # Describe and apply f(bx)
+
+# chain.transform.compose  (3 skills, 5 activities projected)
+transform.compose-order                   # Apply multiple transformations in the correct order and explain why order matters
+transform.quadratic.vertex-form           # Read y = a(x - h)² + k as a transformation of the parent quadratic
+transform.write-from-graph                # Write the equation of a transformed function given its graph
+
+# chain.roc.average  (5 skills, 7 activities projected)
+roc.average.from-table                    # Compute average rate of change from a table over a stated interval
+roc.average.secant                        # Identify average rate of change as the slope of a secant line
+roc.average.function-notation             # Express average rate of change as [f(b) - f(a)] / (b - a)
+roc.average.varies-nonlinear              # Explain why average rate of change differs across intervals for a nonlinear function
+roc.average.interpret-context             # Interpret average rate of change in context, with units
+
+# chain.limit.intro  (3 skills, 4 activities projected)
+limit.numeric.table                       # Estimate a limit numerically, approaching from both sides
+limit.graphical.estimate                  # Estimate a limit from a graph, including where the function is undefined
+limit.notation                            # Read and write limit notation correctly
+
+# chain.limit.difference-quotient  (3 skills, 5 activities projected)
+limit.secant-to-tangent                   # Describe the tangent line as the limiting position of secant lines
+limit.difference-quotient.setup           # Set up [f(a + h) - f(a)] / h for a given function
+limit.difference-quotient.simplify        # Simplify the difference quotient and cancel h before taking the limit
+
+# chain.deriv.definition  (3 skills, 5 activities projected)
+deriv.definition.at-a-point               # Define f′(a) as the limit of the difference quotient as h → 0
+deriv.interpret.slope-tangent             # Interpret f′(a) as the slope of the tangent line at x = a
+deriv.interpret.context-units             # Interpret f′(a) in context with correct units
+
+# chain.deriv.rules  (4 skills, 6 activities projected)
+deriv.from-definition.polynomial          # Compute the derivative of a low-degree polynomial from the definition
+deriv.f-prime-as-function                 # Treat f′ as a function rather than a number, and read f′ from the graph of f
+deriv.rule.power                          # State and apply the power rule, generalised from computed cases
+deriv.justify.constant                    # Justify why the derivative of a constant function is zero

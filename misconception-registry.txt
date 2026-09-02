@@ -1,0 +1,40 @@
+# Misconception registry — the valid mis.* id set.
+#
+# Generated from thread-01-rate-of-change.json v0.13.0. Do not hand-edit: regenerate.
+# An id-shaped token not listed here warns, and fails under --strict.
+
+mis.arith.negative-squared                        # Believes squaring a negative input gives a negative output
+mis.deriv.constant-rule-confused                  # Applies the power rule to a constant, yielding a nonzero derivative
+mis.deriv.f-prime-is-a-number                     # Treats f′ as a single value rather than a function that varies with x
+mis.deriv.reads-f-graph-as-f-prime                # Reads the graph of f as if it were the graph of f′ — says f′ is positive where f is positive rather than where f is increasing
+mis.deriv.tangent-touches-once                    # Believes a tangent line may only meet the curve at one point
+mis.deriv.units-dropped                           # Interprets f′(a) without units in a contextual problem
+mis.family.any-member-is-parent                   # Treats any member of a family as the parent rather than the untransformed one — any line for y = x, any parabola for y = x²
+mis.form.intercept-wrong-variable                 # Sets the wrong variable to zero when finding an intercept
+mis.form.m-b-swapped                              # Reads b as slope and m as intercept
+mis.form.standard-slope-sign                      # Reads the slope of Ax + By = C as A/B, dropping the negative
+mis.function.context-restriction-ignored          # Gives the mathematical domain of the formula, ignoring what the context permits
+mis.function.domain-range-swapped                 # Reports the range when asked for the domain, or the reverse
+mis.function.endpoint-open-closed                 # Includes an open endpoint, or excludes a closed one, when reading an interval
+mis.function.evaluate-vs-solve                    # Answers f(3) when asked to solve f(x)=3, or vice versa
+mis.function.f-of-a-plus-h-distributed            # Writes f(a+h) as f(a)+f(h)
+mis.function.needs-a-formula                      # Rejects a correspondence as a function because no equation defines it
+mis.function.notation-multiplication              # Reads f(x) as f times x
+mis.function.one-to-one-required                  # Requires each output to have exactly one input — rejects y = x² as a function, or applies the test horizontally
+mis.limit.equals-substitution                     # Believes a limit is by definition the value obtained by substitution
+mis.limit.h-set-to-zero-early                     # Sets h=0 before simplifying the difference quotient
+mis.limit.one-sided-superscript-ignored           # Reads x → a⁻ and x → a⁺ as x → a, and reports the two-sided limit
+mis.proportional.line-misses-origin               # Believes a proportional graph need not pass through the origin
+mis.proportional.one-pair-assumed-constant        # Concludes a relationship is proportional from one pair without checking the ratio is constant
+mis.rate.compares-totals                          # Compares total amounts (or picks by quantity) instead of the amount per one
+mis.rate.ratio-inverted                           # Divides the quantities the wrong way round — x ÷ y instead of y ÷ x
+mis.roc.assumes-constant                          # Assumes average rate of change is the same on every interval of a nonlinear function
+mis.roc.secant-vs-tangent                         # Treats the average rate of change over an interval as the rate at a point
+mis.roc.uses-endpoint-value                       # Reports f(b) instead of the change in f over the interval
+mis.slope.rise-run-inverted                       # Computes run/rise instead of rise/run
+mis.slope.steeper-is-bigger                       # Treats visual steepness as slope magnitude without reading the scale
+mis.slope.subtraction-order                       # Mismatches subtraction order between numerator and denominator
+mis.slope.units-dropped                           # Reports slope as a bare number, no units, in a contextual problem
+mis.transform.horizontal-direction                # Believes a subtraction inside the argument shifts left — f(x−h), and y−y₁=m(x−x₁)
+mis.transform.inside-outside                      # Applies inside changes to the y-direction and outside changes to the x-direction
+mis.transform.stretch-vs-shift                    # Confuses a·f(x) with f(x)+a

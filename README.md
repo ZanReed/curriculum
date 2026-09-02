@@ -11,13 +11,17 @@ boundary page can carry a pointer of the same strength as the platform's:
 a raw URL, a commit stamp, a sha256, and CI that fails on drift — current
 by construction, not by discipline.
 
-## Status: awaiting seed
+## Status: seeded at graph v0.13.0 (2026-09-02)
 
-The current artifacts (graph at v0.13.x, the `.md` set, the registries, the
-three scripts) live in the author's Claude project and have not been
-exported yet. **CI is red by design until the seed lands** — a missing
-input fails its check rather than skipping it, because a skipped check
-reads as a passed one from the other side of the boundary.
+Seeded from the author's Claude-project export. All four checks green at
+seed; the registries were regenerated once under this repo's canonical
+filename (the only diff against the export was the generator's own
+source-filename header line). Two things the seed deliberately excludes:
+the correspondence letters (superseded by the boundary pages, per the
+curriculum side's own recommendation) and the activity `.md` files (they
+live in the catalogue). One known gap: `decision-log.md` proper (D1–D17)
+lives in the catalogue repo's `.docs/`; this repo carries
+`decision-log-additions.md` (D18–D30 plus amendments).
 
 ## The four checks (`.github/workflows/check.yml`)
 
@@ -36,11 +40,12 @@ reads as a passed one from the other side of the boundary.
    threshold that `activity_defaults` declares (D25).
 4. **Referential integrity** — `python3 scripts/check_integrity.py <graph>`:
    no dangling prereq or misconception reference, no orphan misconception,
-   the chunking plan's skill set equals the graph's, every skill declares
-   `parts`, every registry id exists in the graph, and the declared parts
-   total equals `sum(parts)`. The registry-parsing half is NOT yet bound to
-   the real registry format and fails red until it is (see the script
-   header — keep its zero-ids-extracted guard when binding).
+   the chunking plan's skill set equals the graph's, every registry id
+   exists in the graph (`parts` defaults to 1 when undeclared), every
+   `= n` matches the graph, chain-registry folder names resolve, and the
+   skill registry's declared parts total equals `sum(parts)` — 51 at seed,
+   the burndown denominator. Extracting zero ids from a present registry
+   is itself a failure (the vacuity guard).
 
 ## File map
 
@@ -48,19 +53,22 @@ reads as a passed one from the other side of the boundary.
 | --- | --- |
 | `thread-01-rate-of-change.json` | the graph — skills, edges, misconceptions, `activity_defaults`, `chunking_plan`, capabilities. Single source of truth. |
 | `authoring-principles.md` | the pedagogy prose — single edit surface, injected into the graph by check 1's `--fix` |
-| `decision-log.md` | D1–D30 |
+| `decision-log-additions.md` | D18–D30 + amendments (D1–D17 live in the catalogue repo's `.docs/decision-log.md`) |
 | `open-questions.md` | what is unresolved, and who decides |
 | `chain-hooks.md` | the hook holding pen |
-| `misconception-proposals-*.md` | the reasoning behind ratified ids |
+| `misconception-proposals-ten-skills.md` | the reasoning behind the 13 ids ratified at v0.12.0 |
 | `skill-registry.txt` | GENERATED — never hand-edit |
 | `misconception-registry.txt` | GENERATED — never hand-edit |
 | `external-prereq-registry.txt` | GENERATED — never hand-edit |
 | `chain-registry.txt` | hand-maintained, no stamp (titles are authored prose) |
 | `generate-registries.py` | produces the three registries, with a notation gate |
 | `partition-check.py` | gates check 3 |
-| `pair-attachment-report.py` | reads the graph; runs here |
+| `fd-check.py` | report, never a gate: functional dependencies in the capability registry (D27) |
+| `pair-attachment-report.py` | report, never a gate: one-sided pair-confusion attachments (B10; platform-written, runs here) |
 | `scripts/check_principles.py` | check 1 (verify + `--fix` sync) |
 | `scripts/check_integrity.py` | check 4 |
+| `docs/` | reasoning records: reconciliation, the D24 audit, pedagogical concerns, hook screen, the retired architecture doc (kept only so the retirement is visible — do not restore) |
+| `channel/` | the boundary-channel rules and page URLs, the repo spec, the catalogue agent brief, the two handoffs |
 
 ## The boundary stamp
 
