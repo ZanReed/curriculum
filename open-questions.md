@@ -24,6 +24,16 @@ arrays, `ncea` added. What remains is the human read: the values are proposals, 
 `linear.form.*` pointers are weak (no NZC statement; AS91256 not re-read), and the claim is
 recordable, not checkable. Close by quoting `skills[].alignment` after ratification.
 
+**Does the middle of the spine sit one year early for NZ?**
+D32 re-banded the calculus end on strong evidence and left `function.*` (Y10) and
+`transform.*` (Y11) alone on weaker evidence: no NZC Y9–10 statement covers function
+notation, domain/range or graph transformations, and AS91257 (Year 12) is the first standard
+to assess them — but Year 11 courses do teach f(x), and the Phase 5 draft that would settle
+it was not reachable. Also under this question: whether `chain.linear.forms` keeps three
+skills for point–gradient, `Ax + By = C` and conversion, which NZ classrooms rarely name and
+no NZC statement asks for. Revisit when the Phase 5 content is published; decide with the
+document open.
+
 **Does the plan move 73 → 74 activities?**
 `chain.transform.translate` has two skills and two activities, and the thread's highest-value
 misconception (`mis.transform.inside-outside`) is the confusion between those two skills — so

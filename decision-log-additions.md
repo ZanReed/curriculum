@@ -516,3 +516,26 @@ AS91256, whose text was not re-read. NZ classrooms rarely name those forms. Whet
 chain keeps three skills for them is the open question below, not a value to fill.
 *Cost:* `ccss` and `teks` are now empty arrays rather than nulls — a consumer that tested for
 `null` would need to test for `[]`. None is known; D28 says ask, not assume.
+
+**D32 (proposed). `band_nz` is set per skill from the NZC sequence and the NCEA standard the
+skill serves. `band_us` stays as an analogue and stops being how `band_nz` is derived.**
+The seed derived `band_nz` from a "dual" map (Y12 ↔ Precalculus, Y13 ↔ Calculus). The bottom
+of that map survives contact with the NZC — proportional reasoning is P3, gradient and
+`y = mx + c` are P4 — and the top does not: AS91262 (Year 12) already differentiates
+polynomials, finds tangents and turning points and does kinematics, and lists no limits;
+AS91578 (Year 13) is where limits, continuity and the chain/product/quotient rules sit.
+*Applied:* all thirteen `limit.*` and `deriv.*` skills move Y12/Y13 → **Y12**. The limit
+chains stay at Y12 rather than moving to Y13 because they are prerequisites of Y12 skills
+and a band later than its dependents is incoherent; in NZ practice the first-principles
+route is taught in Year 12 as the motivation for AS91262 and assessed only in Year 13.
+*Consequence stated plainly:* the thread now has **no Y13 skill.** That is honest — the
+thread ends at the power rule, and AS91578's content (chain rule, optimisation, related
+rates) was never in it.
+*Not applied, and it belongs to the open question below:* the middle of the spine. Function
+notation, domain/range and graph transformations have no NZC Y9–10 statement and are first
+assessed by AS91257 (Year 12), so `function.*` at Y10 and `transform.*` at Y11 each read one
+year early for NZ. Evidence is weaker there (the P5 draft was not reachable, and Year 11
+courses do teach f(x)), so the bands are left and the question is recorded.
+*Cost:* the `band_labels.map` still exists for authors arriving from US material, with a
+note that it is not a derivation. Anyone who reads it as an equivalence will be wrong about
+the top two rows; the note says so.
