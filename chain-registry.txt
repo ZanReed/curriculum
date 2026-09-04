@@ -12,7 +12,7 @@
 # line that looks like one.
 
 01-chain.rate.proportional              = Rates and Proportional Relationships
-02-chain.linear.slope                   = Slope
+02-chain.linear.slope                   = Gradient
 03-chain.linear.forms                   = Forms of a Linear Equation
 04-chain.linear.model                   = Modelling with Linear Functions
 05-chain.function.definition            = What Is a Function?

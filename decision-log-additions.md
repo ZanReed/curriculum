@@ -560,3 +560,15 @@ on 2026-09-02; the stub names that and says nothing is authored against it.
 *Default locale unchanged.* `nz-ncea` remains the default: the justification-weighted DoL
 shape is the right guess for the successor on everything confirmed so far (A–E, no fully
 internal subjects), and a Y8 student in 2026 sits no qualification at all.
+
+**D34 (proposed). Student-facing vocabulary is NZ; ids are not renamed.**
+Labels, notes and misconception labels: *slope* → *gradient*, `y = mx + b` → `y = mx + c`,
+*point-slope form* → *point–gradient form*, *standard form* → *the form Ax + By = C*.
+`chain-registry.txt` display title `Slope` → `Gradient`. §11 of the principles now says this
+concretely. Ids (`linear.slope.*`, `mis.form.m-b-swapped`) are untouched: they are keys, an
+activity's `x_review_skills` references them, and renaming a key is a D18-class event with
+no student-visible benefit.
+*Left as is, deliberately:* *parent function* (`function.family.*`). NZ usage is mixed and
+the term appears in AS91257 resources; changing it would be a preference, not a correction.
+*Cost:* the registries regenerated (labels are in the comments), so the diff is wide for a
+prose change. That is the generator working as designed.
