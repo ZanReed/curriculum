@@ -11,7 +11,7 @@ mis.deriv.tangent-touches-once                    # Believes a tangent line may 
 mis.deriv.units-dropped                           # Interprets f′(a) without units in a contextual problem
 mis.family.any-member-is-parent                   # Treats any member of a family as the parent rather than the untransformed one — any line for y = x, any parabola for y = x²
 mis.form.intercept-wrong-variable                 # Sets the wrong variable to zero when finding an intercept
-mis.form.m-b-swapped                              # Reads c as the gradient and m as the intercept in y = mx + c
+mis.form.m-b-swapped                              # Reads the intercept as the gradient and vice versa in y = mx + c
 mis.form.standard-slope-sign                      # Reads the gradient of Ax + By = C as A/B, dropping the negative
 mis.function.context-restriction-ignored          # Gives the mathematical domain of the formula, ignoring what the context permits
 mis.function.domain-range-swapped                 # Reports the range when asked for the domain, or the reverse

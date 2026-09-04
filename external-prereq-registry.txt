@@ -7,5 +7,5 @@
 ext.arith.signed              # Operations with signed numbers
 ext.arith.fractions           # Fraction arithmetic, including complex fractions
 ext.alg.solve-linear-eq       # Solve a one-variable linear equation
-ext.alg.expand-factor         # Expand and factor simple polynomial expressions
+ext.alg.expand-factor         # Expand and factorise simple polynomial expressions
 ext.geom.coordinate-plane     # Plot and read ordered pairs

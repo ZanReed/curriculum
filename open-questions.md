@@ -24,6 +24,15 @@ arrays, `ncea` added. What remains is the human read: the values are proposals, 
 `linear.form.*` pointers are weak (no NZC statement; AS91256 not re-read), and the claim is
 recordable, not checkable. Close by quoting `skills[].alignment` after ratification.
 
+**Standing reminder — the alignment sources are copies of live pages.**
+`docs/alignment-sources.md` quotes the NZC pages and NZQA documents as read on 2026-09-02.
+The NZC pages are live and unnumbered, so the quotes are a dated copy of a moving document —
+the same standing risk as the builder's Save & load copy, kept visible the same way. Rule:
+no `alignment` value is cited in an authoring or ratification argument without checking the
+file's read date; if it is older than N months (N unset — author to rule), re-read the live
+page first and re-date the file. Clears only if the NZC publishes stable, numbered
+statements.
+
 **Which qualification is the Year 8–10 work actually for?**
 Cohort arithmetic (`docs/alignment-sources.md`, last table): every learner Y9 or below in
 2026 sits NZCE/NZACE and never an NCEA standard; `nz-ncea` applies to the Y11–13 chains for
