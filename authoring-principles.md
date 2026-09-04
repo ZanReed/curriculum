@@ -180,7 +180,9 @@ argument under another.
   rest stands.
 - Write the DoL the way the named locale asks — its response format, its idea of
   evidence. A rubric-graded justification for a Merit/Excellence locale; auto-scored
-  items for a procedural one.
+  items for a procedural one. What each grade level requires is stated on the locale
+  itself (`activity_defaults.locales`, the `levels` entry) — read it there, and tag
+  every rubric line with the level it evidences so the claim is recorded, not implied.
 - Know the data cost: auto-scored DoLs feed misconception aggregates immediately;
   rubric-graded DoLs capture text now and yield structured per-criterion scores only
   after a human grades. Neither is wrong. A chain whose every DoL is rubric-graded

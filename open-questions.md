@@ -24,6 +24,15 @@ arrays, `ncea` added. What remains is the human read: the values are proposals, 
 `linear.form.*` pointers are weak (no NZC statement; AS91256 not re-read), and the claim is
 recordable, not checkable. Close by quoting `skills[].alignment` after ratification.
 
+**Which qualification is the Year 8–10 work actually for?**
+Cohort arithmetic (`docs/alignment-sources.md`, last table): every learner Y9 or below in
+2026 sits NZCE/NZACE and never an NCEA standard; `nz-ncea` applies to the Y11–13 chains for
+Y11 through 2027, Y12 through 2028, Y13 through 2029, and then to nothing. The `nz-nzce`
+locale is a stub by construction — the Ministry's Tranche 2 (grading behind the A–E letters,
+internal/external balance, the Phase 5 subject content) had nothing published on
+2026-09-02. **Trigger:** when Tranche 2 lands, fill the stub and re-cut the DoL contract for
+it; until then `nz-ncea` stands as the proxy (D33). Not a decision anyone can make early.
+
 **Does the middle of the spine sit one year early for NZ?**
 D32 re-banded the calculus end on strong evidence and left `function.*` (Y10) and
 `transform.*` (Y11) alone on weaker evidence: no NZC Y9–10 statement covers function
@@ -33,6 +42,15 @@ it was not reachable. Also under this question: whether `chain.linear.forms` kee
 skills for point–gradient, `Ax + By = C` and conversion, which NZ classrooms rarely name and
 no NZC statement asks for. Revisit when the Phase 5 content is published; decide with the
 document open.
+
+**What does the school decide?**
+Three facts about the school the author is moving to change how chains are used, and none
+of them is in any document: the year levels it runs (in a Year 9–13 school the `rate.*`
+chain is Year 9 diagnostic and review material, not four lessons); its period length (NZ
+periods run roughly 50–100 minutes, so the number of activities a day carries is a school
+fact, not a graph fact — the hook contract already assumes this); and which Y12–13 subject
+the senior chains serve (*Mathematics*, not *Modelling* or *Statistics and Data Science*).
+Owner: the author, on arrival. Nothing in the graph should be changed in anticipation.
 
 **Does the plan move 73 → 74 activities?**
 `chain.transform.translate` has two skills and two activities, and the thread's highest-value

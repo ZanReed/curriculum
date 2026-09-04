@@ -539,3 +539,24 @@ courses do teach f(x)), so the bands are left and the question is recorded.
 *Cost:* the `band_labels.map` still exists for authors arriving from US material, with a
 note that it is not a derivation. Anyone who reads it as an equivalence will be wrong about
 the top two rows; the note says so.
+
+**D33 (proposed). A locale carries what its grade levels require. `nz-ncea` now states A/M/E;
+`nz-nzce` is an explicit stub with its confirmed facts, its unconfirmed ones, and a revisit
+trigger.**
+`activity_defaults.locales[nz-ncea]` gains `grades`, `levels` (Achieved / relational thinking
+/ extended abstract thinking, in the standards' own wording), `dol_rule`, `calculator`,
+`context`, `cohorts` and `sources`. §8 of the principles points at `levels` instead of
+gesturing at "Merit/Excellence".
+*The rule the entry introduces:* every rubric line on an nz-ncea DoL is tagged A, M or E,
+in a reserved `x_dol_rubric_levels` meta key (D20 pattern — curriculum-owned, inert to the
+importer), and the primary-skill item reaches E. The four authored drafts already did this by
+instinct (a 2 / 2 / 1 split whose last line generalises); the tag makes it a recorded claim a
+validator can read.
+*Why the stub is written out rather than left as a label:* the cohort arithmetic. Every
+learner Y9 or below in 2026 will sit NZCE/NZACE and never an NCEA standard, so the Y8–Y10
+chains are authored against `nz-ncea` as a proxy, and a proxy should say what it is standing
+in for and until when. Tranche 2 (grading, internal/external balance) had nothing published
+on 2026-09-02; the stub names that and says nothing is authored against it.
+*Default locale unchanged.* `nz-ncea` remains the default: the justification-weighted DoL
+shape is the right guess for the successor on everything confirmed so far (A–E, no fully
+internal subjects), and a Y8 student in 2026 sits no qualification at all.
