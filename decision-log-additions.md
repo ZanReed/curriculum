@@ -486,3 +486,33 @@ id must exist before an item can bind to it), but it means each is a prediction.
 carrier turns out to be unwritable should be sent back, not given a strained item to justify it.
 The authored-activity data is the real test, and revisions from it are expected rather than a
 sign the ratification was wrong.
+
+---
+
+## Proposed 2026-09-02 (NZ alignment pass) — NOT RATIFIED
+
+Drafted on the `nz-alignment` branch against the sources quoted in
+`docs/alignment-sources.md`. Each entry below is a proposal until a human reads the branch
+end to end (§12). Ratifying one means quoting the artifact it changed, per the
+`open-questions.md` rule; rejecting one means reverting its hunk, and the branch is laid out
+so each hunk stands alone.
+
+**D31 (proposed). `alignment` is four arrays, `ncea` exists, and the values are pointers into
+`docs/alignment-sources.md`.**
+`skills[].alignment` becomes `{nzc_phase: [], ncea: [], ccss: [], teks: []}` — the shape the
+D24 audit already agreed — and the NZ pair is populated for all 47 skills. `nzc_phase` values
+are `P<phase>.Y<year>.<Strand>` (a phase alone is two or three years wide and the refreshed
+curriculum is written year by year, so phase-only values would say almost nothing);
+`ncea` values are `AS<number>`. The quoted statement behind every value lives in
+`docs/alignment-sources.md` with the URL and the date it was read.
+*Why pointers and not quotes in the graph:* the NZC pages are live and unnumbered. A quote in
+the graph is a hand-carried copy of an external document; a short pointer plus one reference
+file that names its read-date is the same pattern as the boundary stamp.
+*What it does not do:* make the claim checkable. Whether a DoL assesses at the level its
+standard asks remains a human read, exactly as the D24 audit said.
+*Weakest values, named so nobody reads them as strong:* the three `linear.form.*` skills
+(point–gradient, `Ax + By = C`, convert) have **no** NZC Y9–10 statement and point only at
+AS91256, whose text was not re-read. NZ classrooms rarely name those forms. Whether the
+chain keeps three skills for them is the open question below, not a value to fill.
+*Cost:* `ccss` and `teks` are now empty arrays rather than nulls — a consumer that tested for
+`null` would need to test for `[]`. None is known; D28 says ask, not assume.

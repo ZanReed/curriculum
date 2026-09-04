@@ -14,14 +14,15 @@ resolved: `function.definition` confirmed earns, `function.families` confirmed d
 `function.domain-range` flags on the proxy but the no-consolidation ruling is held — a shared
 error inside two skills is not confusability between them.)*
 
-**What are the NCEA achievement standards for each skill?**
-Blocked, and it needs a human with the source documents. `alignment` carries `teks`, `ccss`
-and `nzc_phase` and no NCEA field, while D10 makes `nz-ncea` the default locale and D8
-accepted a real data cost for it. So every DoL is authored against a standard the graph
-cannot record. The field shape is settled — **all four alignment fields become arrays**,
-because a standard spans several skills and a skill serves several standards — but that
-change is agreed and not yet applied. The values must come from the standards themselves;
-the graph's own note is right that nobody should fill these from memory.
+**What are the NCEA achievement standards for each skill?** — *proposed answer on the
+`nz-alignment` branch (D31), awaiting ratification.*
+Was: blocked on a human with the source documents. The documents were read on 2026-09-02
+(NZC Phase 3 and Phase 4 pages, NZQA standards AS91945/91946/91947/91257/91261/91262/91578,
+the MoE L1 subject learning outcomes) and every value in `skills[].alignment` now points at
+a statement quoted in `docs/alignment-sources.md`. The field shape is the agreed one — four
+arrays, `ncea` added. What remains is the human read: the values are proposals, the three
+`linear.form.*` pointers are weak (no NZC statement; AS91256 not re-read), and the claim is
+recordable, not checkable. Close by quoting `skills[].alignment` after ratification.
 
 **Does the plan move 73 → 74 activities?**
 `chain.transform.translate` has two skills and two activities, and the thread's highest-value

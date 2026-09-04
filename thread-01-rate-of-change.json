@@ -1,8 +1,8 @@
 {
   "thread_id": "thread.rate-of-change",
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.13.0",
-  "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment codes are deliberately null — fill from source documents rather than trusting anyone's memory of them.",
+  "version": "0.14.0-proposed",
+  "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are PROPOSED (D31, 2026-09-02) from the NZC Phase 3/4 pages and NZQA standards read that day — see docs/alignment-sources.md for the quoted statements. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "external_prereqs": [
     {
       "id": "ext.arith.signed",
@@ -180,9 +180,15 @@
         "mis.rate.compares-totals"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P3.Y7.Number",
+          "P4.Y9.Number"
+        ],
+        "ncea": [
+          "AS91945"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y8",
       "band_us": "Grade 7"
@@ -199,9 +205,15 @@
         "mis.proportional.one-pair-assumed-constant"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P3.Y7.Algebra",
+          "P3.Y8.Number"
+        ],
+        "ncea": [
+          "AS91945"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y8",
       "band_us": "Grade 7"
@@ -218,9 +230,15 @@
         "mis.proportional.line-misses-origin"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P3.Y7.Algebra",
+          "P4.Y9.Algebra"
+        ],
+        "ncea": [
+          "AS91947"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y8",
       "band_us": "Grade 7"
@@ -238,9 +256,14 @@
         "mis.slope.subtraction-order"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y10.Algebra"
+        ],
+        "ncea": [
+          "AS91947"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y9",
       "band_us": "Grade 8"
@@ -258,9 +281,15 @@
         "mis.slope.rise-run-inverted"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y10.Algebra"
+        ],
+        "ncea": [
+          "AS91947",
+          "AS91946"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y9",
       "band_us": "Grade 8"
@@ -277,9 +306,15 @@
         "mis.slope.units-dropped"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y9.Algebra"
+        ],
+        "ncea": [
+          "AS91947",
+          "AS91946"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "notes": "Long-arc anchor. This is the ancestor of deriv.interpret.context-units, roughly three years downstream.",
       "band_nz": "Y9",
@@ -296,9 +331,15 @@
         "mis.form.m-b-swapped"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y9.Algebra",
+          "P4.Y10.Algebra"
+        ],
+        "ncea": [
+          "AS91947"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y9",
       "band_us": "Grade 8"
@@ -315,9 +356,14 @@
         "mis.form.m-b-swapped"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y10.Algebra"
+        ],
+        "ncea": [
+          "AS91947"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y9",
       "band_us": "Grade 8"
@@ -333,9 +379,12 @@
         "mis.transform.horizontal-direction"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91256"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "notes": "The sign in (x - x1) is the same cognitive object as the sign in f(x - h). Deliberate edge to transform.horizontal.translate.",
       "band_nz": "Y9",
@@ -353,9 +402,12 @@
         "mis.form.standard-slope-sign"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91256"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y9",
       "band_us": "Grade 8"
@@ -374,9 +426,12 @@
         "mis.form.standard-slope-sign"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91256"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y9",
       "band_us": "Grade 8"
@@ -394,9 +449,16 @@
         "mis.function.context-restriction-ignored"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y9.Algebra"
+        ],
+        "ncea": [
+          "AS91945",
+          "AS91946",
+          "AS91947"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y9",
       "band_us": "Grade 8",
@@ -414,9 +476,12 @@
         "mis.function.needs-a-formula"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y10",
       "band_us": "Algebra I"
@@ -433,9 +498,12 @@
         "mis.function.needs-a-formula"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y10",
       "band_us": "Algebra I"
@@ -454,9 +522,14 @@
         "mis.function.evaluate-vs-solve"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P3.Y8.Algebra"
+        ],
+        "ncea": [
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "notes": "Load-bearing. f(a+h) is the hidden prerequisite for the difference quotient and is usually taught two years before it is needed, then never retrieved. This edge is the whole argument for prerequisite-targeted spacing.",
       "band_nz": "Y10",
@@ -475,9 +548,15 @@
         "mis.function.notation-multiplication"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P3.Y8.Algebra"
+        ],
+        "ncea": [
+          "AS91261",
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y10",
       "band_us": "Algebra I"
@@ -496,9 +575,15 @@
         "mis.function.needs-a-formula"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y9.Algebra"
+        ],
+        "ncea": [
+          "AS91947",
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y10",
       "band_us": "Algebra I",
@@ -516,9 +601,12 @@
         "mis.function.endpoint-open-closed"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y10",
       "band_us": "Algebra I"
@@ -537,9 +625,12 @@
         "mis.function.endpoint-open-closed"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y10",
       "band_us": "Algebra I"
@@ -555,9 +646,14 @@
         "mis.family.any-member-is-parent"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y9.Algebra"
+        ],
+        "ncea": [
+          "AS91947"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y10",
       "band_us": "Algebra I"
@@ -575,9 +671,14 @@
         "mis.family.any-member-is-parent"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y10.Algebra"
+        ],
+        "ncea": [
+          "AS91947"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y10",
       "band_us": "Algebra I"
@@ -594,9 +695,14 @@
         "mis.transform.inside-outside"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y10.Algebra"
+        ],
+        "ncea": [
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y11",
       "band_us": "Algebra II"
@@ -614,9 +720,12 @@
         "mis.transform.inside-outside"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "notes": "Highest-value misconception in the thread. Prereq edge to point-slope is deliberate: students have already met (x - x1) meaning 'shift right by x1' and did not notice.",
       "band_nz": "Y11",
@@ -634,9 +743,14 @@
         "mis.transform.inside-outside"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y10.Algebra"
+        ],
+        "ncea": [
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y11",
       "band_us": "Algebra II"
@@ -653,9 +767,12 @@
         "mis.transform.inside-outside"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y11",
       "band_us": "Algebra II"
@@ -672,9 +789,12 @@
         "mis.transform.horizontal-direction"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y11",
       "band_us": "Algebra II"
@@ -690,9 +810,12 @@
         "mis.transform.inside-outside"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y11",
       "band_us": "Algebra II"
@@ -708,9 +831,15 @@
         "mis.transform.horizontal-direction"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y10.Algebra"
+        ],
+        "ncea": [
+          "AS91947",
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y11",
       "band_us": "Algebra II"
@@ -728,9 +857,13 @@
         "mis.transform.stretch-vs-shift"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91257",
+          "AS91947"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y11",
       "band_us": "Algebra II"
@@ -747,9 +880,13 @@
         "mis.roc.uses-endpoint-value"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91947",
+          "AS91946"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y11",
       "band_us": "Algebra II"
@@ -767,9 +904,13 @@
         "mis.roc.uses-endpoint-value"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91947",
+          "AS91262"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y11",
       "band_us": "Algebra II"
@@ -787,9 +928,12 @@
         "mis.roc.uses-endpoint-value"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91262"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "notes": "Unification point. Students should be told explicitly that this is the slope formula they learned in Year 9, rewritten. Do not let them discover it.",
       "band_nz": "Y11",
@@ -807,9 +951,13 @@
         "mis.roc.assumes-constant"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91947",
+          "AS91262"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y11",
       "band_us": "Algebra II"
@@ -826,9 +974,13 @@
         "mis.slope.units-dropped"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91947",
+          "AS91262"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y11",
       "band_us": "Algebra II"
@@ -845,9 +997,12 @@
         "mis.limit.equals-substitution"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91578"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y12",
       "band_us": "Precalculus"
@@ -864,9 +1019,12 @@
         "mis.limit.one-sided-superscript-ignored"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91578"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y12",
       "band_us": "Precalculus"
@@ -883,9 +1041,12 @@
         "mis.limit.equals-substitution"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91578"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y12",
       "band_us": "Precalculus"
@@ -903,9 +1064,13 @@
         "mis.roc.secant-vs-tangent"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91262",
+          "AS91578"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y12",
       "band_us": "Precalculus"
@@ -923,9 +1088,12 @@
         "mis.function.f-of-a-plus-h-distributed"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91262"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y12",
       "band_us": "Precalculus"
@@ -943,9 +1111,12 @@
         "mis.function.f-of-a-plus-h-distributed"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91262"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y12",
       "band_us": "Precalculus"
@@ -961,9 +1132,12 @@
         "mis.limit.h-set-to-zero-early"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91262"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y13",
       "band_us": "Calculus"
@@ -982,9 +1156,12 @@
         "mis.deriv.reads-f-graph-as-f-prime"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91262"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y13",
       "band_us": "Calculus"
@@ -1003,9 +1180,12 @@
         "mis.slope.units-dropped"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91262"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "notes": "Terminal node of the longest arc in the thread. The edge back to linear.slope.interpret-context spans roughly four years and is the flagship demonstration of prerequisite-targeted review.",
       "band_nz": "Y13",
@@ -1022,9 +1202,12 @@
         "mis.limit.h-set-to-zero-early"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91262"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y13",
       "band_us": "Calculus"
@@ -1042,9 +1225,12 @@
         "mis.deriv.reads-f-graph-as-f-prime"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91262"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y13",
       "band_us": "Calculus"
@@ -1060,9 +1246,12 @@
         "mis.deriv.constant-rule-confused"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91262"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "notes": "Generalise from four worked cases the students have already computed from the definition. This is the one place in the thread where induction from examples is appropriate, because the examples were built explicitly first.",
       "band_nz": "Y13",
@@ -1080,9 +1269,12 @@
         "mis.deriv.constant-rule-confused"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91262"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y13",
       "band_us": "Calculus"

@@ -1,6 +1,6 @@
 # Misconception registry — the valid mis.* id set.
 #
-# Generated from thread-01-rate-of-change.json v0.13.0. Do not hand-edit: regenerate.
+# Generated from thread-01-rate-of-change.json v0.14.0-proposed. Do not hand-edit: regenerate.
 # An id-shaped token not listed here warns, and fails under --strict.
 
 mis.arith.negative-squared                        # Believes squaring a negative input gives a negative output
