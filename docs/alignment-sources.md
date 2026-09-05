@@ -8,9 +8,12 @@ graph value is stale.
 
 Value grammar:
 
-- `nzc_phase`: `P<phase>.Y<year>.<Strand>` — phase and year of the New Zealand Curriculum
+- `nzc_phase`: `P<phase>.Y<year>.<Strand>:S<nn>` — phase and year of the New Zealand Curriculum
   (Te Mātaiaho) Mathematics and Statistics teaching sequence, mandatory for Years 0–10 in all
-  state and state-integrated schools from Term 1, 2026.
+  state and state-integrated schools from Term 1, 2026, plus the numbered statement in this
+  file the value rests on. A cell holds several statements, so a value names its statement,
+  not its cell (D31 amendment, 2026-09-05); the numbering is local to this dated file, which
+  is stable in a way the NZC's unnumbered pages are not.
 - `ncea`: `AS<number>` — an NCEA achievement standard as registered by NZQA.
 
 Neither value is checkable by CI. The field makes the claim recordable (D24 audit, §2), and
@@ -38,46 +41,60 @@ and MoE, *Years 0-10 English, Te Reo Rangatira, Maths and Pāngarau* (19 Oct 202
 Page: `https://newzealandcurriculum.tahurangi.education.govt.nz/5637238342.p`
 
 **P3.Y7.Number**
+**S01**
 > A fraction can describe a proportional relationship between two amounts.
 
+**S02**
 > Using proportional reasoning to explore multiplicative relationships between quantities
 > (e.g. "If there are 3 red for every 7 blue balls, how many balls are there altogether when
 > there are 18 red balls?")
 
 **P3.Y8.Number**
+**S03**
 > Ratios can be used to describe proportional relationships and unequal division of a whole.
 
+**S04**
 > Ratios, fractions, and percentages can all represent proportional relationships between two
 > quantities.
 
+**S05**
 > Dividing a quantity into two parts, given the part:part or part:whole ratio
 
+**S06**
 > Expressing the division of quantity into two parts as a ratio
 
 **P3.Y7.Algebra**
+**S07**
 > A variable can be used to represent: an unknown number, often in formulae (e.g. s in s²); a
 > quantity that can vary or change (e.g. y = 3x + 4; A = bh); a specific unknown value to be
 > solved (e.g. 3a = 18).
 
+**S08**
 > A coordinate plane extends to 4 quadrants that meet at the origin (0, 0).
 
+**S09**
 > Linear patterns have a constant increase or decrease, can be described by the rule
 > t = a × n + d, and can be graphed as a straight line on a coordinate plane.
 
+**S10**
 > Identifying and plotting points in the four quadrants of the coordinate plane, using ordered
 > pairs and values from a table
 
+**S11**
 > Using tables, graphs in the coordinate plane, and diagrams to recognise the relationship
 > between the ordinal position and its corresponding element in a linear pattern, develop a
 > rule for the pattern in words, and make conjectures about further elements in the pattern
 
 **P3.Y8.Algebra**
+**S12**
 > Using substitution to find the value of an expression or formula (e.g. calculating w + 12
 > given w = 4)
 
+**S13**
 > Forming and solving linear equations with rational solutions (e.g. t + 7 = 6.5,
 > 5s + 9 = −18)
 
+**S14**
 > Investigating the patterns of triangular numbers, square numbers, and cube numbers,
 > extending the patterns, creating tables of values, and plotting the values on the
 > coordinate plane
@@ -92,41 +109,54 @@ not a literal placement — see D32 and the open question on the middle of the s
 Page: `https://newzealandcurriculum.tahurangi.education.govt.nz/5637291579.p`
 
 **P4.Y9.Number**
+**S15**
 > A rate proportionally compares two quantities that have different units of measure; when
 > working with rates, 'per' means 'for every' in day-to-day contexts.
 
+**S16**
 > Comparing and using ratios and rate (e.g. finding speed, given distance and time)
 
 **P4.Y10.Number**
+**S17**
 > Representing proportional relationships using whole-number ratios, including reducing the
 > ratios to their simplest form
 
 **P4.Y9.Algebra**
+**S18**
 > For a specific straight line, the gradient, m, and y-intercept, c, are fixed, and x varies
 > with y according to the rule y = mx + c. The y-intercept touches the y-axis and has
 > coordinates (0, c).
 
+**S19**
 > The constant rate of change of a linear graph is the vertical change (how far it goes up or
 > down) divided by the horizontal change (how far it moves sideways).
 
+**S20**
 > Interpreting rules of the form y = mx + c and using a combination of substitution and
 > tables to plot points from the linear graph
 
+**S21**
 > Identifying the constant increase or decrease in a linear pattern
 
+**S22**
 > … tables and graphs in the coordinate plane (showing all four quadrants)
 
 **P4.Y10.Algebra**
+**S23**
 > The gradient m of a straight line can be determined with the formula m = rise/run = Δy/Δx.
 
+**S24**
 > Interpreting and graphing linear equations in the form y = mx + c, using the gradient and
 > y-intercept
 
+**S25**
 > Calculating the gradient and y-intercept of a line, using a graph
 
+**S26**
 > Solving quadratic equations that are factorised or of the form x² + c = 0 (where c is an
 > integer), and connecting the solutions to the x-intercepts
 
+**S27**
 > Determining the effect on graphs in the coordinate plane of changing the coefficient of x²
 > and the fixed value c, for a range of quadratic equations
 

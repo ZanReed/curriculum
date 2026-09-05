@@ -516,6 +516,11 @@ AS91256, whose text was not re-read. NZ classrooms rarely name those forms. Whet
 chain keeps three skills for them is the open question below, not a value to fill.
 *Cost:* `ccss` and `teks` are now empty arrays rather than nulls — a consumer that tested for
 `null` would need to test for `[]`. None is known; D28 says ask, not assume.
+*Amended 2026-09-05 (author-ruled, from review):* a cell-grain value (`P4.Y9.Algebra`)
+pointed at a dozen statements. Every quote in `docs/alignment-sources.md` now carries a
+number (`S01`–`S27`), and each `nzc_phase` value names the statement it rests on
+(`P4.Y10.Algebra:S23`-style). The ten-value author spot-check (2026-09-05) was performed at
+statement grain against the live pages, and all ten held.
 
 **D32 (held 2026-09-05). The calculus re-band is deferred until Phase 5 publishes; the seed
 bands stand.**

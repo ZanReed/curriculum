@@ -181,8 +181,8 @@
       ],
       "alignment": {
         "nzc_phase": [
-          "P3.Y7.Number",
-          "P4.Y9.Number"
+          "P3.Y7.Number:S02",
+          "P4.Y9.Number:S15"
         ],
         "ncea": [
           "AS91945"
@@ -206,8 +206,8 @@
       ],
       "alignment": {
         "nzc_phase": [
-          "P3.Y7.Algebra",
-          "P3.Y8.Number"
+          "P3.Y7.Algebra:S09",
+          "P3.Y8.Number:S04"
         ],
         "ncea": [
           "AS91945"
@@ -231,8 +231,8 @@
       ],
       "alignment": {
         "nzc_phase": [
-          "P3.Y7.Algebra",
-          "P4.Y9.Algebra"
+          "P3.Y7.Algebra:S09",
+          "P4.Y9.Algebra:S19"
         ],
         "ncea": [
           "AS91947"
@@ -257,7 +257,7 @@
       ],
       "alignment": {
         "nzc_phase": [
-          "P4.Y10.Algebra"
+          "P4.Y10.Algebra:S23"
         ],
         "ncea": [
           "AS91947"
@@ -282,7 +282,7 @@
       ],
       "alignment": {
         "nzc_phase": [
-          "P4.Y10.Algebra"
+          "P4.Y10.Algebra:S25"
         ],
         "ncea": [
           "AS91947",
@@ -307,7 +307,7 @@
       ],
       "alignment": {
         "nzc_phase": [
-          "P4.Y9.Algebra"
+          "P4.Y9.Algebra:S19"
         ],
         "ncea": [
           "AS91947",
@@ -332,8 +332,8 @@
       ],
       "alignment": {
         "nzc_phase": [
-          "P4.Y9.Algebra",
-          "P4.Y10.Algebra"
+          "P4.Y9.Algebra:S20",
+          "P4.Y10.Algebra:S24"
         ],
         "ncea": [
           "AS91947"
@@ -357,7 +357,7 @@
       ],
       "alignment": {
         "nzc_phase": [
-          "P4.Y10.Algebra"
+          "P4.Y10.Algebra:S25"
         ],
         "ncea": [
           "AS91947"
@@ -450,7 +450,7 @@
       ],
       "alignment": {
         "nzc_phase": [
-          "P4.Y9.Algebra"
+          "P4.Y9.Algebra:S20"
         ],
         "ncea": [
           "AS91945",
@@ -523,7 +523,7 @@
       ],
       "alignment": {
         "nzc_phase": [
-          "P3.Y8.Algebra"
+          "P3.Y8.Algebra:S12"
         ],
         "ncea": [
           "AS91257"
@@ -549,7 +549,7 @@
       ],
       "alignment": {
         "nzc_phase": [
-          "P3.Y8.Algebra"
+          "P3.Y8.Algebra:S13"
         ],
         "ncea": [
           "AS91261",
@@ -576,7 +576,7 @@
       ],
       "alignment": {
         "nzc_phase": [
-          "P4.Y9.Algebra"
+          "P4.Y9.Algebra:S20"
         ],
         "ncea": [
           "AS91947",
@@ -647,7 +647,7 @@
       ],
       "alignment": {
         "nzc_phase": [
-          "P4.Y9.Algebra"
+          "P4.Y9.Algebra:S18"
         ],
         "ncea": [
           "AS91947"
@@ -672,7 +672,7 @@
       ],
       "alignment": {
         "nzc_phase": [
-          "P4.Y10.Algebra"
+          "P4.Y10.Algebra:S27"
         ],
         "ncea": [
           "AS91947"
@@ -696,7 +696,7 @@
       ],
       "alignment": {
         "nzc_phase": [
-          "P4.Y10.Algebra"
+          "P4.Y10.Algebra:S27"
         ],
         "ncea": [
           "AS91257"
@@ -744,7 +744,7 @@
       ],
       "alignment": {
         "nzc_phase": [
-          "P4.Y10.Algebra"
+          "P4.Y10.Algebra:S27"
         ],
         "ncea": [
           "AS91257"
@@ -832,7 +832,7 @@
       ],
       "alignment": {
         "nzc_phase": [
-          "P4.Y10.Algebra"
+          "P4.Y10.Algebra:S27"
         ],
         "ncea": [
           "AS91947",
