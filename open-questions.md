@@ -42,15 +42,27 @@ internal/external balance, the Phase 5 subject content) had nothing published on
 2026-09-02. **Trigger:** when Tranche 2 lands, fill the stub and re-cut the DoL contract for
 it; until then `nz-ncea` stands as the proxy (D33). Not a decision anyone can make early.
 
-**Does the middle of the spine sit one year early for NZ?**
-D32 re-banded the calculus end on strong evidence and left `function.*` (Y10) and
-`transform.*` (Y11) alone on weaker evidence: no NZC Y9–10 statement covers function
-notation, domain/range or graph transformations, and AS91257 (Year 12) is the first standard
-to assess them — but Year 11 courses do teach f(x), and the Phase 5 draft that would settle
-it was not reachable. Also under this question: whether `chain.linear.forms` keeps three
-skills for point–gradient, `Ax + By = C` and conversion, which NZ classrooms rarely name and
-no NZC statement asks for. Revisit when the Phase 5 content is published; decide with the
-document open.
+**Where should the spine's bands sit for NZ?**
+Both ends, one rule. The calculus end: D32 proposed moving all thirteen `limit.*` and
+`deriv.*` skills to Y12 — AS91262 (Year 12) differentiates polynomials and lists no limits;
+AS91578 (Year 13) owns limits and continuity — and was **held** (2026-09-05): the same
+evidence class (no statement at the claimed year; first assessed later) describes the middle
+of the spine, where `function.*` (Y10) and `transform.*` (Y11) have no NZC Y9–10 statement
+and are first assessed by AS91257 (Year 12) — yet Year 11 courses do teach f(x). Re-banding
+one end on that evidence while leaving the other was the least defensible option, so neither
+moves until the Phase 5 content is published; decide both with the document open. Also under
+this question: whether `chain.linear.forms` keeps three skills for point–gradient,
+`Ax + By = C` and conversion, which NZ classrooms rarely name and no NZC statement asks for.
+
+**Does the limit chain's volume fit an NZ-first thread?**
+Raised by the D31–D34 review. The thread gives limits nine activities
+(`chain.limit.intro` 4, `chain.limit.difference-quotient` 5) and the difference-quotient
+definition five more (`chain.deriv.definition`), for content NCEA Year 12 does not assess —
+while the power rule, which AS91262 actually examines, gets six (`chain.deriv.rules`). An
+NZ-first thread would invert that ratio. Re-banding the year labels would make the bands
+honest and leave the volume US-shaped, which is why this question outlives the banding one.
+Chunking-plan territory (D22–D24), and the one that costs authoring hours wherever it lands;
+decide alongside the banding question above, with Phase 5 open.
 
 **What does the school decide?**
 Three facts about the school the author is moving to change how chains are used, and none

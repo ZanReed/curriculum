@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Reproducible migration v0.13.0 -> v0.14.0-proposed (D31-D34). Run once from a
-clean v0.13.0 graph; kept as a reasoning record, not a tool. Never re-run on main."""
+clean v0.13.0 graph; kept as a reasoning record, not a tool. Never re-run on main.
+2026-09-05: section 3 (re-band) was held on review (D32) and reverted on the branch;
+the script records the full pass as originally proposed and no longer matches it."""
 import json, re, sys
 from collections import OrderedDict
 

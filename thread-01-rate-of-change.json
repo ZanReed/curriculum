@@ -1124,7 +1124,7 @@
     {
       "id": "deriv.definition.at-a-point",
       "label": "Define f′(a) as the limit of the difference quotient as h → 0",
-      "band": "Y12",
+      "band": "Y13",
       "prereqs": [
         "limit.difference-quotient.simplify"
       ],
@@ -1139,13 +1139,13 @@
         "ccss": [],
         "teks": []
       },
-      "band_nz": "Y12",
+      "band_nz": "Y13",
       "band_us": "Calculus"
     },
     {
       "id": "deriv.interpret.slope-tangent",
       "label": "Interpret f′(a) as the gradient of the tangent line at x = a",
-      "band": "Y12",
+      "band": "Y13",
       "prereqs": [
         "deriv.definition.at-a-point",
         "limit.secant-to-tangent"
@@ -1163,13 +1163,13 @@
         "ccss": [],
         "teks": []
       },
-      "band_nz": "Y12",
+      "band_nz": "Y13",
       "band_us": "Calculus"
     },
     {
       "id": "deriv.interpret.context-units",
       "label": "Interpret f′(a) in context with correct units",
-      "band": "Y12",
+      "band": "Y13",
       "prereqs": [
         "deriv.interpret.slope-tangent",
         "roc.average.interpret-context",
@@ -1188,13 +1188,13 @@
         "teks": []
       },
       "notes": "Terminal node of the longest arc in the thread. The edge back to linear.slope.interpret-context spans roughly four years and is the flagship demonstration of prerequisite-targeted review.",
-      "band_nz": "Y12",
+      "band_nz": "Y13",
       "band_us": "Calculus"
     },
     {
       "id": "deriv.from-definition.polynomial",
       "label": "Compute the derivative of a low-degree polynomial from the definition",
-      "band": "Y12",
+      "band": "Y13",
       "prereqs": [
         "deriv.definition.at-a-point"
       ],
@@ -1209,13 +1209,13 @@
         "ccss": [],
         "teks": []
       },
-      "band_nz": "Y12",
+      "band_nz": "Y13",
       "band_us": "Calculus"
     },
     {
       "id": "deriv.f-prime-as-function",
       "label": "Treat f′ as a function rather than a number, and read f′ from the graph of f",
-      "band": "Y12",
+      "band": "Y13",
       "prereqs": [
         "deriv.from-definition.polynomial",
         "function.repr.correspondence"
@@ -1232,13 +1232,13 @@
         "ccss": [],
         "teks": []
       },
-      "band_nz": "Y12",
+      "band_nz": "Y13",
       "band_us": "Calculus"
     },
     {
       "id": "deriv.rule.power",
       "label": "State and apply the power rule, generalised from computed cases",
-      "band": "Y12",
+      "band": "Y13",
       "prereqs": [
         "deriv.f-prime-as-function"
       ],
@@ -1254,13 +1254,13 @@
         "teks": []
       },
       "notes": "Generalise from four worked cases the students have already computed from the definition. This is the one place in the thread where induction from examples is appropriate, because the examples were built explicitly first.",
-      "band_nz": "Y12",
+      "band_nz": "Y13",
       "band_us": "Calculus"
     },
     {
       "id": "deriv.justify.constant",
       "label": "Justify why the derivative of a constant function is zero",
-      "band": "Y12",
+      "band": "Y13",
       "prereqs": [
         "deriv.rule.power",
         "deriv.interpret.slope-tangent"
@@ -1276,7 +1276,7 @@
         "ccss": [],
         "teks": []
       },
-      "band_nz": "Y12",
+      "band_nz": "Y13",
       "band_us": "Calculus"
     }
   ],
@@ -1357,7 +1357,6 @@
     ],
     "band_labels": {
       "scheme": "dual",
-      "note": "band_us is an approximate US analogue for authors arriving from TEKS/CCSS material. It is NOT how band_nz is derived: band_nz is set per skill from the NZC teaching sequence and the NCEA standard the skill serves (D32). The Y12 row in particular is not an equivalence — NZ Y12 (AS91262) already differentiates polynomials while limits are a Y13 (AS91578) graph property, so the whole limit.* and deriv.* run sits at Y12 here. A Y13 ↔ Calculus row is deliberately absent: no skill sits at Y13, and a map row that maps to nothing invites misreading.",
       "map": [
         {
           "nz": "Y8",
@@ -1378,6 +1377,10 @@
         {
           "nz": "Y12",
           "us": "Precalculus"
+        },
+        {
+          "nz": "Y13",
+          "us": "Calculus"
         }
       ]
     },
