@@ -29,7 +29,7 @@ recordable, not checkable. Close by quoting `skills[].alignment` after ratificat
 The NZC pages are live and unnumbered, so the quotes are a dated copy of a moving document —
 the same standing risk as the builder's Save & load copy, kept visible the same way. Rule:
 no `alignment` value is cited in an authoring or ratification argument without checking the
-file's read date; if it is older than N months (N unset — author to rule), re-read the live
+file's read date; if it is older than six months (author-set, 2026-09-05), re-read the live
 page first and re-date the file. Clears only if the NZC publishes stable, numbered
 statements.
 
