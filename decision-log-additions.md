@@ -560,3 +560,17 @@ no student-visible benefit.
 the term appears in AS91257 resources; changing it would be a preference, not a correction.
 *Cost:* the registries regenerated (labels are in the comments), so the diff is wide for a
 prose change. That is the generator working as designed.
+
+**D35 (proposed 2026-09-05, author-adopted from the review's counter-proposal; awaiting the
+ratification sitting). Y8–10 DoLs default auto-scored; rubric justification is reserved for
+chain finals.**
+For learners Y9 or below in 2026, the nearest real assessment is the numeracy co-requisite
+and, from 2028, the Foundational Award — procedural, closed, auto-scorable — the opposite
+shape from justification-weighted rubrics. Meanwhile §8's data-cost argument bites hardest at
+Y8–10, where activity volume is highest and marking lands on one teacher. The curriculum
+still asks for reasoning, so justification is not dropped; it is *placed*: Y8–10 DoLs default
+to auto-scored items plus an error-analysis item (§16), with rubric justification at
+chain-final positions and consolidations; Y11–13 stays justification-weighted. This changes
+the default D33 set for the Y8–10 chains and is recorded as its own decision rather than
+folded silently into D33.
+
