@@ -539,9 +539,7 @@ trigger.**
 gesturing at "Merit/Excellence".
 *The rule the entry introduces:* every rubric line on an nz-ncea DoL is tagged A, M or E,
 in a reserved `x_dol_rubric_levels` meta key (D20 pattern — curriculum-owned, inert to the
-importer), and the primary-skill item reaches E. The four authored drafts already did this by
-instinct (a 2 / 2 / 1 split whose last line generalises); the tag makes it a recorded claim a
-validator can read.
+importer), and the **chain** reaches E somewhere — naturally at its final position or consolidation; no single DoL is required to. *(Amended 2026-09-05, author-ruled on review: the proposed per-DoL bar — every primary-skill item reaches E — quietly made every DoL rubric-graded, contradicting §8's rule that marking load is a deliberate choice and mismatching NCEA practice, where Excellence is a holistic end-of-standard judgement rather than a per-lesson event. Under the chain bar the authored drafts conform as written — activity 02's A/M/M tagging is no longer a defect.)* The tag makes the level claim a recorded one a validator can read.
 *Why the stub is written out rather than left as a label:* the cohort arithmetic. Every
 learner Y9 or below in 2026 will sit NZCE/NZACE and never an NCEA standard, so the Y8–Y10
 chains are authored against `nz-ncea` as a proxy, and a proxy should say what it is standing
