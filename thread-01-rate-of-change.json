@@ -392,7 +392,7 @@
     },
     {
       "id": "linear.form.standard",
-      "label": "Use the form Ax + By = C, including intercepts",
+      "label": "Use the general form Ax + By = C, including intercepts",
       "band": "Y9",
       "prereqs": [
         "linear.form.slope-intercept-write"

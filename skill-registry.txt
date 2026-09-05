@@ -20,7 +20,7 @@ linear.slope.interpret-context            # Interpret the gradient as a rate of 
 linear.form.slope-intercept-graph         # Graph a line from y = mx + c
 linear.form.slope-intercept-write         # Write y = mx + c from a graph, a table, or two points
 linear.form.point-slope                   # Write and use the point–gradient form y − y₁ = m(x − x₁)
-linear.form.standard                      # Use the form Ax + By = C, including intercepts
+linear.form.standard                      # Use the general form Ax + By = C, including intercepts
 linear.form.convert                       # Convert between linear forms and select the efficient form for a given task
 
 # chain.linear.model  (1 skills, 3 activities projected)

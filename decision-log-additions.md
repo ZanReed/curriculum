@@ -551,13 +551,23 @@ internal subjects), and a Y8 student in 2026 sits no qualification at all.
 
 **D34 (proposed). Student-facing vocabulary is NZ; ids are not renamed.**
 Labels, notes and misconception labels: *slope* → *gradient*, `y = mx + b` → `y = mx + c`,
-*point-slope form* → *point–gradient form*, *standard form* → *the form Ax + By = C*.
+*point-slope form* → *point–gradient form*, *standard form* → *general form*
+(`Ax + By = C`). *(Amended 2026-09-05: the pass originally demoted *standard form* to a
+description, claiming NZ has no name for the form. Wrong — NZ texts say* general form*,
+usually written `ax + by + c = 0`; caught on review, author-confirmed.)*
 `chain-registry.txt` display title `Slope` → `Gradient`. §11 of the principles now says this
 concretely. Ids (`linear.slope.*`, `mis.form.m-b-swapped`) are untouched: they are keys, an
 activity's `x_review_skills` references them, and renaming a key is a D18-class event with
 no student-visible benefit.
-*Left as is, deliberately:* *parent function* (`function.family.*`). NZ usage is mixed and
-the term appears in AS91257 resources; changing it would be a preference, not a correction.
+*Left as is, deliberately:* *parent function* (`function.family.*`). NZ usage is mixed;
+changing it would be a preference, not a correction. *(The claim that the term appears in
+AS91257 resources was asserted from memory and is unsourced — flagged on review; the stay is
+author-confirmed 2026-09-05, on judgement rather than on that claim.)*
+*Also left, by author ruling (2026-09-05):* *constant of proportionality*, in labels and in
+activity 02, which is built around it. The gap analysis had flagged it as CCSS 7.RP.2
+phrasing, and NZ Y8–9 teachers more often say *rate* or *the multiplier*; it stays as a
+recorded judgement call — the term is teachable and the k it names is load-bearing — rather
+than being dropped silently.
 *Cost:* the registries regenerated (labels are in the comments), so the diff is wide for a
 prose change. That is the generator working as designed.
 
