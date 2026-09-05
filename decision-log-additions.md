@@ -521,6 +521,17 @@ pointed at a dozen statements. Every quote in `docs/alignment-sources.md` now ca
 number (`S01`–`S27`), and each `nzc_phase` value names the statement it rests on
 (`P4.Y10.Algebra:S23`-style). The ten-value author spot-check (2026-09-05) was performed at
 statement grain against the live pages, and all ten held.
+*Amended 2026-09-05 (author-ruled, from review):* `ncea` is defined — the standard whose
+assessment **directly exercises** the skill, else empty; appears-in and feeds-into are not
+recorded (feeds-into is derivable, and derivable state is never hand-declared). The culling
+pass this forced: emptied `rate.constant-of-proportionality`, both `difference-quotient`
+skills, `deriv.definition.at-a-point`, `deriv.from-definition.polynomial` and
+`roc.average.function-notation` (first-principles content is directly assessed by no quoted
+standard — itself a finding); dropped AS91262 from `limit.secant-to-tangent` (no limits in
+its notes) and from the three `roc.average.*` values (average rate is not its assessment).
+Borderline keeps flagged for the ratification sitting: `rate.unit-rate` → AS91945,
+`rate.proportional-graph` → AS91947, `function.definition.*` → AS91257,
+`deriv.justify.constant` → AS91262, `roc.average.from-table` → AS91946.
 
 **D32 (held 2026-09-05). The calculus re-band is deferred until Phase 5 publishes; the seed
 bands stand.**

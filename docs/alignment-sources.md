@@ -14,7 +14,12 @@ Value grammar:
   file the value rests on. A cell holds several statements, so a value names its statement,
   not its cell (D31 amendment, 2026-09-05); the numbering is local to this dated file, which
   is stable in a way the NZC's unnumbered pages are not.
-- `ncea`: `AS<number>` — an NCEA achievement standard as registered by NZQA.
+- `ncea`: `AS<number>` — an NCEA achievement standard as registered by NZQA. Definition
+  (D31 amendment, 2026-09-05): **the standard whose assessment directly exercises this
+  skill**, per its quoted explanatory notes below — else the array is empty. "Appears in"
+  and "feeds into" relations are deliberately not recorded: feeds-into is derivable from the
+  graph's prerequisite edges plus these values, and derivable state is never hand-declared.
+  An empty array is data — it says NCEA does not directly assess this skill.
 
 Neither value is checkable by CI. The field makes the claim recordable (D24 audit, §2), and
 whether a DoL actually assesses at the level the standard asks is a human read.
