@@ -1,8 +1,8 @@
 {
   "thread_id": "thread.rate-of-change",
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.13.0",
-  "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment codes are deliberately null — fill from source documents rather than trusting anyone's memory of them.",
+  "version": "0.14.0",
+  "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "external_prereqs": [
     {
       "id": "ext.arith.signed",
@@ -18,7 +18,7 @@
     },
     {
       "id": "ext.alg.expand-factor",
-      "label": "Expand and factor simple polynomial expressions"
+      "label": "Expand and factorise simple polynomial expressions"
     },
     {
       "id": "ext.geom.coordinate-plane",
@@ -36,15 +36,15 @@
     },
     {
       "id": "mis.slope.units-dropped",
-      "label": "Reports slope as a bare number, no units, in a contextual problem"
+      "label": "Reports the gradient as a bare number, no units, in a contextual problem"
     },
     {
       "id": "mis.slope.steeper-is-bigger",
-      "label": "Treats visual steepness as slope magnitude without reading the scale"
+      "label": "Treats visual steepness as gradient magnitude without reading the scale"
     },
     {
       "id": "mis.form.m-b-swapped",
-      "label": "Reads b as slope and m as intercept"
+      "label": "Reads the intercept as the gradient and vice versa in y = mx + c"
     },
     {
       "id": "mis.function.notation-multiplication",
@@ -120,7 +120,7 @@
     },
     {
       "id": "mis.form.standard-slope-sign",
-      "label": "Reads the slope of Ax + By = C as A/B, dropping the negative"
+      "label": "Reads the gradient of Ax + By = C as A/B, dropping the negative"
     },
     {
       "id": "mis.function.one-to-one-required",
@@ -180,9 +180,15 @@
         "mis.rate.compares-totals"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P3.Y7.Number:S02",
+          "P4.Y9.Number:S15"
+        ],
+        "ncea": [
+          "AS91945"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y8",
       "band_us": "Grade 7"
@@ -199,9 +205,13 @@
         "mis.proportional.one-pair-assumed-constant"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P3.Y7.Algebra:S09",
+          "P3.Y8.Number:S04"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y8",
       "band_us": "Grade 7"
@@ -218,16 +228,22 @@
         "mis.proportional.line-misses-origin"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P3.Y7.Algebra:S09",
+          "P4.Y9.Algebra:S19"
+        ],
+        "ncea": [
+          "AS91947"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y8",
       "band_us": "Grade 7"
     },
     {
       "id": "linear.slope.two-points",
-      "label": "Compute slope from two points",
+      "label": "Compute the gradient from two points",
       "band": "Y9",
       "prereqs": [
         "rate.constant-of-proportionality",
@@ -238,16 +254,21 @@
         "mis.slope.subtraction-order"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y10.Algebra:S23"
+        ],
+        "ncea": [
+          "AS91947"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y9",
       "band_us": "Grade 8"
     },
     {
       "id": "linear.slope.from-graph",
-      "label": "Read slope from a graph, attending to axis scale",
+      "label": "Read the gradient from a graph, attending to axis scale",
       "band": "Y9",
       "prereqs": [
         "linear.slope.two-points",
@@ -258,16 +279,22 @@
         "mis.slope.rise-run-inverted"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y10.Algebra:S25"
+        ],
+        "ncea": [
+          "AS91947",
+          "AS91946"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y9",
       "band_us": "Grade 8"
     },
     {
       "id": "linear.slope.interpret-context",
-      "label": "Interpret slope as a rate of change in context, with units",
+      "label": "Interpret the gradient as a rate of change in context, with units",
       "band": "Y9",
       "prereqs": [
         "linear.slope.two-points",
@@ -277,9 +304,15 @@
         "mis.slope.units-dropped"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y9.Algebra:S19"
+        ],
+        "ncea": [
+          "AS91947",
+          "AS91946"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "notes": "Long-arc anchor. This is the ancestor of deriv.interpret.context-units, roughly three years downstream.",
       "band_nz": "Y9",
@@ -287,7 +320,7 @@
     },
     {
       "id": "linear.form.slope-intercept-graph",
-      "label": "Graph a line from y = mx + b",
+      "label": "Graph a line from y = mx + c",
       "band": "Y9",
       "prereqs": [
         "linear.slope.from-graph"
@@ -296,16 +329,22 @@
         "mis.form.m-b-swapped"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y9.Algebra:S20",
+          "P4.Y10.Algebra:S24"
+        ],
+        "ncea": [
+          "AS91947"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y9",
       "band_us": "Grade 8"
     },
     {
       "id": "linear.form.slope-intercept-write",
-      "label": "Write y = mx + b from a graph, a table, or two points",
+      "label": "Write y = mx + c from a graph, a table, or two points",
       "band": "Y9",
       "prereqs": [
         "linear.form.slope-intercept-graph",
@@ -315,16 +354,21 @@
         "mis.form.m-b-swapped"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y10.Algebra:S25"
+        ],
+        "ncea": [
+          "AS91947"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y9",
       "band_us": "Grade 8"
     },
     {
       "id": "linear.form.point-slope",
-      "label": "Write and use point-slope form",
+      "label": "Write and use the point–gradient form y − y₁ = m(x − x₁)",
       "band": "Y9",
       "prereqs": [
         "linear.form.slope-intercept-write"
@@ -333,9 +377,12 @@
         "mis.transform.horizontal-direction"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91256"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "notes": "The sign in (x - x1) is the same cognitive object as the sign in f(x - h). Deliberate edge to transform.horizontal.translate.",
       "band_nz": "Y9",
@@ -343,7 +390,7 @@
     },
     {
       "id": "linear.form.standard",
-      "label": "Use standard form Ax + By = C, including intercepts",
+      "label": "Use the general form Ax + By = C, including intercepts",
       "band": "Y9",
       "prereqs": [
         "linear.form.slope-intercept-write"
@@ -353,9 +400,12 @@
         "mis.form.standard-slope-sign"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91256"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y9",
       "band_us": "Grade 8"
@@ -374,9 +424,12 @@
         "mis.form.standard-slope-sign"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91256"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y9",
       "band_us": "Grade 8"
@@ -394,9 +447,16 @@
         "mis.function.context-restriction-ignored"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y9.Algebra:S20"
+        ],
+        "ncea": [
+          "AS91945",
+          "AS91946",
+          "AS91947"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y9",
       "band_us": "Grade 8",
@@ -414,9 +474,12 @@
         "mis.function.needs-a-formula"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y10",
       "band_us": "Algebra I"
@@ -433,9 +496,12 @@
         "mis.function.needs-a-formula"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y10",
       "band_us": "Algebra I"
@@ -454,9 +520,14 @@
         "mis.function.evaluate-vs-solve"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P3.Y8.Algebra:S12"
+        ],
+        "ncea": [
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "notes": "Load-bearing. f(a+h) is the hidden prerequisite for the difference quotient and is usually taught two years before it is needed, then never retrieved. This edge is the whole argument for prerequisite-targeted spacing.",
       "band_nz": "Y10",
@@ -475,9 +546,15 @@
         "mis.function.notation-multiplication"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P3.Y8.Algebra:S13"
+        ],
+        "ncea": [
+          "AS91261",
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y10",
       "band_us": "Algebra I"
@@ -496,9 +573,15 @@
         "mis.function.needs-a-formula"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y9.Algebra:S20"
+        ],
+        "ncea": [
+          "AS91947",
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y10",
       "band_us": "Algebra I",
@@ -516,9 +599,12 @@
         "mis.function.endpoint-open-closed"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y10",
       "band_us": "Algebra I"
@@ -537,9 +623,12 @@
         "mis.function.endpoint-open-closed"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y10",
       "band_us": "Algebra I"
@@ -555,9 +644,14 @@
         "mis.family.any-member-is-parent"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y9.Algebra:S18"
+        ],
+        "ncea": [
+          "AS91947"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y10",
       "band_us": "Algebra I"
@@ -575,9 +669,14 @@
         "mis.family.any-member-is-parent"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y10.Algebra:S27"
+        ],
+        "ncea": [
+          "AS91947"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y10",
       "band_us": "Algebra I"
@@ -594,9 +693,14 @@
         "mis.transform.inside-outside"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y10.Algebra:S27"
+        ],
+        "ncea": [
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y11",
       "band_us": "Algebra II"
@@ -614,11 +718,14 @@
         "mis.transform.inside-outside"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
-      "notes": "Highest-value misconception in the thread. Prereq edge to point-slope is deliberate: students have already met (x - x1) meaning 'shift right by x1' and did not notice.",
+      "notes": "Highest-value misconception in the thread. Prereq edge to the point–gradient form is deliberate: students have already met (x - x1) meaning 'shift right by x1' and did not notice.",
       "band_nz": "Y11",
       "band_us": "Algebra II"
     },
@@ -634,9 +741,14 @@
         "mis.transform.inside-outside"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y10.Algebra:S27"
+        ],
+        "ncea": [
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y11",
       "band_us": "Algebra II"
@@ -653,9 +765,12 @@
         "mis.transform.inside-outside"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y11",
       "band_us": "Algebra II"
@@ -672,9 +787,12 @@
         "mis.transform.horizontal-direction"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y11",
       "band_us": "Algebra II"
@@ -690,9 +808,12 @@
         "mis.transform.inside-outside"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y11",
       "band_us": "Algebra II"
@@ -708,9 +829,15 @@
         "mis.transform.horizontal-direction"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [
+          "P4.Y10.Algebra:S27"
+        ],
+        "ncea": [
+          "AS91947",
+          "AS91257"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y11",
       "band_us": "Algebra II"
@@ -728,9 +855,13 @@
         "mis.transform.stretch-vs-shift"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91257",
+          "AS91947"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y11",
       "band_us": "Algebra II"
@@ -747,16 +878,20 @@
         "mis.roc.uses-endpoint-value"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91947",
+          "AS91946"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y11",
       "band_us": "Algebra II"
     },
     {
       "id": "roc.average.secant",
-      "label": "Identify average rate of change as the slope of a secant line",
+      "label": "Identify average rate of change as the gradient of a secant line",
       "band": "Y11",
       "prereqs": [
         "roc.average.from-table",
@@ -767,9 +902,12 @@
         "mis.roc.uses-endpoint-value"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91947"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y11",
       "band_us": "Algebra II"
@@ -787,11 +925,12 @@
         "mis.roc.uses-endpoint-value"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
       },
-      "notes": "Unification point. Students should be told explicitly that this is the slope formula they learned in Year 9, rewritten. Do not let them discover it.",
+      "notes": "Unification point. Students should be told explicitly that this is the gradient formula they learned in Year 9 or 10, rewritten. Do not let them discover it.",
       "band_nz": "Y11",
       "band_us": "Algebra II"
     },
@@ -807,9 +946,12 @@
         "mis.roc.assumes-constant"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91947"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y11",
       "band_us": "Algebra II"
@@ -826,9 +968,12 @@
         "mis.slope.units-dropped"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91947"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y11",
       "band_us": "Algebra II"
@@ -845,9 +990,12 @@
         "mis.limit.equals-substitution"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91578"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y12",
       "band_us": "Precalculus"
@@ -864,9 +1012,12 @@
         "mis.limit.one-sided-superscript-ignored"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91578"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y12",
       "band_us": "Precalculus"
@@ -883,9 +1034,12 @@
         "mis.limit.equals-substitution"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91578"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y12",
       "band_us": "Precalculus"
@@ -903,9 +1057,12 @@
         "mis.roc.secant-vs-tangent"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91578"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y12",
       "band_us": "Precalculus"
@@ -923,9 +1080,10 @@
         "mis.function.f-of-a-plus-h-distributed"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y12",
       "band_us": "Precalculus"
@@ -943,9 +1101,10 @@
         "mis.function.f-of-a-plus-h-distributed"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y12",
       "band_us": "Precalculus"
@@ -961,16 +1120,17 @@
         "mis.limit.h-set-to-zero-early"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y13",
       "band_us": "Calculus"
     },
     {
       "id": "deriv.interpret.slope-tangent",
-      "label": "Interpret f′(a) as the slope of the tangent line at x = a",
+      "label": "Interpret f′(a) as the gradient of the tangent line at x = a",
       "band": "Y13",
       "prereqs": [
         "deriv.definition.at-a-point",
@@ -982,9 +1142,12 @@
         "mis.deriv.reads-f-graph-as-f-prime"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91262"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y13",
       "band_us": "Calculus"
@@ -1003,9 +1166,12 @@
         "mis.slope.units-dropped"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91262"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "notes": "Terminal node of the longest arc in the thread. The edge back to linear.slope.interpret-context spans roughly four years and is the flagship demonstration of prerequisite-targeted review.",
       "band_nz": "Y13",
@@ -1022,9 +1188,10 @@
         "mis.limit.h-set-to-zero-early"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y13",
       "band_us": "Calculus"
@@ -1042,9 +1209,12 @@
         "mis.deriv.reads-f-graph-as-f-prime"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91262"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y13",
       "band_us": "Calculus"
@@ -1060,9 +1230,12 @@
         "mis.deriv.constant-rule-confused"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91262"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "notes": "Generalise from four worked cases the students have already computed from the definition. This is the one place in the thread where induction from examples is appropriate, because the examples were built explicitly first.",
       "band_nz": "Y13",
@@ -1080,9 +1253,12 @@
         "mis.deriv.constant-rule-confused"
       ],
       "alignment": {
-        "teks": null,
-        "ccss": null,
-        "nzc_phase": null
+        "nzc_phase": [],
+        "ncea": [
+          "AS91262"
+        ],
+        "ccss": [],
+        "teks": []
       },
       "band_nz": "Y13",
       "band_us": "Calculus"
@@ -1128,7 +1304,23 @@
     "locales": [
       {
         "id": "nz-ncea",
-        "label": "NZ NCEA — Achieved / Merit / Excellence, justification-weighted"
+        "label": "NZ NCEA — Achieved / Merit / Excellence, justification-weighted",
+        "grades": [
+          "N",
+          "A",
+          "M",
+          "E"
+        ],
+        "levels": {
+          "A": "Achieved — uses appropriate methods and communicates accurate mathematical information related to the context. Standard wording: \"Apply <methods> in solving problems.\"",
+          "M": "Merit — relational thinking: applies methods using logical connections between them and communicates through appropriate mathematical statements. In an item: explain the reasoning, justify with the mathematics, link two or more processes.",
+          "E": "Excellence — extended abstract thinking: extends methods using logical connections to explore or solve a problem by considering limitations, assumptions, generalisations or predictions. In an item: generalise, prove, evaluate the validity of a claim, extend the problem."
+        },
+        "dol_rule": "Every rubric line on a nz-ncea DoL carries a level tag (A, M or E) in the activity's x_dol_rubric_levels meta key, in rubric-line order. The chain reaches E somewhere — naturally at its final position or consolidation; no single DoL is required to. Error-analysis items (principles §16) are the auto-scorable route to M. Band default (D35): Y8–10 DoLs default to auto-scored items plus an error-analysis item, with rubric justification reserved for chain-final positions and consolidations; Y11–13 DoLs stay justification-weighted.",
+        "calculator": "An approved calculator is permitted in the L1–L3 externals (AS91946/91947 and above). A calculator: off setting on an activity is a skill-level authoring choice, never a locale rule.",
+        "context": "AS91945 (L1 internal) requires problems that relate to life in Aotearoa New Zealand or the Pacific. At Y11 a local context is a standard requirement, not a tone preference.",
+        "cohorts": "Cohort arithmetic is dated fact and rots in place; it lives in docs/alignment-sources.md under 'The qualification timeline the locales encode'. Read it there — this entry deliberately holds no year values.",
+        "sources": "NZQA AS91945, AS91257, AS91262, AS91578 achievement criteria and explanatory notes; MoE Mathematics and Statistics NCEA Level 1 Subject Learning Outcomes (2024). Read 2026-09-02; see docs/alignment-sources.md."
       },
       {
         "id": "us-teks",
@@ -1136,7 +1328,11 @@
       },
       {
         "id": "nz-nzce",
-        "label": "NZ NZCE / NZACE — internal plus exam, A–E (staged from 2028)"
+        "label": "NZ NZCE / NZACE — internal plus exam, A–E (staged from 2028)",
+        "status": "stub — cannot be filled yet",
+        "confirmed": "Subject-based; A–E letter grades; at least 5 subjects with 3 or more passed per certificate; no fully internally assessed subjects; Y11 Foundational Award in literacy and numeracy with Mathematics compulsory. Rollout: Foundational Award 2028, NZCE (Y12) 2029, NZACE (Y13) 2030; the 2026 Y9 cohort is the first full cohort through.",
+        "unconfirmed": "Grading methodology behind the letters, the internal/external balance, and the Y11–13 mathematics subject content (Phase 5 draft) — deferred by the Ministry to \"Tranche 2\". Nothing published as of 2026-09-02.",
+        "revisit": "When Tranche 2 lands. Until then no DoL is authored against this locale; nz-ncea is the standing proxy."
       },
       {
         "id": "generic",
@@ -1680,6 +1876,6 @@
       }
     }
   ],
-  "authoring_principles": "# Authoring Principles\n\nThis document is injected into every drafting prompt. It states the *why* behind the\nschema's structure, so a model composing an activity makes the same call the author\nwould make — not a plausible-sounding different one. Where a principle constrains you,\nthe constraint is deliberate. Where it is silent, use judgment and flag the gap.\n\nNothing here is decoration. If a draft satisfies the schema but violates a principle,\nthe draft is wrong.\n\n---\n\n## 1. What this curriculum is\n\nAn explicit-instruction mathematics curriculum, intro algebra through calculus and\nstatistics, delivered as short single-period activities that a platform ingests — the cap\nis `activity_defaults.duration_min`. It is built\nfor novice learners acquiring new content. The design follows the evidence on how\nnovices learn: full guidance during acquisition, support faded gradually, retrieval\nspaced deliberately, misconceptions anticipated and named.\n\nIt is not a discovery curriculum. During acquisition, students do not induce new\ncontent from open-ended tasks — the working-memory cost of unguided search crowds out\nthe learning it is supposed to produce. Open problems and transfer tasks have a real\nplace *after* schema exists; they are consolidation tools, not acquisition tools.\nConcede this openly when challenged: explicit instruction wins for acquiring new\ncontent; the last stretch of a topic, once students have schema, is where richer\ntasks earn their keep.\n\n## 2. The skill graph is the asset\n\nSkills are durable objects. Activities are disposable delivery instances aimed at them.\n\n- Every activity targets exactly one primary skill. Review pointers, DoL items, and\n  data all reference **skill ids**, never activity ids. Activities get rewritten;\n  the graph endures.\n- Prerequisite edges are authored at write time, never as a cleanup pass. An edge is\n  a claim: *you cannot hold this skill without that one.* Sequencing preference is\n  not an edge. Two skills that merely tend to be taught together get no edge.\n- Anything the graph can derive is derived, never hand-declared. Progress, coverage,\n  and review candidates are computed. A hand-maintained duplicate of derivable state\n  will drift, and drifted state that looks authoritative is worse than no state.\n\n## 3. Every activity keeps one contract\n\nThree components, in this order: **review → lesson → DoL.**\n\nThe platform treats all three identically feature-wise; the division informs the\nteacher and the student, it does not gate anything. But the authoring order is not\nnegotiable, because each position has a mechanism:\n\n- **Review comes first** because retrieving prior skills activates the exact schema\n  the new content is about to attach to. Moved after the lesson it becomes practice\n  of what was just taught — a different mechanism with a smaller payoff, which\n  already lives inside the lesson as the independent beat.\n- **The lesson has three beats: worked → faded → independent.** Never fewer.\n- **The DoL closes.** It is the only locale-bearing component (see §8).\n\n## 4. The hook\n\nEvery teaching day opens with a hook: an interesting question, relevant to the day's\ncontent, that students think about before anything else. It is an engagement device,\nnot an instruction device — it buys attention and a reason to care; it does not teach.\n\n**Hooks are a chain-level pool; activities never carry them.** Each chain holds a pool\nsized by `activity_defaults.hook_contract.minimum`. A hook is not welded to any\nactivity: the teacher fires one when *their* class day starts, because period\nboundaries are classroom facts the data model cannot see — one class covers three\nactivities on a block day, another covers one and a half, and only the teacher knows\nwhere the day began. Within every activity, review keeps position one regardless.\n\nRules for a hook:\n- One question, thinkable in under a minute, answerable by intuition or guess —\n  no prerequisite knowledge should be needed to *engage* with it, even if answering\n  it well requires the day's content.\n- It must genuinely connect to a skill in its chain. A fun but irrelevant opener\n  trains students that the opener is skippable.\n- It must not front-load the lesson's content. If answering the hook requires the\n  worked example, the hook has become discovery learning through the back door. The\n  hook raises the question; the lesson earns the answer.\n- Strong hook shapes: a surprising claim to evaluate (\"a 20% discount then 20% tax\n  returns the price to normal — true?\"), a prediction to commit to, a wrong answer\n  from a fictional student to react to, two plausible-looking options to choose\n  between. Weak hooks: trivia, \"have you ever wondered,\" anything answerable with\n  a shrug.\n- Quality beats coverage: the pool minimum exists so no teaching day opens empty,\n  not to manufacture filler. A chain may exceed the minimum only with hooks that\n  earn their place.\n\n## 5. The lesson beats\n\n**Worked (I do).** Fully worked. Every step visible, including the step an expert\nperforms silently. The narration says the reasoning out loud — not what was done but\n*why it was the move*. No \"what do you notice\" as the mechanism for new content; if\nnoticing is doing the teaching, it is discovery wearing a lab coat.\n\n**Faded (we do).** The same procedure with support removed **from the end** — the\nstart intact, the later steps blanked. This beat is mandatory, no exceptions. The\njump from demonstration straight to independent practice is the single most common\nfailure in explicit-instruction materials; the faded beat is where the worked-example\neffect actually pays out. Fade level responds to position in the chain: earlier\nparts fade less, later parts fade more.\n\n**Independent (you do).** Practice on the skill itself, at enough volume to be worth\ngrading (typically 4–8 items). Where the platform supports a decision, prefer items\nthat force the *choice* of method, not just its execution.\n\nOne worked example per new idea. Two ideas in one activity means the activity should\nhave been two activities.\n\n## 6. Review is spaced retrieval, not warm-up filler\n\nThe review component draws from the primary skill's **ancestor pool** — the set of\nskills upstream of it in the graph. Not siblings, not vibes: ancestors.\n\n- **At least one item reaches far enough back**, per\n  `activity_defaults.review_selection.constraint`. Retrieving only yesterday's skill is\n  yesterday's lesson repeated, not spaced retrieval. Where the graph is shallower than the\n  constraint asks — as it is at the very top of the curriculum — the constraint's own floor\n  clause applies; do not invent an intermediate skill to satisfy it.\n- Prefer prerequisites the students have not touched recently — staleness is the\n  point. Prefer prerequisites the lesson is about to lean on — activation is the\n  other point. The best review item is both: stale *and* load-bearing for today.\n- Chain position governs the slice, per `activity_defaults.chain_rules`. Chain position 1\n  gets full prerequisite-targeted review. Chain position 2+ gets a brief retrieval of the\n  previous position only, with the recovered minutes going to independent practice; never\n  repeat chain position 1's review later in the chain. Spaced retrieval is not lost at\n  chain position 2+ — the DoL carries it at every position (§8). The final position in a\n  chain has its own exit-check rule (`chain_rules.final_position`).\n  Note: \"chain position\" is position within the chain. It is unrelated to a *skill part*,\n  which is one of the activities delivering a single skill.\n- Long-arc edges are the flagship. When a skill's ancestor sits years back\n  (units-on-slope feeding units-on-derivatives), reviewing it just before it is\n  needed is the whole argument for the graph. Plant those items deliberately.\n\n## 7. Misconceptions are first-class\n\nA wrong answer is rarely random. Anticipated wrong answers map to **named\nmisconception ids** via distractor maps, and the map is what turns feedback from\n\"incorrect, try again\" into diagnosis.\n\n- **A misconception attaches to every skill that can elicit it** — not merely the one it\n  was first noticed on. The test is whether an author writing distractors for that skill\n  should be anticipating this error; \"conceivably possible\" is too broad and \"names this\n  skill\" is too narrow. The clearest case: **a label naming a confusion *between* two things\n  attaches to both skills.** A pair-confusion instrumented on one side is a sensor pointed at half the\n  phenomenon: items on the unattached skill carry no binding, so the data under-reports the\n  error and attributes all of what it does see to whichever skill holds the attachment. If\n  only one attachment is defensible, the label is describing a one-sided error and should be\n  reworded to say so.\n  Not mechanically checkable: whether a second skill can exhibit an error is a question\n  about the mathematics, not about the label. Ask it once per chain at authoring time, for\n  every misconception attached to any skill in that chain.\n- **A misconception about the FORM of a response binds only where the response format\n  admits that form and the item requires it.** A units-dropped binding on a numeric blank\n  cannot fire on the misconception, because the blank cannot carry units at all — it fires on\n  the format, and reports every correct answer as an error. The carrier is an item where\n  omitting the form is a choice the student makes: an mc whose distractor is the unitless\n  value, or a response type that accepts units and an item that demands them. Same family as\n  the auto-scored rule above — a binding that cannot fire does not mean what it appears to\n  mean.\n- Use only ids that exist in the registry. Never invent one inline — describe the\n  anticipated error in a note instead, so a human can promote it to an id.\n- **Distractor maps go only on auto-scored, per-item captured types** (multiple\n  choice, graph, fill-in-the-blank). On a teacher-graded item the map produces no\n  aggregate signal until a human marks it; it is dead weight there.\n- Feedback attached to a wrong answer names the error's logic, not just the fact of\n  the error. \"That is the third-largest city, not the capital\" beats \"incorrect.\"\n- The misconception data is the platform's most valuable output. Every mapped\n  distractor is a sensor. Author accordingly.\n\n## 8. Assessment is local; instruction is not\n\nMathematics is universal; assessment of mathematical skill is not. The same skill\nterminates in a procedural computation under one qualification and a justified\nargument under another.\n\n- The **DoL is the only component that varies by locale.** Review and lesson are\n  written locale-neutral. When the qualification changes, the DoL swaps and the\n  rest stands.\n- Write the DoL the way the named locale asks — its response format, its idea of\n  evidence. A rubric-graded justification for a Merit/Excellence locale; auto-scored\n  items for a procedural one.\n- Know the data cost: auto-scored DoLs feed misconception aggregates immediately;\n  rubric-graded DoLs capture text now and yield structured per-criterion scores only\n  after a human grades. Neither is wrong. A chain whose every DoL is rubric-graded\n  is a deliberate marking-load decision, not a default.\n- A DoL has exactly 2 items: one on the primary skill, one on a review-pool skill far\n  enough back, per `activity_defaults.review_selection.constraint` and its floor clause.\n  Contextual items require units in the answer.\n\n## 9. Compose only from shipped capabilities\n\nThe capability registry is the platform's truth. Draft only with capabilities marked\nshipped, inside their stated constraints (graded curve families, two-column matching,\nliteral datasets, and the rest).\n\n- If the pedagogically ideal move needs an unshipped capability, author the\n  **fallback** — the best version buildable today — and record the wish against the\n  proposed capability. A wish without a working fallback is a blocker, and a blocker\n  caps the activity at draft.\n- Never assume a capability exists because it plausibly should. The registry, not\n  intuition, is the boundary.\n\n## 10. Time is a budget, not a suggestion\n\nOne period per activity, hard cap: `activity_defaults.duration_min`. The default internal\nsplit across the beats is `activity_defaults.phase_budget_min`; read the values there\nrather than from memory. Content that does not fit becomes another activity\nin the chain — that trade was accepted at the start. Do not compress the faded beat\nto make room; it is the beat that looks most optional and is least.\n\n## 11. Language and tone\n\n- Voice is a teacher talking to students, not a textbook. Narrations are speakable.\n- Precision beats friendliness where they conflict; say \"expression\" when it is an\n  expression and \"equation\" when it is an equation.\n- Lexical simplicity in the prose, full precision in the mathematics. Sentence\n  structure stays simple — the difficulty lives in the maths, not the reading, and a\n  multilingual student who can do the maths must not be assessed on English. But\n  mathematical vocabulary is never simplified away: students need \"coefficient,\"\n  \"vertex,\" and \"rate of change\" flowing naturally, because those are the words the\n  discipline and the exams use.\n- Every technical term is marked with the definition capability\n  ([[term :: meaning]]) in every activity — not just on first use. It is a tap-away\n  reference, not an interruption; forcing a student to scroll back to wherever a\n  word was first defined helps no one. The pop-up serves the student who needs it\n  and is invisible to the one who does not.\n- Name conventions honestly: \"this is the slope formula you already know, renamed\" —\n  unification is taught, not discovered.\n- Contexts are real and checked. A context with fake numbers that fall apart under\n  scrutiny teaches students that context is decoration.\n- In NZ settings, use NZ vocabulary and conventions naturally (Year levels, NZ\n  contexts where they help), without performing them.\n\n## 12. The human gate\n\nEverything a model drafts is a **draft**. It does not count toward progress, it does\nnot ship, until a human has read it end to end and approved it. The model is a\ndrafter whose reasoning gets checked, not a colleague whose judgment is trusted.\nPlausible prose at volume is the failure mode; the gate is the defense. An activity\nthat satisfies every rule in this document can still be wrong in ways only a teacher\nreading it will catch — that reading is not optional overhead, it is the quality\nmechanism.\n\n---\n\n## 13. Examples are minimal pairs\n\nAcross a sequence of worked and faded examples, vary **one feature at a time**:\nsigns, then the position of the variable, then a fraction coefficient. The student's\nattention lands on the thing that changed because everything else held still.\n\"Varied practice\" that shuffles every surface feature at once feels richer and\nteaches less — the structure is buried under noise. This rule exists because\nunprompted drafting defaults to variety; the sequence design is the instruction.\n\n## 14. Practice discriminates\n\nOnce two confusable skills both exist (evaluate f(3) vs solve f(x)=3), independent\npractice interleaves items that force the *choice* between them. Blocked practice —\nsix of one, then six of the other — inflates lesson-end scores and hides the\nconfusion, because the block tells the student which procedure applies and the item\nnever has to. The named misconceptions are the map of what to interleave: students\nwho know skills but not when to apply them is the failure this prevents.\n\n## 15. Retrieval is closed-book\n\nReview items are answerable from memory, with nothing on screen or in notes that\ncontains the answer. An item whose answer is visible tests navigation, not\nretention, and the retrieval effect — the mechanism the review component exists\nfor — only occurs when memory does the work. Phrase accordingly: \"find the slope\nthrough (2,1) and (5,7)\" retrieves; \"state the slope formula\" fails if the formula\nis anywhere in sight.\n\n**The reference panel is open-book for the whole activity, so it is part of \"in\nsight.\"** Nothing a review item retrieves may appear on the activity's `reference`\nfence — not the formula, not a worked instance of the procedure, not the\ndefinition being recalled. The author choosing what goes on the sheet is\nsimultaneously choosing what the review may no longer ask, and the two decisions\nare usually made minutes apart by someone thinking about only one of them. Write\nthe review first, then the sheet.\n\n## 16. Error analysis is a first-class item type\n\n\"A student wrote X — find and explain the error.\" These test the skill and the\nmisconception simultaneously, and the planted error always comes from a named\nmisconception id. Under an NCEA-first curriculum they carry extra weight: they are\nthe one format that keeps misconception targeting in auto-scorable form inside a\njustification locale, so they are the main automatic data source when most DoLs are\nrubric-graded. Use them routinely in DoLs and independent practice.\n",
+  "authoring_principles": "# Authoring Principles\n\nThis document is injected into every drafting prompt. It states the *why* behind the\nschema's structure, so a model composing an activity makes the same call the author\nwould make — not a plausible-sounding different one. Where a principle constrains you,\nthe constraint is deliberate. Where it is silent, use judgment and flag the gap.\n\nNothing here is decoration. If a draft satisfies the schema but violates a principle,\nthe draft is wrong.\n\n---\n\n## 1. What this curriculum is\n\nAn explicit-instruction mathematics curriculum, intro algebra through calculus and\nstatistics, delivered as short single-period activities that a platform ingests — the cap\nis `activity_defaults.duration_min`. It is built\nfor novice learners acquiring new content. The design follows the evidence on how\nnovices learn: full guidance during acquisition, support faded gradually, retrieval\nspaced deliberately, misconceptions anticipated and named.\n\nIt is not a discovery curriculum. During acquisition, students do not induce new\ncontent from open-ended tasks — the working-memory cost of unguided search crowds out\nthe learning it is supposed to produce. Open problems and transfer tasks have a real\nplace *after* schema exists; they are consolidation tools, not acquisition tools.\nConcede this openly when challenged: explicit instruction wins for acquiring new\ncontent; the last stretch of a topic, once students have schema, is where richer\ntasks earn their keep.\n\n## 2. The skill graph is the asset\n\nSkills are durable objects. Activities are disposable delivery instances aimed at them.\n\n- Every activity targets exactly one primary skill. Review pointers, DoL items, and\n  data all reference **skill ids**, never activity ids. Activities get rewritten;\n  the graph endures.\n- Prerequisite edges are authored at write time, never as a cleanup pass. An edge is\n  a claim: *you cannot hold this skill without that one.* Sequencing preference is\n  not an edge. Two skills that merely tend to be taught together get no edge.\n- Anything the graph can derive is derived, never hand-declared. Progress, coverage,\n  and review candidates are computed. A hand-maintained duplicate of derivable state\n  will drift, and drifted state that looks authoritative is worse than no state.\n\n## 3. Every activity keeps one contract\n\nThree components, in this order: **review → lesson → DoL.**\n\nThe platform treats all three identically feature-wise; the division informs the\nteacher and the student, it does not gate anything. But the authoring order is not\nnegotiable, because each position has a mechanism:\n\n- **Review comes first** because retrieving prior skills activates the exact schema\n  the new content is about to attach to. Moved after the lesson it becomes practice\n  of what was just taught — a different mechanism with a smaller payoff, which\n  already lives inside the lesson as the independent beat.\n- **The lesson has three beats: worked → faded → independent.** Never fewer.\n- **The DoL closes.** It is the only locale-bearing component (see §8).\n\n## 4. The hook\n\nEvery teaching day opens with a hook: an interesting question, relevant to the day's\ncontent, that students think about before anything else. It is an engagement device,\nnot an instruction device — it buys attention and a reason to care; it does not teach.\n\n**Hooks are a chain-level pool; activities never carry them.** Each chain holds a pool\nsized by `activity_defaults.hook_contract.minimum`. A hook is not welded to any\nactivity: the teacher fires one when *their* class day starts, because period\nboundaries are classroom facts the data model cannot see — one class covers three\nactivities on a block day, another covers one and a half, and only the teacher knows\nwhere the day began. Within every activity, review keeps position one regardless.\n\nRules for a hook:\n- One question, thinkable in under a minute, answerable by intuition or guess —\n  no prerequisite knowledge should be needed to *engage* with it, even if answering\n  it well requires the day's content.\n- It must genuinely connect to a skill in its chain. A fun but irrelevant opener\n  trains students that the opener is skippable.\n- It must not front-load the lesson's content. If answering the hook requires the\n  worked example, the hook has become discovery learning through the back door. The\n  hook raises the question; the lesson earns the answer.\n- Strong hook shapes: a surprising claim to evaluate (\"a 20% discount then 20% tax\n  returns the price to normal — true?\"), a prediction to commit to, a wrong answer\n  from a fictional student to react to, two plausible-looking options to choose\n  between. Weak hooks: trivia, \"have you ever wondered,\" anything answerable with\n  a shrug.\n- Quality beats coverage: the pool minimum exists so no teaching day opens empty,\n  not to manufacture filler. A chain may exceed the minimum only with hooks that\n  earn their place.\n\n## 5. The lesson beats\n\n**Worked (I do).** Fully worked. Every step visible, including the step an expert\nperforms silently. The narration says the reasoning out loud — not what was done but\n*why it was the move*. No \"what do you notice\" as the mechanism for new content; if\nnoticing is doing the teaching, it is discovery wearing a lab coat.\n\n**Faded (we do).** The same procedure with support removed **from the end** — the\nstart intact, the later steps blanked. This beat is mandatory, no exceptions. The\njump from demonstration straight to independent practice is the single most common\nfailure in explicit-instruction materials; the faded beat is where the worked-example\neffect actually pays out. Fade level responds to position in the chain: earlier\nparts fade less, later parts fade more.\n\n**Independent (you do).** Practice on the skill itself, at enough volume to be worth\ngrading (typically 4–8 items). Where the platform supports a decision, prefer items\nthat force the *choice* of method, not just its execution.\n\nOne worked example per new idea. Two ideas in one activity means the activity should\nhave been two activities.\n\n## 6. Review is spaced retrieval, not warm-up filler\n\nThe review component draws from the primary skill's **ancestor pool** — the set of\nskills upstream of it in the graph. Not siblings, not vibes: ancestors.\n\n- **At least one item reaches far enough back**, per\n  `activity_defaults.review_selection.constraint`. Retrieving only yesterday's skill is\n  yesterday's lesson repeated, not spaced retrieval. Where the graph is shallower than the\n  constraint asks — as it is at the very top of the curriculum — the constraint's own floor\n  clause applies; do not invent an intermediate skill to satisfy it.\n- Prefer prerequisites the students have not touched recently — staleness is the\n  point. Prefer prerequisites the lesson is about to lean on — activation is the\n  other point. The best review item is both: stale *and* load-bearing for today.\n- Chain position governs the slice, per `activity_defaults.chain_rules`. Chain position 1\n  gets full prerequisite-targeted review. Chain position 2+ gets a brief retrieval of the\n  previous position only, with the recovered minutes going to independent practice; never\n  repeat chain position 1's review later in the chain. Spaced retrieval is not lost at\n  chain position 2+ — the DoL carries it at every position (§8). The final position in a\n  chain has its own exit-check rule (`chain_rules.final_position`).\n  Note: \"chain position\" is position within the chain. It is unrelated to a *skill part*,\n  which is one of the activities delivering a single skill.\n- Long-arc edges are the flagship. When a skill's ancestor sits years back\n  (units-on-gradient feeding units-on-derivatives), reviewing it just before it is\n  needed is the whole argument for the graph. Plant those items deliberately.\n\n## 7. Misconceptions are first-class\n\nA wrong answer is rarely random. Anticipated wrong answers map to **named\nmisconception ids** via distractor maps, and the map is what turns feedback from\n\"incorrect, try again\" into diagnosis.\n\n- **A misconception attaches to every skill that can elicit it** — not merely the one it\n  was first noticed on. The test is whether an author writing distractors for that skill\n  should be anticipating this error; \"conceivably possible\" is too broad and \"names this\n  skill\" is too narrow. The clearest case: **a label naming a confusion *between* two things\n  attaches to both skills.** A pair-confusion instrumented on one side is a sensor pointed at half the\n  phenomenon: items on the unattached skill carry no binding, so the data under-reports the\n  error and attributes all of what it does see to whichever skill holds the attachment. If\n  only one attachment is defensible, the label is describing a one-sided error and should be\n  reworded to say so.\n  Not mechanically checkable: whether a second skill can exhibit an error is a question\n  about the mathematics, not about the label. Ask it once per chain at authoring time, for\n  every misconception attached to any skill in that chain.\n- **A misconception about the FORM of a response binds only where the response format\n  admits that form and the item requires it.** A units-dropped binding on a numeric blank\n  cannot fire on the misconception, because the blank cannot carry units at all — it fires on\n  the format, and reports every correct answer as an error. The carrier is an item where\n  omitting the form is a choice the student makes: an mc whose distractor is the unitless\n  value, or a response type that accepts units and an item that demands them. Same family as\n  the auto-scored rule above — a binding that cannot fire does not mean what it appears to\n  mean.\n- Use only ids that exist in the registry. Never invent one inline — describe the\n  anticipated error in a note instead, so a human can promote it to an id.\n- **Distractor maps go only on auto-scored, per-item captured types** (multiple\n  choice, graph, fill-in-the-blank). On a teacher-graded item the map produces no\n  aggregate signal until a human marks it; it is dead weight there.\n- Feedback attached to a wrong answer names the error's logic, not just the fact of\n  the error. \"That is the third-largest city, not the capital\" beats \"incorrect.\"\n- The misconception data is the platform's most valuable output. Every mapped\n  distractor is a sensor. Author accordingly.\n\n## 8. Assessment is local; instruction is not\n\nMathematics is universal; assessment of mathematical skill is not. The same skill\nterminates in a procedural computation under one qualification and a justified\nargument under another.\n\n- The **DoL is the only component that varies by locale.** Review and lesson are\n  written locale-neutral. When the qualification changes, the DoL swaps and the\n  rest stands.\n- Write the DoL the way the named locale asks — its response format, its idea of\n  evidence. A rubric-graded justification for a Merit/Excellence locale; auto-scored\n  items for a procedural one. What each grade level requires is stated on the locale\n  itself (`activity_defaults.locales`, the `levels` entry) — read it there, and tag\n  every rubric line with the level it evidences so the claim is recorded, not implied.\n- Know the data cost: auto-scored DoLs feed misconception aggregates immediately;\n  rubric-graded DoLs capture text now and yield structured per-criterion scores only\n  after a human grades. Neither is wrong. A chain whose every DoL is rubric-graded\n  is a deliberate marking-load decision, not a default.\n- A DoL has exactly 2 items: one on the primary skill, one on a review-pool skill far\n  enough back, per `activity_defaults.review_selection.constraint` and its floor clause.\n  Contextual items require units in the answer.\n\n## 9. Compose only from shipped capabilities\n\nThe capability registry is the platform's truth. Draft only with capabilities marked\nshipped, inside their stated constraints (graded curve families, two-column matching,\nliteral datasets, and the rest).\n\n- If the pedagogically ideal move needs an unshipped capability, author the\n  **fallback** — the best version buildable today — and record the wish against the\n  proposed capability. A wish without a working fallback is a blocker, and a blocker\n  caps the activity at draft.\n- Never assume a capability exists because it plausibly should. The registry, not\n  intuition, is the boundary.\n\n## 10. Time is a budget, not a suggestion\n\nOne period per activity, hard cap: `activity_defaults.duration_min`. The default internal\nsplit across the beats is `activity_defaults.phase_budget_min`; read the values there\nrather than from memory. Content that does not fit becomes another activity\nin the chain — that trade was accepted at the start. Do not compress the faded beat\nto make room; it is the beat that looks most optional and is least.\n\n## 11. Language and tone\n\n- Voice is a teacher talking to students, not a textbook. Narrations are speakable.\n- Precision beats friendliness where they conflict; say \"expression\" when it is an\n  expression and \"equation\" when it is an equation.\n- Lexical simplicity in the prose, full precision in the mathematics. Sentence\n  structure stays simple — the difficulty lives in the maths, not the reading, and a\n  multilingual student who can do the maths must not be assessed on English. But\n  mathematical vocabulary is never simplified away: students need \"coefficient,\"\n  \"vertex,\" and \"rate of change\" flowing naturally, because those are the words the\n  discipline and the exams use.\n- Every technical term is marked with the definition capability\n  ([[term :: meaning]]) in every activity — not just on first use. It is a tap-away\n  reference, not an interruption; forcing a student to scroll back to wherever a\n  word was first defined helps no one. The pop-up serves the student who needs it\n  and is invisible to the one who does not.\n- Name conventions honestly: \"this is the gradient formula you already know, renamed\" —\n  unification is taught, not discovered.\n- Contexts are real and checked. A context with fake numbers that fall apart under\n  scrutiny teaches students that context is decoration.\n- In NZ settings, use NZ vocabulary and conventions naturally (Year levels, NZ\n  contexts where they help), without performing them. Concretely: *gradient*, never\n  *slope*; `y = mx + c`, never `y = mx + b`; *Year 9*, never *Grade 8*. Skill and\n  misconception **ids** keep whatever spelling they were minted with (`linear.slope.*`,\n  `mis.form.m-b-swapped`) because ids are keys, not prose; every label, definition and\n  narration a student can see uses the NZ term.\n\n## 12. The human gate\n\nEverything a model drafts is a **draft**. It does not count toward progress, it does\nnot ship, until a human has read it end to end and approved it. The model is a\ndrafter whose reasoning gets checked, not a colleague whose judgment is trusted.\nPlausible prose at volume is the failure mode; the gate is the defense. An activity\nthat satisfies every rule in this document can still be wrong in ways only a teacher\nreading it will catch — that reading is not optional overhead, it is the quality\nmechanism.\n\n---\n\n## 13. Examples are minimal pairs\n\nAcross a sequence of worked and faded examples, vary **one feature at a time**:\nsigns, then the position of the variable, then a fraction coefficient. The student's\nattention lands on the thing that changed because everything else held still.\n\"Varied practice\" that shuffles every surface feature at once feels richer and\nteaches less — the structure is buried under noise. This rule exists because\nunprompted drafting defaults to variety; the sequence design is the instruction.\n\n## 14. Practice discriminates\n\nOnce two confusable skills both exist (evaluate f(3) vs solve f(x)=3), independent\npractice interleaves items that force the *choice* between them. Blocked practice —\nsix of one, then six of the other — inflates lesson-end scores and hides the\nconfusion, because the block tells the student which procedure applies and the item\nnever has to. The named misconceptions are the map of what to interleave: students\nwho know skills but not when to apply them is the failure this prevents.\n\n## 15. Retrieval is closed-book\n\nReview items are answerable from memory, with nothing on screen or in notes that\ncontains the answer. An item whose answer is visible tests navigation, not\nretention, and the retrieval effect — the mechanism the review component exists\nfor — only occurs when memory does the work. Phrase accordingly: \"find the gradient\nthrough (2,1) and (5,7)\" retrieves; \"state the gradient formula\" fails if the formula\nis anywhere in sight.\n\n**The reference panel is open-book for the whole activity, so it is part of \"in\nsight.\"** Nothing a review item retrieves may appear on the activity's `reference`\nfence — not the formula, not a worked instance of the procedure, not the\ndefinition being recalled. The author choosing what goes on the sheet is\nsimultaneously choosing what the review may no longer ask, and the two decisions\nare usually made minutes apart by someone thinking about only one of them. Write\nthe review first, then the sheet.\n\n## 16. Error analysis is a first-class item type\n\n\"A student wrote X — find and explain the error.\" These test the skill and the\nmisconception simultaneously, and the planted error always comes from a named\nmisconception id. Under an NCEA-first curriculum they carry extra weight: they are\nthe one format that keeps misconception targeting in auto-scorable form inside a\njustification locale, so they are the main automatic data source when most DoLs are\nrubric-graded. Use them routinely in DoLs and independent practice.\n",
   "grading_model": null
 }

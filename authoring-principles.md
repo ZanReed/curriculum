@@ -130,7 +130,7 @@ skills upstream of it in the graph. Not siblings, not vibes: ancestors.
   Note: "chain position" is position within the chain. It is unrelated to a *skill part*,
   which is one of the activities delivering a single skill.
 - Long-arc edges are the flagship. When a skill's ancestor sits years back
-  (units-on-slope feeding units-on-derivatives), reviewing it just before it is
+  (units-on-gradient feeding units-on-derivatives), reviewing it just before it is
   needed is the whole argument for the graph. Plant those items deliberately.
 
 ## 7. Misconceptions are first-class
@@ -180,7 +180,9 @@ argument under another.
   rest stands.
 - Write the DoL the way the named locale asks — its response format, its idea of
   evidence. A rubric-graded justification for a Merit/Excellence locale; auto-scored
-  items for a procedural one.
+  items for a procedural one. What each grade level requires is stated on the locale
+  itself (`activity_defaults.locales`, the `levels` entry) — read it there, and tag
+  every rubric line with the level it evidences so the claim is recorded, not implied.
 - Know the data cost: auto-scored DoLs feed misconception aggregates immediately;
   rubric-graded DoLs capture text now and yield structured per-criterion scores only
   after a human grades. Neither is wrong. A chain whose every DoL is rubric-graded
@@ -226,12 +228,16 @@ to make room; it is the beat that looks most optional and is least.
   reference, not an interruption; forcing a student to scroll back to wherever a
   word was first defined helps no one. The pop-up serves the student who needs it
   and is invisible to the one who does not.
-- Name conventions honestly: "this is the slope formula you already know, renamed" —
+- Name conventions honestly: "this is the gradient formula you already know, renamed" —
   unification is taught, not discovered.
 - Contexts are real and checked. A context with fake numbers that fall apart under
   scrutiny teaches students that context is decoration.
 - In NZ settings, use NZ vocabulary and conventions naturally (Year levels, NZ
-  contexts where they help), without performing them.
+  contexts where they help), without performing them. Concretely: *gradient*, never
+  *slope*; `y = mx + c`, never `y = mx + b`; *Year 9*, never *Grade 8*. Skill and
+  misconception **ids** keep whatever spelling they were minted with (`linear.slope.*`,
+  `mis.form.m-b-swapped`) because ids are keys, not prose; every label, definition and
+  narration a student can see uses the NZ term.
 
 ## 12. The human gate
 
@@ -268,8 +274,8 @@ who know skills but not when to apply them is the failure this prevents.
 Review items are answerable from memory, with nothing on screen or in notes that
 contains the answer. An item whose answer is visible tests navigation, not
 retention, and the retrieval effect — the mechanism the review component exists
-for — only occurs when memory does the work. Phrase accordingly: "find the slope
-through (2,1) and (5,7)" retrieves; "state the slope formula" fails if the formula
+for — only occurs when memory does the work. Phrase accordingly: "find the gradient
+through (2,1) and (5,7)" retrieves; "state the gradient formula" fails if the formula
 is anywhere in sight.
 
 **The reference panel is open-book for the whole activity, so it is part of "in

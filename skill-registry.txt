@@ -3,7 +3,7 @@
 # A bare id is a one-part skill; `id = n` declares a skill delivered across n
 # activities (D23). External prerequisites are NOT here — valid review and DoL
 # targets, never taught, never counted toward coverage.
-# Generated from thread-01-rate-of-change.json v0.13.0 — 47 skills, 51 parts, 17 chains. Do not hand-edit: regenerate.
+# Generated from thread-01-rate-of-change.json v0.14.0 — 47 skills, 51 parts, 17 chains. Do not hand-edit: regenerate.
 
 
 # chain.rate.proportional  (3 skills, 4 activities projected)
@@ -12,15 +12,15 @@ rate.constant-of-proportionality          # Identify the constant of proportiona
 rate.proportional-graph                   # Recognise a proportional relationship as a line through the origin
 
 # chain.linear.slope  (3 skills, 5 activities projected)
-linear.slope.two-points                   # Compute slope from two points
-linear.slope.from-graph                   # Read slope from a graph, attending to axis scale
-linear.slope.interpret-context            # Interpret slope as a rate of change in context, with units
+linear.slope.two-points                   # Compute the gradient from two points
+linear.slope.from-graph                   # Read the gradient from a graph, attending to axis scale
+linear.slope.interpret-context            # Interpret the gradient as a rate of change in context, with units
 
 # chain.linear.forms  (5 skills, 8 activities projected)
-linear.form.slope-intercept-graph         # Graph a line from y = mx + b
-linear.form.slope-intercept-write         # Write y = mx + b from a graph, a table, or two points
-linear.form.point-slope                   # Write and use point-slope form
-linear.form.standard                      # Use standard form Ax + By = C, including intercepts
+linear.form.slope-intercept-graph         # Graph a line from y = mx + c
+linear.form.slope-intercept-write         # Write y = mx + c from a graph, a table, or two points
+linear.form.point-slope                   # Write and use the point–gradient form y − y₁ = m(x − x₁)
+linear.form.standard                      # Use the general form Ax + By = C, including intercepts
 linear.form.convert                       # Convert between linear forms and select the efficient form for a given task
 
 # chain.linear.model  (1 skills, 3 activities projected)
@@ -61,7 +61,7 @@ transform.write-from-graph                # Write the equation of a transformed 
 
 # chain.roc.average  (5 skills, 7 activities projected)
 roc.average.from-table                    # Compute average rate of change from a table over a stated interval
-roc.average.secant                        # Identify average rate of change as the slope of a secant line
+roc.average.secant                        # Identify average rate of change as the gradient of a secant line
 roc.average.function-notation             # Express average rate of change as [f(b) - f(a)] / (b - a)
 roc.average.varies-nonlinear              # Explain why average rate of change differs across intervals for a nonlinear function
 roc.average.interpret-context             # Interpret average rate of change in context, with units
@@ -78,7 +78,7 @@ limit.difference-quotient.simplify        # Simplify the difference quotient and
 
 # chain.deriv.definition  (3 skills, 5 activities projected)
 deriv.definition.at-a-point               # Define f′(a) as the limit of the difference quotient as h → 0
-deriv.interpret.slope-tangent             # Interpret f′(a) as the slope of the tangent line at x = a
+deriv.interpret.slope-tangent             # Interpret f′(a) as the gradient of the tangent line at x = a
 deriv.interpret.context-units             # Interpret f′(a) in context with correct units
 
 # chain.deriv.rules  (4 skills, 6 activities projected)

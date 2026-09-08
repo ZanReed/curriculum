@@ -486,3 +486,120 @@ id must exist before an item can bind to it), but it means each is a prediction.
 carrier turns out to be unwritable should be sent back, not given a strained item to justify it.
 The authored-activity data is the real test, and revisions from it are expected rather than a
 sign the ratification was wrong.
+
+---
+
+## NZ alignment pass — proposed 2026-09-02, ratified 2026-09-05 (D32 held)
+
+Drafted on the `nz-alignment` branch against the sources quoted in
+`docs/alignment-sources.md`. The §12 gate ran twice: a prediction-before-reveal walk of the
+four proposals (`RATIFICATION_LOG.md`), then a critical review that superseded it and
+produced the dated amendments recorded inside the entries below. D31, D33 and D34 stand as
+amended; D35 was adopted from the review's counter-proposal; D32 is held until Phase 5
+publishes — see its entry. The author's ten-value spot-check against the live pages, at
+statement grain, is recorded under D31.
+
+**D31 (ratified 2026-09-05, as amended). `alignment` is four arrays, `ncea` exists, and the values are pointers into
+`docs/alignment-sources.md`.**
+`skills[].alignment` becomes `{nzc_phase: [], ncea: [], ccss: [], teks: []}` — the shape the
+D24 audit already agreed — and the NZ pair is populated for all 47 skills. `nzc_phase` values
+are `P<phase>.Y<year>.<Strand>` (a phase alone is two or three years wide and the refreshed
+curriculum is written year by year, so phase-only values would say almost nothing);
+`ncea` values are `AS<number>`. The quoted statement behind every value lives in
+`docs/alignment-sources.md` with the URL and the date it was read.
+*Why pointers and not quotes in the graph:* the NZC pages are live and unnumbered. A quote in
+the graph is a hand-carried copy of an external document; a short pointer plus one reference
+file that names its read-date is the same pattern as the boundary stamp.
+*What it does not do:* make the claim checkable. Whether a DoL assesses at the level its
+standard asks remains a human read, exactly as the D24 audit said.
+*Weakest values, named so nobody reads them as strong:* the three `linear.form.*` skills
+(point–gradient, `Ax + By = C`, convert) have **no** NZC Y9–10 statement and point only at
+AS91256, whose text was not re-read. NZ classrooms rarely name those forms. Whether the
+chain keeps three skills for them is the open question below, not a value to fill.
+*Cost:* `ccss` and `teks` are now empty arrays rather than nulls — a consumer that tested for
+`null` would need to test for `[]`. None is known; D28 says ask, not assume.
+*Amended 2026-09-05 (author-ruled, from review):* a cell-grain value (`P4.Y9.Algebra`)
+pointed at a dozen statements. Every quote in `docs/alignment-sources.md` now carries a
+number (`S01`–`S27`), and each `nzc_phase` value names the statement it rests on
+(`P4.Y10.Algebra:S23`-style). The ten-value author spot-check (2026-09-05) was performed at
+statement grain against the live pages, and all ten held.
+*Amended 2026-09-05 (author-ruled, from review):* `ncea` is defined — the standard whose
+assessment **directly exercises** the skill, else empty; appears-in and feeds-into are not
+recorded (feeds-into is derivable, and derivable state is never hand-declared). The culling
+pass this forced: emptied `rate.constant-of-proportionality`, both `difference-quotient`
+skills, `deriv.definition.at-a-point`, `deriv.from-definition.polynomial` and
+`roc.average.function-notation` (first-principles content is directly assessed by no quoted
+standard — itself a finding); dropped AS91262 from `limit.secant-to-tangent` (no limits in
+its notes) and from the three `roc.average.*` values (average rate is not its assessment).
+Borderline keeps flagged for the ratification sitting: `rate.unit-rate` → AS91945,
+`rate.proportional-graph` → AS91947, `function.definition.*` → AS91257,
+`deriv.justify.constant` → AS91262, `roc.average.from-table` → AS91946. *All six
+author-kept 2026-09-05, explicitly pending review by NZ teaching colleagues; dropping one
+later is a value edit under this definition, not a decision reversal.*
+
+**D32 (held 2026-09-05). The calculus re-band is deferred until Phase 5 publishes; the seed
+bands stand.**
+Proposed: all thirteen `limit.*` and `deriv.*` skills move Y12/Y13 → Y12, from AS91262
+(Year 12: differentiates polynomials, lists no limits) and AS91578 (Year 13: owns limits and
+continuity). Held on review, by the author: the evidence class the proposal used — no
+statement at the claimed year, first assessed later — is the same class cited for leaving the
+middle of the spine (`function.*`, `transform.*`) alone, and one rule should treat both ends.
+Rather than re-band one end on a history, both ends are recorded as one open question and
+decided with the Phase 5 document open. The AS91262/AS91578 readings stay quoted in
+`docs/alignment-sources.md` and are not in dispute; what is held is the band change, not the
+evidence. Re-proposing the re-band without the Phase 5 document is drift; proposing it with
+the document open is the expected close.
+
+**D33 (ratified 2026-09-05, as amended). A locale carries what its grade levels require. `nz-ncea` now states A/M/E;
+`nz-nzce` is an explicit stub with its confirmed facts, its unconfirmed ones, and a revisit
+trigger.**
+`activity_defaults.locales[nz-ncea]` gains `grades`, `levels` (Achieved / relational thinking
+/ extended abstract thinking, in the standards' own wording), `dol_rule`, `calculator`,
+`context`, `cohorts` and `sources`. §8 of the principles points at `levels` instead of
+gesturing at "Merit/Excellence".
+*The rule the entry introduces:* every rubric line on an nz-ncea DoL is tagged A, M or E,
+in a reserved `x_dol_rubric_levels` meta key (D20 pattern — curriculum-owned, inert to the
+importer), and the **chain** reaches E somewhere — naturally at its final position or consolidation; no single DoL is required to. *(Amended 2026-09-05, author-ruled on review: the proposed per-DoL bar — every primary-skill item reaches E — quietly made every DoL rubric-graded, contradicting §8's rule that marking load is a deliberate choice and mismatching NCEA practice, where Excellence is a holistic end-of-standard judgement rather than a per-lesson event. Under the chain bar the authored drafts conform as written — activity 02's A/M/M tagging is no longer a defect.)* The tag makes the level claim a recorded one a validator can read.
+*Why the stub is written out rather than left as a label:* the cohort arithmetic. Every
+learner Y9 or below in 2026 will sit NZCE/NZACE and never an NCEA standard, so the Y8–Y10
+chains are authored against `nz-ncea` as a proxy, and a proxy should say what it is standing
+in for and until when. Tranche 2 (grading, internal/external balance) had nothing published
+on 2026-09-02; the stub names that and says nothing is authored against it.
+*Default locale unchanged.* `nz-ncea` remains the default: the justification-weighted DoL
+shape is the right guess for the successor on everything confirmed so far (A–E, no fully
+internal subjects), and a Y8 student in 2026 sits no qualification at all.
+
+**D34 (ratified 2026-09-05, as amended). Student-facing vocabulary is NZ; ids are not renamed.**
+Labels, notes and misconception labels: *slope* → *gradient*, `y = mx + b` → `y = mx + c`,
+*point-slope form* → *point–gradient form*, *standard form* → *general form*
+(`Ax + By = C`). *(Amended 2026-09-05: the pass originally demoted *standard form* to a
+description, claiming NZ has no name for the form. Wrong — NZ texts say* general form*,
+usually written `ax + by + c = 0`; caught on review, author-confirmed.)*
+`chain-registry.txt` display title `Slope` → `Gradient`. §11 of the principles now says this
+concretely. Ids (`linear.slope.*`, `mis.form.m-b-swapped`) are untouched: they are keys, an
+activity's `x_review_skills` references them, and renaming a key is a D18-class event with
+no student-visible benefit.
+*Left as is, deliberately:* *parent function* (`function.family.*`). NZ usage is mixed;
+changing it would be a preference, not a correction. *(The claim that the term appears in
+AS91257 resources was asserted from memory and is unsourced — flagged on review; the stay is
+author-confirmed 2026-09-05, on judgement rather than on that claim.)*
+*Also left, by author ruling (2026-09-05):* *constant of proportionality*, in labels and in
+activity 02, which is built around it. The gap analysis had flagged it as CCSS 7.RP.2
+phrasing, and NZ Y8–9 teachers more often say *rate* or *the multiplier*; it stays as a
+recorded judgement call — the term is teachable and the k it names is load-bearing — rather
+than being dropped silently.
+*Cost:* the registries regenerated (labels are in the comments), so the diff is wide for a
+prose change. That is the generator working as designed.
+
+**D35 (ratified 2026-09-05, adopted from the review's counter-proposal). Y8–10 DoLs default auto-scored; rubric justification is reserved for
+chain finals.**
+For learners Y9 or below in 2026, the nearest real assessment is the numeracy co-requisite
+and, from 2028, the Foundational Award — procedural, closed, auto-scorable — the opposite
+shape from justification-weighted rubrics. Meanwhile §8's data-cost argument bites hardest at
+Y8–10, where activity volume is highest and marking lands on one teacher. The curriculum
+still asks for reasoning, so justification is not dropped; it is *placed*: Y8–10 DoLs default
+to auto-scored items plus an error-analysis item (§16), with rubric justification at
+chain-final positions and consolidations; Y11–13 stays justification-weighted. This changes
+the default D33 set for the Y8–10 chains and is recorded as its own decision rather than
+folded silently into D33.
+

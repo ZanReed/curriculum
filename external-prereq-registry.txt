@@ -2,10 +2,10 @@
 #
 # Valid targets for review items, DoL item 2 and prereq edges. NOT skills this
 # curriculum teaches: never counted toward coverage, never a primary `skill:`.
-# Generated from thread-01-rate-of-change.json v0.13.0.
+# Generated from thread-01-rate-of-change.json v0.14.0.
 
 ext.arith.signed              # Operations with signed numbers
 ext.arith.fractions           # Fraction arithmetic, including complex fractions
 ext.alg.solve-linear-eq       # Solve a one-variable linear equation
-ext.alg.expand-factor         # Expand and factor simple polynomial expressions
+ext.alg.expand-factor         # Expand and factorise simple polynomial expressions
 ext.geom.coordinate-plane     # Plot and read ordered pairs

@@ -14,14 +14,64 @@ resolved: `function.definition` confirmed earns, `function.families` confirmed d
 `function.domain-range` flags on the proxy but the no-consolidation ruling is held — a shared
 error inside two skills is not confusability between them.)*
 
-**What are the NCEA achievement standards for each skill?**
-Blocked, and it needs a human with the source documents. `alignment` carries `teks`, `ccss`
-and `nzc_phase` and no NCEA field, while D10 makes `nz-ncea` the default locale and D8
-accepted a real data cost for it. So every DoL is authored against a standard the graph
-cannot record. The field shape is settled — **all four alignment fields become arrays**,
-because a standard spans several skills and a skill serves several standards — but that
-change is agreed and not yet applied. The values must come from the standards themselves;
-the graph's own note is right that nobody should fill these from memory.
+**What are the NCEA achievement standards for each skill?** — *CLOSED 2026-09-05 (D31
+ratified as amended).*
+Closed by quoting the artifact, as the rule requires — `rate.unit-rate` now carries
+`"alignment": {"nzc_phase": ["P3.Y7.Number:S02", "P4.Y9.Number:S15"], "ncea": ["AS91945"],
+"ccss": [], "teks": []}` and all 47 skills carry the four-array shape at statement grain
+(D31 amendments: statement-grain pointers; `ncea` means assessed-by, else empty). What
+remains judgment is named in the D31 entry: six borderline `ncea` keeps, author-kept pending
+NZ colleague review. The three `linear.form.*` pointers remain the weakest (AS91256 not
+re-read).
+
+**Standing reminder — the alignment sources are copies of live pages.**
+`docs/alignment-sources.md` quotes the NZC pages and NZQA documents as read on 2026-09-02.
+The NZC pages are live and unnumbered, so the quotes are a dated copy of a moving document —
+the same standing risk as the builder's Save & load copy, kept visible the same way. Rule:
+no `alignment` value is cited in an authoring or ratification argument without checking the
+file's read date; if it is older than six months (author-set, 2026-09-05), re-read the live
+page first and re-date the file. Clears only if the NZC publishes stable, numbered
+statements.
+
+**Which qualification is the Year 8–10 work actually for?**
+Cohort arithmetic (`docs/alignment-sources.md`, last table): every learner Y9 or below in
+2026 sits NZCE/NZACE and never an NCEA standard; `nz-ncea` applies to the Y11–13 chains for
+Y11 through 2027, Y12 through 2028, Y13 through 2029, and then to nothing. The `nz-nzce`
+locale is a stub by construction — the Ministry's Tranche 2 (grading behind the A–E letters,
+internal/external balance, the Phase 5 subject content) had nothing published on
+2026-09-02. **Trigger:** when Tranche 2 lands, fill the stub and re-cut the DoL contract for
+it; until then `nz-ncea` stands as the proxy (D33). Not a decision anyone can make early.
+
+**Where should the spine's bands sit for NZ?**
+Both ends, one rule. The calculus end: D32 proposed moving all thirteen `limit.*` and
+`deriv.*` skills to Y12 — AS91262 (Year 12) differentiates polynomials and lists no limits;
+AS91578 (Year 13) owns limits and continuity — and was **held** (2026-09-05): the same
+evidence class (no statement at the claimed year; first assessed later) describes the middle
+of the spine, where `function.*` (Y10) and `transform.*` (Y11) have no NZC Y9–10 statement
+and are first assessed by AS91257 (Year 12) — yet Year 11 courses do teach f(x). Re-banding
+one end on that evidence while leaving the other was the least defensible option, so neither
+moves until the Phase 5 content is published; decide both with the document open. Also under
+this question: whether `chain.linear.forms` keeps three skills for point–gradient,
+`Ax + By = C` and conversion, which NZ classrooms rarely name and no NZC statement asks for.
+
+**Does the limit chain's volume fit an NZ-first thread?**
+Raised by the D31–D34 review. The thread gives limits nine activities
+(`chain.limit.intro` 4, `chain.limit.difference-quotient` 5) and the difference-quotient
+definition five more (`chain.deriv.definition`), for content NCEA Year 12 does not assess —
+while the power rule, which AS91262 actually examines, gets six (`chain.deriv.rules`). An
+NZ-first thread would invert that ratio. Re-banding the year labels would make the bands
+honest and leave the volume US-shaped, which is why this question outlives the banding one.
+Chunking-plan territory (D22–D24), and the one that costs authoring hours wherever it lands;
+decide alongside the banding question above, with Phase 5 open.
+
+**What does the school decide?**
+Three facts about the school the author is moving to change how chains are used, and none
+of them is in any document: the year levels it runs (in a Year 9–13 school the `rate.*`
+chain is Year 9 diagnostic and review material, not four lessons); its period length (NZ
+periods run roughly 50–100 minutes, so the number of activities a day carries is a school
+fact, not a graph fact — the hook contract already assumes this); and which Y12–13 subject
+the senior chains serve (*Mathematics*, not *Modelling* or *Statistics and Data Science*).
+Owner: the author, on arrival. Nothing in the graph should be changed in anticipation.
 
 **Does the plan move 73 → 74 activities?**
 `chain.transform.translate` has two skills and two activities, and the thread's highest-value
