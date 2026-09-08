@@ -3,7 +3,7 @@
 # A bare id is a one-part skill; `id = n` declares a skill delivered across n
 # activities (D23). External prerequisites are NOT here — valid review and DoL
 # targets, never taught, never counted toward coverage.
-# Generated from thread-01-rate-of-change.json v0.14.0-proposed — 47 skills, 51 parts, 17 chains. Do not hand-edit: regenerate.
+# Generated from thread-01-rate-of-change.json v0.14.0 — 47 skills, 51 parts, 17 chains. Do not hand-edit: regenerate.
 
 
 # chain.rate.proportional  (3 skills, 4 activities projected)

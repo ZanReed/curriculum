@@ -1,8 +1,8 @@
 {
   "thread_id": "thread.rate-of-change",
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.14.0-proposed",
-  "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are PROPOSED (D31, 2026-09-02) from the NZC Phase 3/4 pages and NZQA standards read that day — see docs/alignment-sources.md for the quoted statements. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
+  "version": "0.14.0",
+  "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "external_prereqs": [
     {
       "id": "ext.arith.signed",

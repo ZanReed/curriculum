@@ -14,15 +14,15 @@ resolved: `function.definition` confirmed earns, `function.families` confirmed d
 `function.domain-range` flags on the proxy but the no-consolidation ruling is held — a shared
 error inside two skills is not confusability between them.)*
 
-**What are the NCEA achievement standards for each skill?** — *proposed answer on the
-`nz-alignment` branch (D31), awaiting ratification.*
-Was: blocked on a human with the source documents. The documents were read on 2026-09-02
-(NZC Phase 3 and Phase 4 pages, NZQA standards AS91945/91946/91947/91257/91261/91262/91578,
-the MoE L1 subject learning outcomes) and every value in `skills[].alignment` now points at
-a statement quoted in `docs/alignment-sources.md`. The field shape is the agreed one — four
-arrays, `ncea` added. What remains is the human read: the values are proposals, the three
-`linear.form.*` pointers are weak (no NZC statement; AS91256 not re-read), and the claim is
-recordable, not checkable. Close by quoting `skills[].alignment` after ratification.
+**What are the NCEA achievement standards for each skill?** — *CLOSED 2026-09-05 (D31
+ratified as amended).*
+Closed by quoting the artifact, as the rule requires — `rate.unit-rate` now carries
+`"alignment": {"nzc_phase": ["P3.Y7.Number:S02", "P4.Y9.Number:S15"], "ncea": ["AS91945"],
+"ccss": [], "teks": []}` and all 47 skills carry the four-array shape at statement grain
+(D31 amendments: statement-grain pointers; `ncea` means assessed-by, else empty). What
+remains judgment is named in the D31 entry: six borderline `ncea` keeps, author-kept pending
+NZ colleague review. The three `linear.form.*` pointers remain the weakest (AS91256 not
+re-read).
 
 **Standing reminder — the alignment sources are copies of live pages.**
 `docs/alignment-sources.md` quotes the NZC pages and NZQA documents as read on 2026-09-02.

@@ -489,15 +489,17 @@ sign the ratification was wrong.
 
 ---
 
-## Proposed 2026-09-02 (NZ alignment pass) — NOT RATIFIED
+## NZ alignment pass — proposed 2026-09-02, ratified 2026-09-05 (D32 held)
 
 Drafted on the `nz-alignment` branch against the sources quoted in
-`docs/alignment-sources.md`. Each entry below is a proposal until a human reads the branch
-end to end (§12). Ratifying one means quoting the artifact it changed, per the
-`open-questions.md` rule; rejecting one means reverting its hunk, and the branch is laid out
-so each hunk stands alone.
+`docs/alignment-sources.md`. The §12 gate ran twice: a prediction-before-reveal walk of the
+four proposals (`RATIFICATION_LOG.md`), then a critical review that superseded it and
+produced the dated amendments recorded inside the entries below. D31, D33 and D34 stand as
+amended; D35 was adopted from the review's counter-proposal; D32 is held until Phase 5
+publishes — see its entry. The author's ten-value spot-check against the live pages, at
+statement grain, is recorded under D31.
 
-**D31 (proposed). `alignment` is four arrays, `ncea` exists, and the values are pointers into
+**D31 (ratified 2026-09-05, as amended). `alignment` is four arrays, `ncea` exists, and the values are pointers into
 `docs/alignment-sources.md`.**
 `skills[].alignment` becomes `{nzc_phase: [], ncea: [], ccss: [], teks: []}` — the shape the
 D24 audit already agreed — and the NZ pair is populated for all 47 skills. `nzc_phase` values
@@ -531,7 +533,9 @@ standard — itself a finding); dropped AS91262 from `limit.secant-to-tangent` (
 its notes) and from the three `roc.average.*` values (average rate is not its assessment).
 Borderline keeps flagged for the ratification sitting: `rate.unit-rate` → AS91945,
 `rate.proportional-graph` → AS91947, `function.definition.*` → AS91257,
-`deriv.justify.constant` → AS91262, `roc.average.from-table` → AS91946.
+`deriv.justify.constant` → AS91262, `roc.average.from-table` → AS91946. *All six
+author-kept 2026-09-05, explicitly pending review by NZ teaching colleagues; dropping one
+later is a value edit under this definition, not a decision reversal.*
 
 **D32 (held 2026-09-05). The calculus re-band is deferred until Phase 5 publishes; the seed
 bands stand.**
@@ -546,7 +550,7 @@ decided with the Phase 5 document open. The AS91262/AS91578 readings stay quoted
 evidence. Re-proposing the re-band without the Phase 5 document is drift; proposing it with
 the document open is the expected close.
 
-**D33 (proposed). A locale carries what its grade levels require. `nz-ncea` now states A/M/E;
+**D33 (ratified 2026-09-05, as amended). A locale carries what its grade levels require. `nz-ncea` now states A/M/E;
 `nz-nzce` is an explicit stub with its confirmed facts, its unconfirmed ones, and a revisit
 trigger.**
 `activity_defaults.locales[nz-ncea]` gains `grades`, `levels` (Achieved / relational thinking
@@ -565,7 +569,7 @@ on 2026-09-02; the stub names that and says nothing is authored against it.
 shape is the right guess for the successor on everything confirmed so far (A–E, no fully
 internal subjects), and a Y8 student in 2026 sits no qualification at all.
 
-**D34 (proposed). Student-facing vocabulary is NZ; ids are not renamed.**
+**D34 (ratified 2026-09-05, as amended). Student-facing vocabulary is NZ; ids are not renamed.**
 Labels, notes and misconception labels: *slope* → *gradient*, `y = mx + b` → `y = mx + c`,
 *point-slope form* → *point–gradient form*, *standard form* → *general form*
 (`Ax + By = C`). *(Amended 2026-09-05: the pass originally demoted *standard form* to a
@@ -587,8 +591,7 @@ than being dropped silently.
 *Cost:* the registries regenerated (labels are in the comments), so the diff is wide for a
 prose change. That is the generator working as designed.
 
-**D35 (proposed 2026-09-05, author-adopted from the review's counter-proposal; awaiting the
-ratification sitting). Y8–10 DoLs default auto-scored; rubric justification is reserved for
+**D35 (ratified 2026-09-05, adopted from the review's counter-proposal). Y8–10 DoLs default auto-scored; rubric justification is reserved for
 chain finals.**
 For learners Y9 or below in 2026, the nearest real assessment is the numeracy co-requisite
 and, from 2028, the Foundational Award — procedural, closed, auto-scorable — the opposite
