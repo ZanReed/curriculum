@@ -79,8 +79,13 @@ the curriculum side's own join criterion in the dangerous direction: it still
 writes `grading.authoritative` (deleted from all 22 capability entries at
 v0.11.2, D27 amendment) with the value `client-advisory` (the false fused
 term the D8 amendment corrected), and its importer-fence join FATALs on
-`correspond`/`table`/`seed`/`meta` while exiting 0. Running it would clobber
-v0.13.0 capabilities with v0.10-era output. It regenerates graph fields from
+`correspond`/`table`/`seed`/`meta` (exit 2 — an earlier report here said
+"exits 0"; that was a measurement artifact of reading `$?` through a pipe,
+corrected 2026-09-09). Running it would clobber
+current capabilities with v0.10-era output; since 2026-09-09 the workspace
+copy carries a B14 schema gate that refuses any graph ≥ v0.11.2 outright
+(exit 3), per the curriculum side's fail-loudly push-back.
+It regenerates graph fields from
 platform code, so under the regeneration-ownership rule its rebuild is
 platform-side work; it joins when rebuilt against current schema and code.
 
