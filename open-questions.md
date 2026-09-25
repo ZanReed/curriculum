@@ -42,7 +42,9 @@ internal/external balance, the Phase 5 subject content) had nothing published on
 2026-09-02. **Trigger:** when Tranche 2 lands, fill the stub and re-cut the DoL contract for
 it; until then `nz-ncea` stands as the proxy (D33). Not a decision anyone can make early.
 
-**Where should the spine's bands sit for NZ?**
+**Where should the spine's bands sit for NZ?** — *ruled by D36 (2026-09-25), which
+supersedes the D32 hold; stays open only until the re-cut lands in the graph, then closes
+by quoting the bands.*
 Both ends, one rule. The calculus end: D32 proposed moving all thirteen `limit.*` and
 `deriv.*` skills to Y12 — AS91262 (Year 12) differentiates polynomials and lists no limits;
 AS91578 (Year 13) owns limits and continuity — and was **held** (2026-09-05): the same
@@ -54,7 +56,9 @@ moves until the Phase 5 content is published; decide both with the document open
 this question: whether `chain.linear.forms` keeps three skills for point–gradient,
 `Ax + By = C` and conversion, which NZ classrooms rarely name and no NZC statement asks for.
 
-**Does the limit chain's volume fit an NZ-first thread?**
+**Does the limit chain's volume fit an NZ-first thread?** — *ruled by D36 (2026-09-25):
+`limit.*` collapses to a single short chain inside Y12 calculus; stays open only until the
+re-cut lands in the graph.*
 Raised by the D31–D34 review. The thread gives limits nine activities
 (`chain.limit.intro` 4, `chain.limit.difference-quotient` 5) and the difference-quotient
 definition five more (`chain.deriv.definition`), for content NCEA Year 12 does not assess —

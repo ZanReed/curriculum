@@ -549,6 +549,12 @@ decided with the Phase 5 document open. The AS91262/AS91578 readings stay quoted
 `docs/alignment-sources.md` and are not in dispute; what is held is the band change, not the
 evidence. Re-proposing the re-band without the Phase 5 document is drift; proposing it with
 the document open is the expected close.
+*Superseded 2026-09-25 by D36:* the author re-ruled deliberately with the Phase 5
+year-by-year content still unpublished, on the AS-standards evidence alone — and met this
+entry's one-rule-both-ends objection by re-banding both ends in the same ruling
+(`deriv.*` to Y12, `function.*` to Y12 against AS91257, `limit.*` collapsed). The
+supersession is named there, so it is a recorded overrule, not drift. The platform-side
+tickler for Phase 5 remains useful as a verification trigger, not a decision trigger.
 
 **D33 (ratified 2026-09-05, as amended). A locale carries what its grade levels require. `nz-ncea` now states A/M/E;
 `nz-nzce` is an explicit stub with its confirmed facts, its unconfirmed ones, and a revisit
@@ -602,4 +608,106 @@ to auto-scored items plus an error-analysis item (§16), with rubric justificati
 chain-final positions and consolidations; Y11–13 stays justification-weighted. This changes
 the default D33 set for the Y8–10 chains and is recorded as its own decision rather than
 folded silently into D33.
+
+---
+
+## Ratified 2026-09-25 (NZ-first scope rulings)
+
+Ratified in conversation by the author, 2026-09-25; committed here by the repo session.
+The source draft minted these as D35–D37, unaware the log had reached D35 on 2026-09-05;
+renumbered D36–D38 on commit, internal references updated. D36 deliberately supersedes the
+D32 hold — see both entries.
+
+**D36 (ratified 2026-09-25). NZ-first authoring; non-NZ labelling retained but unpopulated.**
+The curriculum is authored, banded and sequenced against New Zealand documents only: NZC
+Phases 3–5 and NCEA / NZCE. Specifically:
+
+- `band_nz` is the authoring band and gains Y7. The `band_labels.map` table and `band_us`
+  field are retained as optional metadata but are no longer required on a skill and are not
+  consulted by any check, review-selection weight or authoring decision.
+- `alignment.ccss` and `alignment.teks` stay in the schema (arrays, default empty) so non-NZ
+  alignment can be added later. No authoring task populates them; a validator must not
+  require them.
+- The `us-teks` locale is retained in the locale list but marked `status: dormant`. No DoL
+  is authored or reviewed against it. Only `nz-ncea` (and `nz-nzce` once Tranche 2 is
+  published) are active locales.
+- Skill labels and `definitions` blocks use NZ vocabulary throughout (extends D34 to all
+  remaining US terms: standard form, point–slope, parent function). Ids are unchanged.
+- Sequencing is re-cut against the NZ documents: `limit.*` collapses to a single short
+  chain inside Y12 calculus; `function.*` re-bands to Y12 against AS91257 and is trimmed to
+  what that standard requires; `deriv.*` re-bands to Y12. *This supersedes the D32 hold,
+  deliberately: Phase 5 year-by-year content remains unpublished, the author re-ruled on
+  the AS91262/AS91578/AS91257 evidence alone, and the hold's one-rule-both-ends objection
+  is met by re-banding both ends in this one ruling.*
+
+*Reason.* Every learner this curriculum will be used with sits NZ qualifications. Carrying
+a second live locale and band doubled the review surface on every DoL for no user. Keeping
+the fields costs nothing and preserves the option; requiring them cost real decisions.
+*Supersedes / amends.* D10 (default locale) unchanged. D34 extended. **D32's hold
+superseded** (named above). The "dual" band mapping note in the graph header is replaced by
+this ruling.
+
+**D37 (ratified 2026-09-25). Senior content that depends on unpublished NZCE/NZACE detail
+is deferred.**
+No chain is authored for the following until the NZCE/NZACE subject assessment blueprints
+(Tranche 2) are published — expected 2027:
+
+- Y12–13 Statistics (thread 06 senior chains; AS91263–66, 91580–84 equivalents)
+- Y12–13 Probability (thread 07 senior chains; AS91267–68, 91585–86 equivalents)
+- Y12–13 Trigonometry (thread 05 senior chains; AS91259, 91575 equivalents)
+- Y13 Calculus beyond AS91262 (thread 08's L3 chains; AS91577–79 equivalents)
+
+Skills for these may be placed in the graph as stubs (id, label, band, strand,
+prerequisites) so cross-thread edges can be drawn, but carry `status: deferred` and no
+activities or hooks. The graph's burndown denominator excludes deferred skills.
+Y12 calculus under AS91262 (`deriv.*` re-banded plus an anti-differentiation chain) is not
+deferred: it is stable NCEA content for three more cohorts and the same material under NZCE
+Mathematics.
+*Reason.* Anything written against a qualification whose grading, internal/external split
+and content weighting are unknown is likely rework. The deferred content is also the least
+urgent for a Y9–11 classroom in 2027.
+*Revisit.* When Tranche 2 lands, or if a placement makes a Y12–13 stats/calculus class the
+author's own in 2027.
+
+**D38 (ratified 2026-09-25). Scope is the whole of NZ Y7–13 mathematics, authored
+bottom-up.**
+The project's remit is every strand of NZC Mathematics and Statistics from Year 7 through
+Year 13 (the eight threads in the Claude project's `drafts/y7-13-requirements.md` §5), not
+thread-01 plus a single school's programme. Authoring proceeds year by year from Y7 upward,
+all strands per year, so that at any point the curriculum is complete for every year below
+the frontier:
+
+1. Y7 — all six strands (threads 02–07)
+2. Y8 — all strands; `chain.rate.proportional` (thread-01) is already written here
+3. Y9 — all strands; `chain.linear.slope` / `chain.linear.forms` (in flight) fall here
+4. Y10 — all strands
+5. Y11 — all strands against NCEA L1 (AS91944–47) and the Y11 Phase 5 descriptor
+6. Y12 — Mathematics (algebra, functions, AS91262 calculus); D37-deferred strands as stubs
+7. Y13 — Mathematics (AS91262 consolidation); everything else D37-deferred
+
+Because the placement is unknown, Y7–8 chains are authored as full lessons
+(`role: lesson`), not review-only; a college locale may later down-role them without
+re-authoring. OQ-E's second half is closed by this.
+The in-flight `chain.linear.slope` hook pool is finished and merged before the order above
+takes effect — abandoning reviewed work costs more than the sequence break.
+*Reason.* The teaching placement could be any year and any strand; a curriculum complete
+from the bottom is usable in whichever room the author lands in, while one complete in one
+strand is not. Bottom-up also front-loads the content with the fewest external dependencies
+(Y7–8 needs no datasets, no calculator policy decisions, no qualification blueprints).
+*Cost.* ≈430 activities (§5 estimate, less D37 deferrals ≈ 330 live). A multi-year
+programme at the current pace; the burndown denominator is re-seeded once the Y7 skill
+stubs are in the graph.
+*Amends.* OQ-A closed. `drafts/y7-13-requirements.md` §5 authoring order is superseded by
+the year-by-year order above.
+
+**Effect on `drafts/y7-13-requirements.md`** (Claude project document):
+- §4 item 8 (two senior locales in parallel) stands; D36 makes `nz-nzce` the only future
+  locale to add.
+- §5 authoring order is superseded by D38 (bottom-up, all strands per year). §5's thread
+  table and estimates stand.
+- §6: OQ-A closed by D38. OQ-E closed (Y7 by D36; full lessons at Y7–8 by D38). OQ-G closed
+  by D36 (`function.*` → Y12). Still open: OQ-B (thread layer), OQ-C (statistics DoL
+  shape), OQ-D (dataset primitive), OQ-F (senior course lines). OQ-B is now the first
+  blocker: the Y7 skill stubs cannot be placed until it is decided how threads live in the
+  graph.
 
