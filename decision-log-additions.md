@@ -711,3 +711,21 @@ the year-by-year order above.
   blocker: the Y7 skill stubs cannot be placed until it is decided how threads live in the
   graph.
 
+**D39 (ratified 2026-09-25). Threads live in one graph file, tagged on chains; the file is
+renamed to match.**
+OQ-B ruling. The graph stays a single file. It gains a top-level `threads` registry (id and
+label per thread) and each `chunking_plan` chain carries a `thread` field; skills carry no
+thread field — a skill's thread is derivable from its chain, and derivable state is never
+hand-declared. The top-level `thread_id` is retired. The file is renamed
+`curriculum-graph.json` in the same migration commit (the old name asserts thread-01-only,
+which D38 makes false), with CI paths, script defaults, the builder fetch and both
+boundary-page pointers updated in that one commit, and the platform side re-stamping after.
+*Evidence.* Ruled after a live audit on a synthetic 8-thread / 376-skill scale-up built from
+the real v0.14.0 graph: the existing `validate.js` and `generate-registries.py` run green on
+the tagged single file unchanged (3ms parse, 39ms full validate, 312KB); a per-thread split
+saves no bytes (309KB across 9 files), requires a composer wired into every consumer, and
+creates a failure class the single file cannot have — duplicate ids across files. The
+split's one real win, filename-scoped history, does not outweigh the plumbing. A future
+split stays cheap by construction: the thread tag makes it sort-and-cut.
+*Unblocks.* D38 step 4 — the Y7 skill stubs.
+

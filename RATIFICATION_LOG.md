@@ -24,6 +24,20 @@ Pre-reveal confidence: D31 med · D32 med · D33 low · D34 med. The one low (D3
 predicted correctly; the one surprise came at med — calibration is honest but the D31
 principle-application blind spot is real.
 
+## Sitting 2026-09-25 — OQ-B (D39: thread structure)
+
+Prediction-before-reveal, one judgment item, verified by live audit rather than argument.
+
+| item | expectation stated | outcome | decision | reading assigned |
+|---|---|---|---|---|
+| OQ-B thread structure | one file with a thread tag (med) | predicted — matched the recommendation; a /devex-review live audit on an 8-thread/376-skill synthetic confirmed it 9-vs-5 with tested evidence | build (+ rename to `curriculum-graph.json` in the migration commit, accepted on recommendation) | — |
+
+**1/1 predicted.** The author asked for a deeper plain-language explanation before
+predicting and for an independent audit before ratifying — both are the protocol working,
+not friction.
+
+---
+
 ## Sitting 2026-09-05 — re-ratification after the critical review
 
 The review's rulings were taken decision by decision (2026-09-05) and this sitting closed
