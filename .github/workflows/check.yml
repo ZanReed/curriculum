@@ -16,6 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Full history: the glossary step compares against the base commit
+          # (retire-not-rename, D40), so a shallow clone would fail it.
+          fetch-depth: 0
 
       - name: "Check 1 — authoring_principles byte-identical to authoring-principles.md"
         run: python3 scripts/check_principles.py thread-01-rate-of-change.json authoring-principles.md
@@ -40,3 +44,10 @@ jobs:
         # implementation of the thread checks belongs with the graph it
         # validates, under the same CI.
         run: node validate.js thread-01-rate-of-change.json
+
+      - name: "Glossary — well-formed, unique, NZ-only bodies, retire-not-rename (D40)"
+        # The base is the PR's base commit, or the previous tip of main on a
+        # push. A base git cannot resolve FAILS the step; it never skips.
+        run: |
+          python3 scripts/check_glossary.py glossary.md --retired glossary-retired.txt \
+            --base "${{ github.event.pull_request.base.sha || github.event.before }}"

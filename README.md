@@ -49,6 +49,12 @@ the hand-carried-copy failure with a new name. This repo carries
    the burndown denominator. Extracting zero ids from a present registry
    is itself a failure (the vacuity guard).
 
+Two further CI steps run beside the four: `validate.js` (the §11 thread
+checks) and the **glossary check** (D40) —
+`python3 scripts/check_glossary.py glossary.md --retired glossary-retired.txt --base <ref>`.
+To retire a glossary entry, delete it from `glossary.md` and append its id to
+`glossary-retired.txt` in the same commit; never edit an `id:` line.
+
 ## File map
 
 | file | role |
@@ -63,12 +69,15 @@ the hand-carried-copy failure with a new name. This repo carries
 | `misconception-registry.txt` | GENERATED — never hand-edit |
 | `external-prereq-registry.txt` | GENERATED — never hand-edit |
 | `chain-registry.txt` | hand-maintained, no stamp (titles are authored prose) |
+| `glossary.md` | the course glossary (D40) — hand-authored, the only edit surface for glossary words; the platform mirrors it via `import:batch --glossary` |
+| `glossary-retired.txt` | retired glossary ids — hand-maintained, append-only, never reused (D40) |
 | `generate-registries.py` | produces the three registries, with a notation gate |
 | `partition-check.py` | gates check 3 |
 | `fd-check.py` | report, never a gate: functional dependencies in the capability registry (D27) |
 | `pair-attachment-report.py` | report, never a gate: one-sided pair-confusion attachments (B10; platform-written, runs here) |
 | `scripts/check_principles.py` | check 1 (verify + `--fix` sync) |
 | `scripts/check_integrity.py` | check 4 |
+| `scripts/check_glossary.py` | the glossary step (D40): well-formed, unique ids/terms/variants, NZ-only bodies, caps, retire-not-rename against the git base |
 | `validate.js` | the curriculum-owned §11 thread checks — runs in CI (`node validate.js <graph>`); green against v0.13.0 on joining (2026-09-02) |
 | `builder.html` | the authoring UI (serve over HTTP, never `file://`). Provenance caveat: this is the July 2026 workspace copy, joined 2026-09-02 so its Save & load prompt text is diffable; reconcile if the Claude project holds a newer descendant |
 | `docs/` | reasoning records: reconciliation, the D24 audit, pedagogical concerns, hook screen, the retired architecture doc (kept only so the retirement is visible — do not restore) |
