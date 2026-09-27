@@ -1,0 +1,7 @@
+# glossary-retired.txt — retired glossary ids (D40). HAND-MAINTAINED, append-only.
+#
+# One line per retired id:   gloss.<slug>   # YYYY-MM-DD: why it was retired
+#
+# An id is added here in the same commit that removes its entry from
+# glossary.md. It is never removed from this file and never used again.
+# scripts/check_glossary.py enforces all three rules in CI.

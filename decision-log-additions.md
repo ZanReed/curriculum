@@ -729,3 +729,85 @@ split's one real win, filename-scoped history, does not outweigh the plumbing. A
 split stays cheap by construction: the thread tag makes it sort-and-cut.
 *Unblocks.* D38 step 4 — the Y7 skill stubs.
 
+
+## Ratified 2026-09-28 (course glossary)
+
+Drafted by the curriculum session in answer to the platform's glossary ask (Platform →
+Curriculum page, "Ask: the course GLOSSARY as a canonical curriculum artifact", including
+the row "PROPOSED v1 glossary file format"). The platform's proposal is
+`docs/markdown-import-format.md` § "Course glossary" in `ZanReed/activity-platform`; its
+reasoning is `docs/design/glossary.md` (D1–D9, W-2). Per that record's D8, the format is
+the curriculum's to rule. **Status: ratified by the author in conversation, 2026-09-28.**
+
+**D40 (ratified 2026-09-28). The course glossary: file, format rulings, gate, phasing.**
+
+*The file.* `glossary.md` at the repo root is the course glossary. It is **hand-authored
+and is the only place a glossary word is edited**. It is not generated, and the graph does
+not carry it. Nothing in the graph references a glossary entry, and definition bodies are
+prose with maths in them: storing them as escaped JSON would make them harder to review
+and would add a sync step for no gain. Retired ids are listed in `glossary-retired.txt`
+(hand-maintained, append-only, one `id   # date: reason` line each, the same grammar as the
+registries). The ledger has to be a separate file because the glossary itself cannot show
+what was taken out of it.
+
+*The three format rulings:*
+
+- **(a) A required, permanent `id:`, never derived from the term: ACCEPTED, with one
+  curriculum-side convention.** An id is `gloss.` followed by a slug of the term *as it
+  was first written*, and then it is frozen. The slug is minted once, not derived again
+  later, so `term:` can be corrected under the same id. A change of spelling keeps the id.
+  A change of meaning retires the id and mints a new one. Retiring means taking the entry
+  out and adding its id to the ledger in the same commit. An id is never used again, even
+  though the platform's store could un-retire it. The prefix follows `mis.`, `ext.`,
+  `act.` and `chain.`, so any id in any file shows what kind of thing it names.
+- **(b) `us:` is the only variant key, and the set is closed: ACCEPTED.** This fits D36,
+  where US labelling is kept in the schema but not used. Two rules follow on this side.
+  First, no definition body contains any entry's `us:` word, so the NZ-only rule is
+  checked against the file rather than trusted. Second, a US word that is also an NZ word
+  with a different meaning is **not** given as a variant. A variant takes that name for
+  the whole file, so it would block the NZ entry. The case that exists now is *standard
+  form*: the US name for the general form of a line, and the NZ name for scientific
+  notation. `gloss.general-form` therefore carries no `us:` line.
+- **(c) Bodies use the `definitions` grammar, NZ-only, with no `[[…]]`: ACCEPTED.** Two
+  additions on this side. Terms and variants use a plain hyphen, never an en dash, because
+  the platform does not fold dashes and activities type hyphens (`point-gradient form`,
+  not `point–gradient form`). And a word with two school meanings gets **one entry that
+  names both**, not two entries. For example, *range* gives the function meaning first,
+  then the statistics meaning, and says the two differ. A student who meets both words
+  gets the contrast where they look it up. This also keeps to one entry per word, which
+  the format requires anyway.
+
+*The gate.* `scripts/check_glossary.py` runs as a CI step. It checks that entries are
+well-formed (fence, header order, id shape, the closed variant set, a body is present);
+that ids are unique and terms and variants are unique as the platform folds them; the body
+rules in (b) and (c); the size caps, set at half the platform's limits because the
+platform measures the parsed JSON, which is larger than the source; and retire-not-rename,
+checked against the git base. That last check means an id that disappears must be in the
+ledger, the ledger only grows, and no id in the ledger comes back. A base that git cannot
+resolve fails the check instead of skipping it. Whether every `[[term]]` resolves is the
+platform importer's gate, because activity files are not in this repo.
+
+*Phasing.* Glossary words come before the activities that use them, the same order as
+hooks (hook pool, then activities). v1 covers thread-01: the four chain-1 activities,
+`chain.linear.slope`, and every skill and misconception label in the graph. Each chain
+authored after this adds its new words to the glossary before its first activity is
+drafted. Y7 words arrive with the Y7 stubs (D38 step 4). An activity defines a word
+locally only when it means something different by it. Wording drift in a local definition
+is removed, not kept.
+
+*Reason.* The author's 2026-09-27 ruling made the glossary a curriculum artifact that does
+two jobs: it is the context for authoring and it is a gate. The platform's proposal already
+had the identity rule this project uses everywhere else (keys are permanent, retire and
+mint, never rename). Accepting it with side rules costs the platform nothing, and a
+different shape would have cost it a loader change for no benefit to teaching.
+*Cost.* One new file to keep, one ledger and one CI step. From now on every chain also
+carries a glossary pass before its activities. The four chain-1 activities keep local
+`definitions` fences that now shadow glossary entries, and the platform's first import
+report will list them. Removing those fences is a separate edit to the activity files,
+and the author decides it.
+*Content questions, author-ruled 2026-09-28:* *parent function* stays for now, the D34
+ruling, to be revisited only if a better NZ term turns up (the D36 list is read as not
+reaching it). *Vertex* leads with *turning point*: the entry's first sentence is the
+parabola meaning, and the corner-of-a-shape meaning comes second. *Secant line* stays and
+does not become *chord*, also for now. The general form is shown both ways,
+`ax + by + c = 0` and `Ax + By = C`.
