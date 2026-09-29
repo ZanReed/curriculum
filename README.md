@@ -25,7 +25,7 @@ live in the catalogue). By ruling (curriculum side,
 the hand-carried-copy failure with a new name. This repo carries
 `decision-log-additions.md` (D18–D42 plus amendments).
 
-## The four checks (`.github/workflows/check.yml`)
+## The six checks (`.github/workflows/check.yml`)
 
 1. **Principles sync** — the graph's `authoring_principles` field is
    byte-identical to `authoring-principles.md`. Single-source rule
@@ -49,9 +49,11 @@ the hand-carried-copy failure with a new name. This repo carries
    the burndown denominator. Extracting zero ids from a present registry
    is itself a failure (the vacuity guard).
 
-Two further CI steps run beside the four: `validate.js` (the §11 thread
-checks) and the **glossary check** (D40) —
-`python3 scripts/check_glossary.py glossary.md --retired glossary-retired.txt --base <ref>`.
+5. **Thread checks** — `node validate.js <graph>`: the curriculum-owned §11
+   thread checks.
+6. **Glossary check** (D40) —
+   `python3 scripts/check_glossary.py glossary.md --retired glossary-retired.txt --base <ref>`.
+
 To retire a glossary entry, delete it from `glossary.md` and append its id to
 `glossary-retired.txt` in the same commit; never edit an `id:` line.
 
@@ -103,7 +105,7 @@ platform-side work; it joins when rebuilt against current schema and code.
 Once CI is green on `main`, the platform side's boundary page carries:
 
 > Canonical: `<raw URL>` · Generation stamp: commit `<sha>`, `<timestamp>` ·
-> sha256 `<hash>` · Currency guarantee: the four checks fail CI on drift,
+> sha256 `<hash>` · Currency guarantee: the six checks fail CI on drift,
 > so the copy on `main` is current by construction.
 
 Refreshing that stamp after changes is part of landing them, same as the
