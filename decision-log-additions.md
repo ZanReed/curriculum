@@ -811,3 +811,63 @@ reaching it). *Vertex* leads with *turning point*: the entry's first sentence is
 parabola meaning, and the corner-of-a-shape meaning comes second. *Secant line* stays and
 does not become *chord*, also for now. The general form is shown both ways,
 `ax + by + c = 0` and `Ax + By = C`.
+
+
+## Ratified 2026-09-29 (Y7 DoL default; hook batching)
+
+Ratified in conversation by the author, 2026-09-29; committed here by the repo session.
+D41's short-chain count was corrected from 7 to 5 on commit, with the author's approval
+(the entry's own 19 → 14 arithmetic removes five chains).
+
+**D41 (ratified 2026-09-29). D35's DoL default extends to Y7, unchanged.**
+D35 was ratified on 2026-09-05, when `band_nz` started at Y8. D36 added Y7 on 2026-09-25,
+and nothing since has said which default a Y7 DoL takes. This entry closes that gap rather
+than leaving Y7 to inherit D33 by silence. Y7 DoLs default to auto-scored items plus an
+error-analysis item (§16), with rubric justification at chain-final positions and
+consolidations, exactly as D35 sets for Y8–10.
+
+D35's two reasons hold more strongly at Y7, not less. The nearest real assessment for a Y7
+learner in 2026 is the numeracy co-requisite, then the Foundational Award, which is
+procedural, closed and auto-scorable. And activity volume is highest in the intermediate
+years, where marking lands on one teacher. A third reason applies only here: a written
+justification at Y7 measures writing as much as mathematics, so it is a poor default and a
+good occasional demand.
+
+Cost, accepted knowingly. Y7 chains are short (5 of the 19 stubbed chains have two
+activities or fewer), so chain finals are a large share of Y7 activities. At stub counts,
+19 of 62 projected Y7 activities carry a rubric DoL, against 1 in 4 on
+`chain.rate.proportional`. The lighter alternative was considered and not taken:
+rubric only at consolidations and at the finals of chains with three or more activities,
+which gives 14 of 62. Revisit this if the marking load proves real in a classroom, not
+before.
+
+Scope. Y7 only. D35's own text still names Y8–10; this entry does not edit D35. From now
+on, "the D35 default" means Y7–10.
+
+**D42 (ratified 2026-09-29). Hooks are authored in year batches: a concept bank per year, then full hooks per chain.**
+When a year's chains are stubbed, one pass writes a one-line hook concept for every chain in
+that year, across all strands, and the bank is screened as a set. Each concept gives the
+chain, skill(s), context, the question or tension, the misconception it sets up, and whether
+the context is NZ/Pacific. A chain's full hooks are finished from the screened concepts just
+before that chain's activities are drafted. The rule that the hook pool is authored and
+screened before any activities is unchanged at chain level; this entry adds a year-level
+stage in front of it. Batches follow D38's bottom-up order: Y7 first, then upward.
+
+Why. Authoring hooks chain by chain gives no view of a year as a whole: settings repeat
+between chains, and the spread of Aotearoa/Pacific contexts is left to chance (it becomes a
+standard requirement at Y11, AS91945). A year bank fixes both in one screening sitting.
+Finished hooks written far ahead go stale when a chain's structure changes: the
+`hook.slope.candle` closing note already depends on an unruled slack allocation. A one-line
+concept is cheap to redo, so the batching happens at the cheap stage and the finishing
+stays next to the activities.
+
+Deferred to the end of the first pass, by Zan's choice:
+- The in-flight `chain.linear.slope` pool is finished as it is, then checked for repeats
+  against the Y9 bank.
+- `chain.rate.proportional`'s hooks are checked against the Y8 bank.
+- Whether `chain-hooks.md` names the year bank, and whether the bank lives there or in its
+  own file.
+
+Platform. None expected: the concept bank is curriculum-side prose and the hook contract
+(`activity_defaults.hook_contract`) is untouched. The platform side confirms this on the
+boundary page.

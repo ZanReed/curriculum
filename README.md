@@ -23,7 +23,7 @@ live in the catalogue). By ruling (curriculum side,
 2026-09-02): `decision-log.md` D1–D17 stays in the catalogue repo's
 `.docs/` and this pointer is the durable answer — a second copy would be
 the hand-carried-copy failure with a new name. This repo carries
-`decision-log-additions.md` (D18–D30 plus amendments).
+`decision-log-additions.md` (D18–D42 plus amendments).
 
 ## The four checks (`.github/workflows/check.yml`)
 
@@ -61,7 +61,7 @@ To retire a glossary entry, delete it from `glossary.md` and append its id to
 | --- | --- |
 | `thread-01-rate-of-change.json` | the graph — skills, edges, misconceptions, `activity_defaults`, `chunking_plan`, capabilities. Single source of truth. |
 | `authoring-principles.md` | the pedagogy prose — single edit surface, injected into the graph by check 1's `--fix` |
-| `decision-log-additions.md` | D18–D30 + amendments (D1–D17 live in the catalogue repo's `.docs/decision-log.md`) |
+| `decision-log-additions.md` | D18–D42 + amendments (D1–D17 live in the catalogue repo's `.docs/decision-log.md`) |
 | `open-questions.md` | what is unresolved, and who decides |
 | `chain-hooks.md` | the hook holding pen |
 | `misconception-proposals-ten-skills.md` | the reasoning behind the 13 ids ratified at v0.12.0 |
