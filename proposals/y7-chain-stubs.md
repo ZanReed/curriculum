@@ -238,7 +238,7 @@ This is the only one-activity chain. It could instead sit as the first skill of
 mean, median, mode and range get swapped for each other.
 
 *Platform note:* Y7 data sets are small (≤ 20 values) and fit inline in a prompt, so this
-chain does **not** wait on the dataset primitive (wish #4). It does need bar charts, dot
+chain does **not** wait on the dataset primitive. It does need bar charts, dot
 plots and time-series graphs rendered in prompts. Check whether the graph mechanism the
 linear drafts use can draw them.
 
@@ -294,7 +294,7 @@ help but isn't required at Y7.
    `decision-log-additions.md`.
 3. **`chain.pattern.linear` thread tag:** thread-01 or thread 03.
 4. **`chain.geom.nets`:** keep as a one-activity chain or fold into area-volume.
-5. **Figure primitive (wish #3).** Five of the 19 chains need labelled figures in prompts
+5. **Figure/chart primitive.** Five of the 19 chains need labelled figures in prompts
    (the geometry chains, area-volume and nets), and two statistics chains need charts. That
    is 7 of 19 Y7 chains, so this goes to the platform page **now**, as a pointer.
 
