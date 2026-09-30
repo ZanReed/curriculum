@@ -35,7 +35,8 @@ the hand-carried-copy failure with a new name. This repo carries
    and commit both. Never edit the JSON field by hand.
 2. **Registry generation** — `python3 generate-registries.py <graph>`
    rewrites `skill-registry.txt`, `misconception-registry.txt`,
-   `external-prereq-registry.txt`; CI regenerates and fails on any diff.
+   `external-prereq-registry.txt` and `misconception-attachments.txt`; CI
+   regenerates and fails on any diff.
    `chain-registry.txt` is excluded and carries no stamp — its display
    titles are authored prose with no source in the graph.
 3. **Partition check** — `partition-check.py` fails when prose restates a
@@ -70,10 +71,11 @@ To retire a glossary entry, delete it from `glossary.md` and append its id to
 | `skill-registry.txt` | GENERATED — never hand-edit |
 | `misconception-registry.txt` | GENERATED — never hand-edit |
 | `external-prereq-registry.txt` | GENERATED — never hand-edit |
+| `misconception-attachments.txt` | GENERATED — never hand-edit. One `skill.id   mis.id` pair per line, projected from `skills[].misconceptions`; read by the platform's AI grading |
 | `chain-registry.txt` | hand-maintained, no stamp (titles are authored prose) |
 | `glossary.md` | the course glossary (D40) — hand-authored, the only edit surface for glossary words; the platform mirrors it via `import:batch --glossary` |
 | `glossary-retired.txt` | retired glossary ids — hand-maintained, append-only, never reused (D40) |
-| `generate-registries.py` | produces the three registries, with a notation gate |
+| `generate-registries.py` | produces the three registries and the misconception attachments, with a notation gate |
 | `partition-check.py` | gates check 3 |
 | `fd-check.py` | report, never a gate: functional dependencies in the capability registry (D27) |
 | `pair-attachment-report.py` | report, never a gate: one-sided pair-confusion attachments (B10; platform-written, runs here) |
