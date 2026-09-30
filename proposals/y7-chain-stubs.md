@@ -5,7 +5,7 @@ graph until it lands in a repo commit.
 
 **Sources.** Fetched from `main` on 29 Sep: `README.md`, `thread-01-rate-of-change.json`,
 `authoring-principles.md` and `decision-log-additions.md`. Y7 content comes from the
-Phase 3 compression in the requirements review §2 (`drafts/y7-13-requirements.md`, held in the Claude project, not in this repo) (read from Tāhūrangi 25 Sep).
+Phase 3 compression in `drafts/y7-13-requirements.md` (held in the Claude project, not in this repo) §2 (read from Tāhūrangi 25 Sep).
 
 > **D35 and D39 confirmed verbatim from the local clone at `f1faa07` (29 Sep).** Earlier note:
 > repo reads from this session are partly stale. PR #2 (D40 glossary)
@@ -46,7 +46,7 @@ Phase 3 compression in the requirements review §2 (`drafts/y7-13-requirements.m
 | thread | chains | skills | activities (p + c) |
 |---|---|---|---|
 | 02 Number | 6 | 14 | 17 + 1 = 18 |
-| 03 Algebra (+ 1 chain proposed for thread-01) | 3 | 9 | 11 + 0 = 11 |
+| 03 Algebra | 3 | 9 | 11 + 0 = 11 |
 | 04 Measurement | 2 | 6 | 6 + 1 = 7 |
 | 05 Geometry | 4 | 9 | 9 + 1 = 10 |
 | 06 Statistics | 2 | 8 | 8 + 1 = 9 |
@@ -131,7 +131,7 @@ rule from one conversion to another.
 | `algebra.equations.two-step` | Solve two-step linear equations with integer solutions and check by substituting | `algebra.equations.one-step` | `mis.equations.undo-order` (divides before subtracting); `mis.equations.one-side-only` | 2 |
 | `algebra.formulae.rearrange` | Rearrange a simple formula to make another letter the subject (P = 4s → s = P/4) | `algebra.equations.two-step` | `mis.equations.same-operation` | 1 |
 
-### `chain.pattern.linear`: 4 activities (4p). **Thread-01 or thread 03? Needs a ruling.**
+### `chain.pattern.linear`: 4 activities (4p). `thread.algebra-equations` (ruled 30 Sep)
 
 | skill | label | prereqs | proposed misconceptions | parts |
 |---|---|---|---|---|
@@ -139,10 +139,10 @@ rule from one conversion to another.
 | `pattern.linear.rule` | Find the rule t = a × n + d for a linear pattern from a sequence or table | `algebra.expressions.substitute` | `mis.pattern.step-as-rule` ("add 3" written as t = n + 3); `mis.pattern.first-term-as-constant` (t = 3n + 5 when the first term is 5) | 2 |
 | `pattern.linear.graph` | Graph a linear pattern and connect the step to the steepness and d to the start | `pattern.linear.rule`, `coord.four-quadrant` | `mis.pattern.step-as-rule` | 1 |
 
-This chain is the Y7 root of the gradient spine: the step becomes the unit rate at Y8 and m
-at Y9. That argues for **thread-01**. Its content is algebra, which argues for **thread 03**.
-Skills carry no thread field (D39 as described), so only the chain's tag changes; either way
-the prereq edges are the same.
+**Thread: algebra (Zan, 30 Sep).** It follows the NZ curriculum, which places linear
+patterns in Y7 Algebra. The chain is still the Y7 root of the gradient spine: the step
+becomes the unit rate at Y8 and m at Y9. The prereq edges carry that connection across
+threads, so `thread.rate-of-change` starts at Y8.
 
 ---
 
@@ -152,13 +152,16 @@ the prereq edges are the same.
 
 | skill | label | prereqs | proposed misconceptions | parts |
 |---|---|---|---|---|
-| `measure.perimeter.polygons` | Find the perimeter of polygons, including missing side lengths | `ext.measure.metric-units` | `mis.perimeter.counts-squares` | 1 |
-| `measure.area.rect-triangle` | Find the area of rectangles, squares and triangles in square units | `measure.perimeter.polygons` | `mis.area.triangle-no-half`; `mis.area.slant-as-height`; `mis.units.area-as-linear` (cm, not cm²) | 1 |
+| `measure.perimeter.polygons` | Find the perimeter of polygons, including missing side lengths | `ext.measure.metric-units` | `mis.perimeter.counts-squares`; `mis.area.same-perimeter-same-area` | 1 |
+| `measure.area.rect-triangle` | Find the area of rectangles, squares and triangles in square units | `measure.perimeter.polygons` | `mis.area.triangle-no-half`; `mis.area.slant-as-height`; `mis.units.area-as-linear` (cm, not cm²); `mis.area.same-perimeter-same-area` (assumes equal perimeters mean equal areas) | 1 |
 | `measure.area.composite` | Find the area of a composite shape by decomposing it | `measure.area.rect-triangle` | `mis.area.composite-overlap` (double-counts a region) | 1 |
 | `measure.volume.cuboid` | Find the volume of cubes and cuboids in cubic units, as layers of unit cubes | `measure.area.rect-triangle` | `mis.units.volume-as-square`; `mis.volume.adds-dimensions` | 1 |
 
 **Consolidation** (terminal skill `measure.volume.cuboid`), earned by confusability: perimeter
 vs area vs volume, and their units. This is the classic Y7 mix-up.
+
+`mis.area.same-perimeter-same-area` was added 30 Sep, from the hook bank. It names a
+confusion between two skills, so it attaches to both, per the principles.
 
 ### `chain.measure.time`: 2 activities (2p)
 
@@ -292,7 +295,7 @@ help but isn't required at Y7.
    proposal is in `proposals/threads-registry.md`.
 2. ~~Y7 DoL default~~ **Ruled 29 Sep: D35 extends to Y7 as written.** Recorded as D41 in
    `decision-log-additions.md`.
-3. **`chain.pattern.linear` thread tag:** thread-01 or thread 03.
+3. ~~`chain.pattern.linear` thread tag~~ **Ruled 30 Sep: `thread.algebra-equations`**, following the NZ curriculum.
 4. **`chain.geom.nets`:** keep as a one-activity chain or fold into area-volume.
 5. **Figure/chart primitive.** Five of the 19 chains need labelled figures in prompts
    (the geometry chains, area-volume and nets), and two statistics chains need charts. That

@@ -1,6 +1,6 @@
 # `threads` registry: proposed ids and labels (D39 migration input)
 
-`status: draft` (proposal, not a ruling). Written 29 Sep 2026 against D39 as pasted from `decision-log-additions.md:714`
+`status: approved by Zan 30 Sep 2026` (ids and labels). Held until the Y7 hook concept bank is finished; Zan will upload them together. Written 29 Sep 2026 against D39 as pasted from `decision-log-additions.md:714`
 at `f1faa07`. D39 sets the registry's shape (id and label per thread) and names no ids.
 This draft proposes them, for approval before the migration commit touches the JSON.
 
@@ -53,7 +53,7 @@ This draft proposes them, for approval before the migration commit touches the J
 - **Thread 08 under D37.** Its L3 content is deferred, but the Y12 anti-differentiation
   chain (AS91262) isn't. The thread is registered now, and its deferred chains carry
   `status: deferred` as D37 describes.
-- **Where `chain.pattern.linear` goes** (Y7 stubs, open question 3):
-  `thread.rate-of-change` or `thread.algebra-equations`. The registry is the same either way.
+- ~~Where `chain.pattern.linear` goes~~ **Ruled 30 Sep:** `thread.algebra-equations`,
+  following the NZ curriculum. `thread.rate-of-change` starts at Y8.
 - **§5's chain/skill/activity estimates for thread 01 predate D36** (limit collapse,
   function trim). Only the thread list is used here, not the counts.
