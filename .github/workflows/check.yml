@@ -29,7 +29,7 @@ jobs:
         # are authored prose with no source in the graph (spec §1.2 note).
         run: |
           python3 generate-registries.py thread-01-rate-of-change.json
-          git diff --exit-code -- skill-registry.txt misconception-registry.txt external-prereq-registry.txt
+          git diff --exit-code -- skill-registry.txt misconception-registry.txt external-prereq-registry.txt misconception-attachments.txt
 
       - name: "Check 3 — partition-check passes (prose restates no threshold, D25)"
         # Invocation to confirm against the seeded script; if it takes no

@@ -122,6 +122,20 @@ def main(path):
            f"# Generated from {path} v{v}.", ""],
           [f"{e['id']:<30}# {e['label']}" for e in d['external_prereqs']])
 
+    # Skill -> misconception attachments, one pair per line. The attachment already
+    # lives on each skill (`skills[].misconceptions`); this file projects it for the
+    # platform's AI grading, which needs a rubric item's skill-attached misconceptions.
+    # Many-to-many by nature (most ids attach to more than one skill), so one line per
+    # pair. No comments on pair lines: the description is misconception-registry.txt's
+    # inline comment, by contract, and this file does not restate it.
+    pairs = sorted((s['id'], m) for s in d['skills'] for m in s.get('misconceptions', []))
+    write('misconception-attachments.txt',
+          ["# Misconception attachments — which misconceptions attach to which skill.", "#",
+           "# One `skill.id   mis.id` pair per line; a misconception may attach to several",
+           "# skills. Descriptions live in misconception-registry.txt, not here.",
+           f"# Generated from {path} v{v}. Do not hand-edit: regenerate.", ""],
+          [f"{sid:<42}{m}" for sid, m in pairs])
+
     print(f"\ngenerated from v{v}. chain-registry.txt is NOT generated — its display"
           "\ntitles are authored prose with no source in the graph.")
     return 0
