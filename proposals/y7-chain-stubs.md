@@ -20,6 +20,25 @@ Phase 3 compression in `drafts/y7-13-requirements.md` (held in the Claude projec
 
 ## Conventions used
 
+- **Misconception attachments now drive AI grading (PR #5, 1 Oct).** A skill's
+  `misconceptions` list is what the grader watches for on that skill's written-answer
+  items, via the generated `misconception-attachments.txt`. So an id is attached only
+  where students working on *that* skill really make the error, and wherever they do.
+  The audit of 1 Oct:
+  - removed `mis.notation.juxtaposition-as-digits` from `algebra.notation.write` (it is a
+    substitution error; it stays on `algebra.expressions.substitute`);
+  - on `pattern.linear.graph`, replaced `mis.pattern.step-as-rule` with
+    `mis.pattern.first-term-as-constant`, the error students actually make when reading a
+    graph;
+  - added `mis.coord.axes-swapped` to the four skills that plot points (the pattern graph
+    and the three transformations);
+  - added `mis.time.decimal-hours` to `measure.time.timetables`;
+  - added `mis.percent.decimal-shift` to `prob.theoretical.equally-likely`.
+
+  `mis.area.same-perimeter-same-area` stays on both the perimeter and area skills under
+  the pair rule. It is the one attachment where the pair rule and the grading rule could
+  pull apart, so check it at screening.
+
 - Ids follow the graph's pattern: `domain.sub.skill` for skills and `chain.domain.name` for
   chains. Skill ids are new; none collide with the 47 existing skills.
 - Only `band_nz: Y7` is filled. `band_us` and `ccss`/`teks` stay empty (NZ-first).
@@ -119,7 +138,7 @@ rule from one conversion to another.
 
 | skill | label | prereqs | proposed misconceptions | parts |
 |---|---|---|---|---|
-| `algebra.notation.write` | Write expressions from words using algebraic conventions (3n, n + 5, n/2) | `ext.arith.whole-ops` | `mis.notation.juxtaposition-as-digits` (n = 4 → 3n = 34); `mis.notation.letter-as-object` (a = apples) | 1 |
+| `algebra.notation.write` | Write expressions from words using algebraic conventions (3n, n + 5, n/2) | `ext.arith.whole-ops` | `mis.notation.letter-as-object` (a = apples) | 1 |
 | `algebra.expressions.substitute` | Evaluate an expression by substituting values | `algebra.notation.write`, `number.operations.order` | `mis.notation.juxtaposition-as-digits` | 1 |
 | `algebra.expressions.like-terms` | Collect like terms | `algebra.notation.write` | `mis.like-terms.combine-unlike` (2a + 3b = 5ab); `mis.like-terms.adds-to-power` (x + x = x²) | 1 |
 
@@ -137,7 +156,7 @@ rule from one conversion to another.
 |---|---|---|---|---|
 | `coord.four-quadrant` | Plot and read points in all four quadrants | `number.integers.number-line` | `mis.coord.axes-swapped` | 1 |
 | `pattern.linear.rule` | Find the rule t = a × n + d for a linear pattern from a sequence or table | `algebra.expressions.substitute` | `mis.pattern.step-as-rule` ("add 3" written as t = n + 3); `mis.pattern.first-term-as-constant` (t = 3n + 5 when the first term is 5) | 2 |
-| `pattern.linear.graph` | Graph a linear pattern and connect the step to the steepness and d to the start | `pattern.linear.rule`, `coord.four-quadrant` | `mis.pattern.step-as-rule` | 1 |
+| `pattern.linear.graph` | Graph a linear pattern and connect the step to the steepness and d to the start | `pattern.linear.rule`, `coord.four-quadrant` | `mis.pattern.first-term-as-constant` (reads the start d off the point at n = 1); `mis.coord.axes-swapped` | 1 |
 
 **Thread: algebra (Zan, 30 Sep).** It follows the NZ curriculum, which places linear
 patterns in Y7 Algebra. The chain is still the Y7 root of the gradient spine: the step
@@ -168,7 +187,7 @@ confusion between two skills, so it attaches to both, per the principles.
 | skill | label | prereqs | proposed misconceptions | parts |
 |---|---|---|---|---|
 | `measure.time.duration` | Calculate time durations across hour boundaries, in 12- and 24-hour time | `ext.time.read-clock` | `mis.time.decimal-hours` (1:30 treated as 1.30 h; 13:20 − 10:45 = 2.75) | 1 |
-| `measure.time.timetables` | Read and use timetables to plan and compare journeys | `measure.time.duration` | `mis.time.24h-convert` (15:00 = 5 pm) | 1 |
+| `measure.time.timetables` | Read and use timetables to plan and compare journeys | `measure.time.duration` | `mis.time.24h-convert` (15:00 = 5 pm); `mis.time.decimal-hours` | 1 |
 
 ---
 
@@ -198,9 +217,9 @@ formally, so keep the Y7 skill to finding angles, not naming the pairs.
 
 | skill | label | prereqs | proposed misconceptions | parts |
 |---|---|---|---|---|
-| `geom.transform.reflect` | Reflect a shape in a horizontal, vertical or diagonal mirror line | `coord.four-quadrant` | `mis.reflect.translates` (slides instead of flipping); `mis.reflect.diagonal-as-vertical` | 1 |
-| `geom.transform.rotate` | Rotate a shape by 90°, 180° or 270° about a given centre | `coord.four-quadrant` | `mis.rotate.centre-ignored` | 1 |
-| `geom.transform.translate` | Translate a shape by a given vector or description | `coord.four-quadrant` | `mis.translate.counts-gaps` | 1 |
+| `geom.transform.reflect` | Reflect a shape in a horizontal, vertical or diagonal mirror line | `coord.four-quadrant` | `mis.reflect.translates` (slides instead of flipping); `mis.reflect.diagonal-as-vertical`; `mis.coord.axes-swapped` | 1 |
+| `geom.transform.rotate` | Rotate a shape by 90°, 180° or 270° about a given centre | `coord.four-quadrant` | `mis.rotate.centre-ignored`; `mis.coord.axes-swapped` | 1 |
+| `geom.transform.translate` | Translate a shape by a given vector or description | `coord.four-quadrant` | `mis.translate.counts-gaps`; `mis.coord.axes-swapped` | 1 |
 
 **Consolidation** (terminal skill `geom.transform.translate`), earned by confusability:
 identifying *which* single transformation maps one shape to another. Reflection vs 180°
@@ -254,7 +273,7 @@ linear drafts use can draw them.
 | skill | label | prereqs | proposed misconceptions | parts |
 |---|---|---|---|---|
 | `prob.sample-space.list` | List a sample space systematically using lists, tables and tree diagrams | — | `mis.prob.order-ignored` (HT and TH counted once) | 2 |
-| `prob.theoretical.equally-likely` | Find the probability of an event with equally likely outcomes, as a fraction, decimal or percentage | `prob.sample-space.list`, `number.percent.hundredths` | `mis.prob.equiprobability` (sum of two dice: 2 as likely as 7) | 1 |
+| `prob.theoretical.equally-likely` | Find the probability of an event with equally likely outcomes, as a fraction, decimal or percentage | `prob.sample-space.list`, `number.percent.hundredths` | `mis.prob.equiprobability` (sum of two dice: 2 as likely as 7); `mis.percent.decimal-shift` (0.05 written as 50%) | 1 |
 | `prob.complement` | Use P(not A) = 1 − P(A) | `prob.theoretical.equally-likely` | `mis.prob.complement-as-reciprocal` | 1 |
 
 ### `chain.prob.experimental`: 3 activities (2p + 1c)

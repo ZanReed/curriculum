@@ -17,7 +17,9 @@ are drafted.
 - It uses a strong shape: a surprising claim, a prediction, a fictional student's wrong
   answer, or a choice between two options.
 
-Misconception ids are the **proposed** ids from the stubs; none are registered yet.
+Misconception ids are the **proposed** ids from the stubs; none are registered yet. The
+"sets up" column is hook screening only. It is **not** an attachment: attachments live
+only on the skill's `misconceptions` list in the graph (PR #5).
 "NZ" marks a specifically Aotearoa context.
 
 ---
@@ -87,7 +89,7 @@ Misconception ids are the **proposed** ids from the stubs; none are registered y
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.pattern.hui-tables` | `pattern.linear.rule` | Setting up for a hui: 1 table seats 6, 2 tables pushed end to end seat 10, 3 tables seat 14. How many people can 20 tables seat? Most people guess 120. | `mis.pattern.first-term-as-constant` | NZ | 20 tables seat 82 (4n + 2) |
-| `hook.pattern.catch-up` | `pattern.linear.graph` | Aroha has $50 and saves $5 a week. Ben has $0 and saves $10 a week. Will Ben ever catch up, and when? | `mis.pattern.step-as-rule` | | prediction. Sets up start = d, step = steepness; the graph shows the crossing |
+| `hook.pattern.catch-up` | `pattern.linear.graph` | Aroha has $50 and saves $5 a week. Ben has $0 and saves $10 a week. Will Ben ever catch up, and when? | `mis.pattern.first-term-as-constant` | | prediction. Sets up start = d, step = steepness; the graph shows the crossing |
 
 ---
 
