@@ -8,7 +8,7 @@ graph until it lands in a repo commit.
 Phase 3 compression in `drafts/y7-13-requirements.md` (held in the Claude project, not in this repo) §2 (read from Tāhūrangi 25 Sep).
 
 > **Branch copy.** The repo copy of this file lives on the draft PR #4 branch
-> (`proposals-y7-stubs-threads`), last known head `1ca270f` (1 Oct). The repo side may edit
+> (`proposals-y7-stubs-threads`), last known head `919c092` (1 Oct). The repo side may edit
 > it there. Before exporting again: get the current branch copy from Zan and edit that, or
 > send only the changed lines.
 >
@@ -48,8 +48,8 @@ Phase 3 compression in `drafts/y7-13-requirements.md` (held in the Claude projec
   chains. Skill ids are new; none collide with the 47 existing skills.
 - Only `band_nz: Y7` is filled. `band_us` and `ccss`/`teks` stay empty (NZ-first).
   `nzc_phase` pointers need filling by someone with the Phase 3 page open.
-- `thread`: set on each chain, using the ids proposed in `proposals/threads-registry.md`
-  (not yet approved). Headings below keep §5's numbers for readability:
+- `thread`: set on each chain, using the ids in `proposals/threads-registry.md`
+  (approved by Zan 30 Sep). Headings below keep §5's numbers for readability:
   - 02 `thread.number-proportion`
   - 03 `thread.algebra-equations`
   - 04 `thread.measurement`
@@ -348,5 +348,5 @@ and nets.
 - [ ] Zan reads it end-to-end (drafts stay `status: draft` until then).
 - [ ] Phase 3 page open: confirm the two *Verify* items and fill `nzc_phase` per skill.
 - [ ] Misconception proposals screened.
-- [ ] Thread ids approved (`proposals/threads-registry.md`); the D39 migration lands first.
+- [x] Thread ids approved (30 Sep, `proposals/threads-registry.md`). The D39 migration still lands first.
 - [x] Y7 DoL default ruled (29 Sep): D41 in `decision-log-additions.md`.
