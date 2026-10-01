@@ -72,10 +72,10 @@ Phase 3 compression in `drafts/y7-13-requirements.md` (held in the Claude projec
 | 02 Number | 6 | 14 | 17 + 1 = 18 |
 | 03 Algebra | 3 | 9 | 11 + 0 = 11 |
 | 04 Measurement | 2 | 6 | 6 + 1 = 7 |
-| 05 Geometry | 4 | 9 | 9 + 1 = 10 |
+| 05 Geometry | 4 | 8 | 8 + 1 = 9 |
 | 06 Statistics | 2 | 8 | 8 + 1 = 9 |
 | 07 Probability | 2 | 5 | 6 + 1 = 7 |
-| **Y7 total** | **19** | **51** | **57 + 5 = 62** |
+| **Y7 total** | **19** | **50** | **56 + 5 = 61** |
 
 At about 24 minutes an activity, that is roughly 25 hours: one or two activities a week
 across a school year, alongside teacher-led lessons.
@@ -88,7 +88,7 @@ across a school year, alongside teacher-led lessons.
 
 | skill | label | prereqs | proposed misconceptions | parts |
 |---|---|---|---|---|
-| `number.place-value.decimals` | Read, write, compare and order decimals to thousandths using place value | `ext.arith.whole-ops` | `mis.place-value.longer-is-larger` (0.45 > 0.5) | 1 |
+| `number.place-value.decimals` | Read, write, compare and order decimals to hundredths using place value (was thousandths; Zan 1 Oct) | `ext.arith.whole-ops` | `mis.place-value.longer-is-larger` (0.45 > 0.5) | 1 |
 | `number.place-value.powers-of-ten` | Multiply and divide by 10, 100, 1000 as a shift in place value | `number.place-value.decimals` | `mis.place-value.append-zero` (3.4 × 10 = 3.40) | 1 |
 | `number.round.cash` | Round to a given place, including NZ cash rounding to the nearest 10c | `number.place-value.decimals` | `mis.round.cash-per-item` (rounds each item, not the total); `mis.round.truncates` | 1 |
 
@@ -110,8 +110,8 @@ across a school year, alongside teacher-led lessons.
 | skill | label | prereqs | proposed misconceptions | parts |
 |---|---|---|---|---|
 | `number.primes.classify` | Classify whole numbers as prime or composite | `ext.arith.times-tables` | `mis.primes.one-is-prime`; `mis.primes.odd-means-prime` (9, 15, 21) | 1 |
-| `number.divisibility.rules` | Use divisibility tests for 2, 3, 4, 5, 6, 9 and 10 | `number.primes.classify` | `mis.divisibility.last-digit-for-3` | 1 |
-| `number.factors.hcf-lcm` | Find the highest common factor and lowest common multiple of two numbers | `number.divisibility.rules` | `mis.factors.hcf-lcm-swapped`; `mis.factors.lcm-is-product` | 2 |
+| `number.divisibility.rules` | Use divisibility tests for 2, 3, 4, 5, 6, 8, 9 and 10 (8 added, Zan 1 Oct) | `number.primes.classify` | `mis.divisibility.last-digit-for-3` | 1 |
+| `number.factors.hcf-lcm` | Find the highest common factor of two numbers under 100 and the lowest common multiple of two numbers under 10 (limits from S36; Zan 1 Oct) | `number.divisibility.rules` | `mis.factors.hcf-lcm-swapped`; `mis.factors.lcm-is-product` | 2 |
 
 ### `chain.number.integers`: 3 activities (3p)
 
@@ -120,7 +120,8 @@ across a school year, alongside teacher-led lessons.
 | `number.integers.number-line` | Place, order and compare integers on a number line | `ext.arith.whole-ops` | `mis.integers.larger-digit-larger` (−8 > −3) | 1 |
 | `number.integers.additive-inverse` | Use the additive inverse to add and subtract integers on a number line | `number.integers.number-line` | `mis.integers.subtract-always-smaller`; `mis.integers.sign-ignored` | 2 |
 
-*Verify:* Y8 lists "operations with negatives". Check with the Phase 3 page open that Y7
+~~*Verify:*~~ **Resolved 1 Oct:** Y7 covers adding and subtracting integers on a number line (S42), so
+the skill stands. The original note: *Verify:* Y8 lists "operations with negatives". Check with the Phase 3 page open that Y7
 covers adding and subtracting integers on the number line and not only the inverse as an idea.
 
 ### `chain.number.fractions`: 4 activities (3p + 1c)
@@ -198,25 +199,43 @@ confusion between two skills, so it attaches to both, per the principles.
 
 ## Thread 05: Geometry
 
-### `chain.geom.triangles-polygons`: 3 activities (3p)
+### `chain.geom.triangles-polygons`: 2 activities (2p)
+
+**Ruled 1 Oct (Zan): `geom.angles.polygon-sums` moves to Y8.** Its practice lines are Y8-only on
+the page (S85, S86). It goes into the Y8 stubs with its row as it stood:
+
+| skill | label | prereqs | proposed misconceptions | parts |
+|---|---|---|---|---|
+| `geom.angles.polygon-sums` | Find interior angle sums, 180(n − 2), and use the exterior angle sum of 360° | `geom.angles.triangle-quad-sum` | `mis.polygon.n-times-180`; `mis.polygon.exterior-grows-with-n` | 1 |
+
+Its two misconceptions (`mis.polygon.n-times-180`, `mis.polygon.exterior-grows-with-n`) and its
+hook (`hook.polygon.honeycomb`) move with it, so they leave Y7 screening.
 
 | skill | label | prereqs | proposed misconceptions | parts |
 |---|---|---|---|---|
 | `geom.triangles.classify` | Classify triangles by sides and by angles | `ext.geom.angle-measure` | `mis.triangle.orientation-matters` (a "tilted" triangle isn't isosceles) | 1 |
 | `geom.angles.triangle-quad-sum` | Use the angle sums of a triangle (180°) and a quadrilateral (360°) to find missing angles | `geom.triangles.classify` | `mis.angles.sum-depends-on-size` | 1 |
-| `geom.angles.polygon-sums` | Find interior angle sums, 180(n − 2), and use the exterior angle sum of 360° | `geom.angles.triangle-quad-sum` | `mis.polygon.n-times-180`; `mis.polygon.exterior-grows-with-n` | 1 |
 
 ### `chain.geom.parallel-lines`: 2 activities (2p)
 
+**Ruled 1 Oct (Zan):** the first skill is relabelled to the page's four relationships (S84) and drops
+"at a point", which Phase 3 doesn't name. The id `geom.angles.line-point-vertical` still says
+"point". It isn't in the graph yet, so it can be renamed for free before it lands. The builder
+proposes a name.
+
 | skill | label | prereqs | proposed misconceptions | parts |
 |---|---|---|---|---|
-| `geom.angles.line-point-vertical` | Use angles on a line, at a point and vertically opposite | `ext.geom.angle-measure` | `mis.angles.vertical-as-supplementary` | 1 |
+| `geom.angles.line-point-vertical` | Use supplementary, complementary, vertical and adjacent angle relationships to find unknown angles | `ext.geom.angle-measure` | `mis.angles.vertical-as-supplementary` | 1 |
 | `geom.angles.parallel-transversal` | Find angles where a transversal crosses parallel lines | `geom.angles.line-point-vertical` | `mis.parallel.all-equal`; `mis.parallel.assumed` (applies the rules to non-parallel lines) | 1 |
 
-*Verify:* whether angles on a line, at a point and vertically opposite are Y7 statements or
-earlier. If earlier, `geom.angles.line-point-vertical` becomes an external (`ext.geom.angle-facts`)
-and the chain drops to one skill. Y9 names corresponding, alternate and co-interior angles
-formally, so keep the Y7 skill to finding angles, not naming the pairs.
+~~*Verify:*~~ **Resolved 1 Oct** (`proposals/y7-nzc-phase.md`, section 3): angles on a line and vertically
+opposite are Y7 (S84); "at a point" isn't on the Phase 3 page. The skill stays Y7 with both chain
+skills. The original note:
+
+> *Verify:* whether angles on a line, at a point and vertically opposite are Y7 statements or
+> earlier. If earlier, `geom.angles.line-point-vertical` becomes an external (`ext.geom.angle-facts`)
+> and the chain drops to one skill. Y9 names corresponding, alternate and co-interior angles
+> formally, so keep the Y7 skill to finding angles, not naming the pairs.
 
 ### `chain.geom.transformations`: 4 activities (3p + 1c)
 
@@ -245,11 +264,16 @@ not measurement, and a short chain is useful to teachers as a lesson that fits a
 
 ### `chain.stats.data-displays`: 4 activities (4p)
 
+**Ruled 1 Oct (Zan): dot plots are for categorical data**, as the page has it (S97). Two knock-ons
+for the builder: `mis.dotplot.uneven-scale` assumes a numerical axis, so check it still fits; and
+`stats.summary.mean` and `stats.summary.median-mode` take `stats.display.dot-plot` as a prereq,
+which reads oddly now that dot plots are categorical.
+
 | skill | label | prereqs | proposed misconceptions | parts |
 |---|---|---|---|---|
 | `stats.variables.classify` | Classify variables as categorical, discrete numerical or continuous numerical | — | `mis.stats.digits-are-numerical` (postcodes, jersey numbers) | 1 |
 | `stats.display.categorical` | Read, draw and choose bar graphs, including stacked and clustered bars | `stats.variables.classify` | `mis.bar.order-meaningful` (reads a trend across categories) | 1 |
-| `stats.display.dot-plot` | Read and draw dot plots for numerical data | `stats.variables.classify` | `mis.dotplot.uneven-scale` | 1 |
+| `stats.display.dot-plot` | Read and draw dot plots for categorical data | `stats.variables.classify` | `mis.dotplot.uneven-scale` | 1 |
 | `stats.display.time-series` | Read and draw time-series graphs and describe the change over time | `coord.four-quadrant` | `mis.timeseries.joins-categories` (line graph for categorical data) | 1 |
 
 ### `chain.stats.summaries`: 5 activities (4p + 1c)
@@ -337,16 +361,17 @@ rubric justification at chain finals and consolidations.
   make it the default.
 
 **Cost to check.** Y7 chains are short, so "chain final" is a large share: all 19 chain
-finals (5 of them consolidations) would be rubric-graded, which is 19 of 62 activities.
+finals (5 of them consolidations) would be rubric-graded, which is 19 of 61 activities.
 Chain 1 at Y8 has 1 rubric DoL in 4. If that marking load is too high, the alternative is
 rubric justification only at consolidations and at the finals of chains with 3 or more
-activities. That gives 14 of 62: it drops powers, order of operations, time, parallel lines
+activities. That gives 13 of 61: it drops powers, order of operations, time, triangles-polygons, parallel lines
 and nets.
 
 ## Before this goes near the graph
 
 - [ ] Zan reads it end-to-end (drafts stay `status: draft` until then).
-- [ ] Phase 3 page open: confirm the two *Verify* items and fill `nzc_phase` per skill.
+- [x] Phase 3 page open: both *Verify* items resolved, and `nzc_phase` drafted per skill
+  (`proposals/y7-nzc-phase.md`, accepted by Zan 1 Oct).
 - [ ] Misconception proposals screened.
 - [x] Thread ids approved (30 Sep, `proposals/threads-registry.md`). The D39 migration still lands first.
 - [x] Y7 DoL default ruled (29 Sep): D41 in `decision-log-additions.md`.

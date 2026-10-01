@@ -434,7 +434,7 @@ isn't listed.
 | `number.fractions.to-decimal` | `P3.Y7.Number:S48`, `P3.Y7.Number:S52` | Fractions can be converted to decimals… | high |  |
 | `number.percent.hundredths` | `P3.Y7.Number:S50`, `P3.Y7.Number:S52` | Percentages are decimal fractions with denominators… | high |  |
 | `algebra.notation.write` | `P3.Y7.Algebra:S59`, `P3.Y7.Algebra:S07` | Algebra has its own specialised notation… | high |  |
-| `algebra.expressions.substitute` | `P3.Y8.Algebra:S12` | Using substitution to find the value… | high | **S12's year label looks wrong.** On the page this statement sits in a practice cell spanning **both** Y7 and Y8 (colspan 2), not in the Y8 column alone. By the convention used for S07–S11 (spanning cells labelled Y7) it would be `P3.Y7.Algebra:S12`. Repo-side call: S12 is already in `docs/alignment-sources.md`. |
+| `algebra.expressions.substitute` | `P3.Y7.Algebra:S12` | Using substitution to find the value… | high | **S12's year label looks wrong.** On the page this statement sits in a practice cell spanning **both** Y7 and Y8 (colspan 2), not in the Y8 column alone. By the convention used for S07–S11 (spanning cells labelled Y7) it would be `P3.Y7.Algebra:S12`. Repo-side call: S12 is already in `docs/alignment-sources.md`. |
 | `algebra.expressions.like-terms` | `P3.Y7.Algebra:S61` | Simplifying expressions involving any of the… | high |  |
 | `algebra.equations.one-step` | `P3.Y7.Algebra:S58`, `P3.Y7.Algebra:S56`, `P3.Y7.Algebra:S57` | Forming and solving one- and two-step… | high |  |
 | `algebra.equations.two-step` | `P3.Y7.Algebra:S58`, `P3.Y7.Algebra:S56` | Forming and solving one- and two-step… | high |  |
@@ -475,6 +475,12 @@ isn't listed.
 left empty: every Y7 skill has at least one Phase 3 statement behind it.
 
 **Read these first (the medium rows):** `number.place-value.decimals`, `pattern.linear.graph`, `measure.time.duration`, `geom.angles.triangle-quad-sum`, `geom.angles.polygon-sums`, `geom.angles.line-point-vertical`, `geom.nets.identify`, `stats.display.dot-plot`.
+
+**Rulings, 1 Oct (Zan), from the check page:** all 8 medium rows accepted (nets accepted on the
+references; the drawing question is a platform wish). Flags 1–6 ruled: polygon sums move to Y8
+(its row below goes to the Y8 stubs); dot plots are categorical; 8 added to divisibility; decimals
+stop at hundredths; the HCF/LCM limits are added; S12 is relabelled `P3.Y7.Algebra` on main
+(`d651c0f`). Verify 2: the angles skill is relabelled to S84's four relationships.
 
 **Flags for Zan, from the page (these are stub questions, not pointer questions):**
 

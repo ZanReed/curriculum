@@ -113,12 +113,16 @@ only on the skill's `misconceptions` list in the graph (PR #5).
 
 ## Thread 05: Geometry (6)
 
-### `chain.geom.triangles-polygons` (3 → 2)
+### `chain.geom.triangles-polygons` (2 → 1)
+
+**Moved to Y8 (Zan, 1 Oct), with `geom.angles.polygon-sums`.** The chain is now 2 activities, so
+its pool minimum is 1 and the remaining hook meets it. Carried to the Y8 bank:
+
+| `hook.polygon.honeycomb` | `geom.angles.polygon-sums` | Bees build hexagons. A triangle's angles add to 180°, so Priya says a hexagon's add to 6 × 180° = 1080°. Predict: too big, too small, or right? | `mis.polygon.n-times-180` | | answer 720°. Needs a figure: stub as an image until the fence ships |
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.angles.field-triangle` | `geom.angles.triangle-quad-sum` | One triangle is painted across the whole school field; another is drawn on your thumbnail. Which one's three angles add up to more? | `mis.angles.sum-depends-on-size` | | prediction |
-| `hook.polygon.honeycomb` | `geom.angles.polygon-sums` | Bees build hexagons. A triangle's angles add to 180°, so Priya says a hexagon's add to 6 × 180° = 1080°. Predict: too big, too small, or right? | `mis.polygon.n-times-180` | | answer 720°. Needs a figure: stub as an image until the fence ships |
 
 ### `chain.geom.parallel-lines` (2 → 1)
 
