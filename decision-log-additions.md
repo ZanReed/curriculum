@@ -997,3 +997,27 @@ pass (draft, `docs/design/practice-blocks.md` in the platform repo).
    the baseline; raw times are kept as well.
 8. *The Y7 entry bank* is both: Phase 2 facts in the fact scope (1), and a small set of skill
    items on the Y7 external prereqs (the `ext.*` ids).
+
+**D43 amendment (2026-10-02, later). Turnaround facts, probe snapshots, and the class rule.**
+Ruled by Zan 2026-10-02, on the platform's follow-ups (B-12, Q9–Q11), after a check of the
+evidence.
+9. *Turnarounds.* 7×8 and 8×7 are one fact for mastery, with one record per pair, and the
+   probe and the sprint show it in both orders. Evidence: practice in one operand order
+   transfers almost fully to the other, and the identical-elements model stores both orders
+   as one item (Rickard, Healy & Bourne 1994). The small speed gap left on the unpractised
+   order is perceptual, which is why both orders are shown (Rickard & Bourne 1996). Gains from
+   cover-copy-compare in the classroom also generalise across the turnaround. Caveat: the
+   memory studies are mostly with adults.
+10. *Probe snapshots.* A probe's verdict is fixed when it closes and is not re-judged
+   against a later criterion. The raw timings kept for the school year are what recalibrate
+   the criterion.
+11. *Class rule.* Per-fact `met` (answer 2) stays for the sprint and for each student's
+   mastery. The class-level recommendation uses a rate instead: the class median of answers
+   correct per minute on the probe, compared with an instructional-range floor. Below the
+   floor, the sprint is recommended. The floor is a curriculum-owned graph key, set with the
+   fact scope (answer 1). This is the researched form of the rule: classwide-intervention
+   screening compares the class median rate with an instructional range (Spring Math), and no
+   study sets a cut on a median share of facts met. Interim source for the floor: the grades
+   4–5 instructional range in Burns, VanDerHeyden & Jiban (2006), whose unit is digits
+   correct per minute and so needs converting to answers per minute. Using it at Y7–10 is the
+   extrapolation D43's caveat already covers.
