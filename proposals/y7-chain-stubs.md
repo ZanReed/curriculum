@@ -7,6 +7,11 @@ graph until it lands in a repo commit.
 `authoring-principles.md` and `decision-log-additions.md`. Y7 content comes from the
 Phase 3 compression in `drafts/y7-13-requirements.md` (held in the Claude project, not in this repo) §2 (read from Tāhūrangi 25 Sep).
 
+> **Branch copy.** The repo copy of this file lives on the draft PR #4 branch
+> (`proposals-y7-stubs-threads`), last known head `1ca270f` (1 Oct). The repo side may edit
+> it there. Before exporting again: get the current branch copy from Zan and edit that, or
+> send only the changed lines.
+>
 > **D35 and D39 confirmed verbatim from the local clone at `f1faa07` (29 Sep).** Earlier note:
 > repo reads from this session are partly stale. PR #2 (D40 glossary)
 > is merged into `main`, and `glossary.md` fetches. But `README.md` and
