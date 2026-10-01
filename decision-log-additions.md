@@ -948,3 +948,52 @@ Reading Research Center (2025), "Is Tier 1.5 needed?"
 (https://irrc.education.uiowa.edu/blog/2025/07/tier-15-needed-steps-consider-classwide-reading-intervention);
 VanDerHeyden et al. (2015), Spring Math (NCII chart,
 https://charts.intensiveintervention.org/intervention/toolGRP/bdb383d94466879b).
+
+## Amendments added 2026-10-02 (drafting order)
+
+**D38 amendment (2026-10-02). Within Y7, geometry is drafted first; chain 2's activities
+wait for Y9.**
+Ruled by Zan 2026-10-02, on the platform's sequencing questions (B-9).
+- *Chain 2.* D38's exemption covered `chain.linear.slope`'s hook pool only, and that pool is
+  merged (`5994d35`). The chain's activities follow the bottom-up order and come up with Y9.
+  They are not finished first as in-flight work.
+- *Y7 strand order.* Geometry comes first, starting with `chain.geom.triangles-polygons`, so
+  the figure primitive gets a real chain to be tested against. The figure-chain order already
+  given to the platform stands: triangles-polygons, parallel-lines, area-volume,
+  transformations, then nets last. The order of the remaining strands is not ruled yet.
+- *Note, not a new ruling.* An activity cites skill ids from the registry, so the Y7 stubs'
+  graph PR (`proposals/y7-chain-stubs.md`) has to land before the first Y7 draft.
+
+**D43 amendment (2026-10-02). The fact scope per year is this side's first D43 piece.**
+Ruled by Zan 2026-10-02. Of D43's open items, the fact scope per year, mapped against the
+Phase 3 and 4 statements, is done first, because the platform's first D43 build is fluency
+and diagnostics, and both need it. The non-multiplication criterion, the Y7 entry bank and the
+banks for drafted chains follow. No practice-item format is started until the platform's
+design pass asks for one.
+
+**D43 amendment (2026-10-02). Answers to the platform's fluency and bank-contract questions.**
+Ruled by Zan 2026-10-02, on the platform's eight joint questions (B-11) for its D43 design
+pass (draft, `docs/design/practice-blocks.md` in the platform repo).
+1. *Fact scope.* The graph carries a machine-readable fact scope per year (fact families and
+   their ranges), generated into a registry file under CI like the other registries. The
+   platform generates fact items from it; nobody authors individual facts. Per D25, anything
+   the platform computes from lives in the graph, not in prose.
+2. *Criterion.* One criterion per fact family, held as a graph key the platform mirrors. A
+   fact meets it only when it is answered correctly *and* within time.
+3. *Probe shape.* A fixed item count, so every student's per-fact timings are comparable. This
+   departs from the fixed-duration probes in D43's sources, so D43's caveat covers the
+   cut-off.
+4. *Strategies.* A strategy for a fact answered wrongly is authored on this side, one per
+   fact family (for example doubles, near squares, ×9 from ×10). The platform fills it in for
+   each fact.
+5. *The diagnostic's skill half.* Bank items, not catalogue activities. An activity is a full
+   teaching unit, and the §17 banks serve both diagnostics and mixed practice.
+6. *Bank format.* Accepted as proposed: the existing catalogue markdown in a new practice file
+   kind keyed by `skill:`, with a per-session seed. Two asks go with it: (a) constraints
+   between seed variables, such as divisibility or excluding degenerate cases; (b) a way for
+   a discrimination item to name its confusable skills, since one `skill:` key cannot hold the
+   consolidation items §17 requires.
+7. *Typing baseline.* Measured per student. The criterion applies to response time *net* of
+   the baseline; raw times are kept as well.
+8. *The Y7 entry bank* is both: Phase 2 facts in the fact scope (1), and a small set of skill
+   items on the Y7 external prereqs (the `ext.*` ids).
