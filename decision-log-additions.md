@@ -1021,3 +1021,66 @@ evidence.
    4–5 instructional range in Burns, VanDerHeyden & Jiban (2006), whose unit is digits
    correct per minute and so needs converting to answers per minute. Using it at Y7–10 is the
    extrapolation D43's caveat already covers.
+
+**D43 amendment (2026-10-02, third). The class floor's form, the student grouping rule, and
+the rate's time basis.**
+Ruled by Zan 2026-10-02, on the platform's two questions (B-16), with items 12 and 14 revised
+the same day after review. Closes the time-basis gap flagged in the platform's
+`docs/design/practice-blocks.md`. §17's recommendation sentence is repointed in the same
+change.
+12. *Floor form.* One floor per year level, calculated from the criteria and not authored. The
+   probe is cumulative (§17: facts up to and including this year), so the mix of fact families
+   grows by year. Families that are two steps in disguise take longer even for fluent
+   students: division (solved through multiplication), integer operations (recall plus a sign
+   rule) and roots (squaring run backwards). The problem-size effect adds a smaller slowdown
+   for larger facts (Zbrodoff & Logan 2005). So a single floor would misread a fluent Y9 class
+   as slow.
+   The floor for the probe "facts up to Year N" is the class rate a student would produce
+   answering every fact in that probe exactly at its family's criterion, multiplied by one
+   floor factor k that applies to every year:
+   floor(N) = k × 60 × Σ n_f ÷ Σ (n_f × t_f)
+   Here n_f is the number of items from family f in the Year N probe, and t_f is that family's
+   criterion in seconds (item 2). The curriculum side authors only k. Each floor then follows
+   from the criterion values and the probe mix, so changing a criterion moves every year's
+   floor with it. Where the calculation runs is the platform's call. If every family is given
+   the same criterion, the floors come out equal, which collapses this to a single floor
+   without a separate ruling. This replaces item 11's interim source for the floor (the
+   grades 4–5 instructional range in Burns, VanDerHeyden & Jiban 2006).
+13. *Grouping rule.* Accuracy is checked first; the rule is not a majority comparison of wrong
+   against slow answers. Each student on a probe is classified in this order:
+   1. inaccurate: accuracy on the probe below 90%;
+   2. fluent: otherwise, if at least 80% of the probed facts meet their family's criterion
+      (item 2);
+   3. slow: everyone else.
+   Why accuracy comes first: the instructional hierarchy (Haring & Eaton 1978) has accuracy
+   before fluency. The majority rule misclassifies a student with 8 wrong and 10 slow answers
+   out of 30. It calls them "slow", but at 73% accuracy, speed practice only rehearses their
+   errors. The majority rule also flips back and forth when the two counts are close. Status of
+   the values: 90% is in line with the acquisition-to-fluency criterion in the
+   instructional-hierarchy literature; 80% mirrors the §17 success-rate target. Both are
+   defaults to recalibrate against classroom data, not researched cut-offs.
+14. *The rate's time basis* (closes the gap in item 11). "Answers correct per minute" means
+   correct answers ÷ the summed net time of the counted attempts, in minutes. Net time is the
+   same basis the criteria use (item 7), so the rate and the floor (item 12) are measured in
+   the same units.
+   - Net time of an attempt = raw time − (the student's typing baseline per keystroke × the
+     keystrokes in the typed answer). A per-keystroke baseline removes the answer-length
+     effect (typing 144 takes longer than typing 9). This refines item 7: the baseline item 7
+     calls for is per keystroke, not per answer.
+   - Net time is never less than zero. If the baseline deduction exceeds the raw time, the
+     attempt's net time is zero.
+   - Wrong and skipped attempts count in the time. They are counted attempts and are never
+     correct, so their net time adds to the denominator and nothing to the numerator. A skip
+     with nothing typed has no deduction, so its net time is its raw time.
+   - An interrupted attempt is excluded from both the count and the time.
+   - A timed-out attempt is included at the ceiling time, net of baseline, and is never
+     correct. If nothing was typed, there is no deduction and its net time is the full ceiling.
+   This supersedes the raw-time basis that was agreed in messages on 2 Oct.
+
+*Still owed by 1 December 2026* (the platform's A4 ruling): the three values artifacts, which
+are the fact-scope registry, the per-family criterion values, and the floor. Under item 12 the
+floor artifact is the single floor factor k, not a rate; the per-year floors are calculated
+from it. Items 12–14 fix the form; the numbers come with those artifacts. The proposed default
+is k = 0.8. Suggested criteria: the single-recall families (multiplication, squares,
+benchmarks) share one criterion, and the two-step families (division, integers, roots) get
+somewhat longer ones.
