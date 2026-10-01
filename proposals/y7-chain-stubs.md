@@ -219,14 +219,13 @@ hook (`hook.polygon.honeycomb`) move with it, so they leave Y7 screening.
 ### `chain.geom.parallel-lines`: 2 activities (2p)
 
 **Ruled 1 Oct (Zan):** the first skill is relabelled to the page's four relationships (S84) and drops
-"at a point", which Phase 3 doesn't name. The id `geom.angles.line-point-vertical` still says
-"point". It isn't in the graph yet, so it can be renamed for free before it lands. The builder
-proposes a name.
+"at a point", which Phase 3 doesn't name. Its id is renamed `geom.angles.line-point-vertical` →
+`geom.angles.relationships` (1 Oct, before it lands in the graph), so nothing retires.
 
 | skill | label | prereqs | proposed misconceptions | parts |
 |---|---|---|---|---|
-| `geom.angles.line-point-vertical` | Use supplementary, complementary, vertical and adjacent angle relationships to find unknown angles | `ext.geom.angle-measure` | `mis.angles.vertical-as-supplementary` | 1 |
-| `geom.angles.parallel-transversal` | Find angles where a transversal crosses parallel lines | `geom.angles.line-point-vertical` | `mis.parallel.all-equal`; `mis.parallel.assumed` (applies the rules to non-parallel lines) | 1 |
+| `geom.angles.relationships` | Use supplementary, complementary, vertical and adjacent angle relationships to find unknown angles | `ext.geom.angle-measure` | `mis.angles.vertical-as-supplementary` | 1 |
+| `geom.angles.parallel-transversal` | Find angles where a transversal crosses parallel lines | `geom.angles.relationships` | `mis.parallel.all-equal`; `mis.parallel.assumed` (applies the rules to non-parallel lines) | 1 |
 
 ~~*Verify:*~~ **Resolved 1 Oct** (`proposals/y7-nzc-phase.md`, section 3): angles on a line and vertically
 opposite are Y7 (S84); "at a point" isn't on the Phase 3 page. The skill stays Y7 with both chain
@@ -264,24 +263,25 @@ not measurement, and a short chain is useful to teachers as a lesson that fits a
 
 ### `chain.stats.data-displays`: 4 activities (4p)
 
-**Ruled 1 Oct (Zan): dot plots are for categorical data**, as the page has it (S97). Two knock-ons
-for the builder: `mis.dotplot.uneven-scale` assumes a numerical axis, so check it still fits; and
-`stats.summary.mean` and `stats.summary.median-mode` take `stats.display.dot-plot` as a prereq,
-which reads oddly now that dot plots are categorical.
+**Ruled 1 Oct (Zan): dot plots are for categorical data**, as the page has it (S97). Knock-ons
+resolved 1 Oct: `mis.dotplot.uneven-scale` (a numerical-axis error) leaves this skill and is
+carried to the first stub that teaches numerical dot plots (not Y7 or Y8 on Phase 3; check
+Phase 4). `mis.bar.order-meaningful` attaches here instead. The mean and median-mode skills
+now take `stats.variables.classify` in place of `stats.display.dot-plot`.
 
 | skill | label | prereqs | proposed misconceptions | parts |
 |---|---|---|---|---|
 | `stats.variables.classify` | Classify variables as categorical, discrete numerical or continuous numerical | — | `mis.stats.digits-are-numerical` (postcodes, jersey numbers) | 1 |
 | `stats.display.categorical` | Read, draw and choose bar graphs, including stacked and clustered bars | `stats.variables.classify` | `mis.bar.order-meaningful` (reads a trend across categories) | 1 |
-| `stats.display.dot-plot` | Read and draw dot plots for categorical data | `stats.variables.classify` | `mis.dotplot.uneven-scale` | 1 |
+| `stats.display.dot-plot` | Read and draw dot plots for categorical data | `stats.variables.classify` | `mis.bar.order-meaningful` (reads a trend across categories) | 1 |
 | `stats.display.time-series` | Read and draw time-series graphs and describe the change over time | `coord.four-quadrant` | `mis.timeseries.joins-categories` (line graph for categorical data) | 1 |
 
 ### `chain.stats.summaries`: 5 activities (4p + 1c)
 
 | skill | label | prereqs | proposed misconceptions | parts |
 |---|---|---|---|---|
-| `stats.summary.mean` | Calculate and interpret the mean | `ext.arith.whole-ops`, `stats.display.dot-plot` | `mis.mean.drops-zeros` | 1 |
-| `stats.summary.median-mode` | Find the median and mode, including an even number of values | `stats.display.dot-plot` | `mis.median.unsorted`; `mis.median.even-count` | 1 |
+| `stats.summary.mean` | Calculate and interpret the mean | `ext.arith.whole-ops`, `stats.variables.classify` | `mis.mean.drops-zeros` | 1 |
+| `stats.summary.median-mode` | Find the median and mode, including an even number of values | `stats.variables.classify` | `mis.median.unsorted`; `mis.median.even-count` | 1 |
 | `stats.summary.range` | Find and interpret the range as a measure of spread | `stats.summary.median-mode` | `mis.range.as-interval` (writes "3–12", or gives the largest value) | 1 |
 | `stats.summary.outlier-effect` | Identify outliers and explain their effect on the mean vs the median | `stats.summary.mean`, `stats.summary.median-mode` | `mis.outlier.affects-median-equally` | 1 |
 

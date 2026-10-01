@@ -5,7 +5,7 @@
 `authoring-principles.md` §4 and `activity_defaults.hook_contract`.
 
 **Pool size.** The contract's minimum is `ceil(approved_activities / 2)` per chain. At stub
-counts that is **35 hooks across 19 chains**, and this bank gives exactly the minimum per
+counts that is **34 hooks across 19 chains** (35 before polygon sums moved to Y8), and this bank gives exactly the minimum per
 chain. Screening will cut some; each cut needs a replacement before that chain's activities
 are drafted.
 
@@ -111,13 +111,15 @@ only on the skill's `misconceptions` list in the graph (PR #5).
 
 ---
 
-## Thread 05: Geometry (6)
+## Thread 05: Geometry (5)
 
 ### `chain.geom.triangles-polygons` (2 → 1)
 
 **Moved to Y8 (Zan, 1 Oct), with `geom.angles.polygon-sums`.** The chain is now 2 activities, so
 its pool minimum is 1 and the remaining hook meets it. Carried to the Y8 bank:
 
+| id | connects to | concept | sets up | NZ | notes |
+|---|---|---|---|---|---|
 | `hook.polygon.honeycomb` | `geom.angles.polygon-sums` | Bees build hexagons. A triangle's angles add to 180°, so Priya says a hexagon's add to 6 × 180° = 1080°. Predict: too big, too small, or right? | `mis.polygon.n-times-180` | | answer 720°. Needs a figure: stub as an image until the fence ships |
 
 | id | connects to | concept | sets up | NZ | notes |
@@ -191,18 +193,18 @@ its pool minimum is 1 and the remaining hook meets it. Carried to the Y8 bank:
    say "no id". One area hook uses the new id `mis.area.same-perimeter-same-area`,
    added 30 Sep.
 3. **Spread.**
-   - **Money is heavy:** dairy, sausage sizzle, sale signs, taxi and savings (5 of 35).
+   - **Money is heavy:** dairy, sausage sizzle, sale signs, taxi and savings (5 of 34).
      The taxi hook is the easiest to swap.
-   - **Fictional-student claims:** 10 of 35. The other shapes (prediction, two options,
+   - **Fictional-student claims:** 9 of 34. The other shapes (prediction, two options,
      surprise) cover the rest.
-   - **NZ contexts:** 11 of 35.
+   - **NZ contexts:** 11 of 34.
    - **Pacific contexts:** only through names. None of the settings are Pacific-specific,
      so this is a gap to fill from your own knowledge rather than invent. It doesn't bind
      until Y11 (AS91945), but a Y7 bank is the cheap place to start.
 4. **Nothing depends on an unruled chain decision.** Two hooks lean on stub choices: the
    area pair, if the nets chain folds into area-volume; and the kōwhaiwhai hook's
-   `connects_to`, if the transformations consolidation moves. Five hooks need figures and
-   stay as images until the figure fence ships.
+   `connects_to`, if the transformations consolidation moves. Three hooks need figures (car
+   park, kōwhaiwhai, nets) and stay as images until the figure fence ships.
 
 ## Screening decisions (Zan, 30 Sep)
 

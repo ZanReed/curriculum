@@ -451,7 +451,7 @@ isn't listed.
 | `geom.triangles.classify` | `P3.Y7.Geometry:S74`, `P3.Y7.Geometry:S75`, `P3.Y7.Geometry:S76` | Classifying triangles by both their angle… | high |  |
 | `geom.angles.triangle-quad-sum` | `P3.Y7.Geometry:S78` | The interior angle sum of a… | medium | Knowledge statement only, in a cell spanning Y7–8. No Y7 practice line names it; Y8 practice *proves* it (`P3.Y8.Geometry:S85`). |
 | `geom.angles.polygon-sums` | `P3.Y7.Geometry:S79`, `P3.Y7.Geometry:S77`, `P3.Y8.Geometry:S85`, `P3.Y8.Geometry:S86` | The interior angle sum of any… | medium | **Banding flag.** The knowledge is in a Y7–8 cell, but both practice lines that use it are **Y8**: generalising the polygon rule, and reasoning with polygons' internal and external angles. On this page the skill reads as Y8 practice. That's a banding question for Zan: move it to Y8, or keep it at Y7 on the knowledge statement. |
-| `geom.angles.line-point-vertical` | `P3.Y7.Geometry:S84` | Solving for an unknown angle in… | medium | Supplementary (angles on a line) and vertical (vertically opposite) are named; **angles at a point is not** named anywhere in Phase 3. The statement also names complementary and adjacent. See Verify item 2. |
+| `geom.angles.relationships` | `P3.Y7.Geometry:S84` | Solving for an unknown angle in… | medium | Supplementary (angles on a line) and vertical (vertically opposite) are named; **angles at a point is not** named anywhere in Phase 3. The statement also names complementary and adjacent. See Verify item 2. |
 | `geom.angles.parallel-transversal` | `P3.Y7.Geometry:S83` | Reasoning about unknown angles in situations… | high |  |
 | `geom.transform.reflect` | `P3.Y7.Geometry:S80` | Transforming 2D shapes in the coordinate… | high |  |
 | `geom.transform.rotate` | `P3.Y7.Geometry:S80` | Transforming 2D shapes in the coordinate… | high |  |
@@ -474,7 +474,7 @@ isn't listed.
 **Confidence count:** 43 high, 8 medium, 0 low. No skill is
 left empty: every Y7 skill has at least one Phase 3 statement behind it.
 
-**Read these first (the medium rows):** `number.place-value.decimals`, `pattern.linear.graph`, `measure.time.duration`, `geom.angles.triangle-quad-sum`, `geom.angles.polygon-sums`, `geom.angles.line-point-vertical`, `geom.nets.identify`, `stats.display.dot-plot`.
+**Read these first (the medium rows):** `number.place-value.decimals`, `pattern.linear.graph`, `measure.time.duration`, `geom.angles.triangle-quad-sum`, `geom.angles.polygon-sums`, `geom.angles.relationships`, `geom.nets.identify`, `stats.display.dot-plot`.
 
 **Rulings, 1 Oct (Zan), from the check page:** all 8 medium rows accepted (nets accepted on the
 references; the drawing question is a platform wish). Flags 1–6 ruled: polygon sums move to Y8
