@@ -85,10 +85,48 @@ the revised Hook 1 now does.
 
 ---
 
-## Remaining 16 chains
+## chain.linear.slope — **screened and merged (v0.14.1)**
 
-No pools authored. Under the authoring-order rule each is owed one at chain creation, so the
-next is `chain.linear.slope` — 3 skills, 5 activities, minimum 3 hooks by projection.
+Approved by the author 2026-10-01 (B13).
+
+Pool minimum: 3 (5 activities). Chain shape: `linear.slope.two-points` ×2 (rise over run;
+then negative gradients and signed coordinates), `linear.slope.from-graph`,
+`linear.slope.interpret-context`, then a consolidation (evidenced:
+`mis.slope.rise-run-inverted` spans two-points and from-graph).
+
+### `hook.slope.ten-or-point-one` → `linear.slope.two-points`
+
+> A ramp rises 1 m over 10 m of ground. Tama says its gradient is 10. Aroha says it's 0.1. One of those numbers describes a gentle ramp and the other describes a wall. Which is which?
+
+Chain opener. Sets up mis.slope.rise-run-inverted: students engage by picturing '10 is steep'; the lesson earns why rise goes on top. Rise and run are given but not the division, so the method isn't handed over. Answered once activity 01 is done.
+
+### `hook.slope.cliff-or-flat` → `linear.slope.from-graph`
+
+> Two fitness apps graph the same climb up Maungawhau. On one, the line looks like a cliff. On the other, it's nearly flat. Which app is lying?
+
+Neither: the axes use different scales. Sets up mis.slope.steeper-is-bigger. Needs two graphs of the same data on different axis scales (existing graph block). Fire before activity 03; stays open after 01–02, because a student who can compute a gradient still trusts the picture over the scale.
+
+### `hook.slope.candle` → `linear.slope.interpret-context`
+
+> A candle is 20 cm tall when it's lit and 14 cm tall three hours later. Someone says, "Its number is 2." Is that enough to tell you when it will burn out?
+
+Sets up mis.slope.units-dropped: a bare 2 doesn't say 2 what, per what, or which way. The rate is -2 cm per hour, so it burns out in 7 more hours. The 2 is given, so the gradient calculation isn't front-loaded. Fire before activity 04 (two-points takes two activities). Hook-level ancestor of the derivative-units idea three years on.
+
+**Not covered, deliberately:** `mis.slope.subtraction-order` is a procedural slip inside
+activity 02; a hook can't set it up without front-loading the subtraction.
+
+**Written fresh 2026-10-01.** The earlier drafts were never saved; only their ids survived.
+`hook.slope.hundred-or-point-one` was renamed `hook.slope.ten-or-point-one` (never merged,
+so the id was free).
+
+---
+
+## Remaining 15 chains
+
+No pools authored. Under the authoring-order rule each is owed one at chain creation. From
+2026-09-29 hooks arrive in year batches (D42): a screened concept bank per year, then each
+chain's full hooks just before its activities. The Y7 bank is the first
+(`proposals/y7-hook-concept-bank.md`, draft PR #4).
 
 ⚠ **A note on the hook-pool trigger (B6).** The proposed check was *every chain registered in
 `chain-registry.txt` has a non-empty hook pool*, on the premise that a chain is registered when

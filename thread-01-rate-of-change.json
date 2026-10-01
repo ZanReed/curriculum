@@ -1,7 +1,7 @@
 {
   "thread_id": "thread.rate-of-change",
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.14.0",
+  "version": "0.14.1",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "external_prereqs": [
     {
@@ -264,7 +264,8 @@
         "teks": []
       },
       "band_nz": "Y9",
-      "band_us": "Grade 8"
+      "band_us": "Grade 8",
+      "parts": 2
     },
     {
       "id": "linear.slope.from-graph",
@@ -1426,7 +1427,32 @@
           "linear.slope.interpret-context"
         ],
         "activities": 5,
-        "hooks": []
+        "hooks": [
+          {
+            "id": "hook.slope.ten-or-point-one",
+            "connects_to": [
+              "linear.slope.two-points"
+            ],
+            "prompt": "A ramp rises 1 m over 10 m of ground. Tama says its gradient is 10. Aroha says it's 0.1. One of those numbers describes a gentle ramp and the other describes a wall. Which is which?",
+            "note": "Chain opener. Sets up mis.slope.rise-run-inverted: students engage by picturing '10 is steep'; the lesson earns why rise goes on top. Rise and run are given but not the division, so the method isn't handed over. Answered once activity 01 is done."
+          },
+          {
+            "id": "hook.slope.cliff-or-flat",
+            "connects_to": [
+              "linear.slope.from-graph"
+            ],
+            "prompt": "Two fitness apps graph the same climb up Maungawhau. On one, the line looks like a cliff. On the other, it's nearly flat. Which app is lying?",
+            "note": "Neither: the axes use different scales. Sets up mis.slope.steeper-is-bigger. Needs two graphs of the same data on different axis scales (existing graph block). Fire before activity 03; stays open after 01–02, because a student who can compute a gradient still trusts the picture over the scale."
+          },
+          {
+            "id": "hook.slope.candle",
+            "connects_to": [
+              "linear.slope.interpret-context"
+            ],
+            "prompt": "A candle is 20 cm tall when it's lit and 14 cm tall three hours later. Someone says, \"Its number is 2.\" Is that enough to tell you when it will burn out?",
+            "note": "Sets up mis.slope.units-dropped: a bare 2 doesn't say 2 what, per what, or which way. The rate is -2 cm per hour, so it burns out in 7 more hours. The 2 is given, so the gradient calculation isn't front-loaded. Fire before activity 04 (two-points takes two activities). Hook-level ancestor of the derivative-units idea three years on."
+          }
+        ]
       },
       {
         "chain_id": "chain.linear.forms",
