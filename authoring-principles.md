@@ -329,8 +329,8 @@ activity authoring is where the misconceptions surface. The bank:
   and including this year, plus the ancestors of the chains starting this term and next.
 - A late-joiner diagnostic runs on enrolment. It covers the fact set, the skills the class
   has already been taught, and the upcoming ancestors.
-- If the class median is below the fluency criterion, the diagnostic recommends switching the
-  sprint on. The teacher decides.
+- If the class's median rate is below the floor for the probe's year level (D43 amendments,
+  items 11 and 12), the diagnostic recommends switching the sprint on. The teacher decides.
 - Within a running sprint, each student practises only the facts they haven't mastered.
   Mastered facts drop out and return at expanding intervals.
 - A fact answered *wrongly* needs a strategy, such as a derived fact, before fluency work.
