@@ -333,8 +333,10 @@ activity authoring is where the misconceptions surface. The bank:
   items 11 and 12), the diagnostic recommends switching the sprint on. The teacher decides.
 - Within a running sprint, each student practises only the facts they haven't mastered.
   Mastered facts drop out and return at expanding intervals.
-- A fact answered *wrongly* needs a strategy, such as a derived fact, before fluency work.
-  A fact answered *slowly* needs fluency work. The two are treated differently.
+- A fact answered *wrongly* needs a strategy, such as a derived fact, taught to accuracy
+  (item 13's threshold, per family) before fluency work. A fact answered *slowly* is shown the
+  same strategy, then goes straight to fluency work. The two differ in whether accuracy comes
+  first.
 - Diagnostic gaps in prerequisites seed the mixed-practice queue from day one.
 - Fluency is self-paced, with personal bests, no leaderboard and no grade.
 - When the sprint is off, its minutes go to mixed practice unless the teacher takes them

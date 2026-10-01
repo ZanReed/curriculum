@@ -1102,7 +1102,7 @@ Ruled by Zan 2026-10-02, on the platform's B-17, its follow-ups to the third D43
    and one too slow to build on (item 16).
    Interim ceiling: 15 s, replacing the platform's proposed 30 s, until the 1 December values
    confirm it. Evidence: Siegler (1988, Table 1) timed third graders' multiplication by
-   strategy. The medians were retrieval 5.5 s, writing the problem 14.0 s, repeated addition
+   strategy. The means were retrieval 5.5 s, writing the problem 14.0 s, repeated addition
    23.3 s and counting objects 30.1 s. A 30 s ceiling cuts off only counting objects; 15 s cuts
    off most repeated addition, which is the strategy item 16 says to replace. The ceiling is set
    above a pure-recall cut-off (about 10 s) on purpose, to leave headroom for students with
@@ -1124,3 +1124,37 @@ Ruled by Zan 2026-10-02, on the platform's B-17, its follow-ups to the third D43
    Rename: item 13's group "inaccurate" is renamed "needs strategy", because the group now
    includes right-but-too-slow answers and the name should say what the teacher does next.
    Item 13's order, its thresholds and its reasons are otherwise unchanged.
+
+**D43 amendment (2026-10-02, fifth). Both groups below fluent are shown the efficient
+strategy.**
+Written by Zan 2026-10-02, after the fourth amendment (items 15–16).
+17. *Teacher actions by group* (amends item 16's action list). The efficient strategy (for
+   example, a derived fact such as 7×8 as 4×7 doubled) is shown to every student grouped slow,
+   as well as to every student grouped needs strategy. It is shown for each fact family the
+   student did not meet, not for every family on the probe. Students are grouped as a whole,
+   but the strategy follows the per-fact records. What follows differs by group:
+   - fluent: no action.
+   - slow (right, past the criterion, within the ceiling): the strategy is shown for each
+     family not met, then fluency practice.
+   - needs strategy (wrong, skipped, or past the ceiling): the strategy is taught for each
+     family not met until the student is accurate on that family, then fluency practice.
+     "Accurate" uses item 13's accuracy threshold (90%), applied to that family's facts in
+     practice. It is the same graph key under item 15, not a new value.
+   Why: the platform sees time, not strategy. The ceiling (item 15) is only a proxy for
+   "efficient strategy vs counting". An older student who skip-counts quickly can land under it
+   and be grouped slow. A student working a two-step fact (for example 56 ÷ 7) with a good
+   strategy can go over it. Showing the strategy to both groups makes either misgrouping
+   low-cost: a slow student who already uses a derived fact loses little, and a quick
+   skip-counter gets exactly what they need. Showing it only for families not met keeps that
+   cost low, so practice time isn't spent on facts the student already recalls. The
+   accuracy-first order (item 13) is unchanged: a student who answers wrongly still reaches
+   fluency practice only once they are accurate.
+   *Consequence for item 15:* a single ceiling value is enough for now. Per-year or per-family
+   ceilings are not needed in the 1 December artifacts. Revisit them against classroom data,
+   for example if derived-fact and counting times separate differently by year level.
+   Groups, names, order and thresholds (items 13, 15, 16) are otherwise unchanged.
+   §17's fluency bullet is amended to match in the same change.
+
+*Correction to item 15 (2026-10-02):* Siegler (1988, Table 1) reports the strategy times as
+**means**, not medians (checked against the paper by Zan). Item 15 now reads "The means
+were"; the four values are unchanged.
