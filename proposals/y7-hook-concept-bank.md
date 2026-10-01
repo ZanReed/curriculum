@@ -81,14 +81,14 @@ only on the skill's `misconceptions` list in the graph (PR #5).
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
-| `hook.equations.two-solvers` | `algebra.equations.two-step` | Solving 2x + 7 = 31, Tama divides by 2 first and gets 8.5. Mere takes 7 away first and gets 12. Both say they "did the same to both sides." Who's right? | `mis.equations.undo-order` | | two options. Tama halved 2x and 31 but not the 7 (x = 12); the lesson earns the order |
+| `hook.equations.two-solvers` | `algebra.equations.two-step` | Solving 2x + 7 = 31, Tama divides by 2 first and gets 8.5. Mere takes 7 away first and gets 12. Both say they "did the same to both sides." Who's right? | `mis.equations.partial-divide` (was `undo-order`; renamed in the 1 Oct screening) | | two options. Tama halved 2x and 31 but not the 7 (x = 12). Dividing first works if every term is divided; the lesson earns that, not a fixed order |
 | `hook.formulae.taxi-fare` | `algebra.formulae.rearrange` | A taxi charges $4 to start plus $3 per km. You have $25. How far can you go, and can you write a rule that works for any amount of money? | `mis.equations.same-operation` | | prediction. The money context is also used in several other hooks (see screening) |
 
 ### `chain.pattern.linear` (4 → 2)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
-| `hook.pattern.hui-tables` | `pattern.linear.rule` | Setting up for a hui: 1 table seats 6, 2 tables pushed end to end seat 10, 3 tables seat 14. How many people can 20 tables seat? Most people guess 120. | `mis.pattern.first-term-as-constant` | NZ | 20 tables seat 82 (4n + 2) |
+| `hook.pattern.hui-tables` | `pattern.linear.rule` | Setting up for a hui: 1 table seats 6, 2 tables pushed end to end seat 10, 3 tables seat 14. How many people can 20 tables seat? Most people guess 120. | `mis.pattern.assumes-proportional` (new 1 Oct: 120 is 6 × 20; was `first-term-as-constant`, which would give 86) | NZ | 20 tables seat 82 (4n + 2) |
 | `hook.pattern.catch-up` | `pattern.linear.graph` | Aroha has $50 and saves $5 a week. Ben has $0 and saves $10 a week. Will Ben ever catch up, and when? | `mis.pattern.first-term-as-constant` | | prediction. Sets up start = d, step = steepness; the graph shows the crossing |
 
 ---
