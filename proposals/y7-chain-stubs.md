@@ -42,7 +42,7 @@ Phase 3 compression in `drafts/y7-13-requirements.md` (held in the Claude projec
 
   `mis.area.same-perimeter-same-area` stays on both the perimeter and area skills under
   the pair rule. It is the one attachment where the pair rule and the grading rule could
-  pull apart, so check it at screening.
+  pull apart. **Ruled 1 Oct (Zan): keep it on both.**
 
 - Ids follow the graph's pattern: `domain.sub.skill` for skills and `chain.domain.name` for
   chains. Skill ids are new; none collide with the 47 existing skills.
@@ -236,8 +236,8 @@ rotation is the mix-up.
 |---|---|---|---|---|
 | `geom.nets.identify` | Identify and complete nets of cubes, prisms and pyramids | `ext.geom.shape-names` | `mis.nets.any-six-squares` (every arrangement of six squares folds into a cube) | 1 |
 
-This is the only one-activity chain. It could instead sit as the first skill of
-`chain.measure.area-volume` (nets → faces → cuboids), which would make that chain five skills.
+This is the only one-activity chain, and it stays one (Zan, 1 Oct). Nets is geometry,
+not measurement, and a short chain is useful to teachers as a lesson that fits a gap.
 
 ---
 
@@ -320,7 +320,7 @@ help but isn't required at Y7.
 2. ~~Y7 DoL default~~ **Ruled 29 Sep: D35 extends to Y7 as written.** Recorded as D41 in
    `decision-log-additions.md`.
 3. ~~`chain.pattern.linear` thread tag~~ **Ruled 30 Sep: `thread.algebra-equations`**, following the NZ curriculum.
-4. **`chain.geom.nets`:** keep as a one-activity chain or fold into area-volume.
+4. ~~`chain.geom.nets`~~ **Ruled 1 Oct: kept as its own one-activity chain.**
 5. **Figure/chart primitive.** Five of the 19 chains need labelled figures in prompts
    (the geometry chains, area-volume and nets), and two statistics chains need charts. That
    is 7 of 19 Y7 chains, so this goes to the platform page **now**, as a pointer.

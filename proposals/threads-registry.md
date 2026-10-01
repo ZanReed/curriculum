@@ -1,6 +1,6 @@
 # `threads` registry: proposed ids and labels (D39 migration input)
 
-`status: approved by Zan 30 Sep 2026` (ids and labels). Held until the Y7 hook concept bank is finished; Zan will upload them together. Written 29 Sep 2026 against D39 as pasted from `decision-log-additions.md:714`
+`status: approved by Zan 30 Sep 2026` (ids and labels). Released by Zan 1 Oct for the D39 migration, which follows the `chain.linear.slope` hook pool. Written 29 Sep 2026 against D39 as pasted from `decision-log-additions.md:714`
 at `f1faa07`. D39 sets the registry's shape (id and label per thread) and names no ids.
 This draft proposes them, for approval before the migration commit touches the JSON.
 
