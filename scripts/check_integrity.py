@@ -17,6 +17,11 @@ Registry cross-assertions (bound to the seeded v0.13.0 format):
   G. the parts total declared in skill-registry.txt's header equals
      sum(parts) over the graph's skills — the burndown denominator (51 at seed)
 
+Thread structure (D39):
+  H. a top-level `threads` registry exists, each entry has an id and a label, ids
+     are unique, every chunking-plan chain carries a `thread` that resolves to it,
+     and the retired top-level `thread_id` is absent
+
 Non-vacuity guard: an extraction that yields zero ids from a present registry
 is itself a failure — an extractor that silently matches nothing would pass
 while checking nothing.
@@ -164,6 +169,26 @@ def main() -> int:
             failures.append(f"G parts total: {REGISTRIES[0]} declares "
                             f"{m.group(1)}, graph sums to {total}")
 
+    # H — thread structure (D39). Skills carry no thread: it is derived from the chain.
+    threads = need("threads", list)
+    thread_ids = [t.get("id") for t in threads if isinstance(t, dict)]
+    for t in threads:
+        if not (isinstance(t, dict) and t.get("id") and t.get("label")):
+            failures.append(f"H thread entry needs an id and a label: {t!r}")
+    for tid in {t for t in thread_ids if thread_ids.count(t) > 1}:
+        failures.append(f"H duplicate thread id: {tid}")
+    if threads and not thread_ids:
+        failures.append("H extracted zero thread ids from a present `threads` registry")
+    for c in plan.get("chains", []):
+        th = c.get("thread")
+        if not th:
+            failures.append(f"H chain has no `thread`: {c.get('chain_id')}")
+        elif th not in thread_ids:
+            failures.append(f"H chain {c.get('chain_id')} names unknown thread: {th}")
+    if "thread_id" in doc:
+        failures.append("H retired top-level `thread_id` is present (D39); "
+                        "the `threads` registry replaces it")
+
     if failures:
         print(f"check 4 FAIL — {len(failures)} finding(s):", file=sys.stderr)
         for f in failures:
@@ -171,7 +196,7 @@ def main() -> int:
         return 1
     print(f"check 4 OK: {len(skill_ids)} skills, {len(mis_ids)} "
           f"misconceptions, {len(ext_ids)} external prereqs, "
-          f"{total} parts")
+          f"{total} parts, {len(thread_ids)} threads")
     return 0
 
 

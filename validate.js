@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  * One implementation of the thread checks. The builder loads this via
  * <script src="validate.js"> and formats the plain-text messages as HTML;
- * CI runs `node validate.js thread-01-rate-of-change.json` and fails the
+ * CI runs `node validate.js curriculum-graph.json` and fails the
  * build on any error-level finding.
  *
  * validateThread(data) -> [{ level: 'error'|'warn'|'note', message: string }]

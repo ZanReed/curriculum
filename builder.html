@@ -186,7 +186,6 @@
       </div>
       <label class="f"><span>Thread label</span><input type="text" id="mlabel"></label>
       <div class="grid2">
-        <label class="f"><span>Thread id</span><input type="text" id="mtid"></label>
         <label class="f"><span>Version</span><input type="text" id="mver"></label>
       </div>
       <label class="f"><span>Notes</span><textarea id="mnotes"></textarea></label>
@@ -199,7 +198,7 @@
 
 <script src="validate.js"></script>
 <script>
-var SEED = null; // loaded by fetch() from thread-01-rate-of-change.json — the single source of truth
+var SEED = null; // loaded by fetch() from curriculum-graph.json — the single source of truth
 var KEY = 'thread-builder-v1';
 var D, selSkill = null, selAct = null, gsel = null;
 
@@ -1022,7 +1021,7 @@ function go(v){
 function renderAll(){
   var b=builtSet(), planned=(D.chunking_plan.chains||[]).reduce(function(t,c){return t+c.activities;},0);
   var cov=Object.keys(b).filter(function(k){return inG(k)&&b[k]==='approved';}).length, t=tally();
-  el('tid').textContent=D.thread_id+' · v'+D.version;
+  el('tid').textContent='curriculum-graph · v'+D.version;
   el('tlabel').textContent=D.label;
   el('hstat').innerHTML='<span><b>'+D.skills.length+'</b> skills</span><span><b>'+t.approved+'</b> of '+planned+' approved</span>'
     +(t.draft?'<span style="color:var(--signal)"><b style="color:var(--signal)">'+t.draft+'</b> awaiting review</span>':'')
@@ -1032,7 +1031,7 @@ function renderAll(){
   if(el('v-caps').classList.contains('on')) renderCaps();
 }
 function render(){
-  el('mlabel').value=D.label||''; el('mtid').value=D.thread_id||''; el('mver').value=D.version||''; el('mnotes').value=D.notes||'';
+  el('mlabel').value=D.label||''; el('mver').value=D.version||''; el('mnotes').value=D.notes||'';
   el('mfmt').value=(D.render_format&&D.render_format.rules)||'';
   renderAll();
 }
@@ -1040,14 +1039,16 @@ document.querySelectorAll('nav button').forEach(function(b){ b.onclick=function(
 el('sfilter').oninput=renderSkills; el('afilter').oninput=renderActs; el('dfilter').oninput=renderDraft;
 el('snew').onclick=function(){ newSkill(); };
 el('anew').onclick=function(){ newAct(null); };
-['mlabel','mtid','mver','mnotes','mfmt'].forEach(function(id){ el(id).onchange=function(){
-  D.label=el('mlabel').value; D.thread_id=el('mtid').value; D.version=el('mver').value; D.notes=el('mnotes').value;
+['mlabel','mver','mnotes','mfmt'].forEach(function(id){ el(id).onchange=function(){
+  D.label=el('mlabel').value; D.version=el('mver').value; D.notes=el('mnotes').value;
   D.render_format=D.render_format||{}; D.render_format.rules=el('mfmt').value;
   save(); renderAll(); }; });
 el('dl').onclick=function(){
-  var blob=new Blob([JSON.stringify(D,null,2)],{type:'application/json'});
+  // thread_id is retired (D39); drafts saved before the migration may still carry it.
+  var out=Object.assign({},D); delete out.thread_id;
+  var blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'});
   var a=document.createElement('a'); a.href=URL.createObjectURL(blob);
-  a.download=(D.thread_id||'thread')+'-v'+(D.version||'0')+'.json'; a.click(); URL.revokeObjectURL(a.href);
+  a.download='curriculum-graph-v'+(D.version||'0')+'.json'; a.click(); URL.revokeObjectURL(a.href);
 };
 el('imp').onclick=function(){ el('fin').click(); };
 el('fin').onchange=function(e){
@@ -1073,12 +1074,12 @@ el('reset').onclick=function(){
   if(!confirm('Throw away everything and go back to the seed thread?')) return;
   D=clone(SEED); selSkill=selAct=gsel=null; save(); render(); toast('Reset');
 };
-fetch('thread-01-rate-of-change.json',{cache:'no-store'})
+fetch('curriculum-graph.json',{cache:'no-store'})
   .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
   .then(function(j){ SEED=j; boot(); })
   .catch(function(e){
     document.body.innerHTML='<div style="max-width:600px;margin:80px auto;padding:24px;font:14px/1.6 -apple-system,sans-serif;border:1px solid #ddd;border-radius:8px">'
-      +'<b>Could not load <code>thread-01-rate-of-change.json</code></b> ('+esc(e.message)+').'
+      +'<b>Could not load <code>curriculum-graph.json</code></b> ('+esc(e.message)+').'
       +'<p>The builder reads the thread from disk, so it must be served over HTTP — browsers refuse <code>fetch()</code> from <code>file://</code>. From this folder run:</p>'
       +'<pre style="background:#f6f6f6;padding:10px;border-radius:6px">python3 -m http.server 8000</pre>'
       +'<p>then open <a href="http://localhost:8000/builder.html">http://localhost:8000/builder.html</a>.</p></div>';

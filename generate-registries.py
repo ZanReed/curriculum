@@ -24,7 +24,7 @@ sign. It fires on "two-sided", "y-direction", "one-to-one" -- ordinary language,
 at a rate that would get the gate switched off. Same reason the math-blank
 detector tests the constructed node instead of scanning for $ delimiters.
 
-    python3 generate-registries.py thread-01-rate-of-change.json
+    python3 generate-registries.py curriculum-graph.json
 """
 import json, re, sys
 
@@ -141,4 +141,4 @@ def main(path):
     return 0
 
 if __name__ == '__main__':
-    sys.exit(main(sys.argv[1] if len(sys.argv) > 1 else 'thread-01-rate-of-change.json'))
+    sys.exit(main(sys.argv[1] if len(sys.argv) > 1 else 'curriculum-graph.json'))
