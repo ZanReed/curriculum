@@ -1213,3 +1213,46 @@ Ruled by Zan 2026-10-02, on the platform's B-19, sent ahead of the fact-scope re
    which the platform fills in for each fact. Display rules: use a true minus sign (−), never a
    hyphen, and put a negative second operand in brackets, as in −3 − (−5). Benchmark families
    state their form in the template.
+
+**D43 amendment (2026-10-02, seventh). How the probe is assembled and timed, when a family
+counts as met, and the template syntax.**
+Ruled by Zan 2026-10-02, on the platform's B-20 (six probe questions, P-1 to P-6).
+22. *Probe assembly* (B-20, P-1). The platform's proposal is accepted. The probe length (item
+   20) is shared out across families by weight. Rounding is done so the totals come out exact.
+   A family with fewer facts than its share contributes all of them, and the remainder is
+   shared among the other families by weight. A family's minimum is 5 or its fact count,
+   whichever is smaller. Without this, a family with fewer than 5 facts (a small benchmark
+   family, for example) would be marked "not judged" (item 23) on every probe.
+23. *When a family counts as met on the probe* (B-20, P-5). A family is met when at least 80%
+   of its counted items meet the family's criterion. This uses item 13's facts-met threshold,
+   the same graph key, not a new value.
+   - Not judged: if interruptions leave a family with fewer counted items than its minimum
+     (item 22), the family is marked not judged, not met or not met.
+   - For the strategy display (item 17), not judged is treated as not met. Showing a strategy
+     is cheap, which is item 17's own argument, so a family the probe couldn't judge gets the
+     strategy rather than nothing. The teacher's view still labels it "not judged".
+   - Teachers see met, not met and not judged per family for each student now, before the
+     sprint exists, so strategy work (item 17) can start in class without waiting for the
+     platform.
+24. *Probe time* (B-20, P-2). The probe has no time cap. The student is told the expected time
+   up front. The probe runs once a term and has to be a fair reading, so items are not cut to
+   fit a slot. The worst case is about 50 items × 15 s, roughly 12 minutes, for a very slow
+   student. The probe sits outside §17's daily period shape; the 5-minute fluency block is the
+   daily sprint, not the probe. The class-entry diagnostic's two halves (facts, and the
+   prerequisite skills from §17) may run in separate sittings, so a long facts half at Y10
+   doesn't push the whole diagnostic past one period.
+25. *Revisions and the practice window* (B-20, P-3 and P-4). Confirmed:
+   - Revisions: one revision id covers scope, criteria and the single values together. Any
+     change to any of them makes a new id (item 18).
+   - Practice window: the 10-attempt window (item 20) is read by the sprint only. The probe
+     doesn't use it.
+26. *Template syntax* (B-20, P-6). Operands are written `{a}` and `{b}` (the same brace style
+   as the catalogue's seed fence), and the answer blank is `__`.
+   - The templates don't encode item 21's display rules. The platform applies them when it
+     fills each fact: a true minus sign (−), and brackets round a negative second operand. A
+     template only knows `{b}`, not whether it's negative.
+   - The spoken template gives the words for the operation and the sign; the platform says the
+     numbers. Spoken forms keep the sign of a number separate from the operation: "negative"
+     for the sign and "minus" for subtraction. So −3 − (−5) is "negative three minus negative
+     five". That distinction is what the integer families teach, and saying "minus three" for
+     −3 blurs it. NZ classrooms use "negative" for the sign.
