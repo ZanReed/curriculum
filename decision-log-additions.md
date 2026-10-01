@@ -523,6 +523,11 @@ pointed at a dozen statements. Every quote in `docs/alignment-sources.md` now ca
 number (`S01`–`S27`), and each `nzc_phase` value names the statement it rests on
 (`P4.Y10.Algebra:S23`-style). The ten-value author spot-check (2026-09-05) was performed at
 statement grain against the live pages, and all ten held.
+*Corrected 2026-10-01 (author-ruled):* S12 ("Using substitution…") is relabelled `P3.Y7.Algebra`.
+On the Phase 3 page it sits in a cell spanning the Y7 and Y8 practice columns, and this file
+labels such cells Y7, as for S07–S11. `function.notation.evaluate` now carries
+`P3.Y7.Algebra:S12`. The other 13 labels from S01–S14 were checked against the page the same
+day and are correct.
 *Amended 2026-09-05 (author-ruled, from review):* `ncea` is defined — the standard whose
 assessment **directly exercises** the skill, else empty; appears-in and feeds-into are not
 recorded (feeds-into is derivable, and derivable state is never hand-declared). The culling

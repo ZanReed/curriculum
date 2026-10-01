@@ -90,11 +90,15 @@ Page: `https://newzealandcurriculum.tahurangi.education.govt.nz/5637238342.p`
 > between the ordinal position and its corresponding element in a linear pattern, develop a
 > rule for the pattern in words, and make conjectures about further elements in the pattern
 
-**P3.Y8.Algebra**
 **S12**
 > Using substitution to find the value of an expression or formula (e.g. calculating w + 12
 > given w = 4)
 
+*S12 was labelled P3.Y8 until 2026-10-01. On the page it sits in a cell spanning the Y7 and Y8
+practice columns, which this file labels Y7 (as for S07–S11). Corrected by author ruling,
+checked against the live page.*
+
+**P3.Y8.Algebra**
 **S13**
 > Forming and solving linear equations with rational solutions (e.g. t + 7 = 6.5,
 > 5s + 9 = −18)
