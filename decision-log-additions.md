@@ -1256,3 +1256,37 @@ Ruled by Zan 2026-10-02, on the platform's B-20 (six probe questions, P-1 to P-6
      for the sign and "minus" for subtraction. So −3 − (−5) is "negative three minus negative
      five". That distinction is what the integer families teach, and saying "minus three" for
      −3 blurs it. NZ classrooms use "negative" for the sign.
+
+**D43 amendment (2026-10-02, eighth). What a fact family is, where Phase 2 facts sit, and the
+probe length at Y9–10.**
+Ruled by Zan 2026-10-02 on the builder's R1–R4 (review of `drafts/fact-scope-registry.md`,
+checked against `main` at `03e8ed0`).
+27. *What earns a family in the registry* (R1). A family is in the fact-scope registry only if
+   it is a finite set the curriculum asks to be memorised, or a finite sign-rule or inverse
+   extension of one. Unbounded procedures go to mixed practice.
+   - The memorised sets are Phase 2's memorising lines: multiplication and division facts,
+     square and cube numbers, and the decimal and percentage equivalents of common fractions.
+   - The extensions are square roots (Y7), cube roots (Y8) and integer operations (Y8–9).
+   - ×/÷ by powers of 10 (S54) leaves the sprint and goes to mixed practice. It is a
+     place-value procedure over unlimited numbers, so per-fact mastery records would never
+     build up. This is the same reasoning as item 19's removal of primes and factors, and it
+     is the second change to D43's working list.
+28. *Phase 2 families* (R2). Every family carries a source year. Phase 2 families are tagged Y5
+   or Y6. The curriculum side doesn't teach them, but the Y7 probe covers all of them. Probes
+   exist for Y7–10 only. This matches ruling 8 (the Y7 entry bank is Phase 2 facts plus `ext.*`
+   items). It is also the design's starting reason: students reach Y7 and beyond without these
+   facts.
+29. *Multiplication and division to 12* (R3). Phase 2's Y4 line (2s–10s) and Y5 line (2s–12s)
+   become one multiplication family and one division family, each to 12, source year Y5.
+   Splitting them would add two families, and ten items, to every probe for one difference in
+   strategy. The ×11 and ×12 strategy goes in the family's strategy text.
+30. *Probe length at Y9–10* (R4). The cumulative scope is 7 families at Y7, 10 at Y8 and 12 at
+   Y9–10. Under items 20 and 22, the probes are 35, 50 and 60 items, and 60 is accepted. The
+   probe runs once a term and may have its own sitting (item 24). Lowering the minimum to 4
+   items per family would base each family's met / not-met call on 3 of 4 correct. Item 24's
+   "about 12 minutes" was an example, not a limit. At 60 items the worst case, every item at
+   the 15 s ceiling, is 15 minutes. Typical recall time is about 4–5 minutes.
+   *Before citing:* the Phase 2 and Phase 4 quotes behind items 27–29 were read through a
+   summarising fetch. They need the same word-for-word check `proposals/y7-nzc-phase.md`
+   passed before anything cites them as S-numbers. Until then they are cited by year and phase
+   only.
