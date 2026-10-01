@@ -876,3 +876,75 @@ Deferred to the end of the first pass, by Zan's choice:
 Platform. None expected: the concept bank is curriculum-side prose and the hook contract
 (`activity_defaults.hook_contract`) is untouched. The platform side confirms this on the
 boundary page.
+
+---
+
+**D43 (ratified 2026-10-01). Practice lives outside the activity, in two generated block
+types. A period is assembled from activities and practice blocks, and the period stops being
+the activity's unit.** (§10 amended, §17 new)
+
+*The gap:* a period runs 50–100 minutes, but an activity is capped at
+`activity_defaults.duration_min`. Even with a hook, about half of every period had no plan.
+The aim is to fill that time with evidence-based practice that the teacher **runs premade**,
+not content generated and managed per class.
+
+*Ruled: activities stay short, and practice is separate.* Making activities larger was
+considered and rejected for three reasons:
+
+- It breaks the one-skill, one-budget contract (§3, §10).
+- It *masses* practice on the day's skill, the opposite of the spacing and interleaving
+  findings.
+- It raises the authoring cost of every activity.
+
+*Two practice types, not three.* An earlier proposal split spaced retrieval from interleaved
+practice. They merge because interleaving pays off only where the student has to *choose*
+a method (Rohrer et al. 2020). Mixing unrelated skills is spacing, not interleaving.
+So there is one mixed block, scheduled by spacing, that places confusable skills next to
+each other. It uses the same confusability judgement as D24 and the same "practice
+discriminates" logic as §14.
+
+- **`practice.fluency`:** facts to automaticity, set per class, recommended by a
+  diagnostic.
+- **`practice.mixed`:** spaced review across taught skills, interleaved where skills are
+  confusable.
+
+*Double periods take two activities,* with practice between them. One activity per double
+period would leave half of it as padding at one-skill-per-day pacing.
+
+*Fluency is not assumed from year level.* Students reach Y9 without Y7 facts. A class-entry
+diagnostic recommends whether the sprint runs. The teacher decides. When the sprint is off,
+its minutes go to mixed practice by default, and the teacher may take them back. The
+curriculum does not author SEL or other non-maths content for that time.
+
+*Recommendation rule:* the median-based rule from classwide-intervention research (Burns
+et al. 2014, Maki et al. 2021, as summarised by the Iowa Reading Research Center, 2025). If
+the class median is below the fluency criterion, the diagnostic recommends switching the sprint
+on. The simpler alternative in the same literature, more than half the class below
+criterion, gives a similar answer. Where the class median is above criterion, students below
+it still get fluency items, inside their own mixed practice.
+
+*Late joiners* get their own diagnostic. It covers what a newcomer is missing: skills the
+class has already been taught, not only upcoming prerequisites.
+
+*Caveat:* the threshold and fluency-rate research is almost entirely US elementary
+(CBM, Deno & Mirkin 1977; Spring Math, VanDerHeyden et al. 2015). Using it at Y7–10 is an
+extrapolation. Treat these as defaults and revisit them against classroom data.
+
+*Platform wishes:* to be raised by name on the Curriculum → Platform page once this entry and
+§17 are on `main`. The platform builds the scheduler, engine and session types. The
+curriculum specifies the banks, the fact scope and the rules in §17.
+
+*Still open (curriculum side):* the fact scope per year, mapped against the Phase 3 and 4
+statements (only S33, squares to 144, is confirmed so far); the fluency criterion for
+non-multiplication fact sets (the per-fact target of about 3 seconds for benchmarks is a
+working definition, not a researched cut-off); a Y7 entry bank, since Y7 prerequisites are
+Phase 2 skills that come before the graph starts; and §17 banks for the chains already
+drafted (the slope chain and the four proportional drafts).
+
+*Sources:* Rohrer, Dedrick, Hartwig & Cheung (2020), interleaved practice RCT; Cepeda et al.
+(2006), spacing meta-analysis; Rosenshine (2012), Principles of Instruction; Haring & Eaton
+(1978), instructional hierarchy; Deno & Mirkin (1977), CBM computation criterion; Iowa
+Reading Research Center (2025), "Is Tier 1.5 needed?"
+(https://irrc.education.uiowa.edu/blog/2025/07/tier-15-needed-steps-consider-classwide-reading-intervention);
+VanDerHeyden et al. (2015), Spring Math (NCII chart,
+https://charts.intensiveintervention.org/intervention/toolGRP/bdb383d94466879b).

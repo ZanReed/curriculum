@@ -206,7 +206,8 @@ literal datasets, and the rest).
 
 ## 10. Time is a budget, not a suggestion
 
-One period per activity, hard cap: `activity_defaults.duration_min`. The default internal
+One activity, hard cap: `activity_defaults.duration_min`. An activity is not a period: a
+period is assembled from activities and practice blocks (§17). The default internal
 split across the beats is `activity_defaults.phase_budget_min`; read the values there
 rather than from memory. Content that does not fit becomes another activity
 in the chain — that trade was accepted at the start. Do not compress the faded beat
@@ -294,3 +295,63 @@ misconception id. Under an NCEA-first curriculum they carry extra weight: they a
 the one format that keeps misconception targeting in auto-scorable form inside a
 justification locale, so they are the main automatic data source when most DoLs are
 rubric-graded. Use them routinely in DoLs and independent practice.
+
+## 17. Practice is generated, not authored per lesson
+
+An activity teaches; it does not carry a period's practice. Practice beyond the activity's
+own independent beat lives in two block types, generated from the graph and the item banks:
+**fluency** (facts to automaticity) and **mixed** (spaced review across taught skills,
+interleaved where skills are confusable). Authoring cost sits with each *skill*, as its bank,
+not with each *lesson*.
+
+**No same-day practice block on today's skill.** The activity's independent beat and DoL
+are its first exposure; it enters the spacing queue and returns the next day. A lesson's
+pairing fixes the *pool* (skills taught to this point in the sequence), not the items.
+
+**Mixed practice is spaced first, interleaved where it matters.** Skills enter at expanding
+intervals. Confusable skills (D24, §14) appear together so the item forces the choice of
+method; unrelated skills mixed together are spacing, which is fine, but it isn't interleaving.
+Target about 80% success: practice that mostly fails is rehearsing errors.
+
+**Every skill owes a practice bank**, authored per chain *after* its activities, because
+activity authoring is where the misconceptions surface. The bank:
+- is separate from the DoL items. A DoL rehearsed in practice measures nothing.
+- is auto-scorable only, at every year. Nobody hand-marks practice.
+- holds short items, about 60–90 seconds each.
+- uses parametric templates for procedural skills (4–6 per skill) and fixed items for
+  context skills.
+- covers every misconception attached to the skill in at least one item. Most items are
+  clean: the tags are there for diagnosis, not to catch students out.
+- adds discrimination items ("which method fits?") per consolidation, for confusable sets.
+
+**Fluency is per class and per student, and set by diagnostics, not by year level.**
+- A class diagnostic runs at the start of each term. It covers the cumulative fact set up to
+  and including this year, plus the ancestors of the chains starting this term and next.
+- A late-joiner diagnostic runs on enrolment. It covers the fact set, the skills the class
+  has already been taught, and the upcoming ancestors.
+- If the class median is below the fluency criterion, the diagnostic recommends switching the
+  sprint on. The teacher decides.
+- Within a running sprint, each student practises only the facts they haven't mastered.
+  Mastered facts drop out and return at expanding intervals.
+- A fact answered *wrongly* needs a strategy, such as a derived fact, before fluency work.
+  A fact answered *slowly* needs fluency work. The two are treated differently.
+- Diagnostic gaps in prerequisites seed the mixed-practice queue from day one.
+- Fluency is self-paced, with personal bests, no leaderboard and no grade.
+- When the sprint is off, its minutes go to mixed practice unless the teacher takes them
+  back.
+
+**Default period shapes.** These are defaults for schools to override; the invariants above
+are not. Each activity is capped at `activity_defaults.duration_min`.
+
+| period | shape |
+|---|---|
+| 50 min | fluency 5 · hook 2–3 · activity · mixed ~15 |
+| 60 min | fluency 5 · hook 2–3 · activity · mixed ~25 |
+| 100 min | fluency 5 · hook 2–3 · activity · mixed ~15 · activity · mixed ~15 |
+
+One hook per day (§4), so the second activity in a double period has none. A double period
+uses two activities from the sequence. Leftover minutes go to transitions, then to mixed
+practice.
+
+**Homework** is optional extra spacing, drawn from the same scheduler. Nothing relies on
+it being completed.
