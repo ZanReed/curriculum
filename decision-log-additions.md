@@ -1158,3 +1158,58 @@ Written by Zan 2026-10-02, after the fourth amendment (items 15–16).
 *Correction to item 15 (2026-10-02):* Siegler (1988, Table 1) reports the strategy times as
 **means**, not medians (checked against the paper by Zan). Item 15 now reads "The means
 were"; the four values are unchanged.
+
+**D43 amendment (2026-10-02, sixth). What the fact-scope registry carries, the answer
+characters, the probe's mix and length, and how facts are displayed.**
+Ruled by Zan 2026-10-02, on the platform's B-19, sent ahead of the fact-scope registry.
+18. *Registry contents* (B-19, items 1–7). The registry is generated under this side's CI like
+   the other registries. It is written in a deterministic order, and its header carries the
+   graph version and a revision id. The same revision id always means the same content. It
+   carries:
+   - Year scope, authored as "what Year N adds". Each family appears in exactly one year, so
+     the scope can't contradict itself. The generator also outputs each year's cumulative
+     family list, so the platform doesn't compute it separately.
+   - Per family: a stable id; a teacher-facing name; the operation; exact operand ranges, with
+     any exclusions; the criterion in seconds (item 2); whether a turnaround pair counts as one
+     fact (item 9); a weight (item 20); a display template and a spoken template (item 21); the
+     strategy text (item 17).
+   - Per year: a one-line teacher description for the probe picker. This is optional; if it's
+     missing, the platform composes one from the family names.
+   - The single values (item 15 graph keys): k, the accuracy threshold, the facts-met
+     threshold, the ceiling, the minimum items per family (item 20) and the practice window
+     (item 20).
+   Strategy text may be missing from the registry's first revision. It is required before the
+   sprint goes live, because item 17 shows a family's strategy to both groups below fluent,
+   and the sprint can't run without it.
+19. *Answer characters* (B-19, Q1). An answer is digits, with an optional leading minus and an
+   optional decimal point. Nothing else is allowed.
+   - Percent stays in the prompt, so the student types only the number ("0.5 = __ %").
+   - No typed fractions. Fraction-to-decimal and fraction-to-percent prompts are allowed,
+     because the answer is a number. A typed fraction raises an equivalence question (2/4 vs
+     1/2) that a speed task shouldn't have to settle.
+   - Primes and factors leave the sprint and move to mixed practice, where multiple choice
+     fits. "Is 91 prime?" has a 50% guess rate, and "the factors of 12" is a list; neither is
+     a single recalled number. This removes "common primes and factors" from D43's Y9–10
+     working list.
+   - The typing warm-up (the platform's CR-1) includes the minus and decimal-point keys
+     wherever a family in scope uses them, so the per-keystroke baseline covers every key an
+     answer can contain.
+20. *Probe mix and length* (B-19, Q2 and Q4).
+   - Mix: families are weighted equally by default, and each has a weight field in the
+     registry. Proportional sampling would fill a Y9 probe with multiplication, the family Y9
+     students are most likely to have mastered.
+   - Length: a minimum of 5 items per family, so the probe length is the larger of 30 and
+     5 × the number of families in scope.
+   - What the probe decides: student grouping (item 13) and, for each family, met or not met.
+     Item 17 shows the strategy for every family not met. A wrong flag on 5 items costs
+     little, which was the point of item 17.
+   - What practice decides: whether a needs-strategy family has reached accuracy (item 17).
+     Item 13's accuracy threshold is judged over a rolling window of the student's last 10
+     practice attempts on that family, not on the probe. Five probe items can't support a 90%
+     test, because one slip in five is 80%.
+   - The minimum (5) and the window (10) are graph keys under item 15. Both are defaults to
+     recalibrate.
+21. *Display* (B-19, Q3). Each family has an authored display template and spoken template,
+   which the platform fills in for each fact. Display rules: use a true minus sign (−), never a
+   hyphen, and put a negative second operand in brackets, as in −3 − (−5). Benchmark families
+   state their form in the template.
