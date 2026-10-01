@@ -31,7 +31,7 @@ invisible to this -- mis.transform.stretch-vs-shift names one skill in
 chain.transform.translate and one in chain.transform.stretch-reflect. Per-chain
 completeness cannot see cross-chain pairs.
 
-    python3 pair-attachment-report.py thread-01-rate-of-change.json
+    python3 pair-attachment-report.py curriculum-graph.json
 """
 import json, sys
 from collections import defaultdict
@@ -70,4 +70,4 @@ def report(path):
     return 0
 
 if __name__ == '__main__':
-    sys.exit(report(sys.argv[1] if len(sys.argv) > 1 else 'thread-01-rate-of-change.json'))
+    sys.exit(report(sys.argv[1] if len(sys.argv) > 1 else 'curriculum-graph.json'))

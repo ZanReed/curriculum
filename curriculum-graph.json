@@ -1,8 +1,41 @@
 {
-  "thread_id": "thread.rate-of-change",
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.14.1",
+  "version": "0.15.0",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
+  "threads": [
+    {
+      "id": "thread.rate-of-change",
+      "label": "Rate of change"
+    },
+    {
+      "id": "thread.number-proportion",
+      "label": "Number and proportion"
+    },
+    {
+      "id": "thread.algebra-equations",
+      "label": "Algebraic manipulation and equations"
+    },
+    {
+      "id": "thread.measurement",
+      "label": "Measurement"
+    },
+    {
+      "id": "thread.geometry-trig",
+      "label": "Geometry and trigonometry"
+    },
+    {
+      "id": "thread.statistical-enquiry",
+      "label": "Statistical enquiry"
+    },
+    {
+      "id": "thread.probability",
+      "label": "Probability"
+    },
+    {
+      "id": "thread.senior-calculus",
+      "label": "Senior calculus beyond the derivative"
+    }
+  ],
   "external_prereqs": [
     {
       "id": "ext.arith.signed",
@@ -1394,6 +1427,7 @@
     "chains": [
       {
         "chain_id": "chain.rate.proportional",
+        "thread": "thread.rate-of-change",
         "skills": [
           "rate.unit-rate",
           "rate.constant-of-proportionality",
@@ -1421,6 +1455,7 @@
       },
       {
         "chain_id": "chain.linear.slope",
+        "thread": "thread.rate-of-change",
         "skills": [
           "linear.slope.two-points",
           "linear.slope.from-graph",
@@ -1456,6 +1491,7 @@
       },
       {
         "chain_id": "chain.linear.forms",
+        "thread": "thread.rate-of-change",
         "skills": [
           "linear.form.slope-intercept-graph",
           "linear.form.slope-intercept-write",
@@ -1468,6 +1504,7 @@
       },
       {
         "chain_id": "chain.linear.model",
+        "thread": "thread.rate-of-change",
         "skills": [
           "linear.model.contextual"
         ],
@@ -1476,6 +1513,7 @@
       },
       {
         "chain_id": "chain.function.definition",
+        "thread": "thread.rate-of-change",
         "skills": [
           "function.definition.mapping",
           "function.definition.vlt"
@@ -1485,6 +1523,7 @@
       },
       {
         "chain_id": "chain.function.notation",
+        "thread": "thread.rate-of-change",
         "skills": [
           "function.notation.evaluate",
           "function.notation.solve"
@@ -1494,6 +1533,7 @@
       },
       {
         "chain_id": "chain.function.representations",
+        "thread": "thread.rate-of-change",
         "skills": [
           "function.repr.correspondence"
         ],
@@ -1502,6 +1542,7 @@
       },
       {
         "chain_id": "chain.function.domain-range",
+        "thread": "thread.rate-of-change",
         "skills": [
           "function.domain-range.graph",
           "function.domain-range.context"
@@ -1511,6 +1552,7 @@
       },
       {
         "chain_id": "chain.function.families",
+        "thread": "thread.rate-of-change",
         "skills": [
           "function.family.parent-linear",
           "function.family.parent-quadratic"
@@ -1520,6 +1562,7 @@
       },
       {
         "chain_id": "chain.transform.translate",
+        "thread": "thread.rate-of-change",
         "skills": [
           "transform.vertical.translate",
           "transform.horizontal.translate"
@@ -1529,6 +1572,7 @@
       },
       {
         "chain_id": "chain.transform.stretch-reflect",
+        "thread": "thread.rate-of-change",
         "skills": [
           "transform.vertical.stretch",
           "transform.reflect",
@@ -1539,6 +1583,7 @@
       },
       {
         "chain_id": "chain.transform.compose",
+        "thread": "thread.rate-of-change",
         "skills": [
           "transform.compose-order",
           "transform.quadratic.vertex-form",
@@ -1549,6 +1594,7 @@
       },
       {
         "chain_id": "chain.roc.average",
+        "thread": "thread.rate-of-change",
         "skills": [
           "roc.average.from-table",
           "roc.average.secant",
@@ -1561,6 +1607,7 @@
       },
       {
         "chain_id": "chain.limit.intro",
+        "thread": "thread.rate-of-change",
         "skills": [
           "limit.numeric.table",
           "limit.graphical.estimate",
@@ -1571,6 +1618,7 @@
       },
       {
         "chain_id": "chain.limit.difference-quotient",
+        "thread": "thread.rate-of-change",
         "skills": [
           "limit.secant-to-tangent",
           "limit.difference-quotient.setup",
@@ -1581,6 +1629,7 @@
       },
       {
         "chain_id": "chain.deriv.definition",
+        "thread": "thread.rate-of-change",
         "skills": [
           "deriv.definition.at-a-point",
           "deriv.interpret.slope-tangent",
@@ -1591,6 +1640,7 @@
       },
       {
         "chain_id": "chain.deriv.rules",
+        "thread": "thread.rate-of-change",
         "skills": [
           "deriv.from-definition.polynomial",
           "deriv.f-prime-as-function",

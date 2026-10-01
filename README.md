@@ -31,7 +31,7 @@ the hand-carried-copy failure with a new name. This repo carries
    byte-identical to `authoring-principles.md`. Single-source rule
    (author-ruled 2026-09-02): the `.md` is the ONLY edit surface; after
    editing it, run
-   `python3 scripts/check_principles.py thread-01-rate-of-change.json authoring-principles.md --fix`
+   `python3 scripts/check_principles.py curriculum-graph.json authoring-principles.md --fix`
    and commit both. Never edit the JSON field by hand.
 2. **Registry generation** — `python3 generate-registries.py <graph>`
    rewrites `skill-registry.txt`, `misconception-registry.txt`,
@@ -62,7 +62,7 @@ To retire a glossary entry, delete it from `glossary.md` and append its id to
 
 | file | role |
 | --- | --- |
-| `thread-01-rate-of-change.json` | the graph — skills, edges, misconceptions, `activity_defaults`, `chunking_plan`, capabilities. Single source of truth. |
+| `curriculum-graph.json` | the graph — the `threads` registry, skills, edges, misconceptions, `activity_defaults`, `chunking_plan` (each chain tagged with its `thread`), capabilities. One file for every thread (D39). Single source of truth. |
 | `authoring-principles.md` | the pedagogy prose — single edit surface, injected into the graph by check 1's `--fix` |
 | `decision-log-additions.md` | D18–D42 + amendments (D1–D17 live in the catalogue repo's `.docs/decision-log.md`) |
 | `open-questions.md` | what is unresolved, and who decides |

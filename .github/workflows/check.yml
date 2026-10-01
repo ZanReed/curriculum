@@ -22,28 +22,28 @@ jobs:
           fetch-depth: 0
 
       - name: "Check 1 — authoring_principles byte-identical to authoring-principles.md"
-        run: python3 scripts/check_principles.py thread-01-rate-of-change.json authoring-principles.md
+        run: python3 scripts/check_principles.py curriculum-graph.json authoring-principles.md
 
       - name: "Check 2 — regenerating the registries produces no diff"
         # chain-registry.txt is deliberately excluded: its display titles
         # are authored prose with no source in the graph (spec §1.2 note).
         run: |
-          python3 generate-registries.py thread-01-rate-of-change.json
+          python3 generate-registries.py curriculum-graph.json
           git diff --exit-code -- skill-registry.txt misconception-registry.txt external-prereq-registry.txt misconception-attachments.txt
 
       - name: "Check 3 — partition-check passes (prose restates no threshold, D25)"
         # Invocation to confirm against the seeded script; if it takes no
         # argument or a different one, fix THIS line, not the script.
-        run: python3 partition-check.py thread-01-rate-of-change.json
+        run: python3 partition-check.py curriculum-graph.json
 
       - name: "Check 4 — referential integrity (graph + registries)"
-        run: python3 scripts/check_integrity.py thread-01-rate-of-change.json
+        run: python3 scripts/check_integrity.py curriculum-graph.json
 
       - name: "Thread checks — validate.js (curriculum-owned §11 rules)"
         # Joined per the curriculum side's criterion (2026-09-02): the one
         # implementation of the thread checks belongs with the graph it
         # validates, under the same CI.
-        run: node validate.js thread-01-rate-of-change.json
+        run: node validate.js curriculum-graph.json
 
       - name: "Glossary — well-formed, unique, NZ-only bodies, retire-not-rename (D40)"
         # The base is the PR's base commit, or the previous tip of main on a
