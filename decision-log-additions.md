@@ -1084,3 +1084,43 @@ from it. Items 12–14 fix the form; the numbers come with those artifacts. The 
 is k = 0.8. Suggested criteria: the single-recall families (multiplication, squares,
 benchmarks) share one criterion, and the two-step families (division, integers, roots) get
 somewhat longer ones.
+
+**D43 amendment (2026-10-02, fourth). Where the probe's tunable values live, what "correct"
+means, and the renamed group.**
+Ruled by Zan 2026-10-02, on the platform's B-17, its follow-ups to the third D43 amendment
+(items 12–14).
+15. *Where the values live* (B-17, Q1). All of the probe's tunable values are graph keys. The
+   platform reads them from the graph and invents none. They ship in the 1 December artifacts,
+   alongside the fact-scope registry, the per-family criteria and k:
+   - the accuracy threshold (item 13: 90%);
+   - the facts-met threshold (item 13: 80%);
+   - the response ceiling.
+   Why: D25 puts anything the platform computes from in the graph. Keeping every recalibration
+   value in one place means the first classroom data changes one place. The ceiling is the
+   curriculum's value, not only a platform setting, for two reasons. It sets the time a
+   timed-out attempt adds to the rate (item 14). It also marks the line between a slow strategy
+   and one too slow to build on (item 16).
+   Interim ceiling: 15 s, replacing the platform's proposed 30 s, until the 1 December values
+   confirm it. Evidence: Siegler (1988, Table 1) timed third graders' multiplication by
+   strategy. The medians were retrieval 5.5 s, writing the problem 14.0 s, repeated addition
+   23.3 s and counting objects 30.1 s. A 30 s ceiling cuts off only counting objects; 15 s cuts
+   off most repeated addition, which is the strategy item 16 says to replace. The ceiling is set
+   above a pure-recall cut-off (about 10 s) on purpose, to leave headroom for students with
+   slower processing. Those data come from 8–9-year-olds answering aloud. The ceiling applies
+   to net time (item 14), so typing is already removed.
+16. *What "correct" means* (B-17, Q2). The platform's CR-6 is accepted as proposed. "Correct"
+   means right and within the ceiling, everywhere: in the accuracy test, the facts-met test and
+   the rate. A right answer given after the ceiling therefore counts against accuracy, as do
+   wrong answers and skips.
+   Why: a right answer past the ceiling is not slow recall. It is a counting or
+   repeated-addition strategy, and speed practice on it rehearses the slow strategy instead of
+   replacing it. Such a student needs the same thing as one who answered wrongly: direction to
+   an efficient strategy, such as a derived fact (7×8 as 7×4 doubled), before fluency work.
+   With this definition, item 13's three groups line up with three teacher actions:
+   - fluent: right within the family's criterion. No action.
+   - slow: right, past the criterion but within the ceiling. A workable strategy; fluency
+     practice.
+   - needs strategy: wrong, skipped, or past the ceiling. Strategy instruction first.
+   Rename: item 13's group "inaccurate" is renamed "needs strategy", because the group now
+   includes right-but-too-slow answers and the name should say what the teacher does next.
+   Item 13's order, its thresholds and its reasons are otherwise unchanged.
