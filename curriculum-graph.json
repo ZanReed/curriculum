@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.15.4",
+  "version": "0.16.0",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -1419,7 +1419,15 @@
         "Activities never carry hooks; days do."
       ]
     },
-    "default_locale": "nz-ncea"
+    "default_locale": "nz-ncea",
+    "fact_probe": {
+      "floor_factor_k": 0.8,
+      "accuracy_threshold": 0.9,
+      "facts_met_threshold": 0.8,
+      "response_ceiling_s": 15,
+      "min_items_per_family": 5,
+      "practice_window": 10
+    }
   },
   "activities": [],
   "chunking_plan": {
@@ -1953,5 +1961,774 @@
     }
   ],
   "authoring_principles": "# Authoring Principles\n\nThis document is injected into every drafting prompt. It states the *why* behind the\nschema's structure, so a model composing an activity makes the same call the author\nwould make — not a plausible-sounding different one. Where a principle constrains you,\nthe constraint is deliberate. Where it is silent, use judgment and flag the gap.\n\nNothing here is decoration. If a draft satisfies the schema but violates a principle,\nthe draft is wrong.\n\n---\n\n## 1. What this curriculum is\n\nAn explicit-instruction mathematics curriculum, intro algebra through calculus and\nstatistics, delivered as short single-period activities that a platform ingests — the cap\nis `activity_defaults.duration_min`. It is built\nfor novice learners acquiring new content. The design follows the evidence on how\nnovices learn: full guidance during acquisition, support faded gradually, retrieval\nspaced deliberately, misconceptions anticipated and named.\n\nIt is not a discovery curriculum. During acquisition, students do not induce new\ncontent from open-ended tasks — the working-memory cost of unguided search crowds out\nthe learning it is supposed to produce. Open problems and transfer tasks have a real\nplace *after* schema exists; they are consolidation tools, not acquisition tools.\nConcede this openly when challenged: explicit instruction wins for acquiring new\ncontent; the last stretch of a topic, once students have schema, is where richer\ntasks earn their keep.\n\n## 2. The skill graph is the asset\n\nSkills are durable objects. Activities are disposable delivery instances aimed at them.\n\n- Every activity targets exactly one primary skill. Review pointers, DoL items, and\n  data all reference **skill ids**, never activity ids. Activities get rewritten;\n  the graph endures.\n- Prerequisite edges are authored at write time, never as a cleanup pass. An edge is\n  a claim: *you cannot hold this skill without that one.* Sequencing preference is\n  not an edge. Two skills that merely tend to be taught together get no edge.\n- Anything the graph can derive is derived, never hand-declared. Progress, coverage,\n  and review candidates are computed. A hand-maintained duplicate of derivable state\n  will drift, and drifted state that looks authoritative is worse than no state.\n\n## 3. Every activity keeps one contract\n\nThree components, in this order: **review → lesson → DoL.**\n\nThe platform treats all three identically feature-wise; the division informs the\nteacher and the student, it does not gate anything. But the authoring order is not\nnegotiable, because each position has a mechanism:\n\n- **Review comes first** because retrieving prior skills activates the exact schema\n  the new content is about to attach to. Moved after the lesson it becomes practice\n  of what was just taught — a different mechanism with a smaller payoff, which\n  already lives inside the lesson as the independent beat.\n- **The lesson has three beats: worked → faded → independent.** Never fewer.\n- **The DoL closes.** It is the only locale-bearing component (see §8).\n\n## 4. The hook\n\nEvery teaching day opens with a hook: an interesting question, relevant to the day's\ncontent, that students think about before anything else. It is an engagement device,\nnot an instruction device — it buys attention and a reason to care; it does not teach.\n\n**Hooks are a chain-level pool; activities never carry them.** Each chain holds a pool\nsized by `activity_defaults.hook_contract.minimum`. A hook is not welded to any\nactivity: the teacher fires one when *their* class day starts, because period\nboundaries are classroom facts the data model cannot see — one class covers three\nactivities on a block day, another covers one and a half, and only the teacher knows\nwhere the day began. Within every activity, review keeps position one regardless.\n\nRules for a hook:\n- One question, thinkable in under a minute, answerable by intuition or guess —\n  no prerequisite knowledge should be needed to *engage* with it, even if answering\n  it well requires the day's content.\n- It must genuinely connect to a skill in its chain. A fun but irrelevant opener\n  trains students that the opener is skippable.\n- It must not front-load the lesson's content. If answering the hook requires the\n  worked example, the hook has become discovery learning through the back door. The\n  hook raises the question; the lesson earns the answer.\n- Strong hook shapes: a surprising claim to evaluate (\"a 20% discount then 20% tax\n  returns the price to normal — true?\"), a prediction to commit to, a wrong answer\n  from a fictional student to react to, two plausible-looking options to choose\n  between. Weak hooks: trivia, \"have you ever wondered,\" anything answerable with\n  a shrug.\n- Quality beats coverage: the pool minimum exists so no teaching day opens empty,\n  not to manufacture filler. A chain may exceed the minimum only with hooks that\n  earn their place.\n\n## 5. The lesson beats\n\n**Worked (I do).** Fully worked. Every step visible, including the step an expert\nperforms silently. The narration says the reasoning out loud — not what was done but\n*why it was the move*. No \"what do you notice\" as the mechanism for new content; if\nnoticing is doing the teaching, it is discovery wearing a lab coat.\n\n**Faded (we do).** The same procedure with support removed **from the end** — the\nstart intact, the later steps blanked. This beat is mandatory, no exceptions. The\njump from demonstration straight to independent practice is the single most common\nfailure in explicit-instruction materials; the faded beat is where the worked-example\neffect actually pays out. Fade level responds to position in the chain: earlier\nparts fade less, later parts fade more.\n\n**Independent (you do).** Practice on the skill itself, at enough volume to be worth\ngrading (typically 4–8 items). Where the platform supports a decision, prefer items\nthat force the *choice* of method, not just its execution.\n\nOne worked example per new idea. Two ideas in one activity means the activity should\nhave been two activities.\n\n## 6. Review is spaced retrieval, not warm-up filler\n\nThe review component draws from the primary skill's **ancestor pool** — the set of\nskills upstream of it in the graph. Not siblings, not vibes: ancestors.\n\n- **At least one item reaches far enough back**, per\n  `activity_defaults.review_selection.constraint`. Retrieving only yesterday's skill is\n  yesterday's lesson repeated, not spaced retrieval. Where the graph is shallower than the\n  constraint asks — as it is at the very top of the curriculum — the constraint's own floor\n  clause applies; do not invent an intermediate skill to satisfy it.\n- Prefer prerequisites the students have not touched recently — staleness is the\n  point. Prefer prerequisites the lesson is about to lean on — activation is the\n  other point. The best review item is both: stale *and* load-bearing for today.\n- Chain position governs the slice, per `activity_defaults.chain_rules`. Chain position 1\n  gets full prerequisite-targeted review. Chain position 2+ gets a brief retrieval of the\n  previous position only, with the recovered minutes going to independent practice; never\n  repeat chain position 1's review later in the chain. Spaced retrieval is not lost at\n  chain position 2+ — the DoL carries it at every position (§8). The final position in a\n  chain has its own exit-check rule (`chain_rules.final_position`).\n  Note: \"chain position\" is position within the chain. It is unrelated to a *skill part*,\n  which is one of the activities delivering a single skill.\n- Long-arc edges are the flagship. When a skill's ancestor sits years back\n  (units-on-gradient feeding units-on-derivatives), reviewing it just before it is\n  needed is the whole argument for the graph. Plant those items deliberately.\n\n## 7. Misconceptions are first-class\n\nA wrong answer is rarely random. Anticipated wrong answers map to **named\nmisconception ids** via distractor maps, and the map is what turns feedback from\n\"incorrect, try again\" into diagnosis.\n\n- **A misconception attaches to every skill that can elicit it** — not merely the one it\n  was first noticed on. The test is whether an author writing distractors for that skill\n  should be anticipating this error; \"conceivably possible\" is too broad and \"names this\n  skill\" is too narrow. The clearest case: **a label naming a confusion *between* two things\n  attaches to both skills.** A pair-confusion instrumented on one side is a sensor pointed at half the\n  phenomenon: items on the unattached skill carry no binding, so the data under-reports the\n  error and attributes all of what it does see to whichever skill holds the attachment. If\n  only one attachment is defensible, the label is describing a one-sided error and should be\n  reworded to say so.\n  Not mechanically checkable: whether a second skill can exhibit an error is a question\n  about the mathematics, not about the label. Ask it once per chain at authoring time, for\n  every misconception attached to any skill in that chain.\n- **A misconception about the FORM of a response binds only where the response format\n  admits that form and the item requires it.** A units-dropped binding on a numeric blank\n  cannot fire on the misconception, because the blank cannot carry units at all — it fires on\n  the format, and reports every correct answer as an error. The carrier is an item where\n  omitting the form is a choice the student makes: an mc whose distractor is the unitless\n  value, or a response type that accepts units and an item that demands them. Same family as\n  the auto-scored rule above — a binding that cannot fire does not mean what it appears to\n  mean.\n- Use only ids that exist in the registry. Never invent one inline — describe the\n  anticipated error in a note instead, so a human can promote it to an id.\n- **Distractor maps go only on auto-scored, per-item captured types** (multiple\n  choice, graph, fill-in-the-blank). On a teacher-graded item the map produces no\n  aggregate signal until a human marks it; it is dead weight there.\n- Feedback attached to a wrong answer names the error's logic, not just the fact of\n  the error. \"That is the third-largest city, not the capital\" beats \"incorrect.\"\n- The misconception data is the platform's most valuable output. Every mapped\n  distractor is a sensor. Author accordingly.\n\n## 8. Assessment is local; instruction is not\n\nMathematics is universal; assessment of mathematical skill is not. The same skill\nterminates in a procedural computation under one qualification and a justified\nargument under another.\n\n- The **DoL is the only component that varies by locale.** Review and lesson are\n  written locale-neutral. When the qualification changes, the DoL swaps and the\n  rest stands.\n- Write the DoL the way the named locale asks — its response format, its idea of\n  evidence. A rubric-graded justification for a Merit/Excellence locale; auto-scored\n  items for a procedural one. What each grade level requires is stated on the locale\n  itself (`activity_defaults.locales`, the `levels` entry) — read it there, and tag\n  every rubric line with the level it evidences so the claim is recorded, not implied.\n- Know the data cost: auto-scored DoLs feed misconception aggregates immediately;\n  rubric-graded DoLs capture text now and yield structured per-criterion scores only\n  after a human grades. Neither is wrong. A chain whose every DoL is rubric-graded\n  is a deliberate marking-load decision, not a default.\n- A DoL has exactly 2 items: one on the primary skill, one on a review-pool skill far\n  enough back, per `activity_defaults.review_selection.constraint` and its floor clause.\n  Contextual items require units in the answer.\n\n## 9. Compose only from shipped capabilities\n\nThe capability registry is the platform's truth. Draft only with capabilities marked\nshipped, inside their stated constraints (graded curve families, two-column matching,\nliteral datasets, and the rest).\n\n- If the pedagogically ideal move needs an unshipped capability, author the\n  **fallback** — the best version buildable today — and record the wish against the\n  proposed capability. A wish without a working fallback is a blocker, and a blocker\n  caps the activity at draft.\n- Never assume a capability exists because it plausibly should. The registry, not\n  intuition, is the boundary.\n\n## 10. Time is a budget, not a suggestion\n\nOne activity, hard cap: `activity_defaults.duration_min`. An activity is not a period: a\nperiod is assembled from activities and practice blocks (§17). The default internal\nsplit across the beats is `activity_defaults.phase_budget_min`; read the values there\nrather than from memory. Content that does not fit becomes another activity\nin the chain — that trade was accepted at the start. Do not compress the faded beat\nto make room; it is the beat that looks most optional and is least.\n\n## 11. Language and tone\n\n- Voice is a teacher talking to students, not a textbook. Narrations are speakable.\n- Precision beats friendliness where they conflict; say \"expression\" when it is an\n  expression and \"equation\" when it is an equation.\n- Lexical simplicity in the prose, full precision in the mathematics. Sentence\n  structure stays simple — the difficulty lives in the maths, not the reading, and a\n  multilingual student who can do the maths must not be assessed on English. But\n  mathematical vocabulary is never simplified away: students need \"coefficient,\"\n  \"vertex,\" and \"rate of change\" flowing naturally, because those are the words the\n  discipline and the exams use.\n- Every technical term is marked with the definition capability\n  ([[term :: meaning]]) in every activity — not just on first use. It is a tap-away\n  reference, not an interruption; forcing a student to scroll back to wherever a\n  word was first defined helps no one. The pop-up serves the student who needs it\n  and is invisible to the one who does not.\n- Name conventions honestly: \"this is the gradient formula you already know, renamed\" —\n  unification is taught, not discovered.\n- Contexts are real and checked. A context with fake numbers that fall apart under\n  scrutiny teaches students that context is decoration.\n- In NZ settings, use NZ vocabulary and conventions naturally (Year levels, NZ\n  contexts where they help), without performing them. Concretely: *gradient*, never\n  *slope*; `y = mx + c`, never `y = mx + b`; *Year 9*, never *Grade 8*. Skill and\n  misconception **ids** keep whatever spelling they were minted with (`linear.slope.*`,\n  `mis.form.m-b-swapped`) because ids are keys, not prose; every label, definition and\n  narration a student can see uses the NZ term.\n\n## 12. The human gate\n\nEverything a model drafts is a **draft**. It does not count toward progress, it does\nnot ship, until a human has read it end to end and approved it. The model is a\ndrafter whose reasoning gets checked, not a colleague whose judgment is trusted.\nPlausible prose at volume is the failure mode; the gate is the defense. An activity\nthat satisfies every rule in this document can still be wrong in ways only a teacher\nreading it will catch — that reading is not optional overhead, it is the quality\nmechanism.\n\n---\n\n## 13. Examples are minimal pairs\n\nAcross a sequence of worked and faded examples, vary **one feature at a time**:\nsigns, then the position of the variable, then a fraction coefficient. The student's\nattention lands on the thing that changed because everything else held still.\n\"Varied practice\" that shuffles every surface feature at once feels richer and\nteaches less — the structure is buried under noise. This rule exists because\nunprompted drafting defaults to variety; the sequence design is the instruction.\n\n## 14. Practice discriminates\n\nOnce two confusable skills both exist (evaluate f(3) vs solve f(x)=3), independent\npractice interleaves items that force the *choice* between them. Blocked practice —\nsix of one, then six of the other — inflates lesson-end scores and hides the\nconfusion, because the block tells the student which procedure applies and the item\nnever has to. The named misconceptions are the map of what to interleave: students\nwho know skills but not when to apply them is the failure this prevents.\n\n## 15. Retrieval is closed-book\n\nReview items are answerable from memory, with nothing on screen or in notes that\ncontains the answer. An item whose answer is visible tests navigation, not\nretention, and the retrieval effect — the mechanism the review component exists\nfor — only occurs when memory does the work. Phrase accordingly: \"find the gradient\nthrough (2,1) and (5,7)\" retrieves; \"state the gradient formula\" fails if the formula\nis anywhere in sight.\n\n**The reference panel is open-book for the whole activity, so it is part of \"in\nsight.\"** Nothing a review item retrieves may appear on the activity's `reference`\nfence — not the formula, not a worked instance of the procedure, not the\ndefinition being recalled. The author choosing what goes on the sheet is\nsimultaneously choosing what the review may no longer ask, and the two decisions\nare usually made minutes apart by someone thinking about only one of them. Write\nthe review first, then the sheet.\n\n## 16. Error analysis is a first-class item type\n\n\"A student wrote X — find and explain the error.\" These test the skill and the\nmisconception simultaneously, and the planted error always comes from a named\nmisconception id. Under an NCEA-first curriculum they carry extra weight: they are\nthe one format that keeps misconception targeting in auto-scorable form inside a\njustification locale, so they are the main automatic data source when most DoLs are\nrubric-graded. Use them routinely in DoLs and independent practice.\n\n## 17. Practice is generated, not authored per lesson\n\nAn activity teaches; it does not carry a period's practice. Practice beyond the activity's\nown independent beat lives in two block types, generated from the graph and the item banks:\n**fluency** (facts to automaticity) and **mixed** (spaced review across taught skills,\ninterleaved where skills are confusable). Authoring cost sits with each *skill*, as its bank,\nnot with each *lesson*.\n\n**No same-day practice block on today's skill.** The activity's independent beat and DoL\nare its first exposure; it enters the spacing queue and returns the next day. A lesson's\npairing fixes the *pool* (skills taught to this point in the sequence), not the items.\n\n**Mixed practice is spaced first, interleaved where it matters.** Skills enter at expanding\nintervals. Confusable skills (D24, §14) appear together so the item forces the choice of\nmethod; unrelated skills mixed together are spacing, which is fine, but it isn't interleaving.\nTarget about 80% success: practice that mostly fails is rehearsing errors.\n\n**Every skill owes a practice bank**, authored per chain *after* its activities, because\nactivity authoring is where the misconceptions surface. The bank:\n- is separate from the DoL items. A DoL rehearsed in practice measures nothing.\n- is auto-scorable only, at every year. Nobody hand-marks practice.\n- holds short items, about 60–90 seconds each.\n- uses parametric templates for procedural skills (4–6 per skill) and fixed items for\n  context skills.\n- covers every misconception attached to the skill in at least one item. Most items are\n  clean: the tags are there for diagnosis, not to catch students out.\n- adds discrimination items (\"which method fits?\") per consolidation, for confusable sets.\n\n**Fluency is per class and per student, and set by diagnostics, not by year level.**\n- A class diagnostic runs at the start of each term. It covers the cumulative fact set up to\n  and including this year, plus the ancestors of the chains starting this term and next.\n- A late-joiner diagnostic runs on enrolment. It covers the fact set, the skills the class\n  has already been taught, and the upcoming ancestors.\n- If the class's median rate is below the floor for the probe's year level (D43 amendments,\n  items 11 and 12), the diagnostic recommends switching the sprint on. The teacher decides.\n- Within a running sprint, each student practises only the facts they haven't mastered.\n  Mastered facts drop out and return at expanding intervals.\n- A fact answered *wrongly* needs a strategy, such as a derived fact, taught to accuracy\n  (item 13's threshold, per family) before fluency work. A fact answered *slowly* is shown the\n  same strategy, then goes straight to fluency work. The two differ in whether accuracy comes\n  first.\n- Diagnostic gaps in prerequisites seed the mixed-practice queue from day one.\n- Fluency is self-paced, with personal bests, no leaderboard and no grade.\n- When the sprint is off, its minutes go to mixed practice unless the teacher takes them\n  back.\n\n**Default period shapes.** These are defaults for schools to override; the invariants above\nare not. Each activity is capped at `activity_defaults.duration_min`.\n\n| period | shape |\n|---|---|\n| 50 min | fluency 5 · hook 2–3 · activity · mixed ~15 |\n| 60 min | fluency 5 · hook 2–3 · activity · mixed ~25 |\n| 100 min | fluency 5 · hook 2–3 · activity · mixed ~15 · activity · mixed ~15 |\n\nOne hook per day (§4), so the second activity in a double period has none. A double period\nuses two activities from the sequence. Leftover minutes go to transitions, then to mixed\npractice.\n\n**Homework** is optional extra spacing, drawn from the same scheduler. Nothing relies on\nit being completed.\n",
-  "grading_model": null
+  "grading_model": null,
+  "fact_scope": {
+    "source": "proposals/fact-scope-registry.md (revision 5) and D43 items 1–33; this key is the edit surface, fact-scope-registry.json is generated from it",
+    "families": [
+      {
+        "id": "fact.mult.to-12",
+        "kind": "generated",
+        "name": "Multiplication to 12 × 12",
+        "source_year": 5,
+        "operation": "multiply",
+        "generate": {
+          "x": {
+            "min": 2,
+            "max": 12
+          },
+          "y": {
+            "min": 2,
+            "max": 12
+          }
+        },
+        "shown": {
+          "a": "x",
+          "b": "y"
+        },
+        "answer": "x × y",
+        "turnaround": true,
+        "criterion_s": 3,
+        "weight": 1,
+        "display": "{a} × {b} = __",
+        "spoken": "{a} times {b}",
+        "strategy": {
+          "intro": "Don't count up. Start from a fact you know.",
+          "lines": [
+            {
+              "label": "×2, ×4, ×8",
+              "text": "Double. 4 × 7 is double 2 × 7, so 28. For ×8, double three times."
+            },
+            {
+              "label": "×5",
+              "text": "Half of ×10. 5 × 8 is half of 80, so 40."
+            },
+            {
+              "label": "×9",
+              "text": "×10, then take away one group. 9 × 6 is 60 − 6, so 54."
+            },
+            {
+              "label": "×11, ×12",
+              "text": "×10, then add one or two groups. 12 × 7 is 70 + 14, so 84."
+            },
+            {
+              "label": "×3, ×6, ×7",
+              "text": "Build from a fact next door. 6 × 7 is 5 × 7 + 7, so 42."
+            },
+            {
+              "label": "Stuck?",
+              "text": "Swap the order. 7 × 8 is the same as 8 × 7."
+            }
+          ],
+          "example": null
+        }
+      },
+      {
+        "id": "fact.div.to-12",
+        "kind": "generated",
+        "name": "Division to 144 ÷ 12",
+        "source_year": 5,
+        "operation": "divide",
+        "generate": {
+          "x": {
+            "min": 2,
+            "max": 12
+          },
+          "y": {
+            "min": 2,
+            "max": 12
+          }
+        },
+        "shown": {
+          "a": "x × y",
+          "b": "x"
+        },
+        "answer": "y",
+        "turnaround": false,
+        "criterion_s": 4,
+        "weight": 1,
+        "display": "{a} ÷ {b} = __",
+        "spoken": "{a} divided by {b}",
+        "strategy": {
+          "intro": null,
+          "lines": [
+            {
+              "label": "",
+              "text": "Think multiplication. Every division fact is a times-table fact read backwards."
+            }
+          ],
+          "example": "For 56 ÷ 7, ask \"what number times 7 makes 56?\" You know 7 × 8 = 56, so 56 ÷ 7 = 8."
+        }
+      },
+      {
+        "id": "fact.square.to-144",
+        "kind": "generated",
+        "name": "Square numbers to 144",
+        "source_year": 6,
+        "operation": "square",
+        "generate": {
+          "x": {
+            "min": 2,
+            "max": 12
+          }
+        },
+        "shown": {
+          "a": "x"
+        },
+        "answer": "x²",
+        "turnaround": false,
+        "criterion_s": 3,
+        "weight": 1,
+        "display": "{a}² = __",
+        "spoken": "{a} squared",
+        "strategy": {
+          "intro": null,
+          "lines": [
+            {
+              "label": "",
+              "text": "7² means 7 × 7, so every square is a times-table fact. If you're stuck on a big one, use ×10 and add the extra groups."
+            }
+          ],
+          "example": "12² = 12 × 10 + 12 × 2 = 120 + 24 = 144."
+        }
+      },
+      {
+        "id": "fact.cube.to-125",
+        "kind": "generated",
+        "name": "Cube numbers to 125",
+        "source_year": 6,
+        "operation": "cube",
+        "generate": {
+          "x": {
+            "min": 1,
+            "max": 5
+          }
+        },
+        "shown": {
+          "a": "x"
+        },
+        "answer": "x³",
+        "turnaround": false,
+        "criterion_s": 3,
+        "weight": 1,
+        "display": "{a}³ = __",
+        "spoken": "{a} cubed",
+        "strategy": {
+          "intro": null,
+          "lines": [
+            {
+              "label": "",
+              "text": "4³ means 4 × 4 × 4. Find the square first, then multiply once more. There are only five to know: 1, 8, 27, 64, 125. Say them in order until they stick."
+            }
+          ],
+          "example": "4² = 16, and 16 × 4 = 64, so 4³ = 64."
+        }
+      },
+      {
+        "id": "fact.fdp.to-decimal",
+        "kind": "generated",
+        "name": "Common fractions as decimals",
+        "source_year": 6,
+        "operation": "fraction_to_decimal",
+        "generate": {
+          "pairs": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              1,
+              10
+            ],
+            [
+              3,
+              10
+            ],
+            [
+              7,
+              10
+            ],
+            [
+              9,
+              10
+            ]
+          ]
+        },
+        "shown": {
+          "a": "x",
+          "b": "y"
+        },
+        "answer": "x ÷ y as a decimal",
+        "turnaround": false,
+        "criterion_s": 3,
+        "weight": 1,
+        "display": "{a}/{b} = __ as a decimal",
+        "spoken": "{a} {b-fraction-name} as a decimal",
+        "strategy": {
+          "intro": "Learn four landmarks, then count how many you have.",
+          "lines": [
+            {
+              "label": "half",
+              "text": "0.5"
+            },
+            {
+              "label": "quarter",
+              "text": "0.25 (half of a half)"
+            },
+            {
+              "label": "tenth",
+              "text": "0.1"
+            },
+            {
+              "label": "fifth",
+              "text": "0.2 (two tenths)"
+            }
+          ],
+          "example": "Three quarters is 3 × 0.25, so 3/4 = 0.75."
+        }
+      },
+      {
+        "id": "fact.fdp.to-percent",
+        "kind": "generated",
+        "name": "Common fractions as percentages",
+        "source_year": 6,
+        "operation": "fraction_to_percent",
+        "generate": {
+          "pairs": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              1,
+              10
+            ],
+            [
+              3,
+              10
+            ],
+            [
+              7,
+              10
+            ],
+            [
+              9,
+              10
+            ]
+          ]
+        },
+        "shown": {
+          "a": "x",
+          "b": "y"
+        },
+        "answer": "100x ÷ y",
+        "turnaround": false,
+        "criterion_s": 3,
+        "weight": 1,
+        "display": "{a}/{b} = __ %",
+        "spoken": "{a} {b-fraction-name} as a percentage",
+        "strategy": {
+          "intro": "Percent means out of 100. Learn four landmarks, then count how many you have.",
+          "lines": [
+            {
+              "label": "half",
+              "text": "50%"
+            },
+            {
+              "label": "quarter",
+              "text": "25%"
+            },
+            {
+              "label": "tenth",
+              "text": "10%"
+            },
+            {
+              "label": "fifth",
+              "text": "20% (two tenths)"
+            }
+          ],
+          "example": "Four fifths is 4 × 20, so 4/5 = 80%."
+        }
+      },
+      {
+        "id": "fact.root.square",
+        "kind": "generated",
+        "name": "Square roots to √144",
+        "source_year": 7,
+        "operation": "square_root",
+        "generate": {
+          "x": {
+            "min": 2,
+            "max": 12
+          }
+        },
+        "shown": {
+          "a": "x²"
+        },
+        "answer": "x",
+        "turnaround": false,
+        "criterion_s": 4,
+        "weight": 1,
+        "display": "√{a} = __",
+        "spoken": "the square root of {a}",
+        "strategy": {
+          "intro": null,
+          "lines": [
+            {
+              "label": "",
+              "text": "Go backwards from the square numbers. √49 asks \"what number times itself makes 49?\" Learn the squares and the roots come with them."
+            }
+          ],
+          "example": "7 × 7 = 49, so √49 = 7."
+        }
+      },
+      {
+        "id": "fact.root.cube",
+        "kind": "generated",
+        "name": "Cube roots to ∛125",
+        "source_year": 8,
+        "operation": "cube_root",
+        "generate": {
+          "x": {
+            "min": 1,
+            "max": 5
+          }
+        },
+        "shown": {
+          "a": "x³"
+        },
+        "answer": "x",
+        "turnaround": false,
+        "criterion_s": 4,
+        "weight": 1,
+        "display": "∛{a} = __",
+        "spoken": "the cube root of {a}",
+        "strategy": {
+          "intro": null,
+          "lines": [
+            {
+              "label": "",
+              "text": "Go backwards from the cube numbers. ∛64 asks \"what number times itself three times makes 64?\" There are only five: 1, 8, 27, 64 and 125 go back to 1, 2, 3, 4 and 5."
+            }
+          ],
+          "example": "4 × 4 × 4 = 64, so ∛64 = 4."
+        }
+      },
+      {
+        "id": "fact.int.add",
+        "kind": "generated",
+        "name": "Adding integers",
+        "source_year": 8,
+        "operation": "add",
+        "generate": {
+          "x": {
+            "min": -10,
+            "max": 10,
+            "exclude": [
+              0
+            ]
+          },
+          "y": {
+            "min": -10,
+            "max": 10,
+            "exclude": [
+              0
+            ]
+          }
+        },
+        "flags": [
+          "at_least_one_negative"
+        ],
+        "shown": {
+          "a": "x",
+          "b": "y"
+        },
+        "answer": "x + y",
+        "turnaround": true,
+        "criterion_s": 5,
+        "weight": 1,
+        "display": "{a} + {b} = __",
+        "spoken": "{a} plus {b}",
+        "strategy": {
+          "intro": null,
+          "lines": [
+            {
+              "label": "",
+              "text": "Picture a number line and start at the first number. Adding a positive number moves right. Adding a negative number moves left."
+            }
+          ],
+          "example": "For 4 + (−6), start at 4 and move 6 to the left. You land on −2."
+        }
+      },
+      {
+        "id": "fact.int.subtract",
+        "kind": "generated",
+        "name": "Subtracting integers",
+        "source_year": 8,
+        "operation": "subtract",
+        "generate": {
+          "x": {
+            "min": -10,
+            "max": 10,
+            "exclude": [
+              0
+            ]
+          },
+          "y": {
+            "min": -10,
+            "max": 10,
+            "exclude": [
+              0
+            ]
+          }
+        },
+        "flags": [
+          "exclude_plain_whole"
+        ],
+        "shown": {
+          "a": "x",
+          "b": "y"
+        },
+        "answer": "x − y",
+        "turnaround": false,
+        "criterion_s": 5,
+        "weight": 1,
+        "display": "{a} − {b} = __",
+        "spoken": "{a} minus {b}",
+        "strategy": {
+          "intro": null,
+          "lines": [
+            {
+              "label": "",
+              "text": "Subtracting a negative number is the same as adding the positive one. Subtracting a positive number moves left on the number line. If it helps, turn the subtraction into an addition first."
+            }
+          ],
+          "example": "3 − (−5) = 3 + 5 = 8."
+        }
+      },
+      {
+        "id": "fact.int.multiply",
+        "kind": "generated",
+        "name": "Multiplying integers",
+        "source_year": 9,
+        "operation": "multiply",
+        "generate": {
+          "x": {
+            "min": -10,
+            "max": 10,
+            "exclude": [
+              -1,
+              0,
+              1
+            ]
+          },
+          "y": {
+            "min": -10,
+            "max": 10,
+            "exclude": [
+              -1,
+              0,
+              1
+            ]
+          }
+        },
+        "flags": [
+          "at_least_one_negative"
+        ],
+        "shown": {
+          "a": "x",
+          "b": "y"
+        },
+        "answer": "x × y",
+        "turnaround": true,
+        "criterion_s": 4,
+        "weight": 1,
+        "display": "{a} × {b} = __",
+        "spoken": "{a} times {b}",
+        "strategy": {
+          "intro": null,
+          "lines": [
+            {
+              "label": "",
+              "text": "Multiply the numbers as if they were both positive, then decide the sign. Same signs give a positive answer. Different signs give a negative answer."
+            }
+          ],
+          "example": "For −6 × 7 the signs are different, so the answer is −42. For −6 × (−7) the signs are the same, so it's 42."
+        }
+      },
+      {
+        "id": "fact.int.divide",
+        "kind": "generated",
+        "name": "Dividing integers",
+        "source_year": 9,
+        "operation": "divide",
+        "generate": {
+          "x": {
+            "min": -10,
+            "max": 10,
+            "exclude": [
+              -1,
+              0,
+              1
+            ]
+          },
+          "y": {
+            "min": -10,
+            "max": 10,
+            "exclude": [
+              -1,
+              0,
+              1
+            ]
+          }
+        },
+        "flags": [
+          "at_least_one_negative"
+        ],
+        "shown": {
+          "a": "x × y",
+          "b": "x"
+        },
+        "answer": "y",
+        "turnaround": false,
+        "criterion_s": 5,
+        "weight": 1,
+        "display": "{a} ÷ {b} = __",
+        "spoken": "{a} divided by {b}",
+        "strategy": {
+          "intro": null,
+          "lines": [
+            {
+              "label": "",
+              "text": "Think multiplication, then use the same sign rule as multiplying."
+            }
+          ],
+          "example": "For −42 ÷ 6, ask \"what times 6 makes 42?\" That's 7. The signs are different, so −42 ÷ 6 = −7."
+        }
+      },
+      {
+        "id": "fact.units",
+        "kind": "listed",
+        "name": "Unit relationships",
+        "source_year": 6,
+        "criterion_s": 3,
+        "weight": 1,
+        "facts": [
+          {
+            "id": "fact.units.cm-mm",
+            "display": "1 cm = __ mm",
+            "spoken": "one centimetre is how many millimetres",
+            "answer": "10"
+          },
+          {
+            "id": "fact.units.m-cm",
+            "display": "1 m = __ cm",
+            "spoken": "one metre is how many centimetres",
+            "answer": "100"
+          },
+          {
+            "id": "fact.units.m-mm",
+            "display": "1 m = __ mm",
+            "spoken": "one metre is how many millimetres",
+            "answer": "1000"
+          },
+          {
+            "id": "fact.units.km-m",
+            "display": "1 km = __ m",
+            "spoken": "one kilometre is how many metres",
+            "answer": "1000"
+          },
+          {
+            "id": "fact.units.kg-g",
+            "display": "1 kg = __ g",
+            "spoken": "one kilogram is how many grams",
+            "answer": "1000"
+          },
+          {
+            "id": "fact.units.l-ml",
+            "display": "1 L = __ mL",
+            "spoken": "one litre is how many millilitres",
+            "answer": "1000"
+          },
+          {
+            "id": "fact.units.mm-cm",
+            "display": "1 mm = __ cm",
+            "spoken": "one millimetre is how many centimetres",
+            "answer": "0.1"
+          },
+          {
+            "id": "fact.units.cm-m",
+            "display": "1 cm = __ m",
+            "spoken": "one centimetre is how many metres",
+            "answer": "0.01"
+          },
+          {
+            "id": "fact.units.mm-m",
+            "display": "1 mm = __ m",
+            "spoken": "one millimetre is how many metres",
+            "answer": "0.001"
+          },
+          {
+            "id": "fact.units.m-km",
+            "display": "1 m = __ km",
+            "spoken": "one metre is how many kilometres",
+            "answer": "0.001"
+          },
+          {
+            "id": "fact.units.g-kg",
+            "display": "1 g = __ kg",
+            "spoken": "one gram is how many kilograms",
+            "answer": "0.001"
+          },
+          {
+            "id": "fact.units.ml-l",
+            "display": "1 mL = __ L",
+            "spoken": "one millilitre is how many litres",
+            "answer": "0.001"
+          },
+          {
+            "id": "fact.units.min-s",
+            "display": "1 min = __ s",
+            "spoken": "one minute is how many seconds",
+            "answer": "60"
+          },
+          {
+            "id": "fact.units.h-min",
+            "display": "1 h = __ min",
+            "spoken": "one hour is how many minutes",
+            "answer": "60"
+          }
+        ],
+        "strategy": {
+          "intro": "The first part of the unit name tells you the size.",
+          "lines": [
+            {
+              "label": "kilo",
+              "text": "A thousand. 1 km = 1000 m and 1 kg = 1000 g."
+            },
+            {
+              "label": "centi",
+              "text": "A hundredth. 1 m = 100 cm, so 1 cm = 0.01 m."
+            },
+            {
+              "label": "milli",
+              "text": "A thousandth. 1 m = 1000 mm and 1 L = 1000 mL, so 1 mL = 0.001 L."
+            },
+            {
+              "label": "cm and mm",
+              "text": "10 mm in 1 cm, so 1 mm = 0.1 cm."
+            },
+            {
+              "label": "Small unit to big unit",
+              "text": "The answer is a decimal."
+            },
+            {
+              "label": "Time",
+              "text": "60 twice. 60 seconds in a minute, 60 minutes in an hour."
+            }
+          ],
+          "example": null
+        }
+      }
+    ],
+    "year_scope": {
+      "7": {
+        "adds": [
+          "fact.mult.to-12",
+          "fact.div.to-12",
+          "fact.square.to-144",
+          "fact.cube.to-125",
+          "fact.fdp.to-decimal",
+          "fact.fdp.to-percent",
+          "fact.units",
+          "fact.root.square"
+        ],
+        "description": "Times tables, squares, cubes, fraction equivalents, unit relationships and square roots"
+      },
+      "8": {
+        "adds": [
+          "fact.root.cube",
+          "fact.int.add",
+          "fact.int.subtract"
+        ],
+        "description": "adds cube roots and adding and subtracting negatives"
+      },
+      "9": {
+        "adds": [
+          "fact.int.multiply",
+          "fact.int.divide"
+        ],
+        "description": "adds multiplying and dividing negatives"
+      },
+      "10": {
+        "adds": [],
+        "description": null
+      }
+    },
+    "fraction_names": {
+      "2": {
+        "one": "half",
+        "many": "halves"
+      },
+      "4": {
+        "one": "quarter",
+        "many": "quarters"
+      },
+      "5": {
+        "one": "fifth",
+        "many": "fifths"
+      },
+      "10": {
+        "one": "tenth",
+        "many": "tenths"
+      }
+    }
+  }
 }

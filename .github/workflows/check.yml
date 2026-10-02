@@ -45,6 +45,14 @@ jobs:
         # validates, under the same CI.
         run: node validate.js curriculum-graph.json
 
+      - name: "Fact-scope registry — regenerates with no diff, contract gate (D43)"
+        # The generator is also the gate: it fails, writing nothing, on any
+        # contract violation (kinds, flags, placeholders, ids, retired ids,
+        # answer characters, fraction names, markup, year placement).
+        run: |
+          python3 scripts/generate_fact_registry.py curriculum-graph.json --retired fact-ids-retired.txt
+          git diff --exit-code -- fact-scope-registry.json
+
       - name: "Glossary — well-formed, unique, NZ-only bodies, retire-not-rename (D40)"
         # The base is the PR's base commit, or the previous tip of main on a
         # push. A base git cannot resolve FAILS the step; it never skips.

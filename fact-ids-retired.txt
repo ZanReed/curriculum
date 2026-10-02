@@ -1,0 +1,4 @@
+# Retired fact-scope ids: family ids and listed-fact ids (D43 note 2026-10-03).
+# Append-only. Never delete a line. An id listed here may never appear in the
+# graph's fact_scope again: to change what a fact means, retire its id here and
+# issue a new one. scripts/generate_fact_registry.py fails if a retired id reappears.

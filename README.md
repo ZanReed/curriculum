@@ -25,7 +25,7 @@ live in the catalogue). By ruling (curriculum side,
 the hand-carried-copy failure with a new name. This repo carries
 `decision-log-additions.md` (D18–D42 plus amendments).
 
-## The six checks (`.github/workflows/check.yml`)
+## The seven checks (`.github/workflows/check.yml`)
 
 1. **Principles sync** — the graph's `authoring_principles` field is
    byte-identical to `authoring-principles.md`. Single-source rule
@@ -52,7 +52,15 @@ the hand-carried-copy failure with a new name. This repo carries
 
 5. **Thread checks** — `node validate.js <graph>`: the curriculum-owned §11
    thread checks.
-6. **Glossary check** (D40) —
+6. **Fact-scope registry** (D43) —
+   `python3 scripts/generate_fact_registry.py curriculum-graph.json` regenerates
+   `fact-scope-registry.json` from the graph's `fact_scope` and
+   `activity_defaults.fact_probe`; CI fails on any diff, and the generator itself
+   fails on any contract violation (unknown kind, flag or placeholder; missing,
+   duplicate or retired id; answer outside D43 item 19; markup in strategy text).
+   To retire a fact or family id, append it to `fact-ids-retired.txt`; never edit
+   a fact in place under the same id.
+7. **Glossary check** (D40) —
    `python3 scripts/check_glossary.py glossary.md --retired glossary-retired.txt --base <ref>`.
 
 To retire a glossary entry, delete it from `glossary.md` and append its id to
@@ -75,7 +83,10 @@ To retire a glossary entry, delete it from `glossary.md` and append its id to
 | `chain-registry.txt` | hand-maintained, no stamp (titles are authored prose) |
 | `glossary.md` | the course glossary (D40) — hand-authored, the only edit surface for glossary words; the platform mirrors it via `import:batch --glossary` |
 | `glossary-retired.txt` | retired glossary ids — hand-maintained, append-only, never reused (D40) |
+| `fact-scope-registry.json` | GENERATED — never hand-edit. The fluency fact scope for the platform's probe and sprint (D43): families, fact counts, year scope, single values, templates, strategies; header carries a content-hash revision id |
+| `fact-ids-retired.txt` | retired fact-scope ids — hand-maintained, append-only, never reused (D43 note 2026-10-03) |
 | `generate-registries.py` | produces the three registries and the misconception attachments, with a notation gate |
+| `scripts/generate_fact_registry.py` | produces `fact-scope-registry.json` from the graph, with the fact-scope contract gate |
 | `partition-check.py` | gates check 3 |
 | `fd-check.py` | report, never a gate: functional dependencies in the capability registry (D27) |
 | `pair-attachment-report.py` | report, never a gate: one-sided pair-confusion attachments (B10; platform-written, runs here) |
@@ -107,7 +118,7 @@ platform-side work; it joins when rebuilt against current schema and code.
 Once CI is green on `main`, the platform side's boundary page carries:
 
 > Canonical: `<raw URL>` · Generation stamp: commit `<sha>`, `<timestamp>` ·
-> sha256 `<hash>` · Currency guarantee: the six checks fail CI on drift,
+> sha256 `<hash>` · Currency guarantee: the seven checks fail CI on drift,
 > so the copy on `main` is current by construction.
 
 Refreshing that stamp after changes is part of landing them, same as the
