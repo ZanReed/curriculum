@@ -1334,3 +1334,10 @@ passed. Zan checked every quoted Phase 2, Phase 3 (Y8) and Phase 4 line against 
 pages, and all matched exactly. The lines stay cited by phase, year and strand. No S-numbers
 are assigned, because the check confirmed wording, not page position. The 13 strategy texts in
 `proposals/fact-scope-registry.md` section 7 were approved as written by Zan the same day.
+
+*Note (2026-10-02, later).* Two registry rulings by Zan, on the platform's B-23, recorded in
+`proposals/fact-scope-registry.md` revision 5: (1) the named flag list is two flags,
+`at_least_one_negative` (stated on the displayed operands, for integer add, multiply and divide)
+and `exclude_plain_whole`; the former `at_least_one_shown_negative` meant the same thing and is
+dropped. (2) Strategy text is stored as structured fields (`intro`, `lines` of label and text,
+`example`) with no markup; the platform lays it out.
