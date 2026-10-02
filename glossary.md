@@ -425,17 +425,17 @@ decimal, the third digit after the point counts thousandths.
 ---
 id: gloss.kilo
 term: kilo
-The start of a metric unit's name that means a thousand of that unit. A kilometre
+A prefix on a metric unit's name that means a thousand of that unit. A kilometre
 (km) is 1000 metres, and a kilogram (kg) is 1000 grams.
 ---
 id: gloss.centi
 term: centi
-The start of a metric unit's name that means a hundredth of that unit. A
+A prefix on a metric unit's name that means a hundredth of that unit. A
 centimetre (cm) is a hundredth of a metre, so there are 100 cm in a metre.
 ---
 id: gloss.milli
 term: milli
-The start of a metric unit's name that means a thousandth of that unit. A
+A prefix on a metric unit's name that means a thousandth of that unit. A
 millimetre (mm) is a thousandth of a metre, and a millilitre (mL) is a thousandth
 of a litre.
 ```
