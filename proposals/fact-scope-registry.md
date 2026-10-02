@@ -1,6 +1,6 @@
 # Fact-scope registry: first draft (families, scope, criteria, templates)
 
-`status: draft` (proposal; not yet in the graph). Revision 2, 2 Oct: the platform's B-22 points ruled (named flags, fact counts in the file, "as a decimal" shown to students) and the strategy texts added (section 7). Revision 3, 2 Oct: `fact.units` added as a listed family (section 2b; D43 items 31–33). Revision 4, 2 Oct: quote check passed; section 7 approved. R1–R4 were ruled as D43 items 27–30
+`status: draft` (proposal; not yet in the graph). Revision 2, 2 Oct: the platform's B-22 points ruled (named flags, fact counts in the file, "as a decimal" shown to students) and the strategy texts added (section 7). Revision 3, 2 Oct: `fact.units` added as a listed family (section 2b; D43 items 31–33). Revision 4, 2 Oct: quote check passed; section 7 approved. Revision 5, 2 Oct: strategy texts stored as structured lines (four reworded and re-approved); the platform's B-23 points (fact ids, family kind, one negative-number flag, Y7 description). R1–R4 were ruled as D43 items 27–30
 (curriculum PR #15, merge `8c108e5`). The placeholder fix from the builder's 2 Oct review is in
 section 2, and the fact counts were re-run against the rewritten rows on 2 Oct: all twelve are
 unchanged. Written 2 Oct 2026 for the 1 December artifacts (the platform's A4 ruling). It
@@ -127,24 +127,26 @@ them.
 **This is the first family whose facts are listed rather than generated.** Each fact carries
 its own display string, spoken string and answer, so it needs no `{a}`/`{b}` placeholders. That
 is a new family type and goes to the platform as an ask-back. Its count guard (item 31) is the
-length of the list.
+length of the list. Each listed fact has a stable id, `fact.units.<from>-<to>` with lower-case
+unit symbols; once published, an id is never reused for a different fact (the same rule as
+misconception ids).
 
-| # | display | spoken | answer |
-|---|---|---|---|
-| 1 | `1 cm = __ mm` | "one centimetre is how many millimetres" | 10 |
-| 2 | `1 m = __ cm` | "one metre is how many centimetres" | 100 |
-| 3 | `1 m = __ mm` | "one metre is how many millimetres" | 1000 |
-| 4 | `1 km = __ m` | "one kilometre is how many metres" | 1000 |
-| 5 | `1 kg = __ g` | "one kilogram is how many grams" | 1000 |
-| 6 | `1 L = __ mL` | "one litre is how many millilitres" | 1000 |
-| 7 | `1 mm = __ cm` | "one millimetre is how many centimetres" | 0.1 |
-| 8 | `1 cm = __ m` | "one centimetre is how many metres" | 0.01 |
-| 9 | `1 mm = __ m` | "one millimetre is how many metres" | 0.001 |
-| 10 | `1 m = __ km` | "one metre is how many kilometres" | 0.001 |
-| 11 | `1 g = __ kg` | "one gram is how many kilograms" | 0.001 |
-| 12 | `1 mL = __ L` | "one millilitre is how many litres" | 0.001 |
-| 13 | `1 min = __ s` | "one minute is how many seconds" | 60 |
-| 14 | `1 h = __ min` | "one hour is how many minutes" | 60 |
+| # | id | display | spoken | answer |
+|---|---|---|---|---|
+| 1 | `fact.units.cm-mm` | `1 cm = __ mm` | "one centimetre is how many millimetres" | 10 |
+| 2 | `fact.units.m-cm` | `1 m = __ cm` | "one metre is how many centimetres" | 100 |
+| 3 | `fact.units.m-mm` | `1 m = __ mm` | "one metre is how many millimetres" | 1000 |
+| 4 | `fact.units.km-m` | `1 km = __ m` | "one kilometre is how many metres" | 1000 |
+| 5 | `fact.units.kg-g` | `1 kg = __ g` | "one kilogram is how many grams" | 1000 |
+| 6 | `fact.units.l-ml` | `1 L = __ mL` | "one litre is how many millilitres" | 1000 |
+| 7 | `fact.units.mm-cm` | `1 mm = __ cm` | "one millimetre is how many centimetres" | 0.1 |
+| 8 | `fact.units.cm-m` | `1 cm = __ m` | "one centimetre is how many metres" | 0.01 |
+| 9 | `fact.units.mm-m` | `1 mm = __ m` | "one millimetre is how many metres" | 0.001 |
+| 10 | `fact.units.m-km` | `1 m = __ km` | "one metre is how many kilometres" | 0.001 |
+| 11 | `fact.units.g-kg` | `1 g = __ kg` | "one gram is how many kilograms" | 0.001 |
+| 12 | `fact.units.ml-l` | `1 mL = __ L` | "one millilitre is how many litres" | 0.001 |
+| 13 | `fact.units.min-s` | `1 min = __ s` | "one minute is how many seconds" | 60 |
+| 14 | `fact.units.h-min` | `1 h = __ min` | "one hour is how many minutes" | 60 |
 
 **Kept out:**
 - The reverse time facts (1 s = 1/60 min): they can't be typed as exact answers (item 19).
@@ -170,7 +172,7 @@ With `fact.units`, the worst case at Y9–10 is 65 × 15 s, about 16 minutes. It
 (once a term, own sitting allowed) still applies.
 
 **Teacher descriptions (optional, item 18):**
-- Y7: "Times tables, squares, cubes, fraction equivalents and square roots"
+- Y7: "Times tables, squares, cubes, fraction equivalents, unit relationships and square roots"
 - Y8: adds "cube roots and adding and subtracting negatives"
 - Y9–10: adds "multiplying and dividing negatives"
 
@@ -252,6 +254,7 @@ outside this table is an error that the generator should catch. NZ usage is "qua
 ```json
 {
   "id": "fact.int.subtract",
+  "kind": "generated",
   "name": "Subtracting integers",
   "source_year": 8,
   "operation": "subtract",
@@ -265,23 +268,27 @@ outside this table is an error that the generator should catch. NZ usage is "qua
   "weight": 1,
   "display": "{a} − {b} = __",
   "spoken": "{a} minus {b}",
-  "strategy": null
+  "strategy": { "intro": null, "lines": [ { "label": "", "text": "…" } ], "example": "…" }
 }
 ```
 
+Every family carries `kind`, either `generated` (from `generate`/`shown`/`answer`) or `listed`
+(from a list of facts, each with id, display, spoken and answer). A family with both or neither
+is invalid. Twelve families are `generated`; `fact.units` is `listed`.
+
 **Range rules are named flags, not an expression language (ruled by Zan 2 Oct, on the
 platform's B-22).** The platform implements and tests a fixed list. A new flag goes to the
-platform as a question first. The twelve families need exactly three:
+platform as a question first. The families need exactly two:
 
 | flag | meaning (in displayed terms) | families |
 |---|---|---|
-| `at_least_one_negative` | `{a}` or `{b}` is negative | `fact.int.add`, `fact.int.multiply` |
+| `at_least_one_negative` | `{a}` or `{b}`, as displayed, is negative | `fact.int.add`, `fact.int.multiply`, `fact.int.divide` |
 | `exclude_plain_whole` | drops facts where `{a}` > 0, `{b}` > 0 and `{a}` ≥ `{b}` | `fact.int.subtract` |
-| `at_least_one_shown_negative` | `{a}` or `{b}` (the displayed dividend or divisor) is negative | `fact.int.divide` |
 
-For integer divide the flag is stated on the *displayed* operands, because the dividend is the
-derived x·y. It gives the same 243 facts as the generating-variable wording in section 2. Zero
-exclusions stay as each operand's `exclude` list, not as flags.
+Flags are stated on the displayed operands, so for integer divide `at_least_one_negative` reads
+the displayed dividend (x·y) and divisor (revision 5, on the platform's B-23: one flag instead
+of two that meant the same thing). Counts re-checked: 155, 126 and 243. Zero exclusions stay as
+each operand's `exclude` list, not as flags.
 
 The `{b-fraction-name}` table (section 5) travels in the machine-readable registry as one entry
 per denominator with a singular and a plural form; the platform's importer fills it at import
@@ -289,40 +296,125 @@ and fails on a missing denominator (platform record CR-22).
 
 ---
 
-## 7. Strategy text (revision 2, drafted 2 Oct 2026)
+## 7. Strategy text (revision 5, 2 Oct 2026)
 
-`status: approved. Option (a) ruled by Zan 2 Oct; all 13 texts approved as written by Zan 2 Oct.`
-One fixed text per family with one worked example, the same for every fact in the family. It
-needs no new template syntax, so no amendment or ask-back. A family moves to (b) or (c) only if
-classroom data shows its generic text isn't working. The texts are needed before the sprint
-goes live, not for the probe.
+`status: approved.` Option (a) ruled by Zan 2 Oct: one fixed strategy per family, the same for
+every fact in the family. Nine texts approved as written by Zan 2 Oct; the four reworded texts
+(`fact.mult.to-12`, `fact.units`, `fact.fdp.to-decimal`, `fact.fdp.to-percent`) re-approved by
+Zan 2 Oct. Needed before the sprint goes live, not for the probe.
+
+**Stored as structured fields, no markup** (on the platform's B-23). Each family's `strategy`
+has `intro` (an optional opening sentence, or `null`), `lines` (one `{ "label", "text" }` per
+move; paragraph families have one line with an empty label) and `example` (one worked example in
+plain text, or `null` where the lines carry the examples). The platform lays out labels and
+lines itself; nothing in the text is markup. Reworded families are lists of moves a student
+scans for their own fact; one-idea families stay as a single paragraph line, wording unchanged.
 
 Rules applied:
-- §11 language: NZ terms, Y7 reading level, one short paragraph per family.
+- §11 language: NZ terms, Y7 reading level.
 - "Negative" for a number's sign, "minus" for subtraction (item 26).
 - True minus signs, and brackets round a negative second operand (item 21).
 - No graph-key values restated (D25).
 - No inline definitions (D40); terms are flagged below instead.
+- No markup characters (checked by script).
 
-| id | strategy |
-|---|---|
-| `fact.mult.to-12` | Don't count up. Build from facts you know: ×2 is double, ×10 is easy, and ×5 is half of ×10. ×4 is double, then double again. ×8 is double three times. ×9 is ×10 take away one group. ×11 and ×12 are ×10 plus one or two more groups. If one way round is easier, swap the order: 7 × 8 is the same as 8 × 7. *Example:* 7 × 8 → 7 × 4 = 28, and double 28 is 56. |
-| `fact.div.to-12` | Think multiplication. Every division fact is a times-table fact read backwards. *Example:* for 56 ÷ 7, ask "what number times 7 makes 56?" You know 7 × 8 = 56, so 56 ÷ 7 = 8. |
-| `fact.square.to-144` | 7² means 7 × 7, so every square is a times-table fact. If you're stuck on a big one, use ×10 and add the extra groups. *Example:* 12² = 12 × 10 + 12 × 2 = 120 + 24 = 144. |
-| `fact.cube.to-125` | 4³ means 4 × 4 × 4. Find the square first, then multiply once more. There are only five to know: 1, 8, 27, 64, 125. Say them in order until they stick. *Example:* 4² = 16, and 16 × 4 = 64, so 4³ = 64. |
-| `fact.fdp.to-decimal` | Use halves, quarters and tenths as landmarks. A half is 0.5, and a quarter is half of that, 0.25. A tenth is 0.1, and a fifth is two tenths, 0.2. Then count how many you have. *Example:* three quarters is three lots of 0.25, so 3/4 = 0.75. |
-| `fact.fdp.to-percent` | Percent means out of 100, so think of the fraction as hundredths. A half is 50 out of 100, a quarter is 25, a tenth is 10 and a fifth is 20. Then count how many you have. *Example:* four fifths is four lots of 20, so 4/5 = 80%. |
-| `fact.root.square` | Go backwards from the square numbers. √49 asks "what number times itself makes 49?" Learn the squares and the roots come with them. *Example:* 7 × 7 = 49, so √49 = 7. |
-| `fact.root.cube` | Go backwards from the cube numbers. ∛64 asks "what number times itself three times makes 64?" There are only five: 1, 8, 27, 64 and 125 go back to 1, 2, 3, 4 and 5. *Example:* 4 × 4 × 4 = 64, so ∛64 = 4. |
-| `fact.int.add` | Picture a number line and start at the first number. Adding a positive number moves right. Adding a negative number moves left. *Example:* for 4 + (−6), start at 4 and move 6 to the left. You land on −2. |
-| `fact.int.subtract` | Subtracting a negative number is the same as adding the positive one. Subtracting a positive number moves left on the number line. If it helps, turn the subtraction into an addition first. *Example:* 3 − (−5) = 3 + 5 = 8. |
-| `fact.int.multiply` | Multiply the numbers as if they were both positive, then decide the sign. Same signs give a positive answer. Different signs give a negative answer. *Example:* for −6 × 7 the signs are different, so the answer is −42. For −6 × (−7) the signs are the same, so it's 42. |
-| `fact.int.divide` | Think multiplication, then use the same sign rule as multiplying. *Example:* for −42 ÷ 6, ask "what times 6 makes 42?" That's 7. The signs are different, so −42 ÷ 6 = −7. |
-| `fact.units` | The first part of the unit name tells you the size. *Kilo* means a thousand, so 1 km is 1000 m and 1 kg is 1000 g. *Centi* means a hundredth, so there are 100 cm in a metre. *Milli* means a thousandth, so there are 1000 mm in a metre and 1000 mL in a litre. Going the other way, from a small unit to a big one, the answer is a decimal. For time, remember 60 twice: 60 seconds in a minute and 60 minutes in an hour. *Example:* 1 cm = 0.01 m, because a centimetre is a hundredth of a metre. |
+```json
+{
+  "fact.mult.to-12": {
+    "intro": "Don't count up. Start from a fact you know.",
+    "lines": [
+      { "label": "×2, ×4, ×8", "text": "Double. 4 × 7 is double 2 × 7, so 28. For ×8, double three times." },
+      { "label": "×5", "text": "Half of ×10. 5 × 8 is half of 80, so 40." },
+      { "label": "×9", "text": "×10, then take away one group. 9 × 6 is 60 − 6, so 54." },
+      { "label": "×11, ×12", "text": "×10, then add one or two groups. 12 × 7 is 70 + 14, so 84." },
+      { "label": "×3, ×6, ×7", "text": "Build from a fact next door. 6 × 7 is 5 × 7 + 7, so 42." },
+      { "label": "Stuck?", "text": "Swap the order. 7 × 8 is the same as 8 × 7." }
+    ],
+    "example": null
+  },
+  "fact.div.to-12": {
+    "intro": null,
+    "lines": [ { "label": "", "text": "Think multiplication. Every division fact is a times-table fact read backwards." } ],
+    "example": "For 56 ÷ 7, ask \"what number times 7 makes 56?\" You know 7 × 8 = 56, so 56 ÷ 7 = 8."
+  },
+  "fact.square.to-144": {
+    "intro": null,
+    "lines": [ { "label": "", "text": "7² means 7 × 7, so every square is a times-table fact. If you're stuck on a big one, use ×10 and add the extra groups." } ],
+    "example": "12² = 12 × 10 + 12 × 2 = 120 + 24 = 144."
+  },
+  "fact.cube.to-125": {
+    "intro": null,
+    "lines": [ { "label": "", "text": "4³ means 4 × 4 × 4. Find the square first, then multiply once more. There are only five to know: 1, 8, 27, 64, 125. Say them in order until they stick." } ],
+    "example": "4² = 16, and 16 × 4 = 64, so 4³ = 64."
+  },
+  "fact.fdp.to-decimal": {
+    "intro": "Learn four landmarks, then count how many you have.",
+    "lines": [
+      { "label": "half", "text": "0.5" },
+      { "label": "quarter", "text": "0.25 (half of a half)" },
+      { "label": "tenth", "text": "0.1" },
+      { "label": "fifth", "text": "0.2 (two tenths)" }
+    ],
+    "example": "Three quarters is 3 × 0.25, so 3/4 = 0.75."
+  },
+  "fact.fdp.to-percent": {
+    "intro": "Percent means out of 100. Learn four landmarks, then count how many you have.",
+    "lines": [
+      { "label": "half", "text": "50%" },
+      { "label": "quarter", "text": "25%" },
+      { "label": "tenth", "text": "10%" },
+      { "label": "fifth", "text": "20% (two tenths)" }
+    ],
+    "example": "Four fifths is 4 × 20, so 4/5 = 80%."
+  },
+  "fact.root.square": {
+    "intro": null,
+    "lines": [ { "label": "", "text": "Go backwards from the square numbers. √49 asks \"what number times itself makes 49?\" Learn the squares and the roots come with them." } ],
+    "example": "7 × 7 = 49, so √49 = 7."
+  },
+  "fact.root.cube": {
+    "intro": null,
+    "lines": [ { "label": "", "text": "Go backwards from the cube numbers. ∛64 asks \"what number times itself three times makes 64?\" There are only five: 1, 8, 27, 64 and 125 go back to 1, 2, 3, 4 and 5." } ],
+    "example": "4 × 4 × 4 = 64, so ∛64 = 4."
+  },
+  "fact.int.add": {
+    "intro": null,
+    "lines": [ { "label": "", "text": "Picture a number line and start at the first number. Adding a positive number moves right. Adding a negative number moves left." } ],
+    "example": "For 4 + (−6), start at 4 and move 6 to the left. You land on −2."
+  },
+  "fact.int.subtract": {
+    "intro": null,
+    "lines": [ { "label": "", "text": "Subtracting a negative number is the same as adding the positive one. Subtracting a positive number moves left on the number line. If it helps, turn the subtraction into an addition first." } ],
+    "example": "3 − (−5) = 3 + 5 = 8."
+  },
+  "fact.int.multiply": {
+    "intro": null,
+    "lines": [ { "label": "", "text": "Multiply the numbers as if they were both positive, then decide the sign. Same signs give a positive answer. Different signs give a negative answer." } ],
+    "example": "For −6 × 7 the signs are different, so the answer is −42. For −6 × (−7) the signs are the same, so it's 42."
+  },
+  "fact.int.divide": {
+    "intro": null,
+    "lines": [ { "label": "", "text": "Think multiplication, then use the same sign rule as multiplying." } ],
+    "example": "For −42 ÷ 6, ask \"what times 6 makes 42?\" That's 7. The signs are different, so −42 ÷ 6 = −7."
+  },
+  "fact.units": {
+    "intro": "The first part of the unit name tells you the size.",
+    "lines": [
+      { "label": "kilo", "text": "A thousand. 1 km = 1000 m and 1 kg = 1000 g." },
+      { "label": "centi", "text": "A hundredth. 1 m = 100 cm, so 1 cm = 0.01 m." },
+      { "label": "milli", "text": "A thousandth. 1 m = 1000 mm and 1 L = 1000 mL, so 1 mL = 0.001 L." },
+      { "label": "cm and mm", "text": "10 mm in 1 cm, so 1 mm = 0.1 cm." },
+      { "label": "Small unit to big unit", "text": "The answer is a decimal." },
+      { "label": "Time", "text": "60 twice. 60 seconds in a minute, 60 minutes in an hour." }
+    ],
+    "example": null
+  }
+}
+```
 
-**The worked examples were checked by script.** Every example equation is true: 7×8=56,
-56÷7=8, 12²=144, 4³=64, 3/4=0.75, 4/5=80%, √49=7, ∛64=4, 4+(−6)=−2, 3−(−5)=8, −6×7=−42,
-−6×(−7)=42, −42÷6=−7.
+**The worked examples were checked by script.** Every example equation is true: 4×7=28,
+5×8=40, 9×6=54, 12×7=84, 6×7=42, 56÷7=8, 12²=144, 4³=64, 3/4=0.75, 4/5=80%, √49=7, ∛64=4,
+4+(−6)=−2, 3−(−5)=8, −6×7=−42, −6×(−7)=42, −42÷6=−7, and the unit facts quoted in `fact.units`.
 
 **Glossary flags (D40).** The texts use terms the glossary doesn't have yet. None is defined
 inline. They should come in with the Y7 number chains' glossary words, before those chains'
@@ -332,7 +424,6 @@ activities:
 - *percent* / *percentage*, *decimal*, *tenth*, *hundredth*;
 - *kilo-*, *centi-*, *milli-* (the prefixes), *thousandth* (for `fact.units`).
 
-**Option (a)'s known cost:** the multiplication text has to cover 66 facts in one paragraph, so it
-lists several moves and the student picks the one that fits their fact. If that proves too
-much at Y7 reading level, multiplication is the first candidate for option (c), with
-strategies keyed to the multiplier.
+**Option (a)'s known cost:** one text serves every fact in a family. Revision 5 eased this for
+multiplication by laying the moves out as labelled lines keyed to the multiplier. If classroom
+data shows a family's text still isn't landing, that family moves to option (c).
