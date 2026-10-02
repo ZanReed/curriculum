@@ -1,6 +1,6 @@
 # Fact-scope registry: first draft (families, scope, criteria, templates)
 
-`status: draft` (proposal; not yet in the graph). Revision 2, 2 Oct: the platform's B-22 points ruled (named flags, fact counts in the file, "as a decimal" shown to students) and the strategy texts added (section 7). Revision 3, 2 Oct: `fact.units` added as a listed family (section 2b; D43 items 31–33). R1–R4 were ruled as D43 items 27–30
+`status: draft` (proposal; not yet in the graph). Revision 2, 2 Oct: the platform's B-22 points ruled (named flags, fact counts in the file, "as a decimal" shown to students) and the strategy texts added (section 7). Revision 3, 2 Oct: `fact.units` added as a listed family (section 2b; D43 items 31–33). Revision 4, 2 Oct: quote check passed; section 7 approved. R1–R4 were ruled as D43 items 27–30
 (curriculum PR #15, merge `8c108e5`). The placeholder fix from the builder's 2 Oct review is in
 section 2, and the fact counts were re-run against the rewritten rows on 2 Oct: all twelve are
 unchanged. Written 2 Oct 2026 for the 1 December artifacts (the platform's A4 ruling). It
@@ -12,8 +12,10 @@ working names. The courier maps them into the graph's key when it commits.
 - NZC Phase 3 (Years 7–8): S-numbers from `proposals/y7-nzc-phase.md`; Y8 lines read from the same page
 - NZC Phase 4 (Years 9–10), Number: https://newzealandcurriculum.tahurangi.education.govt.nz/nzc---mathematics-and-statistics-phase-4-years-9-10/5637291579.p
 
-**The Phase 2 and 4 quotes were read through a summarising fetch, not a browser.** They need the
-same verbatim check `proposals/y7-nzc-phase.md` passed before anything cites them as S-numbers.
+**Check status: passed, 2 Oct 2026.** Every quoted Phase 2, Phase 3 (Y8) and Phase 4 line was
+checked word for word against the live pages by Zan; all matched exactly. The check confirmed
+wording, not page position, so these lines are cited by phase, year and strand (Number or
+Measurement), not by S-number.
 
 ---
 
@@ -289,11 +291,11 @@ and fails on a missing denominator (platform record CR-22).
 
 ## 7. Strategy text (revision 2, drafted 2 Oct 2026)
 
-`status: form ruled, texts draft.` **Option (a) ruled by Zan 2 Oct:** one fixed text per family
-with one worked example, the same for every fact in the family. It needs no new template
-syntax, so no amendment or ask-back. A family moves to (b) or (c) only if classroom data shows
-its generic text isn't working. **The twelve texts below are a draft pending Zan's
-read-through.** They are needed before the sprint goes live, not for the probe.
+`status: approved. Option (a) ruled by Zan 2 Oct; all 13 texts approved as written by Zan 2 Oct.`
+One fixed text per family with one worked example, the same for every fact in the family. It
+needs no new template syntax, so no amendment or ask-back. A family moves to (b) or (c) only if
+classroom data shows its generic text isn't working. The texts are needed before the sprint
+goes live, not for the probe.
 
 Rules applied:
 - §11 language: NZ terms, Y7 reading level, one short paragraph per family.

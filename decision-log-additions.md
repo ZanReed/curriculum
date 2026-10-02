@@ -1328,3 +1328,9 @@ Ruled by Zan 2026-10-02, on the builder's candidate list and its three registry 
    - Primes to 50: stays in mixed practice. Item 19's reasons hold.
    *Before citing:* the Phase 2 Measurement quotes behind item 32, like the other Phase 2 and 4
    lines, were read through a summarising fetch and need the word-for-word check.
+
+*Note (2026-10-02).* The word-for-word check that items 30 and 33 required before citing has
+passed. Zan checked every quoted Phase 2, Phase 3 (Y8) and Phase 4 line against the live NZC
+pages, and all matched exactly. The lines stay cited by phase, year and strand. No S-numbers
+are assigned, because the check confirmed wording, not page position. The 13 strategy texts in
+`proposals/fact-scope-registry.md` section 7 were approved as written by Zan the same day.
