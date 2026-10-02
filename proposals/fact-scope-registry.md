@@ -1,6 +1,6 @@
 # Fact-scope registry: first draft (families, scope, criteria, templates)
 
-`status: draft` (proposal; not yet in the graph). R1–R4 were ruled as D43 items 27–30
+`status: draft` (proposal; not yet in the graph). Revision 2, 2 Oct: the platform's B-22 points ruled (named flags, fact counts in the file, "as a decimal" shown to students) and the strategy texts added (section 7). R1–R4 were ruled as D43 items 27–30
 (curriculum PR #15, merge `8c108e5`). The placeholder fix from the builder's 2 Oct review is in
 section 2, and the fact counts were re-run against the rewritten rows on 2 Oct: all twelve are
 unchanged. Written 2 Oct 2026 for the 1 December artifacts (the platform's A4 ruling). It
@@ -96,8 +96,10 @@ are working values for the 1 December artifact, not researched cut-offs (see sec
 
 Fact counts were computed by script under these exact rules, from the displayed operands, with
 turnaround pairs counted once. They were re-run after the placeholder rewrite: 66, 121, 11, 5,
-11, 11, 11, 5, 155, 345, 126, 243, all unchanged. The generator will recompute them, so they're
-here as a check, not as authored values.
+11, 11, 11, 5, 155, 345, 126, 243, all unchanged. The generator writes each family's count into
+the machine-readable file, and the platform's importer stops if its own expansion gives a
+different number (ruled by Zan 2 Oct, on the platform's B-22). Nobody types the counts by hand:
+they are a guard against the two sides expanding a family differently.
 
 **Range notes:**
 - **Exclusions:** ×0 and ×1 are excluded from multiplication and division because they need no
@@ -170,7 +172,7 @@ The platform applies the true minus sign and the brackets round a negative secon
 | `fact.div.to-12` | `{a} ÷ {b} = __` | "{a} divided by {b}" |
 | `fact.square.to-144` | `{a}² = __` | "{a} squared" |
 | `fact.cube.to-125` | `{a}³ = __` | "{a} cubed" |
-| `fact.fdp.to-decimal` | `{a}/{b} = __` (decimal) | "{a} {b-fraction-name} as a decimal" |
+| `fact.fdp.to-decimal` | `{a}/{b} = __ as a decimal` | "{a} {b-fraction-name} as a decimal" |
 | `fact.fdp.to-percent` | `{a}/{b} = __ %` | "{a} {b-fraction-name} as a percentage" |
 | `fact.root.square` | `√{a} = __` | "the square root of {a}" |
 | `fact.root.cube` | `∛{a} = __` | "the cube root of {a}" |
@@ -195,8 +197,7 @@ Singular when `{a}` is 1, plural otherwise. So 3/4 is "three quarters as a decim
 outside this table is an error that the generator should catch. NZ usage is "quarter", not
 "fourth".
 
-**Strategy text** (item 18) isn't in this revision. It's required before the sprint goes live,
-one paragraph per family, and is the next authoring piece after the R-rulings.
+**Strategy text** (item 18) is in section 7: form ruled, texts draft.
 
 ---
 
@@ -210,7 +211,7 @@ one paragraph per family, and is the next authoring piece after the R-rulings.
   "operation": "subtract",
   "generate": { "x": { "min": -10, "max": 10, "exclude": [0] },
                 "y": { "min": -10, "max": 10, "exclude": [0] },
-                "constraint": "not (x > 0 and y > 0 and x >= y)" },
+                "flags": ["exclude_plain_whole"] },
   "shown": { "a": "x", "b": "y" },
   "answer": "x - y",
   "turnaround": false,
@@ -222,6 +223,68 @@ one paragraph per family, and is the next authoring piece after the R-rulings.
 }
 ```
 
-The `constraint` is written as plain text here. Whether it becomes a small expression language
-or a set of named flags (`at_least_one_negative`, `exclude_plain_whole`) is the courier's call
-when encoding. It is an engineering choice, and this side only fixes the meaning.
+**Range rules are named flags, not an expression language (ruled by Zan 2 Oct, on the
+platform's B-22).** The platform implements and tests a fixed list. A new flag goes to the
+platform as a question first. The twelve families need exactly three:
+
+| flag | meaning (in displayed terms) | families |
+|---|---|---|
+| `at_least_one_negative` | `{a}` or `{b}` is negative | `fact.int.add`, `fact.int.multiply` |
+| `exclude_plain_whole` | drops facts where `{a}` > 0, `{b}` > 0 and `{a}` ≥ `{b}` | `fact.int.subtract` |
+| `at_least_one_shown_negative` | `{a}` or `{b}` (the displayed dividend or divisor) is negative | `fact.int.divide` |
+
+For integer divide the flag is stated on the *displayed* operands, because the dividend is the
+derived x·y. It gives the same 243 facts as the generating-variable wording in section 2. Zero
+exclusions stay as each operand's `exclude` list, not as flags.
+
+The `{b-fraction-name}` table (section 5) travels in the machine-readable registry as one entry
+per denominator with a singular and a plural form; the platform's importer fills it at import
+and fails on a missing denominator (platform record CR-22).
+
+---
+
+## 7. Strategy text (revision 2, drafted 2 Oct 2026)
+
+`status: form ruled, texts draft.` **Option (a) ruled by Zan 2 Oct:** one fixed text per family
+with one worked example, the same for every fact in the family. It needs no new template
+syntax, so no amendment or ask-back. A family moves to (b) or (c) only if classroom data shows
+its generic text isn't working. **The twelve texts below are a draft pending Zan's
+read-through.** They are needed before the sprint goes live, not for the probe.
+
+Rules applied:
+- §11 language: NZ terms, Y7 reading level, one short paragraph per family.
+- "Negative" for a number's sign, "minus" for subtraction (item 26).
+- True minus signs, and brackets round a negative second operand (item 21).
+- No graph-key values restated (D25).
+- No inline definitions (D40); terms are flagged below instead.
+
+| id | strategy |
+|---|---|
+| `fact.mult.to-12` | Don't count up. Build from facts you know: ×2 is double, ×10 is easy, and ×5 is half of ×10. ×4 is double, then double again. ×8 is double three times. ×9 is ×10 take away one group. ×11 and ×12 are ×10 plus one or two more groups. If one way round is easier, swap the order: 7 × 8 is the same as 8 × 7. *Example:* 7 × 8 → 7 × 4 = 28, and double 28 is 56. |
+| `fact.div.to-12` | Think multiplication. Every division fact is a times-table fact read backwards. *Example:* for 56 ÷ 7, ask "what number times 7 makes 56?" You know 7 × 8 = 56, so 56 ÷ 7 = 8. |
+| `fact.square.to-144` | 7² means 7 × 7, so every square is a times-table fact. If you're stuck on a big one, use ×10 and add the extra groups. *Example:* 12² = 12 × 10 + 12 × 2 = 120 + 24 = 144. |
+| `fact.cube.to-125` | 4³ means 4 × 4 × 4. Find the square first, then multiply once more. There are only five to know: 1, 8, 27, 64, 125. Say them in order until they stick. *Example:* 4² = 16, and 16 × 4 = 64, so 4³ = 64. |
+| `fact.fdp.to-decimal` | Use halves, quarters and tenths as landmarks. A half is 0.5, and a quarter is half of that, 0.25. A tenth is 0.1, and a fifth is two tenths, 0.2. Then count how many you have. *Example:* three quarters is three lots of 0.25, so 3/4 = 0.75. |
+| `fact.fdp.to-percent` | Percent means out of 100, so think of the fraction as hundredths. A half is 50 out of 100, a quarter is 25, a tenth is 10 and a fifth is 20. Then count how many you have. *Example:* four fifths is four lots of 20, so 4/5 = 80%. |
+| `fact.root.square` | Go backwards from the square numbers. √49 asks "what number times itself makes 49?" Learn the squares and the roots come with them. *Example:* 7 × 7 = 49, so √49 = 7. |
+| `fact.root.cube` | Go backwards from the cube numbers. ∛64 asks "what number times itself three times makes 64?" There are only five: 1, 8, 27, 64 and 125 go back to 1, 2, 3, 4 and 5. *Example:* 4 × 4 × 4 = 64, so ∛64 = 4. |
+| `fact.int.add` | Picture a number line and start at the first number. Adding a positive number moves right. Adding a negative number moves left. *Example:* for 4 + (−6), start at 4 and move 6 to the left. You land on −2. |
+| `fact.int.subtract` | Subtracting a negative number is the same as adding the positive one. Subtracting a positive number moves left on the number line. If it helps, turn the subtraction into an addition first. *Example:* 3 − (−5) = 3 + 5 = 8. |
+| `fact.int.multiply` | Multiply the numbers as if they were both positive, then decide the sign. Same signs give a positive answer. Different signs give a negative answer. *Example:* for −6 × 7 the signs are different, so the answer is −42. For −6 × (−7) the signs are the same, so it's 42. |
+| `fact.int.divide` | Think multiplication, then use the same sign rule as multiplying. *Example:* for −42 ÷ 6, ask "what times 6 makes 42?" That's 7. The signs are different, so −42 ÷ 6 = −7. |
+
+**The worked examples were checked by script.** Every example equation is true: 7×8=56,
+56÷7=8, 12²=144, 4³=64, 3/4=0.75, 4/5=80%, √49=7, ∛64=4, 4+(−6)=−2, 3−(−5)=8, −6×7=−42,
+−6×(−7)=42, −42÷6=−7.
+
+**Glossary flags (D40).** The texts use terms the glossary doesn't have yet. None is defined
+inline. They should come in with the Y7 number chains' glossary words, before those chains'
+activities:
+- *negative number*, *number line*;
+- *square number*, *square root*, *cube number*, *cube root*;
+- *percent* / *percentage*, *decimal*, *tenth*, *hundredth*.
+
+**Option (a)'s known cost:** the multiplication text has to cover 66 facts in one paragraph, so it
+lists several moves and the student picks the one that fits their fact. If that proves too
+much at Y7 reading level, multiplication is the first candidate for option (c), with
+strategies keyed to the multiplier.
