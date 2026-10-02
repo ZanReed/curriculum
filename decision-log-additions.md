@@ -1341,3 +1341,20 @@ are assigned, because the check confirmed wording, not page position. The 13 str
 and `exclude_plain_whole`; the former `at_least_one_shown_negative` meant the same thing and is
 dropped. (2) Strategy text is stored as structured fields (`intro`, `lines` of label and text,
 `example`) with no markup; the platform lays it out.
+
+*Note (2026-10-03). Revision ids and retired ids for the fact-scope registry.* Ruled by Zan on
+the builder's generator design note. These are agreements between the curriculum side and the
+platform, so they're recorded here, not only in code.
+- *Revision id* (items 18 and 25). The registry's revision id is the sha256 of the registry's
+  canonical JSON body, with the generated header excluded. The body includes the single values
+  from `activity_defaults.fact_probe` as well as everything under `fact_scope`, because item 25
+  says one revision covers scope, criteria and single values together. The id therefore changes
+  exactly when something the platform reads changes, and never otherwise. A graph-version bump
+  elsewhere in the graph leaves it unchanged, and the platform can recompute it to confirm what
+  it imported. The same id always means the same content.
+- *Retired ids* (B-23, item 31). Family ids and listed-fact ids (for example
+  `fact.units.cm-mm`) are never reused for different content once published. Retiring an id
+  means adding it to `fact-ids-retired.txt`. That file is append-only, on the same pattern as
+  `glossary-retired.txt` (D40). Nothing is ever deleted from it, and CI fails if a retired id
+  appears in the registry again. To change what a fact means, retire its id and issue a new
+  one. Editing the fact in place under the same id is not allowed.
