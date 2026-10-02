@@ -1358,3 +1358,23 @@ platform, so they're recorded here, not only in code.
   `glossary-retired.txt` (D40). Nothing is ever deleted from it, and CI fails if a retired id
   appears in the registry again. To change what a fact means, retire its id and issue a new
   one. Editing the fact in place under the same id is not allowed.
+
+*Note (2026-10-03). The Y7 stubs enter the graph (D38).* Zan read `proposals/y7-chain-stubs.md`
+end to end and approved it, and ruled six encoding points on the builder's recommendation.
+Graph v0.17.0 adds 50 Y7 skills in 19 chains (61 activities), 66 misconception ids (labels
+and attachments from the stubs' screening), six external prerequisites, and `nzc_phase`
+pointers from `proposals/y7-nzc-phase.md`.
+1. `band_us` is `null` for Y7 skills, and the band map has a Y7 row saying "no US mapping
+   (D36)". A Grade 6 equivalence would be an unchecked claim.
+2. `band` and `band_nz` are both "Y7", matching the existing skills.
+3. `ncea` is empty on all 50 Y7 skills (D31: no NCEA standard assesses Y7 content).
+4. Calculator use, consolidation terminal skills and the confusability reasons stay in the
+   proposal as the reasoning record. Calculator use becomes a ruled graph key (probably per
+   chain) only when the platform or a validator reads it; prose in a note would look enforced
+   when it isn't.
+5. The Y7 chains land with `hooks: []`; the concept bank stays a proposal (D42: full hooks are
+   written just before each chain's activities).
+6. The cross-thread follow-ups (re-pointing thread-01 prerequisites from `ext.arith.fractions`,
+   `ext.arith.signed` and `ext.geom.coordinate-plane`, retiring those ids, and the candidate
+   edge `pattern.linear.graph` → `rate.unit-rate`) wait for their own ruling and PR, because
+   they change existing skills the platform can see. This change only adds.

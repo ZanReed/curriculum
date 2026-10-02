@@ -1,6 +1,6 @@
 # Y7 chain stubs, all six strands (proposal)
 
-`status: draft`. Written 29 Sep 2026. Decision input, not a decision: nothing here is in the
+`status: encoded` — in the graph from v0.17.0 (3 Oct 2026); the graph is now the edit surface for these skills and chains, and this file is the reasoning record. Written 29 Sep 2026. Decision input, not a decision: nothing here is in the
 graph until it lands in a repo commit.
 
 **Sources.** Fetched from `main` on 29 Sep: `README.md`, `thread-01-rate-of-change.json`,
@@ -470,7 +470,7 @@ Rulings, in brief (the tables above already carry them):
 
 ## Before this goes near the graph
 
-- [ ] Zan reads it end-to-end (drafts stay `status: draft` until then).
+- [x] Zan reads it end-to-end (3 Oct 2026: read and approved).
 - [x] Phase 3 page open: both *Verify* items resolved, and `nzc_phase` drafted per skill
   (`proposals/y7-nzc-phase.md`, accepted by Zan 1 Oct).
 - [x] Misconception proposals screened (1 Oct, Zan): see "Misconception screening (1 Oct)" above.

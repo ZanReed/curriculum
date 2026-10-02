@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.16.0",
+  "version": "0.17.0",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -56,6 +56,30 @@
     {
       "id": "ext.geom.coordinate-plane",
       "label": "Plot and read ordered pairs"
+    },
+    {
+      "id": "ext.arith.whole-ops",
+      "label": "Add, subtract, multiply and divide whole numbers"
+    },
+    {
+      "id": "ext.arith.times-tables",
+      "label": "Recall multiplication and division facts (times tables)"
+    },
+    {
+      "id": "ext.measure.metric-units",
+      "label": "Metric units of length, mass and capacity"
+    },
+    {
+      "id": "ext.time.read-clock",
+      "label": "Read the time on analogue and digital clocks"
+    },
+    {
+      "id": "ext.geom.angle-measure",
+      "label": "Measure and draw angles in degrees"
+    },
+    {
+      "id": "ext.geom.shape-names",
+      "label": "Name common 2D and 3D shapes"
     }
   ],
   "misconceptions": [
@@ -198,6 +222,270 @@
     {
       "id": "mis.deriv.reads-f-graph-as-f-prime",
       "label": "Reads the graph of f as if it were the graph of f′ — says f′ is positive where f is positive rather than where f is increasing"
+    },
+    {
+      "id": "mis.place-value.longer-is-larger",
+      "label": "Judges a decimal with more digits after the point to be larger (0.45 > 0.5)"
+    },
+    {
+      "id": "mis.place-value.append-zero",
+      "label": "Multiplies a decimal by 10 by writing a zero on the end (3.4 × 10 = 3.40)"
+    },
+    {
+      "id": "mis.round.cash-per-item",
+      "label": "Rounds each price before adding, instead of rounding the cash total"
+    },
+    {
+      "id": "mis.round.truncates",
+      "label": "Cuts off digits instead of rounding ($4.97 paid in cash as $4.90)"
+    },
+    {
+      "id": "mis.exponent.multiplies-base",
+      "label": "Multiplies the base by the exponent (3⁴ = 12, 7² = 14)"
+    },
+    {
+      "id": "mis.root.halves",
+      "label": "Finds a square root by halving (√64 = 32)"
+    },
+    {
+      "id": "mis.order.left-to-right",
+      "label": "Works strictly left to right, ignoring the order of operations (6 + 4 × 2 = 20)"
+    },
+    {
+      "id": "mis.order.pairs-ranked",
+      "label": "Ranks multiplication above division, or addition above subtraction, instead of working left to right"
+    },
+    {
+      "id": "mis.primes.one-is-prime",
+      "label": "Counts 1 as a prime number"
+    },
+    {
+      "id": "mis.primes.odd-means-prime",
+      "label": "Treats every odd number as prime (9, 15, 91)"
+    },
+    {
+      "id": "mis.divisibility.last-digit-only",
+      "label": "Uses only the last digit where the test needs the digit sum or the last two or three digits (3, 4, 8, 9)"
+    },
+    {
+      "id": "mis.factors.hcf-lcm-swapped",
+      "label": "Gives the HCF when the LCM is asked for, or the reverse"
+    },
+    {
+      "id": "mis.factors.lcm-is-product",
+      "label": "Gives the product as the LCM when a smaller common multiple exists (6 and 8 → 48, not 24)"
+    },
+    {
+      "id": "mis.integers.larger-digit-larger",
+      "label": "Orders negative numbers by size, ignoring the sign (−8 > −3)"
+    },
+    {
+      "id": "mis.integers.subtract-always-smaller",
+      "label": "Believes subtracting always gives a smaller number (5 − (−2) < 5)"
+    },
+    {
+      "id": "mis.integers.sign-ignored",
+      "label": "Adds the sizes and keeps the sign when the signs differ (−4 + 9 = −13)"
+    },
+    {
+      "id": "mis.fractions.add-same",
+      "label": "Adds the same number to top and bottom to make an equivalent fraction (2/3 = 4/5)"
+    },
+    {
+      "id": "mis.fractions.digits-as-decimal",
+      "label": "Writes a fraction's digits as a decimal or percentage (3/5 = 3.5, 1/4 = 14%)"
+    },
+    {
+      "id": "mis.percent.decimal-shift",
+      "label": "Moves the decimal point the wrong number of places to or from a percentage (0.5 = 5%, 0.05 = 50%)"
+    },
+    {
+      "id": "mis.notation.letter-as-object",
+      "label": "Reads a letter as an object or a label rather than a number (a = apples)"
+    },
+    {
+      "id": "mis.notation.juxtaposition-as-digits",
+      "label": "Reads 3n with n = 4 as 34 instead of 3 × 4"
+    },
+    {
+      "id": "mis.like-terms.combine-unlike",
+      "label": "Combines unlike terms (2a + 3b = 5ab)"
+    },
+    {
+      "id": "mis.like-terms.adds-to-power",
+      "label": "Collects repeated addition as a power (x + x = x²)"
+    },
+    {
+      "id": "mis.equations.same-operation",
+      "label": "Applies the operation shown instead of its inverse (x + 5 = 12 → x = 17)"
+    },
+    {
+      "id": "mis.equations.partial-divide",
+      "label": "Divides only some terms on one side (2x + 7 = 31 → x + 7 = 15.5)"
+    },
+    {
+      "id": "mis.equations.one-side-only",
+      "label": "Applies an operation to one side of the equation only"
+    },
+    {
+      "id": "mis.coord.axes-swapped",
+      "label": "Plots or reads (x, y) as (y, x)"
+    },
+    {
+      "id": "mis.pattern.step-as-rule",
+      "label": "Writes the step as an added constant (“add 3” written as t = n + 3)"
+    },
+    {
+      "id": "mis.pattern.first-term-as-constant",
+      "label": "Uses the first term as the constant d (t = 3n + 5 when the first term is 5)"
+    },
+    {
+      "id": "mis.pattern.assumes-proportional",
+      "label": "Treats a linear pattern as proportional, multiplying the first term by n (6, 10, 14 … → 20 tables seat 120)"
+    },
+    {
+      "id": "mis.perimeter.counts-squares",
+      "label": "Counts the squares along the edge instead of the unit lengths, so corners are counted twice or missed"
+    },
+    {
+      "id": "mis.area.same-perimeter-same-area",
+      "label": "Assumes shapes with equal perimeters have equal areas"
+    },
+    {
+      "id": "mis.area.triangle-no-half",
+      "label": "Leaves out the half in ½ × base × height"
+    },
+    {
+      "id": "mis.area.slant-as-height",
+      "label": "Uses the slant side as the height of a triangle"
+    },
+    {
+      "id": "mis.units.area-as-linear",
+      "label": "Gives an area in linear units (cm, not cm²)"
+    },
+    {
+      "id": "mis.area.composite-overlap",
+      "label": "Counts a region twice when splitting a composite shape"
+    },
+    {
+      "id": "mis.units.volume-as-square",
+      "label": "Gives a volume in square units (cm², not cm³)"
+    },
+    {
+      "id": "mis.volume.adds-dimensions",
+      "label": "Adds length, width and height instead of multiplying them"
+    },
+    {
+      "id": "mis.time.decimal-hours",
+      "label": "Treats hours and minutes as a decimal (1:30 as 1.30 h; 13:20 − 10:45 = 2.75)"
+    },
+    {
+      "id": "mis.time.24h-convert",
+      "label": "Converts 24-hour time by subtracting 10 (15:00 = 5 pm)"
+    },
+    {
+      "id": "mis.triangle.orientation-matters",
+      "label": "Believes turning a triangle changes its type (a tilted isosceles triangle is not isosceles)"
+    },
+    {
+      "id": "mis.angles.sum-depends-on-size",
+      "label": "Believes a larger triangle has a larger angle sum"
+    },
+    {
+      "id": "mis.angles.vertical-as-supplementary",
+      "label": "Treats vertically opposite angles as adding to 180° instead of being equal"
+    },
+    {
+      "id": "mis.angles.complement-supplement-swapped",
+      "label": "Uses 180° for complementary angles, or 90° for supplementary"
+    },
+    {
+      "id": "mis.parallel.all-equal",
+      "label": "Believes every angle where a transversal crosses parallel lines is equal"
+    },
+    {
+      "id": "mis.parallel.assumed",
+      "label": "Applies parallel-line angle rules to lines not marked parallel"
+    },
+    {
+      "id": "mis.reflect.translates",
+      "label": "Slides the shape instead of flipping it in the mirror line"
+    },
+    {
+      "id": "mis.reflect.diagonal-as-vertical",
+      "label": "Reflects in a diagonal mirror line as if it were vertical or horizontal"
+    },
+    {
+      "id": "mis.reflect.half-turn-confused",
+      "label": "Confuses a reflection with a 180° rotation"
+    },
+    {
+      "id": "mis.rotate.centre-ignored",
+      "label": "Rotates about a vertex or the middle of the shape instead of the given centre"
+    },
+    {
+      "id": "mis.translate.counts-gaps",
+      "label": "Counts the empty squares between the shape and its image instead of how far one vertex moves"
+    },
+    {
+      "id": "mis.nets.any-six-squares",
+      "label": "Believes any arrangement of six squares folds into a cube"
+    },
+    {
+      "id": "mis.stats.digits-are-numerical",
+      "label": "Classifies data labelled with numbers as numerical (postcodes, jersey numbers)"
+    },
+    {
+      "id": "mis.display.order-meaningful",
+      "label": "Reads a trend across categories whose order means nothing"
+    },
+    {
+      "id": "mis.timeseries.joins-categories",
+      "label": "Uses a line graph for categorical data"
+    },
+    {
+      "id": "mis.mean.drops-zeros",
+      "label": "Leaves zero values out when calculating the mean"
+    },
+    {
+      "id": "mis.summary.measures-swapped",
+      "label": "Calculates one summary measure when another is asked for"
+    },
+    {
+      "id": "mis.median.unsorted",
+      "label": "Takes the middle value without putting the data in order first"
+    },
+    {
+      "id": "mis.median.even-count",
+      "label": "With an even number of values, picks one of the two middle values instead of their mean"
+    },
+    {
+      "id": "mis.range.as-interval",
+      "label": "Writes the range as an interval (“3–12”) instead of a single value"
+    },
+    {
+      "id": "mis.outlier.affects-median-equally",
+      "label": "Believes an outlier changes the median as much as the mean"
+    },
+    {
+      "id": "mis.prob.order-ignored",
+      "label": "Counts outcomes that differ only in order as one (HT and TH)"
+    },
+    {
+      "id": "mis.prob.equiprobability",
+      "label": "Treats all outcomes as equally likely when they are not (a dice total of 2 as likely as 7)"
+    },
+    {
+      "id": "mis.prob.complement-as-reciprocal",
+      "label": "Finds P(not A) as 1 ÷ P(A) instead of 1 − P(A)"
+    },
+    {
+      "id": "mis.prob.small-sample-exact",
+      "label": "Expects the theoretical result exactly from a small number of trials (exactly 5 heads in 10)"
+    },
+    {
+      "id": "mis.prob.gamblers-fallacy",
+      "label": "Believes a result is “due” after a run of the other result"
     }
   ],
   "skills": [
@@ -1296,6 +1584,1159 @@
       },
       "band_nz": "Y13",
       "band_us": "Calculus"
+    },
+    {
+      "id": "number.place-value.decimals",
+      "label": "Read, write, compare and order decimals to hundredths using place value",
+      "band": "Y7",
+      "prereqs": [
+        "ext.arith.whole-ops"
+      ],
+      "misconceptions": [
+        "mis.place-value.longer-is-larger"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Number:S28",
+          "P3.Y7.Number:S51",
+          "P3.Y7.Number:S52"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "number.place-value.powers-of-ten",
+      "label": "Multiply and divide by 10, 100, 1000 as a shift in place value",
+      "band": "Y7",
+      "prereqs": [
+        "number.place-value.decimals"
+      ],
+      "misconceptions": [
+        "mis.place-value.append-zero"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Number:S54",
+          "P3.Y7.Number:S28"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "number.round.cash",
+      "label": "Round to a given place, including NZ cash rounding to the nearest 10c",
+      "band": "Y7",
+      "prereqs": [
+        "number.place-value.decimals"
+      ],
+      "misconceptions": [
+        "mis.round.cash-per-item",
+        "mis.round.truncates"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Number:S55",
+          "P3.Y7.Number:S43"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "number.exponents.evaluate",
+      "label": "Evaluate positive whole-number powers as repeated multiplication; powers of 10",
+      "band": "Y7",
+      "prereqs": [
+        "ext.arith.times-tables",
+        "number.place-value.powers-of-ten"
+      ],
+      "misconceptions": [
+        "mis.exponent.multiplies-base"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Number:S29",
+          "P3.Y7.Number:S33"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "number.roots.square",
+      "label": "Know square numbers to 12² and square roots to √144",
+      "band": "Y7",
+      "prereqs": [
+        "number.exponents.evaluate"
+      ],
+      "misconceptions": [
+        "mis.root.halves",
+        "mis.exponent.multiplies-base"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Number:S33"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "number.operations.order",
+      "label": "Apply the order of operations (GEMA), including grouping and exponents",
+      "band": "Y7",
+      "prereqs": [
+        "number.exponents.evaluate"
+      ],
+      "misconceptions": [
+        "mis.order.left-to-right",
+        "mis.order.pairs-ranked"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Number:S44",
+          "P3.Y7.Number:S45",
+          "P3.Y7.Number:S46"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null,
+      "parts": 2
+    },
+    {
+      "id": "number.primes.classify",
+      "label": "Classify whole numbers as prime or composite",
+      "band": "Y7",
+      "prereqs": [
+        "ext.arith.times-tables"
+      ],
+      "misconceptions": [
+        "mis.primes.one-is-prime",
+        "mis.primes.odd-means-prime"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Number:S30",
+          "P3.Y7.Number:S35"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "number.divisibility.rules",
+      "label": "Use divisibility tests for 2, 3, 4, 5, 6, 8, 9 and 10",
+      "band": "Y7",
+      "prereqs": [
+        "number.primes.classify"
+      ],
+      "misconceptions": [
+        "mis.divisibility.last-digit-only"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Number:S34"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "number.factors.hcf-lcm",
+      "label": "Find the highest common factor of two numbers under 100 and the lowest common multiple of two numbers under 10",
+      "band": "Y7",
+      "prereqs": [
+        "number.divisibility.rules"
+      ],
+      "misconceptions": [
+        "mis.factors.hcf-lcm-swapped",
+        "mis.factors.lcm-is-product"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Number:S31",
+          "P3.Y7.Number:S32",
+          "P3.Y7.Number:S36"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null,
+      "parts": 2
+    },
+    {
+      "id": "number.integers.number-line",
+      "label": "Place, order and compare integers on a number line",
+      "band": "Y7",
+      "prereqs": [
+        "ext.arith.whole-ops"
+      ],
+      "misconceptions": [
+        "mis.integers.larger-digit-larger"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Number:S37",
+          "P3.Y7.Number:S39",
+          "P3.Y7.Number:S40"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "number.integers.additive-inverse",
+      "label": "Use the additive inverse to add and subtract integers on a number line",
+      "band": "Y7",
+      "prereqs": [
+        "number.integers.number-line"
+      ],
+      "misconceptions": [
+        "mis.integers.subtract-always-smaller",
+        "mis.integers.sign-ignored"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Number:S38",
+          "P3.Y7.Number:S41",
+          "P3.Y7.Number:S42"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null,
+      "parts": 2
+    },
+    {
+      "id": "number.fractions.equivalent",
+      "label": "Generate equivalent fractions and write fractions in simplest form",
+      "band": "Y7",
+      "prereqs": [
+        "number.factors.hcf-lcm"
+      ],
+      "misconceptions": [
+        "mis.fractions.add-same"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Number:S47",
+          "P3.Y7.Number:S49",
+          "P3.Y7.Number:S53"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "number.fractions.to-decimal",
+      "label": "Convert fractions to decimals by division and from known benchmarks",
+      "band": "Y7",
+      "prereqs": [
+        "number.fractions.equivalent",
+        "number.place-value.decimals"
+      ],
+      "misconceptions": [
+        "mis.fractions.digits-as-decimal"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Number:S48",
+          "P3.Y7.Number:S52"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "number.percent.hundredths",
+      "label": "Understand percentages as hundredths; convert between fraction, decimal and percentage",
+      "band": "Y7",
+      "prereqs": [
+        "number.fractions.to-decimal"
+      ],
+      "misconceptions": [
+        "mis.percent.decimal-shift",
+        "mis.fractions.digits-as-decimal"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Number:S50",
+          "P3.Y7.Number:S52"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "algebra.notation.write",
+      "label": "Write expressions from words using algebraic conventions (3n, n + 5, n/2)",
+      "band": "Y7",
+      "prereqs": [
+        "ext.arith.whole-ops"
+      ],
+      "misconceptions": [
+        "mis.notation.letter-as-object"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Algebra:S59",
+          "P3.Y7.Algebra:S07"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "algebra.expressions.substitute",
+      "label": "Evaluate an expression by substituting values",
+      "band": "Y7",
+      "prereqs": [
+        "algebra.notation.write",
+        "number.operations.order"
+      ],
+      "misconceptions": [
+        "mis.notation.juxtaposition-as-digits"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Algebra:S12"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "algebra.expressions.like-terms",
+      "label": "Collect like terms",
+      "band": "Y7",
+      "prereqs": [
+        "algebra.notation.write"
+      ],
+      "misconceptions": [
+        "mis.like-terms.combine-unlike",
+        "mis.like-terms.adds-to-power"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Algebra:S61"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "algebra.equations.one-step",
+      "label": "Solve one-step linear equations with integer solutions and check by substituting",
+      "band": "Y7",
+      "prereqs": [
+        "algebra.expressions.substitute"
+      ],
+      "misconceptions": [
+        "mis.equations.same-operation"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Algebra:S58",
+          "P3.Y7.Algebra:S56",
+          "P3.Y7.Algebra:S57"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "algebra.equations.two-step",
+      "label": "Solve two-step linear equations with integer solutions and check by substituting",
+      "band": "Y7",
+      "prereqs": [
+        "algebra.equations.one-step"
+      ],
+      "misconceptions": [
+        "mis.equations.partial-divide",
+        "mis.equations.one-side-only",
+        "mis.equations.same-operation"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Algebra:S58",
+          "P3.Y7.Algebra:S56"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null,
+      "parts": 2
+    },
+    {
+      "id": "algebra.formulae.rearrange",
+      "label": "Rearrange a simple formula to make another letter the subject (P = 4s → s = P/4)",
+      "band": "Y7",
+      "prereqs": [
+        "algebra.equations.two-step"
+      ],
+      "misconceptions": [
+        "mis.equations.same-operation"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Algebra:S60"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "coord.four-quadrant",
+      "label": "Plot and read points in all four quadrants",
+      "band": "Y7",
+      "prereqs": [
+        "number.integers.number-line"
+      ],
+      "misconceptions": [
+        "mis.coord.axes-swapped"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Algebra:S08",
+          "P3.Y7.Algebra:S10"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "pattern.linear.rule",
+      "label": "Find the rule t = a × n + d for a linear pattern from a sequence or table",
+      "band": "Y7",
+      "prereqs": [
+        "algebra.expressions.substitute"
+      ],
+      "misconceptions": [
+        "mis.pattern.step-as-rule",
+        "mis.pattern.first-term-as-constant",
+        "mis.pattern.assumes-proportional"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Algebra:S09",
+          "P3.Y7.Algebra:S11",
+          "P3.Y7.Algebra:S62"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null,
+      "parts": 2
+    },
+    {
+      "id": "pattern.linear.graph",
+      "label": "Graph a linear pattern and connect the step to the steepness and d to the start",
+      "band": "Y7",
+      "prereqs": [
+        "pattern.linear.rule",
+        "coord.four-quadrant"
+      ],
+      "misconceptions": [
+        "mis.pattern.first-term-as-constant",
+        "mis.coord.axes-swapped"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Algebra:S09",
+          "P3.Y7.Algebra:S11"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "measure.perimeter.polygons",
+      "label": "Find the perimeter of polygons, including missing side lengths",
+      "band": "Y7",
+      "prereqs": [
+        "ext.measure.metric-units"
+      ],
+      "misconceptions": [
+        "mis.perimeter.counts-squares",
+        "mis.area.same-perimeter-same-area"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Measurement:S66",
+          "P3.Y7.Measurement:S69"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "measure.area.rect-triangle",
+      "label": "Find the area of rectangles, squares and triangles in square units",
+      "band": "Y7",
+      "prereqs": [
+        "measure.perimeter.polygons"
+      ],
+      "misconceptions": [
+        "mis.area.triangle-no-half",
+        "mis.area.slant-as-height",
+        "mis.units.area-as-linear",
+        "mis.area.same-perimeter-same-area"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Measurement:S63",
+          "P3.Y7.Measurement:S67",
+          "P3.Y7.Measurement:S70"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "measure.area.composite",
+      "label": "Find the area of a composite shape by decomposing it",
+      "band": "Y7",
+      "prereqs": [
+        "measure.area.rect-triangle"
+      ],
+      "misconceptions": [
+        "mis.area.composite-overlap",
+        "mis.area.triangle-no-half",
+        "mis.area.slant-as-height",
+        "mis.units.area-as-linear"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Measurement:S65",
+          "P3.Y7.Measurement:S70"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "measure.volume.cuboid",
+      "label": "Find the volume of cubes and cuboids in cubic units, as layers of unit cubes",
+      "band": "Y7",
+      "prereqs": [
+        "measure.area.rect-triangle"
+      ],
+      "misconceptions": [
+        "mis.units.volume-as-square",
+        "mis.volume.adds-dimensions"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Measurement:S64",
+          "P3.Y7.Measurement:S68",
+          "P3.Y7.Measurement:S71"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "measure.time.duration",
+      "label": "Calculate time durations across hour boundaries, in 12- and 24-hour time",
+      "band": "Y7",
+      "prereqs": [
+        "ext.time.read-clock"
+      ],
+      "misconceptions": [
+        "mis.time.decimal-hours",
+        "mis.time.24h-convert"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Measurement:S72",
+          "P3.Y7.Measurement:S73"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "measure.time.timetables",
+      "label": "Read and use timetables to plan and compare journeys",
+      "band": "Y7",
+      "prereqs": [
+        "measure.time.duration"
+      ],
+      "misconceptions": [
+        "mis.time.24h-convert",
+        "mis.time.decimal-hours"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Measurement:S73"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "geom.triangles.classify",
+      "label": "Classify triangles by sides and by angles",
+      "band": "Y7",
+      "prereqs": [
+        "ext.geom.angle-measure"
+      ],
+      "misconceptions": [
+        "mis.triangle.orientation-matters"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Geometry:S74",
+          "P3.Y7.Geometry:S75",
+          "P3.Y7.Geometry:S76"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "geom.angles.triangle-quad-sum",
+      "label": "Use the angle sums of a triangle (180°) and a quadrilateral (360°) to find missing angles",
+      "band": "Y7",
+      "prereqs": [
+        "geom.triangles.classify"
+      ],
+      "misconceptions": [
+        "mis.angles.sum-depends-on-size"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Geometry:S78"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "geom.angles.relationships",
+      "label": "Use supplementary, complementary, vertical and adjacent angle relationships to find unknown angles",
+      "band": "Y7",
+      "prereqs": [
+        "ext.geom.angle-measure"
+      ],
+      "misconceptions": [
+        "mis.angles.vertical-as-supplementary",
+        "mis.angles.complement-supplement-swapped"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Geometry:S84"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "geom.angles.parallel-transversal",
+      "label": "Find angles where a transversal crosses parallel lines",
+      "band": "Y7",
+      "prereqs": [
+        "geom.angles.relationships"
+      ],
+      "misconceptions": [
+        "mis.parallel.all-equal",
+        "mis.parallel.assumed"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Geometry:S83"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "geom.transform.reflect",
+      "label": "Reflect a shape in a horizontal, vertical or diagonal mirror line",
+      "band": "Y7",
+      "prereqs": [
+        "coord.four-quadrant"
+      ],
+      "misconceptions": [
+        "mis.reflect.translates",
+        "mis.reflect.diagonal-as-vertical",
+        "mis.coord.axes-swapped",
+        "mis.reflect.half-turn-confused"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Geometry:S80"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "geom.transform.rotate",
+      "label": "Rotate a shape by 90°, 180° or 270° about a given centre",
+      "band": "Y7",
+      "prereqs": [
+        "coord.four-quadrant"
+      ],
+      "misconceptions": [
+        "mis.rotate.centre-ignored",
+        "mis.coord.axes-swapped",
+        "mis.reflect.half-turn-confused"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Geometry:S80"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "geom.transform.translate",
+      "label": "Translate a shape by a given vector or description",
+      "band": "Y7",
+      "prereqs": [
+        "coord.four-quadrant"
+      ],
+      "misconceptions": [
+        "mis.translate.counts-gaps",
+        "mis.coord.axes-swapped"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Geometry:S80"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "geom.nets.identify",
+      "label": "Identify and complete nets of cubes, prisms and pyramids",
+      "band": "Y7",
+      "prereqs": [
+        "ext.geom.shape-names"
+      ],
+      "misconceptions": [
+        "mis.nets.any-six-squares"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Geometry:S82",
+          "P3.Y7.Geometry:S81"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "stats.variables.classify",
+      "label": "Classify variables as categorical, discrete numerical or continuous numerical",
+      "band": "Y7",
+      "prereqs": [],
+      "misconceptions": [
+        "mis.stats.digits-are-numerical"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Statistics:S87",
+          "P3.Y7.Statistics:S88",
+          "P3.Y7.Statistics:S89",
+          "P3.Y7.Statistics:S90"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "stats.display.categorical",
+      "label": "Read, draw and choose bar graphs, including stacked and clustered bars",
+      "band": "Y7",
+      "prereqs": [
+        "stats.variables.classify"
+      ],
+      "misconceptions": [
+        "mis.display.order-meaningful",
+        "mis.timeseries.joins-categories"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Statistics:S97",
+          "P3.Y7.Statistics:S98",
+          "P3.Y7.Statistics:S102"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "stats.display.dot-plot",
+      "label": "Read and draw dot plots for categorical data",
+      "band": "Y7",
+      "prereqs": [
+        "stats.variables.classify"
+      ],
+      "misconceptions": [
+        "mis.display.order-meaningful"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Statistics:S97",
+          "P3.Y7.Statistics:S102"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "stats.display.time-series",
+      "label": "Read and draw time-series graphs and describe the change over time",
+      "band": "Y7",
+      "prereqs": [
+        "coord.four-quadrant"
+      ],
+      "misconceptions": [
+        "mis.timeseries.joins-categories"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Statistics:S99",
+          "P3.Y7.Statistics:S102"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "stats.summary.mean",
+      "label": "Calculate and interpret the mean",
+      "band": "Y7",
+      "prereqs": [
+        "ext.arith.whole-ops",
+        "stats.variables.classify"
+      ],
+      "misconceptions": [
+        "mis.mean.drops-zeros",
+        "mis.summary.measures-swapped"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Statistics:S91",
+          "P3.Y7.Statistics:S95"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "stats.summary.median-mode",
+      "label": "Find the median and mode, including an even number of values",
+      "band": "Y7",
+      "prereqs": [
+        "stats.variables.classify"
+      ],
+      "misconceptions": [
+        "mis.median.unsorted",
+        "mis.median.even-count",
+        "mis.summary.measures-swapped"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Statistics:S92",
+          "P3.Y7.Statistics:S93",
+          "P3.Y7.Statistics:S95"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "stats.summary.range",
+      "label": "Find and interpret the range as a measure of spread",
+      "band": "Y7",
+      "prereqs": [
+        "stats.summary.median-mode"
+      ],
+      "misconceptions": [
+        "mis.range.as-interval",
+        "mis.summary.measures-swapped"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Statistics:S94",
+          "P3.Y7.Statistics:S96"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "stats.summary.outlier-effect",
+      "label": "Identify outliers and explain their effect on the mean vs the median",
+      "band": "Y7",
+      "prereqs": [
+        "stats.summary.mean",
+        "stats.summary.median-mode"
+      ],
+      "misconceptions": [
+        "mis.outlier.affects-median-equally"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Statistics:S100",
+          "P3.Y7.Statistics:S101",
+          "P3.Y7.Statistics:S103"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "prob.sample-space.list",
+      "label": "List a sample space systematically using lists, tables and tree diagrams",
+      "band": "Y7",
+      "prereqs": [],
+      "misconceptions": [
+        "mis.prob.order-ignored"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Probability:S108",
+          "P3.Y7.Probability:S111"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null,
+      "parts": 2
+    },
+    {
+      "id": "prob.theoretical.equally-likely",
+      "label": "Find the probability of an event with equally likely outcomes, as a fraction, decimal or percentage",
+      "band": "Y7",
+      "prereqs": [
+        "prob.sample-space.list",
+        "number.percent.hundredths"
+      ],
+      "misconceptions": [
+        "mis.prob.equiprobability",
+        "mis.percent.decimal-shift"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Probability:S109",
+          "P3.Y7.Probability:S110",
+          "P3.Y7.Probability:S113"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "prob.complement",
+      "label": "Use P(not A) = 1 − P(A)",
+      "band": "Y7",
+      "prereqs": [
+        "prob.theoretical.equally-likely"
+      ],
+      "misconceptions": [
+        "mis.prob.complement-as-reciprocal"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Probability:S112",
+          "P3.Y7.Probability:S114"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "prob.experimental.relative-frequency",
+      "label": "Estimate a probability as a relative frequency from trial results",
+      "band": "Y7",
+      "prereqs": [
+        "number.fractions.to-decimal"
+      ],
+      "misconceptions": [
+        "mis.prob.small-sample-exact"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Probability:S105",
+          "P3.Y7.Probability:S106"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "prob.experimental.large-numbers",
+      "label": "Compare experimental and theoretical probability as the number of trials grows",
+      "band": "Y7",
+      "prereqs": [
+        "prob.experimental.relative-frequency",
+        "prob.theoretical.equally-likely"
+      ],
+      "misconceptions": [
+        "mis.prob.gamblers-fallacy",
+        "mis.prob.small-sample-exact"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Probability:S104",
+          "P3.Y7.Probability:S107"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
     }
   ],
   "activity_defaults": {
@@ -1376,6 +2817,11 @@
     "band_labels": {
       "scheme": "dual",
       "map": [
+        {
+          "nz": "Y7",
+          "us": null,
+          "note": "no US mapping (D36)"
+        },
         {
           "nz": "Y8",
           "us": "Grade 7"
@@ -1657,10 +3103,212 @@
         ],
         "activities": 6,
         "hooks": []
+      },
+      {
+        "chain_id": "chain.number.place-value",
+        "thread": "thread.number-proportion",
+        "skills": [
+          "number.place-value.decimals",
+          "number.place-value.powers-of-ten",
+          "number.round.cash"
+        ],
+        "activities": 3,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.number.powers",
+        "thread": "thread.number-proportion",
+        "skills": [
+          "number.exponents.evaluate",
+          "number.roots.square"
+        ],
+        "activities": 2,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.number.order-of-operations",
+        "thread": "thread.number-proportion",
+        "skills": [
+          "number.operations.order"
+        ],
+        "activities": 2,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.number.factors",
+        "thread": "thread.number-proportion",
+        "skills": [
+          "number.primes.classify",
+          "number.divisibility.rules",
+          "number.factors.hcf-lcm"
+        ],
+        "activities": 4,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.number.integers",
+        "thread": "thread.number-proportion",
+        "skills": [
+          "number.integers.number-line",
+          "number.integers.additive-inverse"
+        ],
+        "activities": 3,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.number.fractions",
+        "thread": "thread.number-proportion",
+        "skills": [
+          "number.fractions.equivalent",
+          "number.fractions.to-decimal",
+          "number.percent.hundredths"
+        ],
+        "activities": 4,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.algebra.expressions",
+        "thread": "thread.algebra-equations",
+        "skills": [
+          "algebra.notation.write",
+          "algebra.expressions.substitute",
+          "algebra.expressions.like-terms"
+        ],
+        "activities": 3,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.algebra.equations",
+        "thread": "thread.algebra-equations",
+        "skills": [
+          "algebra.equations.one-step",
+          "algebra.equations.two-step",
+          "algebra.formulae.rearrange"
+        ],
+        "activities": 4,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.pattern.linear",
+        "thread": "thread.algebra-equations",
+        "skills": [
+          "coord.four-quadrant",
+          "pattern.linear.rule",
+          "pattern.linear.graph"
+        ],
+        "activities": 4,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.measure.area-volume",
+        "thread": "thread.measurement",
+        "skills": [
+          "measure.perimeter.polygons",
+          "measure.area.rect-triangle",
+          "measure.area.composite",
+          "measure.volume.cuboid"
+        ],
+        "activities": 5,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.measure.time",
+        "thread": "thread.measurement",
+        "skills": [
+          "measure.time.duration",
+          "measure.time.timetables"
+        ],
+        "activities": 2,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.geom.triangles-polygons",
+        "thread": "thread.geometry-trig",
+        "skills": [
+          "geom.triangles.classify",
+          "geom.angles.triangle-quad-sum"
+        ],
+        "activities": 2,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.geom.parallel-lines",
+        "thread": "thread.geometry-trig",
+        "skills": [
+          "geom.angles.relationships",
+          "geom.angles.parallel-transversal"
+        ],
+        "activities": 2,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.geom.transformations",
+        "thread": "thread.geometry-trig",
+        "skills": [
+          "geom.transform.reflect",
+          "geom.transform.rotate",
+          "geom.transform.translate"
+        ],
+        "activities": 4,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.geom.nets",
+        "thread": "thread.geometry-trig",
+        "skills": [
+          "geom.nets.identify"
+        ],
+        "activities": 1,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.stats.data-displays",
+        "thread": "thread.statistical-enquiry",
+        "skills": [
+          "stats.variables.classify",
+          "stats.display.categorical",
+          "stats.display.dot-plot",
+          "stats.display.time-series"
+        ],
+        "activities": 4,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.stats.summaries",
+        "thread": "thread.statistical-enquiry",
+        "skills": [
+          "stats.summary.mean",
+          "stats.summary.median-mode",
+          "stats.summary.range",
+          "stats.summary.outlier-effect"
+        ],
+        "activities": 5,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.prob.theoretical",
+        "thread": "thread.probability",
+        "skills": [
+          "prob.sample-space.list",
+          "prob.theoretical.equally-likely",
+          "prob.complement"
+        ],
+        "activities": 4,
+        "hooks": []
+      },
+      {
+        "chain_id": "chain.prob.experimental",
+        "thread": "thread.probability",
+        "skills": [
+          "prob.experimental.relative-frequency",
+          "prob.experimental.large-numbers"
+        ],
+        "activities": 3,
+        "hooks": []
       }
     ],
-    "total_skills": 47,
-    "total_activities_projected": 73
+    "total_skills": 97,
+    "total_activities_projected": 134
   },
   "capabilities": [
     {
