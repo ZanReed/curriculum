@@ -1,6 +1,6 @@
 # Fact-scope registry: first draft (families, scope, criteria, templates)
 
-`status: draft` (proposal; not yet in the graph). Revision 2, 2 Oct: the platform's B-22 points ruled (named flags, fact counts in the file, "as a decimal" shown to students) and the strategy texts added (section 7). R1–R4 were ruled as D43 items 27–30
+`status: draft` (proposal; not yet in the graph). Revision 2, 2 Oct: the platform's B-22 points ruled (named flags, fact counts in the file, "as a decimal" shown to students) and the strategy texts added (section 7). Revision 3, 2 Oct: `fact.units` added as a listed family (section 2b; D43 items 31–33). R1–R4 were ruled as D43 items 27–30
 (curriculum PR #15, merge `8c108e5`). The placeholder fix from the builder's 2 Oct review is in
 section 2, and the fact counts were re-run against the rewritten rows on 2 Oct: all twelve are
 unchanged. Written 2 Oct 2026 for the 1 December artifacts (the platform's A4 ruling). It
@@ -93,6 +93,7 @@ are working values for the 1 December artifact, not researched cut-offs (see sec
 | `fact.int.subtract` | Subtracting integers | Y8 | x, y ∈ −10–10, both ≠ 0; excludes x > 0, y > 0 with x ≥ y (plain whole-number subtraction) | x | y | x − y | no | 345 | 5 s |
 | `fact.int.multiply` | Multiplying integers | Y9 | \|x\|, \|y\| ∈ 2–10, at least one negative | x | y | x·y | yes | 126 | 4 s |
 | `fact.int.divide` | Dividing integers | Y9 | \|x\|, \|y\| ∈ 2–10; at least one of `{a}`, `{b}` negative | x·y | x | y | no | 243 | 5 s |
+| `fact.units` | Unit relationships | Y6 (Phase 2) | enumerated list (section 2b) | — | — | listed | — | 14 | 3 s |
 
 Fact counts were computed by script under these exact rules, from the displayed operands, with
 turnaround pairs counted once. They were re-run after the placeholder rewrite: 66, 121, 11, 5,
@@ -113,16 +114,58 @@ they are a guard against the two sides expanding a family differently.
 - **Turnaround** (item 9) is judged on the displayed operands: 7 × 8 and 8 × 7 are one fact.
   For division, 56 ÷ 7 and 56 ÷ 8 are different facts.
 
+### 2b. `fact.units`: an enumerated family (revision 3, 2 Oct 2026)
+
+Admitted under item 27 as clarified by item 32 (ninth D43 amendment). Phase 2's Measurement
+Knowledge lines state these as fixed relationships (Y4–5 "There are 1000 millimetres in a
+metre…", Y5 prefixes, Y6 conversions including h, min, s). The numeracy co-requisite leans on
+them ("simple conversions between units of the same measure"), and a calculator can't supply
+them.
+
+**This is the first family whose facts are listed rather than generated.** Each fact carries
+its own display string, spoken string and answer, so it needs no `{a}`/`{b}` placeholders. That
+is a new family type and goes to the platform as an ask-back. Its count guard (item 31) is the
+length of the list.
+
+| # | display | spoken | answer |
+|---|---|---|---|
+| 1 | `1 cm = __ mm` | "one centimetre is how many millimetres" | 10 |
+| 2 | `1 m = __ cm` | "one metre is how many centimetres" | 100 |
+| 3 | `1 m = __ mm` | "one metre is how many millimetres" | 1000 |
+| 4 | `1 km = __ m` | "one kilometre is how many metres" | 1000 |
+| 5 | `1 kg = __ g` | "one kilogram is how many grams" | 1000 |
+| 6 | `1 L = __ mL` | "one litre is how many millilitres" | 1000 |
+| 7 | `1 mm = __ cm` | "one millimetre is how many centimetres" | 0.1 |
+| 8 | `1 cm = __ m` | "one centimetre is how many metres" | 0.01 |
+| 9 | `1 mm = __ m` | "one millimetre is how many metres" | 0.001 |
+| 10 | `1 m = __ km` | "one metre is how many kilometres" | 0.001 |
+| 11 | `1 g = __ kg` | "one gram is how many kilograms" | 0.001 |
+| 12 | `1 mL = __ L` | "one millilitre is how many litres" | 0.001 |
+| 13 | `1 min = __ s` | "one minute is how many seconds" | 60 |
+| 14 | `1 h = __ min` | "one hour is how many minutes" | 60 |
+
+**Kept out:**
+- The reverse time facts (1 s = 1/60 min): they can't be typed as exact answers (item 19).
+- Calendar facts (24 h, 7 days, 12 months, 365 days): not in NZC's lines. They go to mixed
+  practice.
+- Y8 volume and capacity (1 mL = 1 cm³, 1 L = 1000 cm³, 1 m³ = 1000 L): mixed practice, with the
+  Y8 volume skill. As its own family it would cost 5 items in every Y8–10 probe.
+
+Spellings follow NZ usage (metre, litre). Unit symbols are written as on the page (mL, L).
+
 ---
 
 ## 3. Year scope
 
 | year | adds | cumulative families | probe items (item 20) |
 |---|---|---|---|
-| Y7 | `fact.root.square`, plus all six Phase 2 families (source Y5–6) | 7 | 35 |
-| Y8 | `fact.root.cube`, `fact.int.add`, `fact.int.subtract` | 10 | 50 |
-| Y9 | `fact.int.multiply`, `fact.int.divide` | 12 | 60 |
-| Y10 | none | 12 | 60 |
+| Y7 | `fact.root.square`, plus all seven Phase 2 families (source Y5–6, including `fact.units`) | 8 | 40 |
+| Y8 | `fact.root.cube`, `fact.int.add`, `fact.int.subtract` | 11 | 55 |
+| Y9 | `fact.int.multiply`, `fact.int.divide` | 13 | 65 |
+| Y10 | none | 13 | 65 |
+
+With `fact.units`, the worst case at Y9–10 is 65 × 15 s, about 16 minutes. Item 30's reasoning
+(once a term, own sitting allowed) still applies.
 
 **Teacher descriptions (optional, item 18):**
 - Y7: "Times tables, squares, cubes, fraction equivalents and square roots"
@@ -180,6 +223,7 @@ The platform applies the true minus sign and the brackets round a negative secon
 | `fact.int.subtract` | `{a} − {b} = __` | "{a} minus {b}" |
 | `fact.int.multiply` | `{a} × {b} = __` | "{a} times {b}" |
 | `fact.int.divide` | `{a} ÷ {b} = __` | "{a} divided by {b}" |
+| `fact.units` | per fact (section 2b) | per fact (section 2b) |
 
 **`{b-fraction-name}`: a third placeholder, used only by the two fraction families.** It speaks
 the denominator `{b}` as a fraction name, which the platform's number-speaking can't produce. The
@@ -272,6 +316,7 @@ Rules applied:
 | `fact.int.subtract` | Subtracting a negative number is the same as adding the positive one. Subtracting a positive number moves left on the number line. If it helps, turn the subtraction into an addition first. *Example:* 3 − (−5) = 3 + 5 = 8. |
 | `fact.int.multiply` | Multiply the numbers as if they were both positive, then decide the sign. Same signs give a positive answer. Different signs give a negative answer. *Example:* for −6 × 7 the signs are different, so the answer is −42. For −6 × (−7) the signs are the same, so it's 42. |
 | `fact.int.divide` | Think multiplication, then use the same sign rule as multiplying. *Example:* for −42 ÷ 6, ask "what times 6 makes 42?" That's 7. The signs are different, so −42 ÷ 6 = −7. |
+| `fact.units` | The first part of the unit name tells you the size. *Kilo* means a thousand, so 1 km is 1000 m and 1 kg is 1000 g. *Centi* means a hundredth, so there are 100 cm in a metre. *Milli* means a thousandth, so there are 1000 mm in a metre and 1000 mL in a litre. Going the other way, from a small unit to a big one, the answer is a decimal. For time, remember 60 twice: 60 seconds in a minute and 60 minutes in an hour. *Example:* 1 cm = 0.01 m, because a centimetre is a hundredth of a metre. |
 
 **The worked examples were checked by script.** Every example equation is true: 7×8=56,
 56÷7=8, 12²=144, 4³=64, 3/4=0.75, 4/5=80%, √49=7, ∛64=4, 4+(−6)=−2, 3−(−5)=8, −6×7=−42,
@@ -282,7 +327,8 @@ inline. They should come in with the Y7 number chains' glossary words, before th
 activities:
 - *negative number*, *number line*;
 - *square number*, *square root*, *cube number*, *cube root*;
-- *percent* / *percentage*, *decimal*, *tenth*, *hundredth*.
+- *percent* / *percentage*, *decimal*, *tenth*, *hundredth*;
+- *kilo-*, *centi-*, *milli-* (the prefixes), *thousandth* (for `fact.units`).
 
 **Option (a)'s known cost:** the multiplication text has to cover 66 facts in one paragraph, so it
 lists several moves and the student picks the one that fits their fact. If that proves too

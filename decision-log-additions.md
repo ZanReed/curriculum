@@ -1290,3 +1290,41 @@ checked against `main` at `03e8ed0`).
    summarising fetch. They need the same word-for-word check `proposals/y7-nzc-phase.md`
    passed before anything cites them as S-numbers. Until then they are cited by year and phase
    only.
+
+**D43 amendment (2026-10-02, ninth). The fact-count guard, what "asks to be memorised" covers,
+and which candidate facts stay out of the registry.**
+Ruled by Zan 2026-10-02, on the builder's candidate list and its three registry questions.
+31. *Fact counts are a cross-side guard.* The generator writes each family's fact count into the
+   machine-readable registry. The platform's importer stops if its own expansion of the family
+   gives a different number. Nobody types the counts by hand. This adds the count to item 18's
+   list of what the registry carries.
+32. *Item 27 clarified.* "A finite set the curriculum asks to be memorised" includes NZC
+   Knowledge statements that state a fixed set of relationships, not only lines worded
+   "Memorising". On that reading, `fact.units` is admitted, source year Y6. It holds 14 listed
+   facts: metric length, mass and capacity relationships in both directions, plus 60 s in a
+   minute and 60 min in an hour. Phase 2's Measurement lines state them as fixed knowledge
+   (Y4–5 "There are 1000 millimetres in a metre…", the Y5 prefixes, and Y6 conversions
+   including h, min and s). The numeracy co-requisite relies on them, and a calculator can't
+   supply them.
+   - Cost: 5 more probe items at every year level, giving 40 at Y7, 55 at Y8 and 65 at Y9–10.
+     The worst case is about 16 minutes. Item 30's reasoning (once a term, its own sitting
+     allowed) still applies.
+   - The clarification does not admit facts on the grounds that NCEA uses them. An NCEA clause
+     was considered and not taken. It would admit far more than units, and the other
+     candidates fail a stronger test anyway: NCEA L1 and the co-requisite allow a calculator
+     ("Estimate or calculate, with support of a calculator"). Automating a calculation a
+     calculator does changes nothing at assessment. A relationship it can't supply does.
+33. *Candidates that stay out of the registry* (mixed practice). Each is assessed, but none is
+   tracked for fluency fact by fact:
+   - Squares 13²–20², cubes to 10³, powers of 2 and of 10: a calculator covers them at
+     assessment. Powers of 10 are a place-value procedure (item 27's reasoning).
+   - Eighths and thirds as decimals and percentages: thirds can't be typed as exact answers
+     (0.333…, 33⅓%) under item 19. NZC doesn't ask for eighths to be memorised, and the
+     calculator covers them.
+   - Calendar facts (24 h, 7 days, 12 months, 365 days): not in NZC's lines.
+   - Pythagorean triples: a recognition task, not a single number answer.
+   - Y8 volume and capacity (1 mL = 1 cm³, 1 L = 1000 cm³, 1 m³ = 1000 L): three facts that
+     would cost a whole family. They're practised with the Y8 volume skill.
+   - Primes to 50: stays in mixed practice. Item 19's reasons hold.
+   *Before citing:* the Phase 2 Measurement quotes behind item 32, like the other Phase 2 and 4
+   lines, were read through a summarising fetch and need the word-for-word check.
