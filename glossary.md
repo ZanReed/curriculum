@@ -359,3 +359,83 @@ term: constant function
 A function whose output is the same for every input, such as $f(x) = 5$. Its
 graph is a horizontal line, and its derivative is $0$.
 ```
+
+## Number facts and measurement
+
+```definitions
+id: gloss.negative-number
+term: negative number
+A number less than zero. It is written with a negative sign in front, such as
+$-5$, which is read "negative five". On a number line, negative numbers sit to the
+left of zero.
+---
+id: gloss.number-line
+term: number line
+A straight line with numbers marked in order at equal spacing. Numbers get bigger
+to the right and smaller to the left. Zero sits between the negative numbers and
+the positive numbers.
+---
+id: gloss.square-number
+term: square number
+The result of multiplying a whole number by itself. $7 \times 7 = 49$, so $49$ is a
+square number. It is written $7^2$ and read "seven squared".
+---
+id: gloss.square-root
+term: square root
+The positive number that, multiplied by itself, makes a given number. The square
+root of $49$ is $7$, because $7 \times 7 = 49$. It is written $\sqrt{49} = 7$.
+---
+id: gloss.cube-number
+term: cube number
+The result of multiplying a whole number by itself three times.
+$4 \times 4 \times 4 = 64$, so $64$ is a cube number. It is written $4^3$ and read
+"four cubed".
+---
+id: gloss.cube-root
+term: cube root
+The number that, multiplied by itself three times, makes a given number. The cube
+root of $64$ is $4$, because $4 \times 4 \times 4 = 64$. It is written
+$\sqrt[3]{64} = 4$.
+---
+id: gloss.percentage
+term: percentage
+An amount out of 100, written with the percent sign %. The word percent means "out
+of a hundred". 25% means 25 out of 100, which is the same as $\frac{25}{100}$ or
+$0.25$.
+---
+id: gloss.decimal
+term: decimal
+A number written with a decimal point. The digits after the point show tenths,
+hundredths, thousandths and so on. $3.25$ means 3 ones, 2 tenths and 5 hundredths.
+---
+id: gloss.tenth
+term: tenth
+One of ten equal parts of a whole: $\frac{1}{10}$, or $0.1$. In a decimal, the first
+digit after the point counts tenths.
+---
+id: gloss.hundredth
+term: hundredth
+One of a hundred equal parts of a whole: $\frac{1}{100}$, or $0.01$. In a decimal,
+the second digit after the point counts hundredths.
+---
+id: gloss.thousandth
+term: thousandth
+One of a thousand equal parts of a whole: $\frac{1}{1000}$, or $0.001$. In a
+decimal, the third digit after the point counts thousandths.
+---
+id: gloss.kilo
+term: kilo
+The start of a metric unit's name that means a thousand of that unit. A kilometre
+(km) is 1000 metres, and a kilogram (kg) is 1000 grams.
+---
+id: gloss.centi
+term: centi
+The start of a metric unit's name that means a hundredth of that unit. A
+centimetre (cm) is a hundredth of a metre, so there are 100 cm in a metre.
+---
+id: gloss.milli
+term: milli
+The start of a metric unit's name that means a thousandth of that unit. A
+millimetre (mm) is a thousandth of a metre, and a millilitre (mL) is a thousandth
+of a litre.
+```
