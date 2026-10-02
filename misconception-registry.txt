@@ -1,18 +1,36 @@
 # Misconception registry — the valid mis.* id set.
 #
-# Generated from curriculum-graph.json v0.16.0. Do not hand-edit: regenerate.
+# Generated from curriculum-graph.json v0.17.0. Do not hand-edit: regenerate.
 # An id-shaped token not listed here warns, and fails under --strict.
 
+mis.angles.complement-supplement-swapped          # Uses 180° for complementary angles, or 90° for supplementary
+mis.angles.sum-depends-on-size                    # Believes a larger triangle has a larger angle sum
+mis.angles.vertical-as-supplementary              # Treats vertically opposite angles as adding to 180° instead of being equal
+mis.area.composite-overlap                        # Counts a region twice when splitting a composite shape
+mis.area.same-perimeter-same-area                 # Assumes shapes with equal perimeters have equal areas
+mis.area.slant-as-height                          # Uses the slant side as the height of a triangle
+mis.area.triangle-no-half                         # Leaves out the half in ½ × base × height
 mis.arith.negative-squared                        # Believes squaring a negative input gives a negative output
+mis.coord.axes-swapped                            # Plots or reads (x, y) as (y, x)
 mis.deriv.constant-rule-confused                  # Applies the power rule to a constant, yielding a nonzero derivative
 mis.deriv.f-prime-is-a-number                     # Treats f′ as a single value rather than a function that varies with x
 mis.deriv.reads-f-graph-as-f-prime                # Reads the graph of f as if it were the graph of f′ — says f′ is positive where f is positive rather than where f is increasing
 mis.deriv.tangent-touches-once                    # Believes a tangent line may only meet the curve at one point
 mis.deriv.units-dropped                           # Interprets f′(a) without units in a contextual problem
+mis.display.order-meaningful                      # Reads a trend across categories whose order means nothing
+mis.divisibility.last-digit-only                  # Uses only the last digit where the test needs the digit sum or the last two or three digits (3, 4, 8, 9)
+mis.equations.one-side-only                       # Applies an operation to one side of the equation only
+mis.equations.partial-divide                      # Divides only some terms on one side (2x + 7 = 31 → x + 7 = 15.5)
+mis.equations.same-operation                      # Applies the operation shown instead of its inverse (x + 5 = 12 → x = 17)
+mis.exponent.multiplies-base                      # Multiplies the base by the exponent (3⁴ = 12, 7² = 14)
+mis.factors.hcf-lcm-swapped                       # Gives the HCF when the LCM is asked for, or the reverse
+mis.factors.lcm-is-product                        # Gives the product as the LCM when a smaller common multiple exists (6 and 8 → 48, not 24)
 mis.family.any-member-is-parent                   # Treats any member of a family as the parent rather than the untransformed one — any line for y = x, any parabola for y = x²
 mis.form.intercept-wrong-variable                 # Sets the wrong variable to zero when finding an intercept
 mis.form.m-b-swapped                              # Reads the intercept as the gradient and vice versa in y = mx + c
 mis.form.standard-slope-sign                      # Reads the gradient of Ax + By = C as A/B, dropping the negative
+mis.fractions.add-same                            # Adds the same number to top and bottom to make an equivalent fraction (2/3 = 4/5)
+mis.fractions.digits-as-decimal                   # Writes a fraction's digits as a decimal or percentage (3/5 = 3.5, 1/4 = 14%)
 mis.function.context-restriction-ignored          # Gives the mathematical domain of the formula, ignoring what the context permits
 mis.function.domain-range-swapped                 # Reports the range when asked for the domain, or the reverse
 mis.function.endpoint-open-closed                 # Includes an open endpoint, or excludes a closed one, when reading an interval
@@ -21,20 +39,68 @@ mis.function.f-of-a-plus-h-distributed            # Writes f(a+h) as f(a)+f(h)
 mis.function.needs-a-formula                      # Rejects a correspondence as a function because no equation defines it
 mis.function.notation-multiplication              # Reads f(x) as f times x
 mis.function.one-to-one-required                  # Requires each output to have exactly one input — rejects y = x² as a function, or applies the test horizontally
+mis.integers.larger-digit-larger                  # Orders negative numbers by size, ignoring the sign (−8 > −3)
+mis.integers.sign-ignored                         # Adds the sizes and keeps the sign when the signs differ (−4 + 9 = −13)
+mis.integers.subtract-always-smaller              # Believes subtracting always gives a smaller number (5 − (−2) < 5)
+mis.like-terms.adds-to-power                      # Collects repeated addition as a power (x + x = x²)
+mis.like-terms.combine-unlike                     # Combines unlike terms (2a + 3b = 5ab)
 mis.limit.equals-substitution                     # Believes a limit is by definition the value obtained by substitution
 mis.limit.h-set-to-zero-early                     # Sets h=0 before simplifying the difference quotient
 mis.limit.one-sided-superscript-ignored           # Reads x → a⁻ and x → a⁺ as x → a, and reports the two-sided limit
+mis.mean.drops-zeros                              # Leaves zero values out when calculating the mean
+mis.median.even-count                             # With an even number of values, picks one of the two middle values instead of their mean
+mis.median.unsorted                               # Takes the middle value without putting the data in order first
+mis.nets.any-six-squares                          # Believes any arrangement of six squares folds into a cube
+mis.notation.juxtaposition-as-digits              # Reads 3n with n = 4 as 34 instead of 3 × 4
+mis.notation.letter-as-object                     # Reads a letter as an object or a label rather than a number (a = apples)
+mis.order.left-to-right                           # Works strictly left to right, ignoring the order of operations (6 + 4 × 2 = 20)
+mis.order.pairs-ranked                            # Ranks multiplication above division, or addition above subtraction, instead of working left to right
+mis.outlier.affects-median-equally                # Believes an outlier changes the median as much as the mean
+mis.parallel.all-equal                            # Believes every angle where a transversal crosses parallel lines is equal
+mis.parallel.assumed                              # Applies parallel-line angle rules to lines not marked parallel
+mis.pattern.assumes-proportional                  # Treats a linear pattern as proportional, multiplying the first term by n (6, 10, 14 … → 20 tables seat 120)
+mis.pattern.first-term-as-constant                # Uses the first term as the constant d (t = 3n + 5 when the first term is 5)
+mis.pattern.step-as-rule                          # Writes the step as an added constant (“add 3” written as t = n + 3)
+mis.percent.decimal-shift                         # Moves the decimal point the wrong number of places to or from a percentage (0.5 = 5%, 0.05 = 50%)
+mis.perimeter.counts-squares                      # Counts the squares along the edge instead of the unit lengths, so corners are counted twice or missed
+mis.place-value.append-zero                       # Multiplies a decimal by 10 by writing a zero on the end (3.4 × 10 = 3.40)
+mis.place-value.longer-is-larger                  # Judges a decimal with more digits after the point to be larger (0.45 > 0.5)
+mis.primes.odd-means-prime                        # Treats every odd number as prime (9, 15, 91)
+mis.primes.one-is-prime                           # Counts 1 as a prime number
+mis.prob.complement-as-reciprocal                 # Finds P(not A) as 1 ÷ P(A) instead of 1 − P(A)
+mis.prob.equiprobability                          # Treats all outcomes as equally likely when they are not (a dice total of 2 as likely as 7)
+mis.prob.gamblers-fallacy                         # Believes a result is “due” after a run of the other result
+mis.prob.order-ignored                            # Counts outcomes that differ only in order as one (HT and TH)
+mis.prob.small-sample-exact                       # Expects the theoretical result exactly from a small number of trials (exactly 5 heads in 10)
 mis.proportional.line-misses-origin               # Believes a proportional graph need not pass through the origin
 mis.proportional.one-pair-assumed-constant        # Concludes a relationship is proportional from one pair without checking the ratio is constant
+mis.range.as-interval                             # Writes the range as an interval (“3–12”) instead of a single value
 mis.rate.compares-totals                          # Compares total amounts (or picks by quantity) instead of the amount per one
 mis.rate.ratio-inverted                           # Divides the quantities the wrong way round — x ÷ y instead of y ÷ x
+mis.reflect.diagonal-as-vertical                  # Reflects in a diagonal mirror line as if it were vertical or horizontal
+mis.reflect.half-turn-confused                    # Confuses a reflection with a 180° rotation
+mis.reflect.translates                            # Slides the shape instead of flipping it in the mirror line
 mis.roc.assumes-constant                          # Assumes average rate of change is the same on every interval of a nonlinear function
 mis.roc.secant-vs-tangent                         # Treats the average rate of change over an interval as the rate at a point
 mis.roc.uses-endpoint-value                       # Reports f(b) instead of the change in f over the interval
+mis.root.halves                                   # Finds a square root by halving (√64 = 32)
+mis.rotate.centre-ignored                         # Rotates about a vertex or the middle of the shape instead of the given centre
+mis.round.cash-per-item                           # Rounds each price before adding, instead of rounding the cash total
+mis.round.truncates                               # Cuts off digits instead of rounding ($4.97 paid in cash as $4.90)
 mis.slope.rise-run-inverted                       # Computes run/rise instead of rise/run
 mis.slope.steeper-is-bigger                       # Treats visual steepness as gradient magnitude without reading the scale
 mis.slope.subtraction-order                       # Mismatches subtraction order between numerator and denominator
 mis.slope.units-dropped                           # Reports the gradient as a bare number, no units, in a contextual problem
+mis.stats.digits-are-numerical                    # Classifies data labelled with numbers as numerical (postcodes, jersey numbers)
+mis.summary.measures-swapped                      # Calculates one summary measure when another is asked for
+mis.time.24h-convert                              # Converts 24-hour time by subtracting 10 (15:00 = 5 pm)
+mis.time.decimal-hours                            # Treats hours and minutes as a decimal (1:30 as 1.30 h; 13:20 − 10:45 = 2.75)
+mis.timeseries.joins-categories                   # Uses a line graph for categorical data
 mis.transform.horizontal-direction                # Believes a subtraction inside the argument shifts left — f(x−h), and y−y₁=m(x−x₁)
 mis.transform.inside-outside                      # Applies inside changes to the y-direction and outside changes to the x-direction
 mis.transform.stretch-vs-shift                    # Confuses a·f(x) with f(x)+a
+mis.translate.counts-gaps                         # Counts the empty squares between the shape and its image instead of how far one vertex moves
+mis.triangle.orientation-matters                  # Believes turning a triangle changes its type (a tilted isosceles triangle is not isosceles)
+mis.units.area-as-linear                          # Gives an area in linear units (cm, not cm²)
+mis.units.volume-as-square                        # Gives a volume in square units (cm², not cm³)
+mis.volume.adds-dimensions                        # Adds length, width and height instead of multiplying them

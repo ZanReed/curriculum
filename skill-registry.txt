@@ -3,7 +3,7 @@
 # A bare id is a one-part skill; `id = n` declares a skill delivered across n
 # activities (D23). External prerequisites are NOT here — valid review and DoL
 # targets, never taught, never counted toward coverage.
-# Generated from curriculum-graph.json v0.16.0 — 47 skills, 52 parts, 17 chains. Do not hand-edit: regenerate.
+# Generated from curriculum-graph.json v0.17.0 — 97 skills, 108 parts, 36 chains. Do not hand-edit: regenerate.
 
 
 # chain.rate.proportional  (3 skills, 4 activities projected)
@@ -86,3 +86,91 @@ deriv.from-definition.polynomial          # Compute the derivative of a low-degr
 deriv.f-prime-as-function                 # Treat f′ as a function rather than a number, and read f′ from the graph of f
 deriv.rule.power                          # State and apply the power rule, generalised from computed cases
 deriv.justify.constant                    # Justify why the derivative of a constant function is zero
+
+# chain.number.place-value  (3 skills, 3 activities projected)
+number.place-value.decimals               # Read, write, compare and order decimals to hundredths using place value
+number.place-value.powers-of-ten          # Multiply and divide by 10, 100, 1000 as a shift in place value
+number.round.cash                         # Round to a given place, including NZ cash rounding to the nearest 10c
+
+# chain.number.powers  (2 skills, 2 activities projected)
+number.exponents.evaluate                 # Evaluate positive whole-number powers as repeated multiplication; powers of 10
+number.roots.square                       # Know square numbers to 12² and square roots to √144
+
+# chain.number.order-of-operations  (1 skills, 2 activities projected)
+number.operations.order = 2               # Apply the order of operations (GEMA), including grouping and exponents
+
+# chain.number.factors  (3 skills, 4 activities projected)
+number.primes.classify                    # Classify whole numbers as prime or composite
+number.divisibility.rules                 # Use divisibility tests for 2, 3, 4, 5, 6, 8, 9 and 10
+number.factors.hcf-lcm = 2                # Find the highest common factor of two numbers under 100 and the lowest common multiple of two numbers under 10
+
+# chain.number.integers  (2 skills, 3 activities projected)
+number.integers.number-line               # Place, order and compare integers on a number line
+number.integers.additive-inverse = 2      # Use the additive inverse to add and subtract integers on a number line
+
+# chain.number.fractions  (3 skills, 4 activities projected)
+number.fractions.equivalent               # Generate equivalent fractions and write fractions in simplest form
+number.fractions.to-decimal               # Convert fractions to decimals by division and from known benchmarks
+number.percent.hundredths                 # Understand percentages as hundredths; convert between fraction, decimal and percentage
+
+# chain.algebra.expressions  (3 skills, 3 activities projected)
+algebra.notation.write                    # Write expressions from words using algebraic conventions (3n, n + 5, n/2)
+algebra.expressions.substitute            # Evaluate an expression by substituting values
+algebra.expressions.like-terms            # Collect like terms
+
+# chain.algebra.equations  (3 skills, 4 activities projected)
+algebra.equations.one-step                # Solve one-step linear equations with integer solutions and check by substituting
+algebra.equations.two-step = 2            # Solve two-step linear equations with integer solutions and check by substituting
+algebra.formulae.rearrange                # Rearrange a simple formula to make another letter the subject (P = 4s → s = P/4)
+
+# chain.pattern.linear  (3 skills, 4 activities projected)
+coord.four-quadrant                       # Plot and read points in all four quadrants
+pattern.linear.rule = 2                   # Find the rule t = a × n + d for a linear pattern from a sequence or table
+pattern.linear.graph                      # Graph a linear pattern and connect the step to the steepness and d to the start
+
+# chain.measure.area-volume  (4 skills, 5 activities projected)
+measure.perimeter.polygons                # Find the perimeter of polygons, including missing side lengths
+measure.area.rect-triangle                # Find the area of rectangles, squares and triangles in square units
+measure.area.composite                    # Find the area of a composite shape by decomposing it
+measure.volume.cuboid                     # Find the volume of cubes and cuboids in cubic units, as layers of unit cubes
+
+# chain.measure.time  (2 skills, 2 activities projected)
+measure.time.duration                     # Calculate time durations across hour boundaries, in 12- and 24-hour time
+measure.time.timetables                   # Read and use timetables to plan and compare journeys
+
+# chain.geom.triangles-polygons  (2 skills, 2 activities projected)
+geom.triangles.classify                   # Classify triangles by sides and by angles
+geom.angles.triangle-quad-sum             # Use the angle sums of a triangle (180°) and a quadrilateral (360°) to find missing angles
+
+# chain.geom.parallel-lines  (2 skills, 2 activities projected)
+geom.angles.relationships                 # Use supplementary, complementary, vertical and adjacent angle relationships to find unknown angles
+geom.angles.parallel-transversal          # Find angles where a transversal crosses parallel lines
+
+# chain.geom.transformations  (3 skills, 4 activities projected)
+geom.transform.reflect                    # Reflect a shape in a horizontal, vertical or diagonal mirror line
+geom.transform.rotate                     # Rotate a shape by 90°, 180° or 270° about a given centre
+geom.transform.translate                  # Translate a shape by a given vector or description
+
+# chain.geom.nets  (1 skills, 1 activities projected)
+geom.nets.identify                        # Identify and complete nets of cubes, prisms and pyramids
+
+# chain.stats.data-displays  (4 skills, 4 activities projected)
+stats.variables.classify                  # Classify variables as categorical, discrete numerical or continuous numerical
+stats.display.categorical                 # Read, draw and choose bar graphs, including stacked and clustered bars
+stats.display.dot-plot                    # Read and draw dot plots for categorical data
+stats.display.time-series                 # Read and draw time-series graphs and describe the change over time
+
+# chain.stats.summaries  (4 skills, 5 activities projected)
+stats.summary.mean                        # Calculate and interpret the mean
+stats.summary.median-mode                 # Find the median and mode, including an even number of values
+stats.summary.range                       # Find and interpret the range as a measure of spread
+stats.summary.outlier-effect              # Identify outliers and explain their effect on the mean vs the median
+
+# chain.prob.theoretical  (3 skills, 4 activities projected)
+prob.sample-space.list = 2                # List a sample space systematically using lists, tables and tree diagrams
+prob.theoretical.equally-likely           # Find the probability of an event with equally likely outcomes, as a fraction, decimal or percentage
+prob.complement                           # Use P(not A) = 1 − P(A)
+
+# chain.prob.experimental  (2 skills, 3 activities projected)
+prob.experimental.relative-frequency      # Estimate a probability as a relative frequency from trial results
+prob.experimental.large-numbers           # Compare experimental and theoretical probability as the number of trials grows
