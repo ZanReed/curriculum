@@ -121,6 +121,27 @@ so the id was free).
 
 ---
 
+## chain.geom.triangles-polygons — **approved and merged (v0.17.1)**
+
+Approved by Zan 2026-10-03. The first Y7 chain to be drafted (D38 amendment: geometry first).
+
+Pool minimum: 2 under the per-skill rule (D42 amendment, 2026-10-03): two skills, two
+activities, no consolidation. One hook per skill, so neither day opens empty.
+
+### `hook.triangles.turn-the-page` → `geom.triangles.classify`
+
+> Draw a triangle with two sides the same length. Now turn your page so the triangle is lying on its side. Is it still the same kind of triangle?
+
+Chain opener, before activity 01. Shape: do, then predict. Sets up mis.triangle.orientation-matters: a triangle that looks tipped over doesn't match the upright picture students hold, so many say it has changed. Doesn't name isosceles or say a triangle is classified by its sides and angles alone; the lesson earns both. Answered once activity 01's worked example classifies the same triangle in two orientations. No figure: students draw their own. New concept, screened against the Y7 bank: no repeated context.
+
+### `hook.angles.field-triangle` → `geom.angles.triangle-quad-sum`
+
+> One triangle is painted across the whole school field. Another is drawn on your thumbnail. Which triangle's three angles add up to more?
+
+Before activity 02. Shape: prediction (screened Y7 bank concept, Zan 30 Sep): the field triangle, the thumbnail triangle, or the same. Sets up mis.angles.sum-depends-on-size. Doesn't give 180° or hint that the total is fixed; the lesson establishes the sum. Answered once activity 02 shows every triangle's angles add to 180°, whatever its size. No figure needed.
+
+---
+
 ## Remaining 15 chains
 
 No pools authored. Under the authoring-order rule each is owed one at chain creation. From

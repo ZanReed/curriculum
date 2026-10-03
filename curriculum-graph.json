@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.17.0",
+  "version": "0.17.1",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -2856,7 +2856,7 @@
     },
     "hook_contract": {
       "level": "chain",
-      "minimum": "ceil(approved_activities / 2) hooks per chain",
+      "minimum": "max(skills_with_an_approved_activity, ceil(approved_activities / 2)) hooks per chain",
       "deployment": "teacher-timed — period boundaries are classroom facts the data model cannot see",
       "rules": [
         "A hook raises the question; the lesson earns the answer. If answering it requires the worked example, it has become discovery through the back door.",
@@ -3229,7 +3229,24 @@
           "geom.angles.triangle-quad-sum"
         ],
         "activities": 2,
-        "hooks": []
+        "hooks": [
+          {
+            "id": "hook.triangles.turn-the-page",
+            "connects_to": [
+              "geom.triangles.classify"
+            ],
+            "prompt": "Draw a triangle with two sides the same length. Now turn your page so the triangle is lying on its side. Is it still the same kind of triangle?",
+            "note": "Chain opener, before activity 01. Shape: do, then predict. Sets up mis.triangle.orientation-matters: a triangle that looks tipped over doesn't match the upright picture students hold, so many say it has changed. Doesn't name isosceles or say a triangle is classified by its sides and angles alone; the lesson earns both. Answered once activity 01's worked example classifies the same triangle in two orientations. No figure: students draw their own."
+          },
+          {
+            "id": "hook.angles.field-triangle",
+            "connects_to": [
+              "geom.angles.triangle-quad-sum"
+            ],
+            "prompt": "One triangle is painted across the whole school field. Another is drawn on your thumbnail. Which triangle's three angles add up to more?",
+            "note": "Before activity 02. Shape: prediction (screened Y7 bank concept, Zan 30 Sep): the field triangle, the thumbnail triangle, or the same. Sets up mis.angles.sum-depends-on-size. Doesn't give 180° or hint that the total is fixed; the lesson establishes the sum. Answered once activity 02 shows every triangle's angles add to 180°, whatever its size. No figure needed."
+          }
+        ]
       },
       {
         "chain_id": "chain.geom.parallel-lines",
