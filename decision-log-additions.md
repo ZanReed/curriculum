@@ -1378,3 +1378,23 @@ pointers from `proposals/y7-nzc-phase.md`.
    `ext.arith.signed` and `ext.geom.coordinate-plane`, retiring those ids, and the candidate
    edge `pattern.linear.graph` → `rate.unit-rate`) wait for their own ruling and PR, because
    they change existing skills the platform can see. This change only adds.
+
+**D42 amendment (2026-10-03). A hook pool has at least one hook per skill.**
+Ruled by Zan 2026-10-03, on the builder's pool for `chain.geom.triangles-polygons`.
+`activity_defaults.hook_contract.minimum` becomes "max(skills_with_an_approved_activity,
+ceil(approved_activities / 2)) hooks per chain", in place of "ceil(approved_activities / 2)".
+*Why:* §4 says the minimum exists so no teaching day opens empty. At D43's 50- and 60-minute
+period shapes a class does one activity per period, so a short chain spans one day per skill.
+The old minimum gave a two-skill, two-activity chain one hook, and the day that starts the
+other skill either opened empty or reused a hook aimed elsewhere. One hook per skill closes
+exactly that gap; extra hooks still come only when they earn their place (§4). Counting skills
+that have an approved activity keeps the old timing: with nothing approved, nothing is owed.
+*Consequences:*
+- Most Y7 chains (two skills, two activities) need 2 hooks where the bank holds one. Each short
+  chain gets a second concept, screened against the bank, before its activities are drafted.
+- `chain.rate.proportional` (3 skills, 2 hooks, activities imported) now owes a third hook, for
+  `rate.constant-of-proportionality`. This reverses `chain-hooks.md`'s earlier reasoning that
+  that skill needed no hook of its own. It is a follow-up, written and screened on its own.
+- `chain.linear.slope` (3 skills, 3 hooks) already meets the rule.
+- The platform confirmed in D42 that the hook contract was unchanged; this changes the minimum
+  value, so the platform is told before this merges.
