@@ -10,8 +10,9 @@
 # Folders are FLAT: the platform takes the chain from the first path segment.
 # Precedence for a file's unit: its own `unit:` wins, then this registry, then unset.
 # A folder with no entry warns and fails --strict. Every chain in the graph is listed;
-# only folders that exist are read. The importer reads this file from the catalogue
-# ROOT, so the pilot copy is refreshed from main whenever rows change.
+# only folders that exist are read. Import runs pass `--chain-registry <this file>`
+# (platform be76a67), which wins over any copy in the catalogue root; a root copy
+# is no longer needed, and the importer names one it shadows in the run header.
 #
 # NOT GENERATED. Hand-maintained, and deliberately carries no generation stamp:
 # the display titles are authored prose with no source in the graph, so this file
