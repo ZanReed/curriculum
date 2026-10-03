@@ -1461,3 +1461,7 @@ the duplicate.
 figure grammar, and it ends when the figures ship. No draft written under it can be approved or
 imported before then. The platform's eng review may still adjust syntax, so each draft expects
 one mechanical syntax pass against the generated authoring prompt when the build closes.
+*Discharged 2026-10-04 for the capability half:* the platform's pin bump (its T8b) landed here as
+PR #28, and `curriculum-graph.json` now carries `figure` with `"status": "shipped"`, pinned to
+activity-platform `4df546a`. Drafts held under D44 are now authorable under §9, and still need the
+syntax pass against the generated authoring prompt and the D6 end-to-end read before approval.

@@ -1,8 +1,8 @@
 {
   "source_repo": "github.com/ZanReed/activity-platform",
   "source_path": "docs/capability-facts.json",
-  "source_commit": "b03fe2a343a8668d98a7b6d110d4040c67aedc8b",
-  "sha256": "c9eb15e6830125c41960a754c76a4ce8e457b8e96fc5f1003cdc8720aa0f6813",
+  "source_commit": "4df546a411a6c242171a1d18157c34878228e498",
+  "sha256": "5101a1ef1d6851a758059188eca282ab5f8a33488cd28800403851014e60923a",
   "pinned_on": "2026-10-03",
   "rule": "Bumping this pin is the act that changes the graph's derived capability fields (B14, C-30). A bump that flips a status or changes scoring, captures_response or score_shape gets a pre-merge notice."
 }

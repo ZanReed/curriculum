@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.17.2",
+  "version": "0.17.3",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -3631,6 +3631,19 @@
       "status": "shipped",
       "affords": "A read-only formula/vocab panel students open from a button while working; prints as a box at the top of the page. Supports headings, lists, displayed math, images, and shared-grid comparison graphs.",
       "constraints": "Never contains questions or blanks. One fence per activity (a second appends). AMBIENT: student-openable at any time during the activity, including the review component — so it is open-book for everything on it.",
+      "grading": {
+        "scoring": "none",
+        "captures_response": false,
+        "score_shape": "none"
+      }
+    },
+    {
+      "id": "figure",
+      "label": "Geometry figure",
+      "medium": "either",
+      "status": "shipped",
+      "affords": "One static labelled picture in the worksheet body, from a ```figure fence: named points, polygon outlines or shaded regions, segments (solid or dashed), side labels, angle marks (a degree value, right, quoted text, or the arc alone; reflex for the larger angle), equal-length ticks, parallel arrows and free text. Drawn without a grid at one scale unless plane: on.",
+      "constraints": "Display only: the blank, mc or graph question beside it carries the grading. alt: is required and never holds an answer. Captioned \"Not to scale\" unless to scale is written. Not available as an mc or match choice, or on the reference sheet. A mistyped figure line skips the whole file in a batch import.",
       "grading": {
         "scoring": "none",
         "captures_response": false,
