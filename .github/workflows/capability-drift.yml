@@ -1,0 +1,28 @@
+name: capability-drift
+
+# A REPORT, not a gate (B14, D27 amendment 2026-10-03). It fetches the
+# platform's live docs/capability-facts.json and compares its derived fields
+# with the pinned copy in platform-pins/. Red here means the platform's main
+# has moved past the pin: a capability shipped or changed shape, and a
+# pin-bump PR (with pre-merge notice) is owed. It never runs on PRs, so the
+# platform's pushes can never turn a curriculum PR red.
+
+on:
+  schedule:
+    - cron: "0 18 * * *"   # 07:00 NZST / 06:00 NZDT next day; US afternoon
+  workflow_dispatch:
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: "Fetch the platform's current capability facts"
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/ZanReed/activity-platform/main/docs/capability-facts.json \
+            -o /tmp/upstream-capability-facts.json
+      - name: "Compare derived fields with the pin"
+        run: |
+          python3 scripts/check_capabilities.py \
+            --facts platform-pins/capability-facts.json \
+            --upstream /tmp/upstream-capability-facts.json

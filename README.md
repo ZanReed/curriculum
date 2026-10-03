@@ -25,7 +25,7 @@ live in the catalogue). By ruling (curriculum side,
 the hand-carried-copy failure with a new name. This repo carries
 `decision-log-additions.md` (D18–D42 plus amendments).
 
-## The seven checks (`.github/workflows/check.yml`)
+## The eight checks (`.github/workflows/check.yml`)
 
 1. **Principles sync** — the graph's `authoring_principles` field is
    byte-identical to `authoring-principles.md`. Single-source rule
@@ -62,6 +62,15 @@ the hand-carried-copy failure with a new name. This repo carries
    a fact in place under the same id.
 7. **Glossary check** (D40) —
    `python3 scripts/check_glossary.py glossary.md --retired glossary-retired.txt --base <ref>`.
+8. **Capabilities** (B14, D27 amendment) —
+   `python3 scripts/check_capabilities.py curriculum-graph.json --facts platform-pins/capability-facts.json --pin platform-pins/capability-facts.pin.json`:
+   the pinned copy's sha256 matches its `.pin.json`; every capability entry has
+   exactly the known fields and vocabulary values; derived fields equal the
+   pin; nothing the pin lacks is marked shipped. Prose a fact contradicts is
+   flagged, never failed. It never fetches: the scheduled
+   `capability-drift.yml` reports when the platform's main moves past the pin,
+   and a pin bump (opened by the platform, with pre-merge notice) is the only
+   way derived fields change.
 
 To retire a glossary entry, delete it from `glossary.md` and append its id to
 `glossary-retired.txt` in the same commit; never edit an `id:` line.
@@ -85,6 +94,8 @@ To retire a glossary entry, delete it from `glossary.md` and append its id to
 | `glossary-retired.txt` | retired glossary ids — hand-maintained, append-only, never reused (D40) |
 | `fact-scope-registry.json` | GENERATED — never hand-edit. The fluency fact scope for the platform's probe and sprint (D43): families, fact counts, year scope, single values, templates, strategies; header carries a content-hash revision id |
 | `fact-ids-retired.txt` | retired fact-scope ids — hand-maintained, append-only, never reused (D43 note 2026-10-03) |
+| `platform-pins/capability-facts.json` | PINNED copy of the platform's generated capability facts — never hand-edit; replace it whole in a pin-bump PR |
+| `platform-pins/capability-facts.pin.json` | the pin: the platform's source commit and the copy's sha256 |
 | `generate-registries.py` | produces the three registries and the misconception attachments, with a notation gate |
 | `scripts/generate_fact_registry.py` | produces `fact-scope-registry.json` from the graph, with the fact-scope contract gate |
 | `partition-check.py` | gates check 3 |
@@ -93,32 +104,27 @@ To retire a glossary entry, delete it from `glossary.md` and append its id to
 | `scripts/check_principles.py` | check 1 (verify + `--fix` sync) |
 | `scripts/check_integrity.py` | check 4 |
 | `scripts/check_glossary.py` | the glossary step (D40): well-formed, unique ids/terms/variants, NZ-only bodies, caps, retire-not-rename against the git base |
+| `scripts/check_capabilities.py` | check 8, plus the drift report the scheduled `capability-drift.yml` runs |
 | `validate.js` | the curriculum-owned §11 thread checks — runs in CI (`node validate.js <graph>`); green against v0.13.0 on joining (2026-09-02) |
 | `builder.html` | the authoring UI (serve over HTTP, never `file://`). Provenance caveat: this is the July 2026 workspace copy, joined 2026-09-02 so its Save & load prompt text is diffable; reconcile if the Claude project holds a newer descendant |
 | `docs/` | reasoning records: reconciliation, the D24 audit, pedagogical concerns, hook screen, the retired architecture doc (kept only so the retirement is visible — do not restore) |
 | `channel/` | the boundary-channel rules and page URLs, the repo spec, the catalogue agent brief, the two handoffs |
 
-**Deliberately NOT here: `generate-capabilities.mjs`.** The July copy fails
-the curriculum side's own join criterion in the dangerous direction: it still
-writes `grading.authoritative` (deleted from all 22 capability entries at
-v0.11.2, D27 amendment) with the value `client-advisory` (the false fused
-term the D8 amendment corrected), and its importer-fence join FATALs on
-`correspond`/`table`/`seed`/`meta` (exit 2 — an earlier report here said
-"exits 0"; that was a measurement artifact of reading `$?` through a pipe,
-corrected 2026-09-09). Running it would clobber
-current capabilities with v0.10-era output; since 2026-09-09 the workspace
-copy carries a B14 schema gate that refuses any graph ≥ v0.11.2 outright
-(exit 3), per the curriculum side's fail-loudly push-back.
-It regenerates graph fields from
-platform code, so under the regeneration-ownership rule its rebuild is
-platform-side work; it joins when rebuilt against current schema and code.
+**Deliberately NOT here: `generate-capabilities.mjs`.** It imported the
+platform's TypeScript and could not run in this repo's CI. Since B14 (D27
+amendment, 2026-10-03) the platform derives the capability fields it owns
+(`status`, `grading.{scoring, captures_response, score_shape}`) into its own
+`docs/capability-facts.json`; this repo commits a pinned copy in
+`platform-pins/` and check 8 gates the graph against it. The stale workspace
+copy is retired with a pointer here. Authored capability prose (`label`,
+`medium`, `affords`, `constraints`, `grading.note`) stays ours.
 
 ## The boundary stamp
 
 Once CI is green on `main`, the platform side's boundary page carries:
 
 > Canonical: `<raw URL>` · Generation stamp: commit `<sha>`, `<timestamp>` ·
-> sha256 `<hash>` · Currency guarantee: the seven checks fail CI on drift,
+> sha256 `<hash>` · Currency guarantee: the eight checks fail CI on drift,
 > so the copy on `main` is current by construction.
 
 Refreshing that stamp after changes is part of landing them, same as the

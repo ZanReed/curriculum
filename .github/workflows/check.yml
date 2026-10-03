@@ -53,6 +53,15 @@ jobs:
           python3 scripts/generate_fact_registry.py curriculum-graph.json --retired fact-ids-retired.txt
           git diff --exit-code -- fact-scope-registry.json
 
+      - name: "Capabilities — derived fields match the pinned platform facts, shape check (B14)"
+        # Gated against the PINNED copy in platform-pins/, never a live fetch:
+        # green here must be decidable from this repo's own artifacts. The
+        # scheduled capability-drift.yml reports when the platform moves on.
+        run: |
+          python3 scripts/check_capabilities.py curriculum-graph.json \
+            --facts platform-pins/capability-facts.json \
+            --pin platform-pins/capability-facts.pin.json
+
       - name: "Glossary — well-formed, unique, NZ-only bodies, retire-not-rename (D40)"
         # The base is the PR's base commit, or the previous tip of main on a
         # push. A base git cannot resolve FAILS the step; it never skips.

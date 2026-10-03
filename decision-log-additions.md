@@ -1398,3 +1398,48 @@ that have an approved activity keeps the old timing: with nothing approved, noth
 - `chain.linear.slope` (3 skills, 3 hooks) already meets the rule.
 - The platform confirmed in D42 that the hook contract was unchanged; this changes the minimum
   value, so the platform is told before this merges.
+
+**D27 amendment (2026-10-03). The capability registry's derived fields come from a pinned copy
+of the platform's facts file; our CI never fetches the platform's live main.**
+Ruled by Zan 2026-10-03, answering the platform's B14 rebuild proposal (B-30 → C-30, accepted
+B-31); landed with the checker in this repo's PR #26. The old `generate-capabilities.mjs` imports the platform's TypeScript and cannot run in
+this repo's CI.
+- **Ownership.** The platform owns the derived fields: `status` and
+  `grading.{scoring, captures_response, score_shape}`. It generates them into its committed
+  `docs/capability-facts.json`, under its own drift test. We own the authored fields: `label`,
+  `medium`, `affords`, `constraints` and `grading.note`. Nothing generated touches them.
+- **The gate.** This repo commits a pinned copy of that file, with the platform's source commit
+  and the file's sha256 beside it. A CI check fails when a derived field in
+  `curriculum-graph.json` disagrees with the pin, or when a capability entry has a field outside
+  the known shape. That shape check replaces the B14 version gate.
+- **The report.** A scheduled workflow, not a PR gate, fetches the platform's main and reports
+  drift against the pin. When prose contradicts a fact (e.g. "graph grades up to quadratic"),
+  that is flagged, never failed.
+- **The pin bump.** Bumping the pin is the act that changes derived fields. A bump that changes
+  any derived field gets pre-merge notice. When a capability ships, the platform opens the
+  pin-bump PR, and we merge it.
+*Why a pin, not a live fetch:* a live fetch would let a push to the other repo turn one of our
+commits from green to red with nothing changed here. It would also make every PR here depend on
+the network and on the platform's repo. Both break "green on main is current by construction".
+It also breaks the earlier D27 amendment's rule that a gate must be decidable from the
+artifact. With a
+pin the gate reads only our own files; the drift is reported, the same split as
+`partition-check.py` and `fd-check.py`.
+*The fence join, ruled at the same time:*
+- `correspond` maps to `nway_correspondence`, scoring `auto`. It adds a new `score_shape` value,
+  `per_cell`, because it counts cells, not pairs. `score_shape` now has 8 values.
+- `table` becomes a new capability entry: shipped, scoring `none`, `captures_response` false,
+  `score_shape` `none`. Blanks inside a table score as `fill_blank`. Its prose is ours.
+- `seed` maps to `seeded_data`, scoring `none`. It is a data source, like `definition`. The
+  blanks that use its values carry the grading.
+- `meta` is exempt: activity settings, not a capability.
+- `draggable_curve` and `graded_polynomial` join through the platform's schema, not a fence.
+*Also:* the four `proposed` entries flip to `shipped` in the same PR as our rewrite of their
+prose, so there is no window where the status and the constraints disagree. The stale
+workspace copy of `generate-capabilities.mjs` is retired, with a pointer to the new home.
+*Stale prose fixed in the same PR, not flagged by the checker:* `graph`'s constraints said it
+graded only five families and that "Cubic+ can be shown, not graded"; `dataplot`'s said every
+dataset was a literal; §9 listed "literal datasets" among the example constraints. All three
+are rewritten here for the reason the flips land with their prose. `graph` now points at the
+pin's `prose_facts.graded_curve_families` rather than copying the list, so the family list has
+one home.
