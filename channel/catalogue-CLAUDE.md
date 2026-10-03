@@ -12,7 +12,7 @@ platform importer consumes. The **platform lives in a different repository** and
 yours to change from here.
 
 ```
-01-chain.rate.proportional/     chain folder; ordinal = teaching order
+801-chain.rate.proportional/    chain folder; ordinal = teaching order, year-banded (D46)
   01-unit-rate.md               activity source (authored, not generated)
   02-constant-of-proportionality.md
   03-proportional-graph.md
