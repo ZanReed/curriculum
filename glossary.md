@@ -439,3 +439,48 @@ A prefix on a metric unit's name that means a thousandth of that unit. A
 millimetre (mm) is a thousandth of a metre, and a millilitre (mL) is a thousandth
 of a litre.
 ```
+
+## Geometry
+
+```definitions
+id: gloss.acute-angle
+term: acute angle
+An angle smaller than a right angle: less than 90°.
+---
+id: gloss.right-angle
+term: right angle
+An angle of exactly 90°, a quarter turn. A small square drawn in the corner marks a
+right angle.
+---
+id: gloss.obtuse-angle
+term: obtuse angle
+An angle bigger than a right angle but smaller than a straight line: between 90° and
+180°.
+---
+id: gloss.equilateral-triangle
+term: equilateral triangle
+A triangle with all three sides the same length. Its three angles are also all the
+same.
+---
+id: gloss.isosceles-triangle
+term: isosceles triangle
+A triangle with at least two sides the same length. Matching tick marks show which
+sides are equal.
+---
+id: gloss.scalene-triangle
+term: scalene triangle
+A triangle with all three sides different lengths.
+---
+id: gloss.acute-triangle
+term: acute triangle
+A triangle whose three angles are all smaller than 90°.
+---
+id: gloss.right-angled-triangle
+term: right-angled triangle
+us: right triangle
+A triangle with one angle of exactly 90°.
+---
+id: gloss.obtuse-triangle
+term: obtuse triangle
+A triangle with one angle bigger than 90°.
+```

@@ -1443,3 +1443,21 @@ dataset was a literal; §9 listed "literal datasets" among the example constrain
 are rewritten here for the reason the flips land with their prose. `graph` now points at the
 pin's `prose_facts.graded_curve_families` rather than copying the list, so the family list has
 one home.
+
+**D44 (ratified 2026-10-03). Y7 geometry is drafted against the ruled figure grammar, with no
+image fallback; the drafts are held at draft until figures ship.**
+Ruled by Zan 2026-10-03, on the builder's draft of `chain.geom.triangles-polygons` activity 01.
+Y7 geometry activities are written against the platform's ruled figure grammar
+(`docs/design/y7-figures-and-charts.md` §4 Q3 in the activity-platform repo), not against a
+shipped capability. They stay at draft until two things land: the figure capability ships, and
+the platform's pin bump (its task T8b) adds it to this repo's pinned capability facts as
+`shipped`. Approval still needs the D6 end-to-end read on top of that.
+*Why this is an exception to §9, and a deliberate one:* §9 says to author the best fallback that
+can be built today. Here that would be an image per figure, and every geometry activity would
+be authored twice: once with images, once with figures. The figure build is short, and the
+grammar is ruled and confirmed on both sides. So the cost of waiting is lower than the cost of
+the duplicate.
+*What it does not change:* §9 still holds everywhere else. The exception covers only the ruled
+figure grammar, and it ends when the figures ship. No draft written under it can be approved or
+imported before then. The platform's eng review may still adjust syntax, so each draft expects
+one mechanical syntax pass against the generated authoring prompt when the build closes.
