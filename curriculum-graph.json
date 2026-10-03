@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.17.3",
+  "version": "0.17.4",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -52,10 +52,6 @@
     {
       "id": "ext.alg.expand-factor",
       "label": "Expand and factorise simple polynomial expressions"
-    },
-    {
-      "id": "ext.geom.coordinate-plane",
-      "label": "Plot and read ordered pairs"
     },
     {
       "id": "ext.arith.whole-ops",
@@ -494,6 +490,7 @@
       "label": "Compute a unit rate from a ratio",
       "band": "Y8",
       "prereqs": [
+        "number.fractions.to-decimal",
         "ext.arith.fractions"
       ],
       "misconceptions": [
@@ -543,7 +540,7 @@
       "band": "Y8",
       "prereqs": [
         "rate.constant-of-proportionality",
-        "ext.geom.coordinate-plane"
+        "coord.four-quadrant"
       ],
       "misconceptions": [
         "mis.proportional.line-misses-origin"
@@ -568,6 +565,7 @@
       "band": "Y9",
       "prereqs": [
         "rate.constant-of-proportionality",
+        "number.integers.additive-inverse",
         "ext.arith.signed"
       ],
       "misconceptions": [
