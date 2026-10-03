@@ -3650,11 +3650,11 @@
     },
     {
       "id": "chart",
-      "label": "PROSE OWED",
-      "medium": "PROSE OWED",
+      "label": "Bar or time-series chart (display)",
+      "medium": "either",
       "status": "shipped",
-      "affords": "PROSE OWED",
-      "constraints": "PROSE OWED",
+      "affords": "One statistics chart of category data from a ```chart fence, to read from: a bar chart, a clustered or stacked bar chart for several series, or a time-series line that joins points in order for categories that are times. A title is required; axis labels and a legend for named series are drawn from the fence. The questions about it go in the blocks after it.",
+      "constraints": "Display only: it captures no response, and students cannot draw or edit it (dataplot is the graded statistics chart). The number of categories and series is limited (see the authoring prompt); values are 0 or more and the value axis always starts at 0. Not available inside a columns column or on the reference sheet. A mistyped chart line skips the whole file in a batch import.",
       "grading": {
         "scoring": "none",
         "captures_response": false,
