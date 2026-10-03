@@ -194,8 +194,8 @@ argument under another.
 ## 9. Compose only from shipped capabilities
 
 The capability registry is the platform's truth. Draft only with capabilities marked
-shipped, inside their stated constraints (graded curve families, two-column matching,
-literal datasets, and the rest).
+shipped, inside their stated constraints (graded curve families, two-column matching, and
+the rest).
 
 - If the pedagogically ideal move needs an unshipped capability, author the
   **fallback** — the best version buildable today — and record the wish against the
