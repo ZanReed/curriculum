@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.17.2",
+  "version": "0.17.3",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -3631,6 +3631,19 @@
       "status": "shipped",
       "affords": "A read-only formula/vocab panel students open from a button while working; prints as a box at the top of the page. Supports headings, lists, displayed math, images, and shared-grid comparison graphs.",
       "constraints": "Never contains questions or blanks. One fence per activity (a second appends). AMBIENT: student-openable at any time during the activity, including the review component — so it is open-book for everything on it.",
+      "grading": {
+        "scoring": "none",
+        "captures_response": false,
+        "score_shape": "none"
+      }
+    },
+    {
+      "id": "figure",
+      "label": "PROSE OWED",
+      "medium": "PROSE OWED",
+      "status": "shipped",
+      "affords": "PROSE OWED",
+      "constraints": "PROSE OWED",
       "grading": {
         "scoring": "none",
         "captures_response": false,
