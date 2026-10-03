@@ -1487,6 +1487,15 @@ the graph", item 6) left for its own ruling.
    edge claims you cannot hold one skill without the other, and a unit rate can be computed
    without ever graphing a linear pattern. The link between them, the step as a rate, is a
    connection a review item may plant, not a dependency.
+5. `activity_defaults.review_selection.candidate_pool` reads "transitive ancestors of
+   primary_skill **in any thread** plus external_prereqs", in place of "in this thread". The
+   old wording predates D39's single graph. Read literally, it kept the Y7 ancestors that
+   items 1–3 link out of chain 1's review pool, which defeats the point of linking them.
+   Cross-thread edges exist so that review can reach across threads.
+6. Retired external-prereq ids go in `external-prereq-retired.txt`, which is append-only.
+   Check 4 (I) fails if a retired id comes back as an external or a prereq. This makes
+   "never reused" mechanical, as the glossary and fact-id ledgers already do (the
+   platform's suggestion, B-43).
 *Why re-point at all:* an external is assumed prior knowledge that the course never teaches.
 Once the course teaches it, keeping the external would hide a real edge from the review pool
 and the coverage report.

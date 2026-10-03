@@ -1,0 +1,5 @@
+# Retired external-prerequisite ids — hand-maintained, append-only (D45).
+# An id here is never used again: check 4 (I) fails if it reappears as an external
+# prereq or a skill prereq. One id per line; a trailing comment says why.
+
+ext.geom.coordinate-plane     # D45, 2026-10-04: replaced by coord.four-quadrant
