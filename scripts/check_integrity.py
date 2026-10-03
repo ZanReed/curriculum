@@ -22,6 +22,10 @@ Thread structure (D39):
      are unique, every chunking-plan chain carries a `thread` that resolves to it,
      and the retired top-level `thread_id` is absent
 
+Retired external prereqs (D45):
+  I. no id in external-prereq-retired.txt appears as an external prereq or as a
+     skill prereq; the ledger must exist and yield at least one id
+
 Non-vacuity guard: an extraction that yields zero ids from a present registry
 is itself a failure — an extractor that silently matches nothing would pass
 while checking nothing.
@@ -188,6 +192,22 @@ def main() -> int:
     if "thread_id" in doc:
         failures.append("H retired top-level `thread_id` is present (D39); "
                         "the `threads` registry replaces it")
+
+    # I — retired external-prereq ids are never reused (D45; append-only ledger)
+    retired_path = here / "external-prereq-retired.txt"
+    if retired_path.exists():
+        retired = {ln.split("#", 1)[0].strip() for ln in retired_path.read_text().splitlines()}
+        retired.discard("")
+        if not retired:
+            failures.append("I extracted zero ids from external-prereq-retired.txt")
+        for rid in sorted(retired & ext_ids):
+            failures.append(f"I retired external prereq is back in external_prereqs: {rid}")
+        for s in skills:
+            for p in s.get("prereqs", []):
+                if p in retired:
+                    failures.append(f"I skill uses a retired external prereq: {s.get('id')} -> {p}")
+    else:
+        failures.append("I missing ledger: external-prereq-retired.txt")
 
     if failures:
         print(f"check 4 FAIL — {len(failures)} finding(s):", file=sys.stderr)

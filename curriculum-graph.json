@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.17.3",
+  "version": "0.17.4",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -52,10 +52,6 @@
     {
       "id": "ext.alg.expand-factor",
       "label": "Expand and factorise simple polynomial expressions"
-    },
-    {
-      "id": "ext.geom.coordinate-plane",
-      "label": "Plot and read ordered pairs"
     },
     {
       "id": "ext.arith.whole-ops",
@@ -494,6 +490,7 @@
       "label": "Compute a unit rate from a ratio",
       "band": "Y8",
       "prereqs": [
+        "number.fractions.to-decimal",
         "ext.arith.fractions"
       ],
       "misconceptions": [
@@ -543,7 +540,7 @@
       "band": "Y8",
       "prereqs": [
         "rate.constant-of-proportionality",
-        "ext.geom.coordinate-plane"
+        "coord.four-quadrant"
       ],
       "misconceptions": [
         "mis.proportional.line-misses-origin"
@@ -568,6 +565,7 @@
       "band": "Y9",
       "prereqs": [
         "rate.constant-of-proportionality",
+        "number.integers.additive-inverse",
         "ext.arith.signed"
       ],
       "misconceptions": [
@@ -2755,7 +2753,7 @@
     },
     "review_selection": {
       "algorithm": "weight = f(days_since_last_assessed) * g(edge_distance_from_primary) * h(historical_error_rate)",
-      "candidate_pool": "transitive ancestors of primary_skill in this thread plus external_prereqs, plus transitive ancestors of any later skill in the same chain (marked planting_for). D16: adding a prereq edge instead would assert a dependency that is not real (D2).",
+      "candidate_pool": "transitive ancestors of primary_skill in any thread plus external_prereqs, plus transitive ancestors of any later skill in the same chain (marked planting_for). D16: adding a prereq edge instead would assert a dependency that is not real (D2).",
       "constraint": "at least one item per slice must come from edge_distance >= 2, OR from the deepest ancestor available where the graph is shallower than 2. FLOOR: the graph is shallow at the top of the curriculum (rate.unit-rate has max ancestor depth 1), so without this clause the first activity of the first chain fails validation permanently. chain_rules.final_position and the DoL rule cite this same floor."
     },
     "status_values": {

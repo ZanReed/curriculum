@@ -1465,3 +1465,42 @@ one mechanical syntax pass against the generated authoring prompt when the build
 PR #28, and `curriculum-graph.json` now carries `figure` with `"status": "shipped"`, pinned to
 activity-platform `4df546a`. Drafts held under D44 are now authorable under §9, and still need the
 syntax pass against the generated authoring prompt and the D6 end-to-end read before approval.
+
+**D45 (ratified 2026-10-04). Thread-01's external prerequisites re-point to the Y7 skills
+behind them; one external is retired, two are kept; the candidate unit-rate edge is
+rejected.**
+Ruled by Zan 2026-10-04. This is the cross-thread follow-up that the D38 note of 2026-10-03 ("The Y7 stubs enter
+the graph", item 6) left for its own ruling.
+1. `rate.proportional-graph`: `ext.geom.coordinate-plane` → `coord.four-quadrant`. The Y7
+   skill covers everything the external named (plot and read points), so
+   `ext.geom.coordinate-plane` is **retired**: removed from `external_prereqs` and the
+   generated registry. The id is never reused.
+2. `linear.slope.two-points` gains `number.integers.additive-inverse` and **keeps**
+   `ext.arith.signed`. The Y7 skill covers adding and subtracting integers. The slope from two
+   points also divides signed numbers, which no taught skill covers yet. The external retires
+   when a skill for multiplying and dividing integers lands (Y8).
+3. `rate.unit-rate` gains `number.fractions.to-decimal` (which carries
+   `number.fractions.equivalent` transitively) and **keeps** `ext.arith.fractions`. Dividing
+   fractions, as in chain 1's review item ¾ ÷ 3, is Y8 content. The external retires on the
+   same terms as item 2.
+4. The candidate edge `pattern.linear.graph` → `rate.unit-rate` is **rejected**. Under D2 an
+   edge claims you cannot hold one skill without the other, and a unit rate can be computed
+   without ever graphing a linear pattern. The link between them, the step as a rate, is a
+   connection a review item may plant, not a dependency.
+5. `activity_defaults.review_selection.candidate_pool` reads "transitive ancestors of
+   primary_skill **in any thread** plus external_prereqs", in place of "in this thread". The
+   old wording predates D39's single graph. Read literally, it kept the Y7 ancestors that
+   items 1–3 link out of chain 1's review pool, which defeats the point of linking them.
+   Cross-thread edges exist so that review can reach across threads.
+6. Retired external-prereq ids go in `external-prereq-retired.txt`, which is append-only.
+   Check 4 (I) fails if a retired id comes back as an external or a prereq. This makes
+   "never reused" mechanical, as the glossary and fact-id ledgers already do (the
+   platform's suggestion, B-43).
+*Why re-point at all:* an external is assumed prior knowledge that the course never teaches.
+Once the course teaches it, keeping the external would hide a real edge from the review pool
+and the coverage report.
+*Consequences:* graph v0.17.4. This changes existing skills, so the platform gets a pre-merge
+notice and checks the branch first (promised in C-28). Chain 1's catalogue files cite
+`ext.arith.fractions` and `ext.geom.coordinate-plane` only in `x_` keys, which the importer
+ignores, so no import changes. The retired id stays in those files as a stale note until they
+are next edited.
