@@ -1,30 +1,56 @@
 # Chain registry — folder name → display title (the platform's `unit` string).
 #
-# The chain ordinal lives in the FOLDER NAME, not the title. Precedence: a
-# file's own `unit:` wins, then this registry, then unset.
+# The chain ordinal lives in the FOLDER NAME, not the title. It is the TEACHING
+# ORDER: the platform sorts every teacher's outline by catalogue path, across all
+# courses in one list (B-42). Numbering is YEAR-BANDED (D46): ordinal = year × 100 +
+# position within the year, so Y7 sorts first (701…), then Y8 (801…), and up to Y13
+# (1301…). A new chain slots into its year without renumbering any other year.
+# Renumbering a folder is safe: an activity's identity is its `key:`, not its path.
 #
-# A folder with no entry warns and fails --strict. All 17 chains are listed so
-# the numbering is fixed now; only folders that exist are read.
+# Folders are FLAT: the platform takes the chain from the first path segment.
+# Precedence for a file's unit: its own `unit:` wins, then this registry, then unset.
+# A folder with no entry warns and fails --strict. Every chain in the graph is listed;
+# only folders that exist are read. The importer reads this file from the catalogue
+# ROOT, so the pilot copy is refreshed from main whenever rows change.
 #
 # NOT GENERATED. Hand-maintained, and deliberately carries no generation stamp:
 # the display titles are authored prose with no source in the graph, so this file
 # cannot claim a provenance. A file that cannot claim provenance must not have a
 # line that looks like one.
 
-01-chain.rate.proportional              = Rates and Proportional Relationships
-02-chain.linear.slope                   = Gradient
-03-chain.linear.forms                   = Forms of a Linear Equation
-04-chain.linear.model                   = Modelling with Linear Functions
-05-chain.function.definition            = What Is a Function?
-06-chain.function.notation              = Function Notation
-07-chain.function.representations       = Representations of a Function
-08-chain.function.domain-range          = Domain and Range
-09-chain.function.families              = Parent Functions
-10-chain.transform.translate            = Translating Graphs
-11-chain.transform.stretch-reflect      = Stretches and Reflections
-12-chain.transform.compose              = Composing Transformations
-13-chain.roc.average                    = Average Rate of Change
-14-chain.limit.intro                    = Introducing Limits
-15-chain.limit.difference-quotient      = The Difference Quotient
-16-chain.deriv.definition               = The Derivative at a Point
-17-chain.deriv.rules                    = Derivatives as Functions
+701-chain.number.place-value          = Place Value and Decimals
+702-chain.number.powers               = Powers, Squares and Square Roots
+703-chain.number.order-of-operations  = Order of Operations
+704-chain.number.factors              = Primes, Factors and Multiples
+705-chain.number.integers             = Integers
+706-chain.number.fractions            = Fractions, Decimals and Percentages
+707-chain.algebra.expressions         = Algebraic Expressions
+708-chain.algebra.equations           = Solving Equations
+709-chain.pattern.linear              = Coordinates and Linear Patterns
+710-chain.measure.area-volume         = Perimeter, Area and Volume
+711-chain.measure.time                = Time and Timetables
+712-chain.geom.triangles-polygons     = Triangles and Angle Sums
+713-chain.geom.parallel-lines         = Angles and Parallel Lines
+714-chain.geom.transformations        = Reflections, Rotations and Translations
+715-chain.geom.nets                   = Nets of Solids
+716-chain.stats.data-displays         = Data Displays
+717-chain.stats.summaries             = Mean, Median, Mode and Range
+718-chain.prob.theoretical            = Theoretical Probability
+719-chain.prob.experimental           = Experimental Probability
+801-chain.rate.proportional           = Rates and Proportional Relationships
+901-chain.linear.slope                = Gradient
+902-chain.linear.forms                = Forms of a Linear Equation
+903-chain.linear.model                = Modelling with Linear Functions
+1001-chain.function.definition        = What Is a Function?
+1002-chain.function.notation          = Function Notation
+1003-chain.function.representations   = Representations of a Function
+1004-chain.function.domain-range      = Domain and Range
+1005-chain.function.families          = Parent Functions
+1101-chain.transform.translate        = Translating Graphs
+1102-chain.transform.stretch-reflect  = Stretches and Reflections
+1103-chain.transform.compose          = Composing Transformations
+1104-chain.roc.average                = Average Rate of Change
+1201-chain.limit.intro                = Introducing Limits
+1202-chain.limit.difference-quotient  = The Difference Quotient
+1301-chain.deriv.definition           = The Derivative at a Point
+1302-chain.deriv.rules                = Derivatives as Functions

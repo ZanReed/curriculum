@@ -1504,3 +1504,27 @@ notice and checks the branch first (promised in C-28). Chain 1's catalogue files
 `ext.arith.fractions` and `ext.geom.coordinate-plane` only in `x_` keys, which the importer
 ignores, so no import changes. The retired id stays in those files as a stale note until they
 are next edited.
+
+**D46 (ratified 2026-10-04). Chain folder ordinals are year-banded teaching order.**
+Ruled by Zan 2026-10-04, on the platform's B-42 (answered from code): the `NN-` ordinal in
+a chain folder's name is teaching order. Every teacher's outline is sorted by catalogue path,
+across all courses in one list, and folders must be flat, because the chain is read from the
+first path segment.
+- The ordinal is **year × 100 + position within the year**: Y7 is 701–719, Y8 is 801
+  (`chain.rate.proportional`, renamed from `01-`), Y9 is 901–903, and so on up to Y13's
+  1301–1302. `chain-registry.txt` lists all 36 chains.
+- Within Y7 the default order is strand order, following the graph's `chunking_plan`: number,
+  algebra, measurement, geometry, statistics, probability. It is a default, and reordering
+  later costs nothing.
+- The 19 Y7 display titles are new authored prose in `chain-registry.txt`. The 17 thread-01
+  titles are unchanged.
+*Why year-banded:* a sequential 01–36 would list Y7 after Y13 in graph order, or need
+renumbering every time a year's chains are added. Bands put Y7 first and give each year its
+own range. Renaming a folder is safe because identity is `key:` (D18). The platform proved
+this with 0 created, 4 updated and 0 orphans.
+*Consequences:* chain 1's pilot folder is renamed `01-chain.rate.proportional` →
+`801-chain.rate.proportional`, and the pilot root's `chain-registry.txt` is refreshed from main
+in the same step. Both are in the author's folder. The platform gets a pre-merge notice, and
+its `--chain-registry <path>` flag, which retires the hand-carried copy, is triggered by this
+change.
+
