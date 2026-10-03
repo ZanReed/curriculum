@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.17.1",
+  "version": "0.17.2",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -3547,6 +3547,19 @@
       }
     },
     {
+      "id": "table",
+      "label": "PROSE OWED",
+      "medium": "PROSE OWED",
+      "status": "shipped",
+      "affords": "PROSE OWED",
+      "constraints": "PROSE OWED",
+      "grading": {
+        "scoring": "none",
+        "captures_response": false,
+        "score_shape": "none"
+      }
+    },
+    {
       "id": "callout",
       "label": "Callout box",
       "medium": "either",
@@ -3565,11 +3578,11 @@
       "medium": "electronic",
       "affords": "Hand the student a parent curve they drag to a target, capturing the drag position independent of any typed equation.",
       "constraints": "Enables the drag-then-type disagreement diagnostic. NOT the same as graph, which asks the student to produce.",
-      "status": "proposed",
+      "status": "shipped",
       "grading": {
         "scoring": "auto",
         "captures_response": true,
-        "score_shape": "unknown"
+        "score_shape": "boolean"
       }
     },
     {
@@ -3578,11 +3591,11 @@
       "medium": "electronic",
       "affords": "Match across 3+ sets at once (graph/table/equation/context) with per-edge partial credit.",
       "constraints": "match is two-column only.",
-      "status": "proposed",
+      "status": "shipped",
       "grading": {
         "scoring": "auto",
         "captures_response": true,
-        "score_shape": "unknown"
+        "score_shape": "per_cell"
       }
     },
     {
@@ -3591,11 +3604,11 @@
       "medium": "electronic",
       "affords": "Generate data from a seed so the same activity yields a different correct answer each run.",
       "constraints": "Required for sampling variability. Every dataplot dataset is currently a literal.",
-      "status": "proposed",
+      "status": "shipped",
       "grading": {
-        "scoring": "auto",
-        "captures_response": true,
-        "score_shape": "unknown"
+        "scoring": "none",
+        "captures_response": false,
+        "score_shape": "none"
       }
     },
     {
@@ -3604,11 +3617,11 @@
       "medium": "electronic",
       "affords": "Auto-grade a student-drawn cubic or higher.",
       "constraints": "graph grades up to quadratic. Bites the power-rule generalisation (x^3).",
-      "status": "proposed",
+      "status": "shipped",
       "grading": {
         "scoring": "auto",
         "captures_response": true,
-        "score_shape": "unknown"
+        "score_shape": "fraction"
       }
     },
     {
