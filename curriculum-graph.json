@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.17.5",
+  "version": "0.17.6",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -3356,8 +3356,8 @@
       "id": "graph",
       "label": "Coordinate-plane answer",
       "medium": "electronic",
-      "affords": "Student graphs a line/curve/point/region/inequality; auto-graded.",
-      "constraints": "Grades the curve families in the pinned capability facts (`prose_facts.graded_curve_families`); its cubic and quartic families are graded_polynomial. Built-in mistake feedback on by default.",
+      "affords": "Student graphs a line/curve/point/region/inequality; auto-graded. The question may carry a fixed shown shape (show: lines beside answer:, in the figure line grammar), such as a triangle to reflect, its mirror line or a centre of rotation; a plotted image is marked as a set of points in any order.",
+      "constraints": "Grades the curve families in the pinned capability facts (`prose_facts.graded_curve_families`); its cubic and quartic families are graded_polynomial. Built-in mistake feedback on by default; a mistake: line can carry a misconception id and must be the whole wrong image. Shown shapes are never marked and draw in slate, not blue (the student's ink); show: expression and cuboid are not allowed beside an answer.",
       "status": "shipped",
       "grading": {
         "scoring": "auto",
