@@ -1640,7 +1640,8 @@ allow none on a 5-question family, which is every family in Year 7. Only the pra
 2. *The sprint is at most one miss* (SB-2). Over the last `practice_window` attempts on a
    family, the sprint's accuracy bar is met when at most one answer is not correct (wrong,
    skipped or past the ceiling, item 16). Its fluency bar is met when at most one is not quick
-   and right. On today's window of 10 that is 9 of 10, so 85%. The intent is what's ruled: if
+   and right. On today's window of 10 that is 9 of 10, which is 90%: the 85% he named rounds
+   up to it, because no count of 10 gives 85% exactly. The intent is what's ruled: if
    the window size changes, "at most one miss" holds, not the percentage.
 3. *This supersedes item 4 of the D43 amendment (2026-10-05).* Leaving strategy mode no longer
    shares `accuracy_threshold`: the check and the sprint now have different bars. Item 17's
@@ -1652,4 +1653,69 @@ a ratio. It lands only after the platform's go-ahead letter. Its importer must l
 its mirror must gain the column, before any revision carrying it is mirrored; a revision mirrored
 without the column could never gain it later. The sprint isn't built yet (slice 2), so nothing
 live reads either bar in the meantime.
+
+*Note (2026-10-06). Two corrections, found by the platform (B-82).* The amendment above
+first said "9 of 10, so 85%". 9 of 10 is 90%; the text is corrected in place, and the ruling
+(at most one miss) is unchanged. §17 of `authoring-principles.md` still pointed leaving
+strategy mode at "item 13's threshold"; it now points at the sprint's accuracy bar, per family.
+
+**D43 amendment (2026-10-06, second). How the sprint practises: steps, new facts, order and
+feedback.**
+Ruled by Zan 2026-10-06 in the platform session, on ten questions (S-Q1 to S-Q10, platform B-82),
+each with this side's recommendation (C-65). Relayed in B-83. The platform's record is its
+`docs/design/practice-blocks.md`, SP-5 to SP-14. This entry fills §17's undefined "mastered" and
+"expanding intervals", and puts item 17 on per-family labels.
+1. *Steps* (S-Q1). Each fact has a step from 0 to the length of `sprint_step_intervals`,
+   derived from its attempt log and never stored as a judgement. A met attempt moves it up one
+   step, at most once a practice day. A wrong, skipped or timed-out attempt sends it to step 0.
+   A slow attempt leaves the step unchanged. Interrupted and unjudged attempts change nothing.
+   Step 0 is learning, asked every session. Step n is due again `sprint_step_intervals`[n]
+   CALENDAR days later, in the class teacher's timezone (Zan, 2026-10-06, on the platform's B-87),
+   because forgetting runs on the calendar. A fact due on a day the student doesn't practise is
+   asked at their next session; the session length caps any backlog. "At most once a practice
+   day" above means a day the student practises. A fact is mastered at `sprint_mastered_step` or higher. The drop to 0 is a
+   default to recalibrate against classroom data, as item 13's thresholds were.
+2. *Seeding* (S-Q2). The check's attempts are the log's first entries. A fact met on the check
+   starts at step 1, any other counted outcome at step 0, and a fact the check didn't ask starts
+   unseen.
+3. *Unseen facts* (S-Q3). At most `sprint_new_facts_per_session` new facts enter a session,
+   across all families. In a family the student was fluent in on the check, unseen facts enter at
+   `sprint_mastered_step` with their first due dates spread across that step's interval, so a
+   fluent student gets spot-checks, not a flood. In other families they enter at step 0, in the
+   registry's fact order.
+4. *Strategy per family* (S-Q4, restating item 17 per family):
+   - **needs strategy:** strategy mode. The strategy is shown before the family's facts each
+     session until the sprint's accuracy bar is met on that family.
+   - **slow:** the strategy is shown once, then fluency practice.
+   - **fluent:** reviews only.
+   - **not judged:** treated as slow. But if its first full `practice_window` fails the accuracy
+     bar, it enters strategy mode then, so practice supplies the judgement the check couldn't.
+5. *Strategy mode changes nothing else* (S-Q5). Timing and scoring are unchanged. The strategy
+   can be reopened from any fact of the family, and time with it open counts as interrupted.
+6. *The fluency bar* (S-Q6) is what the teacher's view calls "fluent in practice". It also moves
+   the family out of the working set (9 below). It doesn't change per-fact steps.
+7. *Feedback* (S-Q7). After a wrong or skipped answer, the correct answer stays on screen,
+   untimed, until the student moves on. In a strategy-mode family that screen offers the
+   strategy. The missed fact is asked once more at least `sprint_reask_gap` facts later; that
+   repeat is recorded but raises nothing that day. A right answer goes straight on.
+8. *Sessions* (S-Q8). A session is `sprint_minutes` of facts with no visible clock, and it ends
+   early when nothing is due. One session a practice day counts towards steps; extra sessions
+   are recorded but raise no step.
+9. *Order* (S-Q9). Due reviews come first. Then learning facts from at most
+   `sprint_working_families` families: needs-strategy families before slow ones (accuracy first,
+   item 13), and within each, in `family_groups` order and then the group's family order, so
+   related families are worked together (§14, §17).
+10. *Personal bests* (S-Q10). The done screen shows "Quick and right today: N", and "Your best
+    so far" when it is. There are no times, rates or comparisons, and the teacher sees no
+    ranking.
+*Also ruled (the platform's SP-3):* the practice record is removed with the school year, so no
+per-student progress carries into the next year, and each year starts from a new check. This
+supersedes this side's suggestion (C-62) to roll per-family labels across years. §17's "set by
+diagnostics, not by year level" is still met, by that check.
+*Graph keys, agreed with the platform (C-66, B-83) and NOT YET in the graph:*
+`activity_defaults.fact_probe` gains `sprint_minutes` (5), `sprint_step_intervals`
+([1, 2, 4, 8, 16]), `sprint_mastered_step` (2), `sprint_new_facts_per_session` (5),
+`sprint_working_families` (2) and `sprint_reask_gap` (3). With `sprint_max_misses` (D43
+amendment 2026-10-06), that makes seven keys, all present or none. They land in one registry PR
+after the platform's go-ahead letter (its importer and its migration 0049 come first).
 

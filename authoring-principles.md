@@ -334,7 +334,7 @@ activity authoring is where the misconceptions surface. The bank:
 - Within a running sprint, each student practises only the facts they haven't mastered.
   Mastered facts drop out and return at expanding intervals.
 - A fact answered *wrongly* needs a strategy, such as a derived fact, taught to accuracy
-  (item 13's threshold, per family) before fluency work. A fact answered *slowly* is shown the
+  (the sprint's accuracy bar, per family: D43 amendment 2026-10-06) before fluency work. A fact answered *slowly* is shown the
   same strategy, then goes straight to fluency work. The two differ in whether accuracy comes
   first.
 - Diagnostic gaps in prerequisites seed the mixed-practice queue from day one.
