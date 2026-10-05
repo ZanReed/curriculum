@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.17.7",
+  "version": "0.17.8",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -2866,7 +2866,7 @@
     "default_locale": "nz-ncea",
     "fact_probe": {
       "floor_factor_k": 0.8,
-      "accuracy_threshold": 0.9,
+      "accuracy_threshold": 0.8,
       "facts_met_threshold": 0.8,
       "response_ceiling_s": 15,
       "min_items_per_family": 5,

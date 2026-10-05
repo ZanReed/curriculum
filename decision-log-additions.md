@@ -1544,3 +1544,46 @@ in the same step. Both are in the author's folder. The platform gets a pre-merge
 its `--chain-registry <path>` flag, which retires the hand-carried copy, is triggered by this
 change.
 
+**D43 amendment (2026-10-05). Grouping is per fact family, and the accuracy threshold is 80%.**
+Ruled by Zan 2026-10-05 in the platform session, as four numbered choices (relayed in the
+platform's B-68; he told this side "80%" directly too). The trigger was the first real probe,
+run with a test class. One Year 10 student scored 89.2% accuracy and was grouped "needs
+strategy" across all 13 families. Most of the errors sat in two families: 0.75 for "3/4 = __ %"
+(`fact.fdp.to-percent`) and 0.1 for "1 cm = __ mm" (`fact.units`). These are errors in those
+families' facts, not format slips. One label per student over-reacted to them.
+1. *What is grouped* (restates item 13's unit; supersedes the platform's CR-7). Each fact
+   family on a probe gets its own label for each student: fluent, slow or needs strategy. The
+   label is worked out from that family's counted items only. There is no longer one group per
+   student.
+2. *The rule inside a family* (restates item 13's rule). Accuracy is checked first, as before:
+   - needs strategy: fewer than `fact_probe.accuracy_threshold` of the family's counted items
+     are correct (item 16's "correct": right and within the ceiling);
+   - fluent: otherwise, if at least `fact_probe.facts_met_threshold` of them are quick and
+     right (within the family's criterion, item 2);
+   - slow: everyone else.
+   Both thresholds are now 80%. With 5 items, that means 4 of 5 right, then 4 of 5 quick and
+   right. One slip is tolerated, which is what makes a per-family judgement on 5 items workable.
+   (Item 20's objection was to a 90% bar, where one slip in five already fails.) A family with
+   fewer facts than the minimum gets that many items (item 22), so with 3 items 80% means 3 of
+   3. Item 13's reason for checking accuracy first (the instructional hierarchy) is unchanged.
+3. *No whole-student label.* Each student gets a summary line derived from the family labels
+   only, for example "fluent in 10 of 13 families, slow in 2, needs strategy in 1". It is not a
+   second rule. The class verdict (items 11–12: the median rate against the floor) is
+   untouched.
+4. *One key for both uses.* `fact_probe.accuracy_threshold` stays the single key for the probe
+   rule (2 above) and for leaving strategy mode in practice (items 17 and 20). Over the
+   10-attempt window (`practice_window`), 80% means 8 of 10, where 90% meant 9 of 10. This is
+   a deliberate loosening, ruled knowingly; it sits with §17's target of about 80% success in
+   practice.
+5. *Item 23 restated.* A family is **met** when its label is fluent, and **not met** when it is
+   slow or needs strategy. Not judged is unchanged: a family with fewer counted items than its
+   minimum (item 22) gets no label, and item 17 still shows its strategy.
+6. *The platform's definitions under this ruling* (B-68 a–c, accepted). Counted items are
+   attempts that weren't interrupted; a skip and a timeout count against accuracy (item 16).
+   A family's label needs only that family's own minimum, not an overall rate (this relaxes
+   the platform's CR-8 gate, which applied to the old whole-student group).
+*Graph:* `activity_defaults.fact_probe.accuracy_threshold` 0.9 → 0.8, so the fact-scope
+registry takes a new revision. There's no new key and no change of shape. Probes opened before
+the platform mirrors the revision keep 0.9, because the platform copies the threshold onto each
+probe when it opens.
+

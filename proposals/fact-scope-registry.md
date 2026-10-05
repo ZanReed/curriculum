@@ -187,7 +187,7 @@ for Y11–13.
 | key | value | source |
 |---|---|---|
 | floor factor *k* | 0.8 | item 12 |
-| accuracy threshold | 0.90 | item 13 |
+| accuracy threshold | 0.80 (0.90 until 2026-10-05) | item 13; D43 amendment 2026-10-05 (per-family grouping) |
 | facts-met threshold | 0.80 | item 13 |
 | response ceiling | 15 s | item 15 |
 | minimum items per family | 5 | item 20 / 22 |
