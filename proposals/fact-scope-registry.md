@@ -192,6 +192,8 @@ for Y11–13.
 | response ceiling | 15 s | item 15 |
 | minimum items per family | 5 | item 20 / 22 |
 | practice window | 10 attempts | item 20 |
+| two-part threshold | 40 items | D43 amendment 2026-10-05 (second) |
+| items per family, two-part | 8 | D43 amendment 2026-10-05 (second) |
 
 **Where the criteria come from.**
 - **3 s for single recall.** This is the common working definition of an automatic fact in

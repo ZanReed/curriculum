@@ -1587,3 +1587,45 @@ registry takes a new revision. There's no new key and no change of shape. Probes
 the platform mirrors the revision keep 0.9, because the platform copies the threshold onto each
 probe when it opens.
 
+**D43 amendment (2026-10-05, second). Long probes run in two parts, by related families.**
+Ruled by Zan 2026-10-05 in the platform session. He chose from options put to him in B-70, and
+answered "yes to all 4" on this side's proposal (C-58), relayed in B-73. His framing: for Year 10
+"the test becomes very lengthy and overwhelming", so it should have "a part 1 and a part 2 …
+allowing students to have a break in between or break it apart in separate days".
+1. *One probe, two parts.* The teacher opens the probe once. After Part 1 the student sees a
+   break screen and can go straight on to Part 2, or do it on another day while the probe is
+   open. There is one class verdict for the whole probe, against one floor computed from all its
+   items (item 12).
+2. *When it splits.* The probe splits when its single-part length (item 20: the larger of 30
+   and `min_items_per_family` × families in scope) would exceed `fact_probe.two_part_above`
+   (40). Today Year 7 stays one part of 40, and Years 8, 9 and 10 split. A year whose scope would
+   leave one part empty stays single-part.
+3. *Items per family.* In a two-part probe, every family in scope gets
+   `fact_probe.two_part_items_per_family` (8) items, or its fact count if smaller (item 22's
+   cap). There is no 30 floor and no weighting. Item 20's rule is unchanged for single-part
+   probes. At 8 items, 80% means 7 of 8, so one slip is still tolerated (per-family grouping,
+   the first amendment of 2026-10-05). The "not judged" minimum stays `min_items_per_family`.
+4. *The cut, by relationship.* `fact_scope.family_groups` names four groups:
+   - times tables;
+   - squares, cubes and roots;
+   - fractions, decimals, percentages and units;
+   - integers.
+   
+   Every family sits in exactly one group. `fact_scope.probe_parts` puts the first two groups in
+   Part 1 and the last two in Part 2. Related and inverse families sit together, so a part
+   interleaves where it matters (§14, §17). A year's parts are these groups cut to that year's
+   scope. The resulting sizes are Year 8 82 (42 + 40) and Years 9 and 10 98 (42 + 56); Part 2 is
+   heavier because integers has four families, and the relationship cut was kept over balance.
+   About 100 items is acceptable with the break, and no family gets more than 8.
+5. *The platform's definitions* (B-73 a–g, accepted). Within a part, families are interleaved
+   by the same hash as now, and Part 1's items all come before Part 2's. A student who has done
+   only Part 1 has a rate from Part 1's items, as any partial run does. The typing warm-up runs
+   once, before Part 1, and Part 2 reuses the stored baseline.
+*Graph and registry:* two new keys in `activity_defaults.fact_probe` and two new fields in
+`fact_scope`. They are emitted in the registry body as `fact_probe.two_part_above`,
+`fact_probe.two_part_items_per_family`, `family_groups` and `probe_parts`, and the revision
+changes. This is a shape change, so the platform's importer learns the names before this
+merges. The generator fails if a family is in no group or in two, if a group is in no part or
+in two, if there aren't exactly two parts, or if a group entry has any field other than id,
+label and families. Group ids follow the registry's id rules, including `fact-ids-retired.txt`.
+

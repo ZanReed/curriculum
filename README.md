@@ -58,7 +58,9 @@ the hand-carried-copy failure with a new name. This repo carries
    `fact-scope-registry.json` from the graph's `fact_scope` and
    `activity_defaults.fact_probe`; CI fails on any diff, and the generator itself
    fails on any contract violation (unknown kind, flag or placeholder; missing,
-   duplicate or retired id; answer outside D43 item 19; markup in strategy text).
+   duplicate or retired id; answer outside D43 item 19; markup in strategy text;
+   a family outside exactly one `family_groups` group, or a group outside exactly
+   one of the two `probe_parts`).
    To retire a fact or family id, append it to `fact-ids-retired.txt`; never edit
    a fact in place under the same id.
 7. **Glossary check** (D40) —

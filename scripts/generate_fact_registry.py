@@ -33,7 +33,9 @@ ANSWER_RE = re.compile(r"^-?\d+(\.\d+)?$")                           # item 19
 ANSWER_MAX = 8                                                       # platform runner limit (CR-16..21)
 MARKUP_RE = re.compile(r"[*_#<>`]")                                  # strategy text is plain (B-23)
 FACT_PROBE_KEYS = ["floor_factor_k", "accuracy_threshold", "facts_met_threshold",
-                   "response_ceiling_s", "min_items_per_family", "practice_window"]
+                   "response_ceiling_s", "min_items_per_family", "practice_window",
+                   "two_part_above", "two_part_items_per_family"]          # two-part probe (D43, 2026-10-05)
+GROUP_ID_RE = re.compile(r"^group\.[a-z0-9]+(-[a-z0-9]+)*$")
 
 
 def fail(errors):
@@ -231,8 +233,61 @@ def main():
         if fid not in placed:
             errors.append(f"{fid}: in no year")
 
+    # Family groups and probe parts (D43 amendment 2026-10-05, two-part probe).
+    groups = fs.get("family_groups", [])
+    parts = fs.get("probe_parts", [])
+    group_of, gids = {}, []
+    if not groups:
+        errors.append("fact_scope.family_groups is missing or empty")
+    for gr in groups:
+        gid = gr.get("id", "?")
+        if set(gr) != {"id", "label", "families"}:
+            errors.append(f"{gid}: a group has exactly id, label and families, got {sorted(gr)}")
+        if not GROUP_ID_RE.match(gid):
+            errors.append(f"{gid}: group id must look like group.<kebab-name>")
+        if gid in gids:
+            errors.append(f"{gid}: duplicate group id")
+        if gid in retired:
+            errors.append(f"{gid}: id is in {args.retired} and may not be reused")
+        if not str(gr.get("label", "")).strip() or MARKUP_RE.search(str(gr.get("label", ""))):
+            errors.append(f"{gid}: label must be plain, non-empty text")
+        gids.append(gid)
+        for fid in gr.get("families", []):
+            if fid not in fam_ids:
+                errors.append(f"{gid}: unknown family {fid}")
+            elif fid in group_of:
+                errors.append(f"{fid}: in {group_of[fid]} and {gid}")
+            group_of[fid] = gid
+    for fid in fam_ids:
+        if fid not in group_of:
+            errors.append(f"{fid}: in no family group")
+    if not (isinstance(parts, list) and len(parts) == 2 and all(isinstance(p, list) and p for p in parts)):
+        errors.append("fact_scope.probe_parts must be a list of exactly two non-empty lists of group ids")
+        parts = []
+    seen_g = {}
+    for i, part in enumerate(parts, 1):
+        for gid in part:
+            if gid not in gids:
+                errors.append(f"part {i}: unknown group {gid}")
+            elif gid in seen_g:
+                errors.append(f"{gid}: in part {seen_g[gid]} and part {i}")
+            seen_g[gid] = i
+    for gid in gids:
+        if gid not in seen_g:
+            errors.append(f"{gid}: in no probe part")
+
     if errors:
         fail(errors)
+
+    # Probe sizes (items 20, 22; two-part rule): reported, not written to the body.
+    count_of = {f["id"]: f["fact_count"] for f in families_out}
+    part_of = {fid: seen_g[group_of[fid]] for fid in fam_ids}
+    above, per = int(probe["two_part_above"]), int(probe["two_part_items_per_family"])
+    for y, cum_y in cumulative.items():
+        if probe_len[y] > above:
+            sizes = [sum(min(per, count_of[f]) for f in cum_y if part_of[f] == k) for k in (1, 2)]
+            if all(sizes):
+                probe_len[y] = f"{sum(sizes)} ({sizes[0]} + {sizes[1]})"
 
     body = {
         "fact_probe": {k: probe[k] for k in FACT_PROBE_KEYS},
@@ -240,6 +295,8 @@ def main():
         "year_scope": {y: {"adds": years[y]["adds"], "cumulative": cumulative[y],
                            "description": years[y].get("description")} for y in sorted(years, key=int)},
         "fraction_names": names,
+        "family_groups": groups,
+        "probe_parts": parts,
     }
     canonical = json.dumps(body, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     revision = hashlib.sha256(canonical.encode("utf-8")).hexdigest()
