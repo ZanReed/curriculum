@@ -2872,7 +2872,20 @@
       "min_items_per_family": 5,
       "practice_window": 10,
       "two_part_above": 40,
-      "two_part_items_per_family": 8
+      "two_part_items_per_family": 8,
+      "sprint_max_misses": 1,
+      "sprint_minutes": 5,
+      "sprint_step_intervals": [
+        1,
+        2,
+        4,
+        8,
+        16
+      ],
+      "sprint_mastered_step": 2,
+      "sprint_new_facts_per_session": 5,
+      "sprint_working_families": 2,
+      "sprint_reask_gap": 3
     }
   },
   "activities": [],
