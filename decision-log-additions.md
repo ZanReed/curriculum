@@ -1359,6 +1359,22 @@ platform, so they're recorded here, not only in code.
   appears in the registry again. To change what a fact means, retire its id and issue a new
   one. Editing the fact in place under the same id is not allowed.
 
+*Note (2026-10-05). Item 22: the per-family minimum is applied last.* Agreed with the
+platform (its B-65, our C-54) under Zan's standing instruction to settle what both sides can
+agree without him. Item 22 did not say in which order its steps run, and the order only matters
+once family weights differ (every weight is 1 today). The probe is assembled in this order:
+1. its length is shared across families by weight, with exact totals by largest remainder
+   (ties go in the registry's family order);
+2. a family with fewer facts than its share contributes all of them, and the rest is shared
+   among the others by weight;
+3. the minimum (`min_items_per_family`, or the family's fact count if smaller) is applied
+   **last**. A family below it is lifted one item at a time, each taken from the family
+   furthest above its own minimum.
+For example, weights 1, 1, 1, 27 over 30 items give 5, 5, 5, 15.
+*Why last:* the minimum exists only so that no family is "not judged" (item 23). Applying it
+last meets that purpose while keeping the authored weights as intact as possible. Reserving
+every minimum first would pull every weighting towards equal.
+
 *Note (2026-10-03). The Y7 stubs enter the graph (D38).* Zan read `proposals/y7-chain-stubs.md`
 end to end and approved it, and ruled six encoding points on the builder's recommendation.
 Graph v0.17.0 adds 50 Y7 skills in 19 chains (61 activities), 66 misconception ids (labels
