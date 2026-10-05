@@ -1640,7 +1640,8 @@ allow none on a 5-question family, which is every family in Year 7. Only the pra
 2. *The sprint is at most one miss* (SB-2). Over the last `practice_window` attempts on a
    family, the sprint's accuracy bar is met when at most one answer is not correct (wrong,
    skipped or past the ceiling, item 16). Its fluency bar is met when at most one is not quick
-   and right. On today's window of 10 that is 9 of 10, so 85%. The intent is what's ruled: if
+   and right. On today's window of 10 that is 9 of 10, which is 90%: the 85% he named rounds
+   up to it, because no count of 10 gives 85% exactly. The intent is what's ruled: if
    the window size changes, "at most one miss" holds, not the percentage.
 3. *This supersedes item 4 of the D43 amendment (2026-10-05).* Leaving strategy mode no longer
    shares `accuracy_threshold`: the check and the sprint now have different bars. Item 17's
@@ -1652,4 +1653,9 @@ a ratio. It lands only after the platform's go-ahead letter. Its importer must l
 its mirror must gain the column, before any revision carrying it is mirrored; a revision mirrored
 without the column could never gain it later. The sprint isn't built yet (slice 2), so nothing
 live reads either bar in the meantime.
+
+*Note (2026-10-06). Two corrections, found by the platform (B-82).* The amendment above
+first said "9 of 10, so 85%". 9 of 10 is 90%; the text is corrected in place, and the ruling
+(at most one miss) is unchanged. §17 of `authoring-principles.md` still pointed leaving
+strategy mode at "item 13's threshold"; it now points at the sprint's accuracy bar, per family.
 
