@@ -1719,3 +1719,26 @@ diagnostics, not by year level" is still met, by that check.
 amendment 2026-10-06), that makes seven keys, all present or none. They land in one registry PR
 after the platform's go-ahead letter (its importer and its migration 0049 come first).
 
+*Note (2026-10-06). The sprint engine's readings of the amendment above.* The platform built the
+sprint's engine (its B-88; migration 0050) and listed eight places where it had to choose.
+This side checked each against the amendment (C-71), and all eight are accepted.
+- A step is the number of distinct calendar days with a quick-and-right first ask since the
+  fact's last miss, not counting the day of that miss, capped at the number of intervals.
+- Re-asks are stored but feed no step, bar or score.
+- A bar needs a full `practice_window` of first asks, not counting interrupted ones. Once met,
+  it stays met; per-fact steps carry any later forgetting.
+- A slow review stays due until it is quick and right, or missed.
+- A student with no check at all starts every family as not judged.
+- Families in strategy mode, including a not-judged family that entered it, come first in the
+  working order.
+
+*One reading differs from item 3's wording.* Spot-checks of a fluent family's unseen facts aren't
+given separate first due dates spread across the step interval. They're spread by the new-fact
+cap: they take what the working families leave of `sprint_new_facts_per_session`, in a stable
+order per student. That meets the ruled intent (spot-checks, not a flood), and it's the reading
+in force unless Zan reverses it.
+*Calibration, for Zan:* early sessions run short (about 1.5 to 2 minutes, by the platform's
+fixtures) and fill as reviews accumulate. If classroom data shows students idling, the lever is
+`sprint_new_facts_per_session` (or `sprint_working_families`): a registry revision here, with no
+platform change.
+
