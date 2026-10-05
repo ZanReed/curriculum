@@ -35,6 +35,8 @@ MARKUP_RE = re.compile(r"[*_#<>`]")                                  # strategy 
 FACT_PROBE_KEYS = ["floor_factor_k", "accuracy_threshold", "facts_met_threshold",
                    "response_ceiling_s", "min_items_per_family", "practice_window",
                    "two_part_above", "two_part_items_per_family"]          # two-part probe (D43, 2026-10-05)
+SPRINT_KEYS = ["sprint_max_misses", "sprint_minutes", "sprint_step_intervals", "sprint_mastered_step",
+               "sprint_new_facts_per_session", "sprint_working_families", "sprint_reask_gap"]  # D43 2026-10-06; all or none
 GROUP_ID_RE = re.compile(r"^group\.[a-z0-9]+(-[a-z0-9]+)*$")
 
 
@@ -139,6 +141,29 @@ def main():
     missing = [k for k in FACT_PROBE_KEYS if k not in probe]
     if missing:
         errors.append(f"activity_defaults.fact_probe missing {missing}")
+    present = [k for k in SPRINT_KEYS if k in probe]
+    if present and len(present) != len(SPRINT_KEYS):
+        errors.append(f"sprint keys are all or none; missing {[k for k in SPRINT_KEYS if k not in probe]}")
+    stray = [k for k in probe if k.startswith("sprint_") and k not in SPRINT_KEYS]
+    if stray:
+        errors.append(f"unknown sprint key(s) {stray} (a new key goes to the platform first)")
+    if len(present) == len(SPRINT_KEYS):
+        isint = lambda v: isinstance(v, int) and not isinstance(v, bool)
+        iv = probe["sprint_step_intervals"]
+        if not (isinstance(iv, list) and iv and all(isint(x) and x >= 1 for x in iv)
+                and all(a < b for a, b in zip(iv, iv[1:]))):
+            errors.append("sprint_step_intervals must be a non-empty, strictly increasing list of whole numbers >= 1")
+            iv = [1]
+        m = probe["sprint_minutes"]
+        if not (isinstance(m, (int, float)) and not isinstance(m, bool) and m > 0):
+            errors.append("sprint_minutes must be a number > 0")
+        ms = probe["sprint_mastered_step"]
+        if not (isint(ms) and 1 <= ms <= len(iv)):
+            errors.append(f"sprint_mastered_step must be a whole number from 1 to {len(iv)}")
+        for k, lo in (("sprint_max_misses", 0), ("sprint_new_facts_per_session", 0),
+                      ("sprint_working_families", 1), ("sprint_reask_gap", 1)):
+            if not (isint(probe[k]) and probe[k] >= lo):
+                errors.append(f"{k} must be a whole number >= {lo}")
 
     retired = set()
     try:
@@ -290,7 +315,7 @@ def main():
                 probe_len[y] = f"{sum(sizes)} ({sizes[0]} + {sizes[1]})"
 
     body = {
-        "fact_probe": {k: probe[k] for k in FACT_PROBE_KEYS},
+        "fact_probe": {k: probe[k] for k in FACT_PROBE_KEYS + [k for k in SPRINT_KEYS if k in probe]},
         "families": families_out,
         "year_scope": {y: {"adds": years[y]["adds"], "cumulative": cumulative[y],
                            "description": years[y].get("description")} for y in sorted(years, key=int)},
