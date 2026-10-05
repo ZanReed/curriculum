@@ -1669,8 +1669,11 @@ each with this side's recommendation (C-65). Relayed in B-83. The platform's rec
    derived from its attempt log and never stored as a judgement. A met attempt moves it up one
    step, at most once a practice day. A wrong, skipped or timed-out attempt sends it to step 0.
    A slow attempt leaves the step unchanged. Interrupted and unjudged attempts change nothing.
-   Step 0 is learning, asked every session. Step n is due again after `sprint_step_intervals`[n]
-   practice days. A fact is mastered at `sprint_mastered_step` or higher. The drop to 0 is a
+   Step 0 is learning, asked every session. Step n is due again `sprint_step_intervals`[n]
+   CALENDAR days later, in the class teacher's timezone (Zan, 2026-10-06, on the platform's B-87),
+   because forgetting runs on the calendar. A fact due on a day the student doesn't practise is
+   asked at their next session; the session length caps any backlog. "At most once a practice
+   day" above means a day the student practises. A fact is mastered at `sprint_mastered_step` or higher. The drop to 0 is a
    default to recalibrate against classroom data, as item 13's thresholds were.
 2. *Seeding* (S-Q2). The check's attempts are the log's first entries. A fact met on the check
    starts at step 1, any other counted outcome at step 0, and a fact the check didn't ask starts
