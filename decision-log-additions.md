@@ -1629,3 +1629,27 @@ merges. The generator fails if a family is in no group or in two, if a group is 
 in two, if there aren't exactly two parts, or if a group entry has any field other than id,
 label and families. Group ids follow the registry's id rules, including `fact-ids-retired.txt`.
 
+**D43 amendment (2026-10-06). The sprint's bar is at most one miss; the check stays at 80%.**
+Ruled by Zan 2026-10-06 in the platform session (its SB-1 and SB-2, relayed in B-79). His aim:
+"you can only miss one problem on the practice sprints and or on the original test out". The
+platform showed him the arithmetic on the live registry first. A check gives a family 5 or 8
+questions, and 0.8 already allows exactly one miss at both sizes (4 of 5, 7 of 8). 0.85 would
+allow none on a 5-question family, which is every family in Year 7. Only the practice window of
+10 needed to move.
+1. *The check is unchanged* (SB-1). `accuracy_threshold` and `facts_met_threshold` stay 0.8.
+2. *The sprint is at most one miss* (SB-2). Over the last `practice_window` attempts on a
+   family, the sprint's accuracy bar is met when at most one answer is not correct (wrong,
+   skipped or past the ceiling, item 16). Its fluency bar is met when at most one is not quick
+   and right. On today's window of 10 that is 9 of 10, so 85%. The intent is what's ruled: if
+   the window size changes, "at most one miss" holds, not the percentage.
+3. *This supersedes item 4 of the D43 amendment (2026-10-05).* Leaving strategy mode no longer
+   shares `accuracy_threshold`: the check and the sprint now have different bars. Item 17's
+   "accurate on that family" in practice means the sprint's accuracy bar in 2 above.
+*Graph key, agreed with the platform (C-63, B-80) and NOT YET in the graph:*
+`activity_defaults.fact_probe.sprint_max_misses`, an integer ≥ 0, value 1, emitted at
+`body.fact_probe.sprint_max_misses`. It's one key for both bars, and it records the intent, not
+a ratio. It lands only after the platform's go-ahead letter. Its importer must learn the key, and
+its mirror must gain the column, before any revision carrying it is mirrored; a revision mirrored
+without the column could never gain it later. The sprint isn't built yet (slice 2), so nothing
+live reads either bar in the meantime.
+
