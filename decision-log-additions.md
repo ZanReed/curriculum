@@ -1705,7 +1705,7 @@ each with this side's recommendation (C-65). Relayed in B-83. The platform's rec
 10. *Personal bests* (S-Q10). The done screen shows "Quick and right today: N", and "Your best
     so far" when it is. There are no times, rates or comparisons, and the teacher sees no
     ranking.
-*Also ruled (the platform's SP-1):* the practice record is removed with the school year, so no
+*Also ruled (the platform's SP-3):* the practice record is removed with the school year, so no
 per-student progress carries into the next year, and each year starts from a new check. This
 supersedes this side's suggestion (C-62) to roll per-family labels across years. §17's "set by
 diagnostics, not by year level" is still met, by that check.
