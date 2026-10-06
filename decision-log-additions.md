@@ -1742,3 +1742,39 @@ fixtures) and fill as reviews accumulate. If classroom data shows students idlin
 `sprint_new_facts_per_session` (or `sprint_working_families`): a registry revision here, with no
 platform change.
 
+**D47 (ratified 2026-10-06). The activity cap rises from 24 to 32 minutes, and the extra time
+goes to guided instruction: the worked and faded beats.** (`activity_defaults.duration_min`,
+`activity_defaults.phase_budget_min`; §5 amended; §17 period-shape table amended)
+
+*The gap:* under the 24-minute budget, worked + faded got 9 minutes. The strongest data point
+on guided time in a mathematics lesson is the process–product finding Rosenshine (2012)
+reports from Evertson et al. (1980): the most effective teachers spent about 23 minutes of a
+40-minute period on presentation, demonstration, questioning and worked examples; the least
+effective about 11. Nine minutes sits with the low group. Three further findings point the
+same way:
+
+- **One worked example is not the effect.** The worked-example research mostly uses several
+  examples, often example–problem pairs (Sweller & Cooper 1985; Trafton & Reiser 1993). §13's
+  minimal-pair rule already assumes a sequence; 3 minutes holds one example.
+- **Spacing needs initial learning first.** Spaced and interleaved practice pay off after a
+  student has reached criterion once (Rawson & Dunlosky, successive relearning). D43's mixed
+  block cannot repair an acquisition that didn't happen inside the activity. Rosenshine's rule
+  is guided practice until success is high (about 80%).
+- **Independent practice at 4–8 items** is enough for well-prepared students and thin for the
+  rest, so the DoL measures a skill some students never finished practising.
+
+Review (spaced retrieval) and the DoL were already in line with the evidence and are unchanged.
+
+*Ruled: 32, not 35.* At 35 the 50-minute period leaves about 5 minutes of mixed practice with
+the sprint on: 3–5 items at 60–90 seconds each, too few to do the spacing job. At 32 it leaves
+about 8–10. The 60- and 100-minute shapes have room either way.
+
+*Rejected: keep 24 and give more skills a second part.* Cheap in calendar time (the free-day
+count allows it), but it answers a different question. The evidence is about guided time
+within one lesson; splitting an acquisition across two days adds a night's forgetting between
+the worked example and the student's own attempt. Extra parts remain the right tool for skills
+that hold more than one idea; that rule is a separate decision.
+
+*Caveat recorded:* the Evertson/Rosenshine figure is correlational 1970s–80s research, not an
+RCT. It is a strong signal, not a constant. The split below is a first value to recalibrate
+against classroom data.

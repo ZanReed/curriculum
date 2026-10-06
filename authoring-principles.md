@@ -105,8 +105,10 @@ parts fade less, later parts fade more.
 grading (typically 4–8 items). Where the platform supports a decision, prefer items
 that force the *choice* of method, not just its execution.
 
-One worked example per new idea. Two ideas in one activity means the activity should
-have been two activities.
+One new idea per activity, taught through a short worked-example sequence rather than a
+single example: an example–problem pair, or a minimal-pair run (§13). The worked beat's
+budget is sized for a sequence; spend it on one, not on a longer single example. Two ideas
+in one activity means the activity should have been two activities.
 
 ## 6. Review is spaced retrieval, not warm-up filler
 
@@ -347,9 +349,9 @@ are not. Each activity is capped at `activity_defaults.duration_min`.
 
 | period | shape |
 |---|---|
-| 50 min | fluency 5 · hook 2–3 · activity · mixed ~15 |
-| 60 min | fluency 5 · hook 2–3 · activity · mixed ~25 |
-| 100 min | fluency 5 · hook 2–3 · activity · mixed ~15 · activity · mixed ~15 |
+| 50 min | fluency 5 · hook 2–3 · activity (cap) · mixed ~8–10 |
+| 60 min | fluency 5 · hook 2–3 · activity (cap) · mixed ~18–20 |
+| 100 min | fluency 5 · hook 2–3 · activity (cap) · mixed ~12 · activity (cap) · mixed ~12 |
 
 One hook per day (§4), so the second activity in a double period has none. A double period
 uses two activities from the sequence. Leftover minutes go to transitions, then to mixed
