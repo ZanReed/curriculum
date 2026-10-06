@@ -1867,3 +1867,19 @@ parts.
 | When to audit? | Y7 first, now, before any Y7 activity is drafted. Thread-01 as each chain reaches drafting (D38 order). |
 | DoL on a non-final part? | Agreed: covers the ideas taught so far. |
 | Ideas too small for an activity? | Stay paired inside a neighbouring skill (ruling 8). Pairing is at the skill level, not two skills in one activity. |
+
+*Note (2026-10-06). The Y7 parts audit applies D48.* The audit is
+`proposals/y7-parts-audit.md`, ruled and read end to end by Zan; it's in the graph at v0.17.14.
+Y7 goes from 61 activities across 50 skills to 55 across 49, and total parts from 108 to 102.
+Three points beyond the audit's text, ruled by Zan the same day on this side's review:
+1. *Thread 01's edge.* `linear.slope.two-points` had `number.integers.additive-inverse` as a
+   prereq (D45). It now points to `number.integers.subtract`, because slope from two points
+   subtracts signed numbers. `ext.arith.signed` stays, as D45 ruled.
+2. *Retired skill ids get a ledger.* `skill-ids-retired.txt` is append-only, like the fact,
+   glossary and external-prereq ledgers. Check 4 (J) fails if a retired id comes back as a
+   skill, a prereq or a chunking-plan entry. Its first entries are the audit's three
+   retirements.
+3. *Notice.* Retiring skills and moving misconception attachments is a platform-visible change.
+   The platform reads the skill registry, and attachments reach the AI grader. So it gets a
+   pre-merge notice, as well as the builder's notice line.
+

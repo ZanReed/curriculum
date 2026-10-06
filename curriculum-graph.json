@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.17.13",
+  "version": "0.17.14",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -565,7 +565,7 @@
       "band": "Y9",
       "prereqs": [
         "rate.constant-of-proportionality",
-        "number.integers.additive-inverse",
+        "number.integers.subtract",
         "ext.arith.signed"
       ],
       "misconceptions": [
@@ -1718,8 +1718,7 @@
         "teks": []
       },
       "band_nz": "Y7",
-      "band_us": null,
-      "parts": 2
+      "band_us": null
     },
     {
       "id": "number.primes.classify",
@@ -1763,7 +1762,8 @@
         "teks": []
       },
       "band_nz": "Y7",
-      "band_us": null
+      "band_us": null,
+      "parts": 2
     },
     {
       "id": "number.factors.hcf-lcm",
@@ -1787,8 +1787,7 @@
         "teks": []
       },
       "band_nz": "Y7",
-      "band_us": null,
-      "parts": 2
+      "band_us": null
     },
     {
       "id": "number.integers.number-line",
@@ -1814,11 +1813,34 @@
       "band_us": null
     },
     {
-      "id": "number.integers.additive-inverse",
-      "label": "Use the additive inverse to add and subtract integers on a number line",
+      "id": "number.integers.add",
+      "label": "Add integers, using the number line",
       "band": "Y7",
       "prereqs": [
         "number.integers.number-line"
+      ],
+      "misconceptions": [
+        "mis.integers.sign-ignored"
+      ],
+      "alignment": {
+        "nzc_phase": [
+          "P3.Y7.Number:S38",
+          "P3.Y7.Number:S41",
+          "P3.Y7.Number:S42"
+        ],
+        "ncea": [],
+        "ccss": [],
+        "teks": []
+      },
+      "band_nz": "Y7",
+      "band_us": null
+    },
+    {
+      "id": "number.integers.subtract",
+      "label": "Subtract integers by adding the additive inverse, using the number line",
+      "band": "Y7",
+      "prereqs": [
+        "number.integers.add"
       ],
       "misconceptions": [
         "mis.integers.subtract-always-smaller",
@@ -1835,8 +1857,7 @@
         "teks": []
       },
       "band_nz": "Y7",
-      "band_us": null,
-      "parts": 2
+      "band_us": null
     },
     {
       "id": "number.fractions.equivalent",
@@ -2018,8 +2039,7 @@
         "teks": []
       },
       "band_nz": "Y7",
-      "band_us": null,
-      "parts": 2
+      "band_us": null
     },
     {
       "id": "algebra.formulae.rearrange",
@@ -2087,8 +2107,7 @@
         "teks": []
       },
       "band_nz": "Y7",
-      "band_us": null,
-      "parts": 2
+      "band_us": null
     },
     {
       "id": "pattern.linear.graph",
@@ -2552,7 +2571,7 @@
     },
     {
       "id": "stats.summary.median-mode",
-      "label": "Find the median and mode, including an even number of values",
+      "label": "Find the median, mode and range, including an even number of values; interpret the range as a measure of spread",
       "band": "Y7",
       "prereqs": [
         "stats.variables.classify"
@@ -2560,36 +2579,14 @@
       "misconceptions": [
         "mis.median.unsorted",
         "mis.median.even-count",
-        "mis.summary.measures-swapped"
+        "mis.summary.measures-swapped",
+        "mis.range.as-interval"
       ],
       "alignment": {
         "nzc_phase": [
           "P3.Y7.Statistics:S92",
           "P3.Y7.Statistics:S93",
           "P3.Y7.Statistics:S95"
-        ],
-        "ncea": [],
-        "ccss": [],
-        "teks": []
-      },
-      "band_nz": "Y7",
-      "band_us": null
-    },
-    {
-      "id": "stats.summary.range",
-      "label": "Find and interpret the range as a measure of spread",
-      "band": "Y7",
-      "prereqs": [
-        "stats.summary.median-mode"
-      ],
-      "misconceptions": [
-        "mis.range.as-interval",
-        "mis.summary.measures-swapped"
-      ],
-      "alignment": {
-        "nzc_phase": [
-          "P3.Y7.Statistics:S94",
-          "P3.Y7.Statistics:S96"
         ],
         "ncea": [],
         "ccss": [],
@@ -2640,12 +2637,11 @@
         "teks": []
       },
       "band_nz": "Y7",
-      "band_us": null,
-      "parts": 2
+      "band_us": null
     },
     {
       "id": "prob.theoretical.equally-likely",
-      "label": "Find the probability of an event with equally likely outcomes, as a fraction, decimal or percentage",
+      "label": "Find the probability of an event with equally likely outcomes, as a fraction, decimal or percentage, and use P(not A) = 1 − P(A)",
       "band": "Y7",
       "prereqs": [
         "prob.sample-space.list",
@@ -2653,35 +2649,14 @@
       ],
       "misconceptions": [
         "mis.prob.equiprobability",
-        "mis.percent.decimal-shift"
+        "mis.percent.decimal-shift",
+        "mis.prob.complement-as-reciprocal"
       ],
       "alignment": {
         "nzc_phase": [
           "P3.Y7.Probability:S109",
           "P3.Y7.Probability:S110",
           "P3.Y7.Probability:S113"
-        ],
-        "ncea": [],
-        "ccss": [],
-        "teks": []
-      },
-      "band_nz": "Y7",
-      "band_us": null
-    },
-    {
-      "id": "prob.complement",
-      "label": "Use P(not A) = 1 − P(A)",
-      "band": "Y7",
-      "prereqs": [
-        "prob.theoretical.equally-likely"
-      ],
-      "misconceptions": [
-        "mis.prob.complement-as-reciprocal"
-      ],
-      "alignment": {
-        "nzc_phase": [
-          "P3.Y7.Probability:S112",
-          "P3.Y7.Probability:S114"
         ],
         "ncea": [],
         "ccss": [],
@@ -3144,7 +3119,7 @@
         "skills": [
           "number.operations.order"
         ],
-        "activities": 2,
+        "activities": 1,
         "hooks": []
       },
       {
@@ -3163,7 +3138,8 @@
         "thread": "thread.number-proportion",
         "skills": [
           "number.integers.number-line",
-          "number.integers.additive-inverse"
+          "number.integers.add",
+          "number.integers.subtract"
         ],
         "activities": 3,
         "hooks": []
@@ -3198,7 +3174,7 @@
           "algebra.equations.two-step",
           "algebra.formulae.rearrange"
         ],
-        "activities": 4,
+        "activities": 3,
         "hooks": []
       },
       {
@@ -3209,7 +3185,7 @@
           "pattern.linear.rule",
           "pattern.linear.graph"
         ],
-        "activities": 4,
+        "activities": 3,
         "hooks": []
       },
       {
@@ -3309,10 +3285,9 @@
         "skills": [
           "stats.summary.mean",
           "stats.summary.median-mode",
-          "stats.summary.range",
           "stats.summary.outlier-effect"
         ],
-        "activities": 5,
+        "activities": 4,
         "hooks": []
       },
       {
@@ -3320,10 +3295,9 @@
         "thread": "thread.probability",
         "skills": [
           "prob.sample-space.list",
-          "prob.theoretical.equally-likely",
-          "prob.complement"
+          "prob.theoretical.equally-likely"
         ],
-        "activities": 4,
+        "activities": 2,
         "hooks": []
       },
       {
@@ -3337,8 +3311,8 @@
         "hooks": []
       }
     ],
-    "total_skills": 97,
-    "total_activities_projected": 134
+    "total_skills": 96,
+    "total_activities_projected": 128
   },
   "capabilities": [
     {

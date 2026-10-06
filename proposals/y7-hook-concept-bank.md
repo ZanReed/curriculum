@@ -57,7 +57,7 @@ only on the skill's `misconceptions` list in the graph (PR #5).
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.integers.goat-island` | `number.integers.number-line` | Snorkelling at Goat Island: Hemi is at −8 m, Aroha at −3 m. Who is deeper? And which number is bigger? | `mis.integers.larger-digit-larger` | NZ | the two questions pull against each other, which is the point |
-| `hook.integers.ohakune-morning` | `number.integers.additive-inverse` | It's −4 °C in Ohakune at 7 am. By midday it has risen 9 degrees. Ben says it's now −13 °C "because the numbers got bigger." What is it really? | `mis.integers.sign-ignored` | NZ | wrong answer to react to |
+| `hook.integers.ohakune-morning` | `number.integers.add` | It's −4 °C in Ohakune at 7 am. By midday it has risen 9 degrees. Ben says it's now −13 °C "because the numbers got bigger." What is it really? | `mis.integers.sign-ignored` | NZ | wrong answer to react to |
 
 ### `chain.number.fractions` (4 → 2)
 
@@ -162,7 +162,7 @@ its pool minimum is 1 and the remaining hook meets it. Carried to the Y8 bank:
 |---|---|---|---|---|---|
 | `hook.stats.nana-birthday` | `stats.summary.outlier-effect` | Ages at a whānau birthday: 8, 9, 10, 11 and Nana, 87. The mean age is 25. Is anyone at this party "about 25"? | `mis.outlier.affects-median-equally` | NZ | the lesson earns the median as the fix |
 | `hook.stats.one-shoe-size` | `stats.summary.median-mode` | A shop can stock a new sneaker in only one size. Should it pick the mean size, the median size, or the most common size? | no id: sets up that "average" has three meanings | | choice. Named "no id" per the screening check |
-| `hook.stats.pick-a-shooter` | `stats.summary.range` | Two netball shooters both average 6 goals a game. One scores 6, 6, 6, 6; the other 1, 11, 2, 10. Who do you pick for the final? | no id: sets up that spread matters as well as centre | | choice. No right answer, which is fine for a hook |
+| `hook.stats.pick-a-shooter` | `stats.summary.median-mode` | Two netball shooters both average 6 goals a game. One scores 6, 6, 6, 6; the other 1, 11, 2, 10. Who do you pick for the final? | no id: sets up that spread matters as well as centre | | choice. No right answer, which is fine for a hook |
 
 ---
 
@@ -215,3 +215,5 @@ its pool minimum is 1 and the remaining hook meets it. Carried to the Y8 bank:
 - **`mis.area.same-perimeter-same-area`: added** to the stubs.
 - **Pacific-specific contexts: deferred.** Zan will work these out with colleagues; the
   bank stands without them for now.
+
+*Note (2026-10-06, Y7 parts audit).* Two `connects_to` targets above are repointed because their skills were retired (`skill-ids-retired.txt`): `hook.integers.ohakune-morning` (−4 °C, then up 9) now targets `number.integers.add`, and `hook.stats.pick-a-shooter` now targets `stats.summary.median-mode`, which absorbed range.

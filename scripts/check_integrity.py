@@ -26,6 +26,10 @@ Retired external prereqs (D45):
   I. no id in external-prereq-retired.txt appears as an external prereq or as a
      skill prereq; the ledger must exist and yield at least one id
 
+Retired skills (D48 note, 2026-10-06):
+  J. no id in skill-ids-retired.txt appears as a skill, a prereq or a chunking-plan
+     entry; the ledger must exist and yield at least one id
+
 Non-vacuity guard: an extraction that yields zero ids from a present registry
 is itself a failure — an extractor that silently matches nothing would pass
 while checking nothing.
@@ -208,6 +212,26 @@ def main() -> int:
                     failures.append(f"I skill uses a retired external prereq: {s.get('id')} -> {p}")
     else:
         failures.append("I missing ledger: external-prereq-retired.txt")
+
+    # J — retired skill ids are never reused (D48 note; append-only ledger)
+    rs_path = here / "skill-ids-retired.txt"
+    if rs_path.exists():
+        rs = {ln.split("#", 1)[0].strip() for ln in rs_path.read_text().splitlines()}
+        rs.discard("")
+        if not rs:
+            failures.append("J extracted zero ids from skill-ids-retired.txt")
+        for rid in sorted(rs & skill_ids):
+            failures.append(f"J retired skill is back in skills: {rid}")
+        for s in skills:
+            for p in s.get("prereqs", []):
+                if p in rs:
+                    failures.append(f"J skill uses a retired skill as a prereq: {s.get('id')} -> {p}")
+        for c in doc.get("chunking_plan", {}).get("chains", []):
+            for sid in c.get("skills", []):
+                if sid in rs:
+                    failures.append(f"J chain {c.get('chain_id')} lists a retired skill: {sid}")
+    else:
+        failures.append("J missing ledger: skill-ids-retired.txt")
 
     if failures:
         print(f"check 4 FAIL — {len(failures)} finding(s):", file=sys.stderr)

@@ -1,6 +1,6 @@
 # Misconception registry — the valid mis.* id set.
 #
-# Generated from curriculum-graph.json v0.17.13. Do not hand-edit: regenerate.
+# Generated from curriculum-graph.json v0.17.14. Do not hand-edit: regenerate.
 # An id-shaped token not listed here warns, and fails under --strict.
 
 mis.angles.complement-supplement-swapped          # Uses 180° for complementary angles, or 90° for supplementary

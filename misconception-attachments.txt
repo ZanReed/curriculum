@@ -2,7 +2,7 @@
 #
 # One `skill.id   mis.id` pair per line; a misconception may attach to several
 # skills. Descriptions live in misconception-registry.txt, not here.
-# Generated from curriculum-graph.json v0.17.13. Do not hand-edit: regenerate.
+# Generated from curriculum-graph.json v0.17.14. Do not hand-edit: regenerate.
 
 algebra.equations.one-step                mis.equations.same-operation
 algebra.equations.two-step                mis.equations.one-side-only
@@ -106,9 +106,10 @@ number.factors.hcf-lcm                    mis.factors.hcf-lcm-swapped
 number.factors.hcf-lcm                    mis.factors.lcm-is-product
 number.fractions.equivalent               mis.fractions.add-same
 number.fractions.to-decimal               mis.fractions.digits-as-decimal
-number.integers.additive-inverse          mis.integers.sign-ignored
-number.integers.additive-inverse          mis.integers.subtract-always-smaller
+number.integers.add                       mis.integers.sign-ignored
 number.integers.number-line               mis.integers.larger-digit-larger
+number.integers.subtract                  mis.integers.sign-ignored
+number.integers.subtract                  mis.integers.subtract-always-smaller
 number.operations.order                   mis.order.left-to-right
 number.operations.order                   mis.order.pairs-ranked
 number.percent.hundredths                 mis.fractions.digits-as-decimal
@@ -126,12 +127,12 @@ pattern.linear.graph                      mis.pattern.first-term-as-constant
 pattern.linear.rule                       mis.pattern.assumes-proportional
 pattern.linear.rule                       mis.pattern.first-term-as-constant
 pattern.linear.rule                       mis.pattern.step-as-rule
-prob.complement                           mis.prob.complement-as-reciprocal
 prob.experimental.large-numbers           mis.prob.gamblers-fallacy
 prob.experimental.large-numbers           mis.prob.small-sample-exact
 prob.experimental.relative-frequency      mis.prob.small-sample-exact
 prob.sample-space.list                    mis.prob.order-ignored
 prob.theoretical.equally-likely           mis.percent.decimal-shift
+prob.theoretical.equally-likely           mis.prob.complement-as-reciprocal
 prob.theoretical.equally-likely           mis.prob.equiprobability
 rate.constant-of-proportionality          mis.proportional.one-pair-assumed-constant
 rate.constant-of-proportionality          mis.rate.ratio-inverted
@@ -153,10 +154,9 @@ stats.summary.mean                        mis.mean.drops-zeros
 stats.summary.mean                        mis.summary.measures-swapped
 stats.summary.median-mode                 mis.median.even-count
 stats.summary.median-mode                 mis.median.unsorted
+stats.summary.median-mode                 mis.range.as-interval
 stats.summary.median-mode                 mis.summary.measures-swapped
 stats.summary.outlier-effect              mis.outlier.affects-median-equally
-stats.summary.range                       mis.range.as-interval
-stats.summary.range                       mis.summary.measures-swapped
 stats.variables.classify                  mis.stats.digits-are-numerical
 transform.compose-order                   mis.transform.inside-outside
 transform.horizontal.stretch              mis.transform.horizontal-direction
