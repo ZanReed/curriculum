@@ -368,3 +368,27 @@ practice.
 
 **Homework** is optional extra spacing, drawn from the same scheduler. Nothing relies on
 it being completed.
+
+## 18. The year is planned in period kinds
+
+An activity teaches one idea in one period. A year needs more than activities: it needs
+review, correctives, assessment and room to transfer what was learned. A period with no
+activity is one of these kinds, not empty time and not a reason to add parts (§10).
+
+- **Review**: the whole period is mixed practice (§17), reaching further back than the daily
+  block. The best-supported kind; give it the most periods.
+- **Corrective**: after a chain's final DoL. Students showing a misconception get its
+  corrective, which explains differently from the lesson; the rest get the chain's
+  discrimination items, then harder mixed items. A corrective is written once per
+  misconception id, not per activity.
+- **Assessment**: the class diagnostic (§17) and a cumulative test from its own item pool,
+  never from the practice banks or the DoLs. The test is a reading for the teacher, not a
+  grade.
+- **Transfer**: problem solving across skills, only after fluency, and rationed: rich tasks
+  earn their keep at the end of a topic, not during acquisition (§1).
+- **Buffer**: deliberately unplanned. Interruptions are certain; a plan without buffer
+  converts each one into a slipped chain.
+
+The teacher places every period. The curriculum supplies each kind's contents and its default
+cadence (`activity_defaults.year_plan`); the platform may suggest, never schedule.
+
