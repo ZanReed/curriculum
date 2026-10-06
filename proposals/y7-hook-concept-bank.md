@@ -4,10 +4,13 @@
 (`proposals/y7-chain-stubs.md`) and the hook rules fetched from `main`:
 `authoring-principles.md` §4 and `activity_defaults.hook_contract`.
 
-**Pool size.** The contract's minimum is `ceil(approved_activities / 2)` per chain. At stub
-counts that is **34 hooks across 19 chains** (35 before polygon sums moved to Y8), and this bank gives exactly the minimum per
-chain. Screening will cut some; each cut needs a replacement before that chain's activities
-are drafted.
+**Pool size.** The minimum is `activity_defaults.hook_contract.minimum`: since the D42 amendment
+(3 Oct), at least one hook per skill. At graph v0.17.14 (after the D48 parts audit) that is
+**49 hooks across 19 chains**, one per Y7 skill. This bank holds 34 concepts (33 for Y7, plus
+`hook.polygon.honeycomb` carried to the Y8 bank), and `chain.geom.triangles-polygons` has its 2
+hooks finished in the graph, so **at least 15 concepts are still owed** (item 5 under "Screening
+as a set"). Each is owed before its chain's activities are drafted. Screening will cut some; each
+cut needs a replacement at the same point.
 
 **Rules each concept was written to** (§4, restated only as a checklist):
 
@@ -26,40 +29,40 @@ only on the skill's `misconceptions` list in the graph (PR #5).
 
 ## Thread 02: Number (10)
 
-### `chain.number.place-value` (3 activities → 3)
+### `chain.number.place-value` (3 skills, 3 activities → 3; bank holds 2)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.place-value.long-jump` | `number.place-value.decimals` | School athletics: Mere jumps 3.45 m, Leilani 3.5 m. Mere says she won "because 45 is more than 5." Who gets the ribbon? | `mis.place-value.longer-is-larger` | | claim to evaluate |
 | `hook.round.dairy-cash` | `number.round.cash` | At the dairy your total is $4.97 and you pay cash. Do you hand over $4.97, $4.90 or $5.00? And would buying the items one at a time cost more? | `mis.round.cash-per-item` | NZ | NZ has had no 1c/2c/5c coins since 2006; students often haven't noticed the rounding |
 
-### `chain.number.powers` (2 → 2)
+### `chain.number.powers` (2 skills, 2 activities → 2; bank holds 1)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.exponent.rumour` | `number.exponents.evaluate` | You tell a secret to 2 people. Each of them tells 2 new people the next day, and so on. After 10 days, about how many new people hear it that day: 20, 200 or 1000? | `mis.exponent.multiplies-base` (2¹⁰ read as 20) | | prediction. 2¹⁰ = 1024 |
 
-### `chain.number.order-of-operations` (1 → 1)
+### `chain.number.order-of-operations` (1 skill, 1 activity → 1; bank holds 1)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.order.viral-sum` | `number.operations.order` | A viral post: 6 + 4 × 2 = ? A phone calculator says 14; a cheap desk calculator says 20. Which one is broken? | `mis.order.left-to-right` | | two options. Basic calculators do evaluate left to right; the lesson earns why the convention exists |
 
-### `chain.number.factors` (4 → 3)
+### `chain.number.factors` (3 skills, 4 activities → 3; bank holds 2)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.primes.ninety-one` | `number.primes.classify` | Is 91 prime? Most adults say yes. Commit to a guess. | `mis.primes.odd-means-prime` | | 91 = 7 × 13 |
 | `hook.factors.sausage-sizzle` | `number.factors.hcf-lcm` | Sausage sizzle fundraiser: sausages come in packs of 6, bread in packs of 8. What's the fewest of each you can buy so nothing is left over? | `mis.factors.lcm-is-product` (answers 48, not 24) | NZ | |
 
-### `chain.number.integers` (3 → 3)
+### `chain.number.integers` (3 skills, 3 activities → 3; bank holds 2)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.integers.goat-island` | `number.integers.number-line` | Snorkelling at Goat Island: Hemi is at −8 m, Aroha at −3 m. Who is deeper? And which number is bigger? | `mis.integers.larger-digit-larger` | NZ | the two questions pull against each other, which is the point |
-| `hook.integers.ohakune-morning` | `number.integers.add` | It's −4 °C in Ohakune at 7 am. By midday it has risen 9 degrees. Ben says it's now −13 °C "because the numbers got bigger." What is it really? | `mis.integers.sign-ignored` | NZ | wrong answer to react to |
+| `hook.integers.ohakune-morning` | `number.integers.add` | It's −4 °C in Ohakune at 7 am. By midday it has risen 9 degrees. Ben says it's now −13 °C "because the numbers got bigger." What is it really? | `mis.integers.sign-ignored` | NZ | wrong answer to react to. Repointed 6 Oct from the retired `number.integers.additive-inverse` (D48 audit): −4 + 9 is addition, and sign-ignored sits on the add skill |
 
-### `chain.number.fractions` (4 → 3)
+### `chain.number.fractions` (3 skills, 4 activities → 3; bank holds 2)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
@@ -70,21 +73,21 @@ only on the skill's `misconceptions` list in the graph (PR #5).
 
 ## Thread 03: Algebra (6)
 
-### `chain.algebra.expressions` (3 → 3)
+### `chain.algebra.expressions` (3 skills, 3 activities → 3; bank holds 2)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.notation.mind-reader` | `algebra.notation.write` | Think of a number. Add 5, double it, take away 10, halve it. You're back at your number, and I knew you would be without knowing what it was. How? | `mis.notation.letter-as-object` | | the lesson earns "a letter stands for any number". Don't reveal it in the hook |
 | `hook.like-terms.x-plus-x` | `algebra.expressions.like-terms` | Sione says x + x = x². Try x = 3. Now try x = 2. Is he right? | `mis.like-terms.adds-to-power` | | surprise: it works for 2 (and 0), so one check isn't proof |
 
-### `chain.algebra.equations` (3 → 3)
+### `chain.algebra.equations` (3 skills, 3 activities → 3; bank holds 2)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.equations.two-solvers` | `algebra.equations.two-step` | Solving 2x + 7 = 31, Tama divides by 2 first and gets 8.5. Mere takes 7 away first and gets 12. Both say they "did the same to both sides." Who's right? | `mis.equations.partial-divide` (was `undo-order`; renamed in the 1 Oct screening) | | two options. Tama halved 2x and 31 but not the 7 (x = 12). Dividing first works if every term is divided; the lesson earns that, not a fixed order |
 | `hook.formulae.taxi-fare` | `algebra.formulae.rearrange` | A taxi charges $4 to start plus $3 per km. You have $25. How far can you go, and can you write a rule that works for any amount of money? | `mis.equations.same-operation` | | prediction. The money context is also used in several other hooks (see screening) |
 
-### `chain.pattern.linear` (3 → 3)
+### `chain.pattern.linear` (3 skills, 3 activities → 3; bank holds 2)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
@@ -95,7 +98,7 @@ only on the skill's `misconceptions` list in the graph (PR #5).
 
 ## Thread 04: Measurement (4)
 
-### `chain.measure.area-volume` (5 → 4)
+### `chain.measure.area-volume` (4 skills, 5 activities → 4; bank holds 3)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
@@ -103,7 +106,7 @@ only on the skill's `misconceptions` list in the graph (PR #5).
 | `hook.area.cut-rectangle` | `measure.area.rect-triangle` | Cut a rectangle along its diagonal. Leilani says each triangle has the same area as the rectangle "because it has the same base and height." Agree? | `mis.area.triangle-no-half` | | a second hook on the same skill. Screening could move one to `measure.area.composite` instead |
 | `hook.volume.two-boxes` | `measure.volume.cuboid` | Two boxes: 4 × 4 × 4 and 8 × 2 × 4. Which holds more? Most pick the long one. | `mis.volume.adds-dimensions` (4+4+4 = 12 < 8+2+4 = 14) | | both hold 64. Two options |
 
-### `chain.measure.time` (2 → 2)
+### `chain.measure.time` (2 skills, 2 activities → 2; bank holds 1)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
@@ -113,7 +116,7 @@ only on the skill's `misconceptions` list in the graph (PR #5).
 
 ## Thread 05: Geometry (5)
 
-### `chain.geom.triangles-polygons` (2 → 2)
+### `chain.geom.triangles-polygons` (2 skills, 2 activities → 2; finished in the graph: 2)
 
 **Moved to Y8 (Zan, 1 Oct), with `geom.angles.polygon-sums`.** The chain is now 2 activities, so
 its pool minimum is 1 and the remaining hook meets it. Carried to the Y8 bank:
@@ -126,20 +129,20 @@ its pool minimum is 1 and the remaining hook meets it. Carried to the Y8 bank:
 |---|---|---|---|---|---|
 | `hook.angles.field-triangle` | `geom.angles.triangle-quad-sum` | One triangle is painted across the whole school field; another is drawn on your thumbnail. Which one's three angles add up to more? | `mis.angles.sum-depends-on-size` | | prediction |
 
-### `chain.geom.parallel-lines` (2 → 2)
+### `chain.geom.parallel-lines` (2 skills, 2 activities → 2; bank holds 1)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.parallel.car-park` | `geom.angles.parallel-transversal` | Supermarket car-park lines are painted parallel, and the kerb cuts across them. Ben says every angle where they meet must be equal. Some look bigger. Which ones really are equal? | `mis.parallel.all-equal` | | needs a figure |
 
-### `chain.geom.transformations` (4 → 3)
+### `chain.geom.transformations` (3 skills, 4 activities → 3; bank holds 2)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.reflect.ambulance` | `geom.transform.reflect` | Why is AMBULANCE written backwards on the front of the van? Try writing your name so it reads correctly in a mirror. | `mis.reflect.translates` | NZ | St John ambulances carry it. Answering well needs the lesson; engaging with it doesn't |
 | `hook.transform.kowhaiwhai` | `geom.transform.translate` (consolidation's terminal skill) | Look at a kōwhaiwhai panel: which move takes one koru to the next one? A slide, a flip or a turn? | the reflect vs 180° rotation mix-up (no single id; the consolidation names it) | NZ | needs an image of a real panel, **but not until the hook is finished** (stage 2). Candidate source: Te Papa Collections Online, where Creative Commons images are downloadable and taonga images are requested for educational use only. Pick the panel with colleagues, alongside the Pacific-context review |
 
-### `chain.geom.nets` (1 → 1)
+### `chain.geom.nets` (1 skill, 1 activity → 1; bank holds 1)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
@@ -149,33 +152,33 @@ its pool minimum is 1 and the remaining hook meets it. Carried to the Y8 bank:
 
 ## Thread 06: Statistics (5)
 
-### `chain.stats.data-displays` (4 → 4)
+### `chain.stats.data-displays` (4 skills, 4 activities → 4; bank holds 2)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.stats.jersey-average` | `stats.variables.classify` | The average jersey number on our rugby team is 11.4. What does that tell you about the team? | `mis.stats.digits-are-numerical` | | answer: nothing. That's the surprise |
 | `hook.stats.join-the-dots` | `stats.display.time-series` | One graph shows rainfall each month; another shows the class's favourite fruit. One of them should have its dots joined by a line. Which one, and why not the other? | `mis.timeseries.joins-categories` | | two options |
 
-### `chain.stats.summaries` (4 → 3)
+### `chain.stats.summaries` (3 skills, 4 activities → 3; bank holds 3)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.stats.nana-birthday` | `stats.summary.outlier-effect` | Ages at a whānau birthday: 8, 9, 10, 11 and Nana, 87. The mean age is 25. Is anyone at this party "about 25"? | `mis.outlier.affects-median-equally` | NZ | the lesson earns the median as the fix |
 | `hook.stats.one-shoe-size` | `stats.summary.median-mode` | A shop can stock a new sneaker in only one size. Should it pick the mean size, the median size, or the most common size? | no id: sets up that "average" has three meanings | | choice. Named "no id" per the screening check |
-| `hook.stats.pick-a-shooter` | `stats.summary.median-mode` | Two netball shooters both average 6 goals a game. One scores 6, 6, 6, 6; the other 1, 11, 2, 10. Who do you pick for the final? | no id: sets up that spread matters as well as centre | | choice. No right answer, which is fine for a hook |
+| `hook.stats.pick-a-shooter` | `stats.summary.median-mode` | Two netball shooters both average 6 goals a game. One scores 6, 6, 6, 6; the other 1, 11, 2, 10. Who do you pick for the final? | no id: sets up that spread matters as well as centre | | choice. No right answer, which is fine for a hook. Repointed 6 Oct from the retired `stats.summary.range`: range is now taught inside the median skill (D48 ruling 8) |
 
 ---
 
 ## Thread 07: Probability (4)
 
-### `chain.prob.theoretical` (2 → 2)
+### `chain.prob.theoretical` (2 skills, 2 activities → 2; bank holds 2)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.prob.dice-totals` | `prob.theoretical.equally-likely` | Roll two dice and add them. Is a total of 2 as likely as a total of 7? | `mis.prob.equiprobability` | | prediction |
 | `hook.prob.two-coins` | `prob.sample-space.list` | Toss two coins. Aroha says there are three outcomes (two heads, two tails, one of each), so each has a 1-in-3 chance. Agree? | `mis.prob.order-ignored` | | wrong answer to react to |
 
-### `chain.prob.experimental` (3 → 2)
+### `chain.prob.experimental` (2 skills, 3 activities → 2; bank holds 2)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
@@ -205,6 +208,22 @@ its pool minimum is 1 and the remaining hook meets it. Carried to the Y8 bank:
    area pair, if the nets chain folds into area-volume; and the kōwhaiwhai hook's
    `connects_to`, if the transformations consolidation moves. Three hooks need figures (car
    park, kōwhaiwhai, nets) and stay as images until the figure fence ships.
+5. **Owed after the D42 amendment and the D48 audit (6 Oct).** At one hook per skill, these
+   skills have no concept yet. Each is written and screened against this bank before its
+   chain's activities are drafted:
+   - Number: `number.place-value.powers-of-ten`, `number.roots.square`,
+     `number.divisibility.rules`, `number.integers.subtract`, `number.fractions.to-decimal`.
+   - Algebra: `algebra.expressions.substitute`, `algebra.equations.one-step`,
+     `coord.four-quadrant`.
+   - Measurement: `measure.perimeter.polygons` or `measure.area.composite` (whichever
+     `hook.area.cut-rectangle` doesn't move to), `measure.time.timetables`.
+   - Geometry: `geom.angles.relationships`, `geom.transform.rotate`.
+   - Statistics: `stats.summary.mean`, `stats.display.categorical`, `stats.display.dot-plot`.
+   Two of these follow directly from the D48 audit, and their targets are already named in the
+   graph: `number.integers.subtract` (`mis.integers.subtract-always-smaller`) and
+   `stats.summary.mean` (`mis.mean.drops-zeros`). With two hooks now on
+   `stats.summary.median-mode`, one of them may be cut rather than kept (§4: quality over
+   coverage).
 
 ## Screening decisions (Zan, 30 Sep)
 
@@ -218,4 +237,4 @@ its pool minimum is 1 and the remaining hook meets it. Carried to the Y8 bank:
 
 *Note (2026-10-06, Y7 parts audit).* Two `connects_to` targets above are repointed because their skills were retired (`skill-ids-retired.txt`): `hook.integers.ohakune-morning` (−4 °C, then up 9) now targets `number.integers.add`, and `hook.stats.pick-a-shooter` now targets `stats.summary.median-mode`, which absorbed range.
 
-*Note (2026-10-06, headings).* Each chain heading's "(activities → pool)" now reads from the graph after the Y7 parts audit, with the pool at the D42 amendment's minimum (3 Oct): max(skills, ceil(activities / 2)), the value once every activity is approved. The earlier headings used 24-minute stub counts and ceil(activities / 2) alone.
+*Note (2026-10-06, headings).* Each chain heading reads "(skills, activities → minimum; bank holds n)" from graph v0.17.14, with the minimum at the D42 amendment's max(skills, ceil(activities / 2)). Notes on three of them: triangles-polygons' hooks are finished in the graph (the bank's `hook.angles.field-triangle` row stays as the concept record); summaries meets the count but not one hook per skill (both `hook.stats.one-shoe-size` and `hook.stats.pick-a-shooter` connect to `stats.summary.median-mode`, and `stats.summary.mean` has none); area-volume is short by one and uneven by skill (both `hook.area.mara-kai` and `hook.area.cut-rectangle` connect to `measure.area.rect-triangle`; the bank's own note already suggested moving `hook.area.cut-rectangle` to `measure.area.composite`).
