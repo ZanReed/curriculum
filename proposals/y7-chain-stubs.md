@@ -3,6 +3,16 @@
 `status: encoded` — in the graph from v0.17.0 (3 Oct 2026); the graph is now the edit surface for these skills and chains, and this file is the reasoning record. Written 29 Sep 2026. Decision input, not a decision: nothing here is in the
 graph until it lands in a repo commit.
 
+> **Parts audit, 6 Oct 2026.** The part counts and four skill rows below are superseded by the
+> Y7 parts audit (`proposals/y7-parts-audit.md`), applied in the graph under D48 (parts rule).
+> Y7 goes from 61 activities across 50 skills to 55 across 49. Changed rows:
+> `number.operations.order`, `number.divisibility.rules`, `number.factors.hcf-lcm`,
+> `number.integers.additive-inverse` (split into `number.integers.add` and
+> `number.integers.subtract`), `algebra.equations.two-step`, `pattern.linear.rule`,
+> `stats.summary.median-mode` (absorbs `stats.summary.range`),
+> `prob.theoretical.equally-likely` (absorbs `prob.complement`), `prob.sample-space.list`.
+> The tables below are kept as they were landed, as the record of the original stubbing.
+
 **Sources.** Fetched from `main` on 29 Sep: `README.md`, `thread-01-rate-of-change.json`,
 `authoring-principles.md` and `decision-log-additions.md`. Y7 content comes from the
 Phase 3 compression in `drafts/y7-13-requirements.md` (held in the Claude project, not in this repo) §2 (read from Tāhūrangi 25 Sep).
@@ -79,6 +89,10 @@ Phase 3 compression in `drafts/y7-13-requirements.md` (held in the Claude projec
 
 At about 24 minutes an activity, that is roughly 25 hours: one or two activities a week
 across a school year, alongside teacher-led lessons.
+
+*(6 Oct 2026: the activity cap is now 32 minutes under D47 (activity budget), and the
+figures above are superseded by the parts audit. Teacher-led lessons are no longer the
+default for non-activity periods; see the open-periods decision, when it lands.)*
 
 ---
 

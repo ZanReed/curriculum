@@ -46,7 +46,7 @@ the hand-carried-copy failure with a new name. This repo carries
    the chunking plan's skill set equals the graph's, every registry id
    exists in the graph (`parts` defaults to 1 when undeclared), every
    `= n` matches the graph, chain-registry folder names resolve, no id in
-   `external-prereq-retired.txt` is back in use (D45), and the
+   `external-prereq-retired.txt` or `skill-ids-retired.txt` is back in use (D45, D48), and the
    skill registry's declared parts total equals `sum(parts)` — 51 at seed,
    the burndown denominator. Extracting zero ids from a present registry
    is itself a failure (the vacuity guard).
@@ -98,6 +98,7 @@ To retire a glossary entry, delete it from `glossary.md` and append its id to
 | `fact-scope-registry.json` | GENERATED — never hand-edit. The fluency fact scope for the platform's probe and sprint (D43): families, fact counts, year scope, single values, templates, strategies; header carries a content-hash revision id |
 | `fact-ids-retired.txt` | retired fact-scope ids — hand-maintained, append-only, never reused (D43 note 2026-10-03) |
 | `external-prereq-retired.txt` | retired external-prereq ids — hand-maintained, append-only, never reused; check 4 (I) enforces it (D45) |
+| `skill-ids-retired.txt` | retired skill ids — hand-maintained, append-only, never reused; check 4 (J) enforces it (D48 note) |
 | `platform-pins/capability-facts.json` | PINNED copy of the platform's generated capability facts — never hand-edit; replace it whole in a pin-bump PR |
 | `platform-pins/capability-facts.pin.json` | the pin: the platform's source commit and the copy's sha256 |
 | `generate-registries.py` | produces the three registries and the misconception attachments, with a notation gate |

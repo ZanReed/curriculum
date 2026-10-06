@@ -1,0 +1,7 @@
+# Retired skill ids — hand-maintained, append-only (D48 note, 2026-10-06).
+# An id here is never used again: check 4 (J) fails if it reappears as a skill, a prereq
+# or a chunking-plan entry. One id per line; a trailing comment says why.
+
+number.integers.additive-inverse   # Y7 parts audit 2026-10-06: split into number.integers.add + number.integers.subtract
+stats.summary.range                # Y7 parts audit 2026-10-06: merged into stats.summary.median-mode (size floor)
+prob.complement                    # Y7 parts audit 2026-10-06: merged into prob.theoretical.equally-likely (size floor)
