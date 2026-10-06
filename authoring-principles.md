@@ -34,6 +34,10 @@ Skills are durable objects. Activities are disposable delivery instances aimed a
 - Every activity targets exactly one primary skill. Review pointers, DoL items, and
   data all reference **skill ids**, never activity ids. Activities get rewritten;
   the graph endures.
+- A skill is one capability that can be assessed on its own. Two ideas that have different
+  prerequisites, are assessed separately, or build one on the other, are two skills, even
+  when they are usually taught together, unless one of them is too small to fill an activity.
+  A small idea stays inside the skill it is taught with, and that skill's label names it.
 - Prerequisite edges are authored at write time, never as a cleanup pass. An edge is
   a claim: *you cannot hold this skill without that one.* Sequencing preference is
   not an edge. Two skills that merely tend to be taught together get no edge.
@@ -130,7 +134,9 @@ skills upstream of it in the graph. Not siblings, not vibes: ancestors.
   chain position 2+ — the DoL carries it at every position (§8). The final position in a
   chain has its own exit-check rule (`chain_rules.final_position`).
   Note: "chain position" is position within the chain. It is unrelated to a *skill part*,
-  which is one of the activities delivering a single skill.
+  which is one of the activities delivering a single skill. On a skill delivered in several parts, a non-final
+  part's DoL item on the primary skill covers only the ideas taught so far. The final part's
+  covers the whole skill.
 - Long-arc edges are the flagship. When a skill's ancestor sits years back
   (units-on-gradient feeding units-on-derivatives), reviewing it just before it is
   needed is the whole argument for the graph. Plant those items deliberately.
@@ -211,8 +217,11 @@ the rest).
 One activity, hard cap: `activity_defaults.duration_min`. An activity is not a period: a
 period is assembled from activities and practice blocks (§17). The default internal
 split across the beats is `activity_defaults.phase_budget_min`; read the values there
-rather than from memory. Content that does not fit becomes another activity
-in the chain — that trade was accepted at the start. Do not compress the faded beat
+rather than from memory. Content that does not fit becomes another part of the skill. A
+skill has one part per idea, where an idea is anything needing its own worked-example
+sequence and fade; an idea splits only when its sequence cannot fit the phase budget. Parts
+are earned by content, never by spare time in the calendar, and the count goes down as
+readily as up. Do not compress the faded beat
 to make room; it is the beat that looks most optional and is least.
 
 ## 11. Language and tone

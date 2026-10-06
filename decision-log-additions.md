@@ -1778,3 +1778,92 @@ that hold more than one idea; that rule is a separate decision.
 *Caveat recorded:* the Evertson/Rosenshine figure is correlational 1970s–80s research, not an
 RCT. It is a strong signal, not a constant. The split below is a first value to recalibrate
 against classroom data.
+
+**D48 (ratified 2026-10-06). A skill's part count is set by its content: one part per idea.
+Slack and free calendar days never earn a part. The count can go down as well as up.
+Separately assessable ideas, and ideas that build on each other, are separate skills, not
+parts, unless an idea is too small to fill an activity, in which case it stays inside a
+neighbouring skill.** (amends D24's allocation rule for parts; §2, §6 and §10 amended)
+
+*The gap:* thread-01's extra parts came out of the D24 slack audit, which distributed a
+projected activity count, not a judgement about difficulty. The landing manifest kept those
+allocations for thread-01 and left new threads to be allocated when stubbed, but nothing
+says *by what rule*. Now that a full year shows 80–115 periods with no activity, "the
+calendar has room" is a live temptation. D24 already rejected that reasoning for
+consolidations ("earned by confusability, not spare slots"). This applies the same logic to
+parts.
+
+*Ruled:*
+
+1. **One idea per part (the deciding test, applied at stubbing).** An *idea* is anything that
+   needs its own worked-example sequence and its own fade. A skill's part count equals its
+   idea count, and the stub lists the ideas by name. Several representations of one idea
+   (table, graph, context) are one idea: they go into the example sequence as minimal pairs
+   (§13), not into separate parts.
+
+2. **Budget fit (the second test, applied at drafting).** If one idea's worked and faded
+   sequence cannot fit `activity_defaults.phase_budget_min`, at the fade level its chain
+   position calls for, the idea splits across parts, and the draft records why. This is
+   where element interactivity counts: high-interactivity ideas show up as sequences too long
+   for the budget. It is not a separate, judged test.
+
+3. **The count runs in both directions.** The rule sets the number. A skill given 2 parts
+   under the old 24-minute budget that now fits in one goes back to one. *Zan's reasoning:*
+   time efficiency comes first. Being ahead of NCEA and writing extra material beyond it is
+   the better problem to have than running short.
+
+4. **Two skills, not two parts, when the ideas can stand alone.** If two ideas have different
+   prerequisite sets, or are assessed separately (in NZC statements, NCEA, or the DoL), they
+   are two skills. **Ideas that build on each other always count as skills:** when one idea
+   needs the other, their prerequisite sets differ by definition, so the later idea is its own
+   skill with an edge to the earlier one (as one-step and two-step equations already are).
+   Parts therefore hold only ideas that sit side by side, sharing prerequisites, where neither
+   needs the other; or one idea split by the budget (test 2). *Zan's reasoning:* the skill is
+   the reference point teachers recognise, and it is more universally understood, so the
+   graph should carry the distinction at the skill level where it is real. Consequences follow
+   the existing rules: each new skill gets its own prereq edges (§2), a confusion between them
+   attaches to both under the pair rule (§7), and the pair may earn a consolidation under D24.
+   **Subject to the size floor (ruling 8).**
+
+5. **Not grounds for a part on their own:**
+   - the number of misconceptions (contrasts go in the example sequence and the practice
+     bank);
+   - how important the skill is;
+   - free days in the calendar.
+
+6. **The DoL on a non-final part covers only what has been taught.** Its primary-skill item
+   tests the ideas taught so far (idea 1 on part 1, ideas 1–2 on part 2, and so on). The
+   final part's DoL covers the whole skill. The review-pool item is unchanged.
+
+7. **Classroom data is a review trigger, not an authoring rule.** If DoL results on a skill
+   run low across classes, the first response is to review the activity. A part is added only
+   if that review finds a second idea, or an idea that fails test 2. No threshold is set until
+   there is data. When one is set, it is a graph key (D25), not prose.
+
+8. **Size floor: an idea too small to fill an activity stays inside a neighbouring skill.**
+   If a separately assessable idea could not fill an activity on its own (its worked sequence
+   and practice would leave most of the phase budget empty), it does not become a skill of
+   its own. It is taught inside the neighbouring skill it is usually taught with, as part of
+   that skill's single idea or as a minimal-pair contrast, and the skill's label names both.
+   *Zan's reasoning:* an idea that small isn't hard to teach, so a whole activity for it is
+   low value, and time efficiency (ruling 3) comes first.
+   - **The pairing happens in the graph, never in the activity.** Every activity still has
+     exactly one primary skill (§2): the platform imports on one `skill:` key and the DoL is
+     built around one primary skill. Two skills in one activity is not what this ruling
+     allows.
+   - Misconceptions for the small idea attach to the combined skill as usual (§7). Small is
+     not the same as error-free: a small idea with a known misconception keeps it, and the
+     contrast goes into the combined skill's example sequence.
+   - Judged at stubbing, like test 1. If drafting shows the combined skill no longer fits the
+     budget, test 2 applies and the skill takes a second part.
+
+*Rulings record (6 Oct 2026):*
+
+| question | ruling |
+|---|---|
+| Does the count run both ways? | Yes. Efficiency first; being ahead of NCEA is preferred. |
+| Skill or part for separately assessable ideas? | Skill. Skills are the teacher-facing unit, and more universally understood. |
+| Ideas that build on each other? | Skills, not parts (R1). |
+| When to audit? | Y7 first, now, before any Y7 activity is drafted. Thread-01 as each chain reaches drafting (D38 order). |
+| DoL on a non-final part? | Agreed: covers the ideas taught so far. |
+| Ideas too small for an activity? | Stay paired inside a neighbouring skill (ruling 8). Pairing is at the skill level, not two skills in one activity. |
