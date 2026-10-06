@@ -1883,3 +1883,74 @@ Three points beyond the audit's text, ruled by Zan the same day on this side's r
    The platform reads the skill registry, and attachments reach the AI grader. So it gets a
    pre-merge notice, as well as the builder's notice line.
 
+**D49 (ratified 2026-10-06). A teaching year is planned in period kinds. An activity period
+runs D43's shape; every other period is one of five kinds: review, corrective, assessment,
+transfer or buffer. The curriculum sets each kind's purpose, contents and default cadence; the
+teacher places them.** (§18 new; `activity_defaults.year_plan` new)
+Ruled by Zan 2026-10-06 on the builder's draft, accepting all five recommendations (Q1–Q5)
+and this side's review points.
+*The gap.* At one activity per single period, a Y7 class finishes the year's 55 activities
+(graph v0.17.14) in about a third to two-fifths of its maths periods. At an assumed 35
+effective weeks, Y7 has about 140 periods at 4 a week and 175 at 5 a week (the 380 half-day
+minimum less events, assessment weeks and term edges: a working figure, not a sourced one).
+That leaves roughly 85–120 periods with nothing planned, and the gap doesn't close as authoring
+proceeds. D48 ruled that free days never earn a part; this entry says what they earn.
+*Why the teacher places them.* Period boundaries, events and the order a class reaches chain
+finals are classroom facts the data model can't see (`hook_contract.deployment`). The
+curriculum supplies the kinds, their contents and a default cadence; the platform may suggest
+the next one; the teacher decides.
+*The five kinds:*
+- **Review.** The whole period is D43 mixed practice, reaching further back in the graph than
+  the daily block. It's the existing scheduler with a longer session, not a new engine; the
+  fluency sprint still opens the period when it is on. Evidence: spacing (Cepeda et al. 2006),
+  interleaving (Rohrer et al. 2020), the testing effect, and Rosenshine's weekly and monthly
+  review; the strongest of the five. No authoring beyond the §17 banks already owed.
+- **Corrective.** After a chain's final DoL, per student, on the mastery-learning cycle (Bloom;
+  Guskey). A student whose chain DoLs and practice show a misconception gets that id's
+  corrective: an explanation that differs from the lesson (Guskey's binding condition), then
+  bank items tagged with that id. A student showing none gets the chain's discrimination items
+  (§17), then harder mixed items (Q2). Evidence is moderate: Kulik, Kulik & Bangert-Drowns
+  (1990) report about 0.5 SD on teacher-made tests; Slavin (1987) finds much smaller effects on
+  standardised tests. A corrective is written once per misconception id, not per activity,
+  because the id is the sensor (§7). It reads the auto-scored items and practice data, so it
+  doesn't wait for rubric marking at chain finals (D35, D41).
+- **Assessment.** The D43 class diagnostic, plus a cumulative test: a closed, auto-scored check
+  across everything taught so far, from a separate item pool, kept apart from the practice
+  banks and the DoLs (§17: a rehearsed item measures nothing). The test is a reading for the
+  teacher in the curriculum's terms, not a grade; anything beyond that is the school's call
+  (Q3).
+- **Transfer.** Problem solving across skills, after fluency and never during acquisition (§1),
+  because of the expertise-reversal effect (Kalyuga et al. 2003; Kirschner, Sweller & Clark
+  2006). Rationed: at most one per thread per term, and only in a term where a chain of that
+  thread has finished (Q4).
+- **Buffer.** Explicitly unplanned. If it comes to less than the floor in `year_plan`, the
+  cadence is too dense for that timetable.
+*Not filled:* projects, games without retrieval, and unstructured catch-up. The teacher keeps
+the right to teach a period their own way; the curriculum supplies no material for it.
+*Cadence is graph keys (Q5):* `activity_defaults.year_plan` holds the kinds, the review share of
+periods (Q1: a share, so it scales with the timetable; teachers are told "about weekly" as
+guidance), correctives per chain, assessments per term, the transfer ceiling and its condition,
+and the buffer floor. §18 cites the key and states no values (D25).
+*Y7 at the default cadence, as a working estimate* (35 weeks; at the time of ruling the review
+default was weekly, 35 periods; under the share key it is 28 at 4 a week and 35 at 5 a week):
+activities 55–60 (up to 60 if the audit's test-2 flags split), review about 28–35, correctives
+19, assessments 8, transfer 10–14. Under the share key the buffer is about 11–20 periods at 4
+a week and 39–48 at 5 a week (under the draft's weekly default it was 4–13 at 4 a week).
+Activities are under half the year by design.
+*Stated dependency (this side's review):* review and corrective periods both run on §17 practice
+banks, which no chain has yet, and review runs on the platform's mixed practice, which waits on
+two chains with ratified banks. Until banks exist, neither kind can run. Chain 1's banks, then
+the Y7 chains' banks, are therefore on the critical path for open periods.
+*Curriculum obligations created:* correctives, one per misconception id, written per chain after
+its activities and bank (66 ids at Y7, each needing a genuinely different explanation; a
+commitment comparable to the activities themselves); a cumulative test pool per year level,
+separate from banks and DoLs; transfer tasks per thread per term, after that thread's first
+chain finals. Review periods add no authoring.
+*Platform wishes*, as pointers after merge: a full-period mixed session; bank items retrievable
+by misconception id and a corrective session that routes each student; a termly cumulative test
+session from a separate pool; a way to mark a transfer task; and, the most optional, a teacher
+year view that reads `year_plan`.
+*Sources:* Cepeda et al. (2006); Rohrer, Dedrick, Hartwig & Cheung (2020); Rosenshine (2012);
+Bloom (1968, 1984); Guskey (2007); Kulik, Kulik & Bangert-Drowns (1990); Slavin (1987);
+Kalyuga, Ayres, Chandler & Sweller (2003); Kirschner, Sweller & Clark (2006).
+
