@@ -26,40 +26,40 @@ only on the skill's `misconceptions` list in the graph (PR #5).
 
 ## Thread 02: Number (10)
 
-### `chain.number.place-value` (3 activities → 2)
+### `chain.number.place-value` (3 activities → 3)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.place-value.long-jump` | `number.place-value.decimals` | School athletics: Mere jumps 3.45 m, Leilani 3.5 m. Mere says she won "because 45 is more than 5." Who gets the ribbon? | `mis.place-value.longer-is-larger` | | claim to evaluate |
 | `hook.round.dairy-cash` | `number.round.cash` | At the dairy your total is $4.97 and you pay cash. Do you hand over $4.97, $4.90 or $5.00? And would buying the items one at a time cost more? | `mis.round.cash-per-item` | NZ | NZ has had no 1c/2c/5c coins since 2006; students often haven't noticed the rounding |
 
-### `chain.number.powers` (2 → 1)
+### `chain.number.powers` (2 → 2)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.exponent.rumour` | `number.exponents.evaluate` | You tell a secret to 2 people. Each of them tells 2 new people the next day, and so on. After 10 days, about how many new people hear it that day: 20, 200 or 1000? | `mis.exponent.multiplies-base` (2¹⁰ read as 20) | | prediction. 2¹⁰ = 1024 |
 
-### `chain.number.order-of-operations` (2 → 1)
+### `chain.number.order-of-operations` (1 → 1)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.order.viral-sum` | `number.operations.order` | A viral post: 6 + 4 × 2 = ? A phone calculator says 14; a cheap desk calculator says 20. Which one is broken? | `mis.order.left-to-right` | | two options. Basic calculators do evaluate left to right; the lesson earns why the convention exists |
 
-### `chain.number.factors` (4 → 2)
+### `chain.number.factors` (4 → 3)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.primes.ninety-one` | `number.primes.classify` | Is 91 prime? Most adults say yes. Commit to a guess. | `mis.primes.odd-means-prime` | | 91 = 7 × 13 |
 | `hook.factors.sausage-sizzle` | `number.factors.hcf-lcm` | Sausage sizzle fundraiser: sausages come in packs of 6, bread in packs of 8. What's the fewest of each you can buy so nothing is left over? | `mis.factors.lcm-is-product` (answers 48, not 24) | NZ | |
 
-### `chain.number.integers` (3 → 2)
+### `chain.number.integers` (3 → 3)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.integers.goat-island` | `number.integers.number-line` | Snorkelling at Goat Island: Hemi is at −8 m, Aroha at −3 m. Who is deeper? And which number is bigger? | `mis.integers.larger-digit-larger` | NZ | the two questions pull against each other, which is the point |
 | `hook.integers.ohakune-morning` | `number.integers.add` | It's −4 °C in Ohakune at 7 am. By midday it has risen 9 degrees. Ben says it's now −13 °C "because the numbers got bigger." What is it really? | `mis.integers.sign-ignored` | NZ | wrong answer to react to |
 
-### `chain.number.fractions` (4 → 2)
+### `chain.number.fractions` (4 → 3)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
@@ -70,21 +70,21 @@ only on the skill's `misconceptions` list in the graph (PR #5).
 
 ## Thread 03: Algebra (6)
 
-### `chain.algebra.expressions` (3 → 2)
+### `chain.algebra.expressions` (3 → 3)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.notation.mind-reader` | `algebra.notation.write` | Think of a number. Add 5, double it, take away 10, halve it. You're back at your number, and I knew you would be without knowing what it was. How? | `mis.notation.letter-as-object` | | the lesson earns "a letter stands for any number". Don't reveal it in the hook |
 | `hook.like-terms.x-plus-x` | `algebra.expressions.like-terms` | Sione says x + x = x². Try x = 3. Now try x = 2. Is he right? | `mis.like-terms.adds-to-power` | | surprise: it works for 2 (and 0), so one check isn't proof |
 
-### `chain.algebra.equations` (4 → 2)
+### `chain.algebra.equations` (3 → 3)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.equations.two-solvers` | `algebra.equations.two-step` | Solving 2x + 7 = 31, Tama divides by 2 first and gets 8.5. Mere takes 7 away first and gets 12. Both say they "did the same to both sides." Who's right? | `mis.equations.partial-divide` (was `undo-order`; renamed in the 1 Oct screening) | | two options. Tama halved 2x and 31 but not the 7 (x = 12). Dividing first works if every term is divided; the lesson earns that, not a fixed order |
 | `hook.formulae.taxi-fare` | `algebra.formulae.rearrange` | A taxi charges $4 to start plus $3 per km. You have $25. How far can you go, and can you write a rule that works for any amount of money? | `mis.equations.same-operation` | | prediction. The money context is also used in several other hooks (see screening) |
 
-### `chain.pattern.linear` (4 → 2)
+### `chain.pattern.linear` (3 → 3)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
@@ -95,7 +95,7 @@ only on the skill's `misconceptions` list in the graph (PR #5).
 
 ## Thread 04: Measurement (4)
 
-### `chain.measure.area-volume` (5 → 3)
+### `chain.measure.area-volume` (5 → 4)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
@@ -103,7 +103,7 @@ only on the skill's `misconceptions` list in the graph (PR #5).
 | `hook.area.cut-rectangle` | `measure.area.rect-triangle` | Cut a rectangle along its diagonal. Leilani says each triangle has the same area as the rectangle "because it has the same base and height." Agree? | `mis.area.triangle-no-half` | | a second hook on the same skill. Screening could move one to `measure.area.composite` instead |
 | `hook.volume.two-boxes` | `measure.volume.cuboid` | Two boxes: 4 × 4 × 4 and 8 × 2 × 4. Which holds more? Most pick the long one. | `mis.volume.adds-dimensions` (4+4+4 = 12 < 8+2+4 = 14) | | both hold 64. Two options |
 
-### `chain.measure.time` (2 → 1)
+### `chain.measure.time` (2 → 2)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
@@ -113,7 +113,7 @@ only on the skill's `misconceptions` list in the graph (PR #5).
 
 ## Thread 05: Geometry (5)
 
-### `chain.geom.triangles-polygons` (2 → 1)
+### `chain.geom.triangles-polygons` (2 → 2)
 
 **Moved to Y8 (Zan, 1 Oct), with `geom.angles.polygon-sums`.** The chain is now 2 activities, so
 its pool minimum is 1 and the remaining hook meets it. Carried to the Y8 bank:
@@ -126,13 +126,13 @@ its pool minimum is 1 and the remaining hook meets it. Carried to the Y8 bank:
 |---|---|---|---|---|---|
 | `hook.angles.field-triangle` | `geom.angles.triangle-quad-sum` | One triangle is painted across the whole school field; another is drawn on your thumbnail. Which one's three angles add up to more? | `mis.angles.sum-depends-on-size` | | prediction |
 
-### `chain.geom.parallel-lines` (2 → 1)
+### `chain.geom.parallel-lines` (2 → 2)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.parallel.car-park` | `geom.angles.parallel-transversal` | Supermarket car-park lines are painted parallel, and the kerb cuts across them. Ben says every angle where they meet must be equal. Some look bigger. Which ones really are equal? | `mis.parallel.all-equal` | | needs a figure |
 
-### `chain.geom.transformations` (4 → 2)
+### `chain.geom.transformations` (4 → 3)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
@@ -149,14 +149,14 @@ its pool minimum is 1 and the remaining hook meets it. Carried to the Y8 bank:
 
 ## Thread 06: Statistics (5)
 
-### `chain.stats.data-displays` (4 → 2)
+### `chain.stats.data-displays` (4 → 4)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.stats.jersey-average` | `stats.variables.classify` | The average jersey number on our rugby team is 11.4. What does that tell you about the team? | `mis.stats.digits-are-numerical` | | answer: nothing. That's the surprise |
 | `hook.stats.join-the-dots` | `stats.display.time-series` | One graph shows rainfall each month; another shows the class's favourite fruit. One of them should have its dots joined by a line. Which one, and why not the other? | `mis.timeseries.joins-categories` | | two options |
 
-### `chain.stats.summaries` (5 → 3)
+### `chain.stats.summaries` (4 → 3)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
@@ -168,7 +168,7 @@ its pool minimum is 1 and the remaining hook meets it. Carried to the Y8 bank:
 
 ## Thread 07: Probability (4)
 
-### `chain.prob.theoretical` (4 → 2)
+### `chain.prob.theoretical` (2 → 2)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
@@ -217,3 +217,5 @@ its pool minimum is 1 and the remaining hook meets it. Carried to the Y8 bank:
   bank stands without them for now.
 
 *Note (2026-10-06, Y7 parts audit).* Two `connects_to` targets above are repointed because their skills were retired (`skill-ids-retired.txt`): `hook.integers.ohakune-morning` (−4 °C, then up 9) now targets `number.integers.add`, and `hook.stats.pick-a-shooter` now targets `stats.summary.median-mode`, which absorbed range.
+
+*Note (2026-10-06, headings).* Each chain heading's "(activities → pool)" now reads from the graph after the Y7 parts audit, with the pool at the D42 amendment's minimum (3 Oct): max(skills, ceil(activities / 2)), the value once every activity is approved. The earlier headings used 24-minute stub counts and ceil(activities / 2) alone.
