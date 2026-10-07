@@ -483,4 +483,18 @@ A triangle with one angle of exactly 90°.
 id: gloss.obtuse-triangle
 term: obtuse triangle
 A triangle with one angle bigger than 90°.
+---
+id: gloss.quadrilateral
+term: quadrilateral
+A flat shape with four straight sides and four angles. Squares, rectangles and kites are all
+quadrilaterals.
+---
+id: gloss.angle-sum
+term: angle sum
+The total of the angles inside a shape. The angle sum of every triangle is 180°, and the angle
+sum of every quadrilateral is 360°.
+---
+id: gloss.diagonal
+term: diagonal
+A straight line segment joining two corners of a shape that are not next to each other.
 ```
