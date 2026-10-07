@@ -2854,7 +2854,7 @@
       ],
       "max_words": 200,
       "required_for": "approved",
-      "home_until_platform_field": ".guides/<chain folder>/<activity key>.md (D50)"
+      "home": "the activity file's ```teacher-guide fence, last in the file (D50 amendment 2026-10-07)"
     },
     "default_locale": "nz-ncea",
     "fact_probe": {

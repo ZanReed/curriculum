@@ -77,10 +77,10 @@ the hand-carried-copy failure with a new name. This repo carries
 
 9. **Teacher guides** (D50) —
    `python3 scripts/check_guides.py <catalogue> --graph curriculum-graph.json`:
-   every catalogue activity has a guide at `.guides/<chain folder>/<activity key>.md`
-   and every guide an activity; sections, order and word cap read from
-   `activity_defaults.teacher_guide`; Marking exactly when the DoL has a rubric. The
-   catalogue has no CI, so run it there before every batch import; CI runs it against
+   every catalogue activity ends with exactly one ```` ```teacher-guide ```` fence;
+   sections, order and word cap read from `activity_defaults.teacher_guide`; Marking
+   exactly when the DoL has a rubric; no `.guides/` folder left over. The catalogue
+   has no CI, so run it there before every batch import; CI runs it against
    `tests/fixtures/guides-catalogue` so the script can't rot.
 
 To retire a glossary entry, delete it from `glossary.md` and append its id to

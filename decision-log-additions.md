@@ -2056,3 +2056,16 @@ guide beside it; a generated chain view (ruling 7), which also waits for D49's c
 field's format is the platform's to design and comes to this side as a proposal. This side asks
 only that a guide can be written in the activity file, so the two can't drift apart, and that a
 teacher can open it from the activity and on the printed teacher copy.
+*Amendment (2026-10-07, same day): the guide moves into the activity file.* The platform shipped
+its teacher-only field as a ```` ```teacher-guide ```` fence (B-100, B-101; live per B-102,
+platform main 1cb7f0a3; the pin bump that lists it under `exempt_fences` is separate). Ruling 6's
+interim home is retired: a guide is the activity file's ```` ```teacher-guide ```` fence, one per
+file and last in it, so the student content reads top to bottom first
+(`activity_defaults.teacher_guide.home`). The fence is ordinary markdown. Headings, paragraphs,
+lists, maths, bold, italic and code survive; anything else is dropped. Money is written `\$`, as
+in the body. The platform checks only that the fence parses. Sections, their order, the cap and
+the Marking condition stay with `scripts/check_guides.py`, which now reads the fence and fails
+on a missing, doubled or non-final fence and on any `.guides/` folder left in the catalogue.
+Chain 1's four guides moved into their activity files the same day. A guide still never goes into
+a file before the platform's field is live. That condition is met, so the triangle drafts carry
+their guides as fences.
