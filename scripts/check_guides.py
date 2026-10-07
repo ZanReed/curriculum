@@ -7,7 +7,8 @@ the script can't rot.
 
 Activities are found the way the platform's importer finds them: every .md file
 under the catalogue root, skipping any file or folder whose name starts with '.'.
-An activity's key is the `key:` line of its ```meta fence. Its guide lives at
+An activity's key is the `key:` line of its ```meta fence, and its chain folder is
+the first segment of its path (the importer's chainFolderOf). Its guide lives at
 .guides/<chain folder>/<activity key>.md (`teacher_guide.home_until_platform_field`).
 
 Assertions:
@@ -51,7 +52,7 @@ def walk(root: Path):
             continue
         if entry.is_dir():
             yield from walk(entry)
-        elif entry.suffix == ".md":
+        elif entry.name.lower().endswith(".md"):  # case-insensitive, as batch-import.mjs
             yield entry
 
 
@@ -77,7 +78,7 @@ def main() -> int:
         key = META_KEY.search(meta.group(1)) if meta else None
         if not key:
             continue  # not an activity file (no meta key)
-        chain = path.parent.relative_to(root).as_posix()
+        chain = path.relative_to(root).parts[0]  # first path segment, as chainFolderOf
         if key.group(1) in activities:
             errors.append(f"{path.relative_to(root)}: duplicate activity key {key.group(1)}")
         activities[key.group(1)] = (chain, bool(RUBRIC.search(text)))
