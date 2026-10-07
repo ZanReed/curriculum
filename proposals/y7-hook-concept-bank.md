@@ -133,7 +133,7 @@ its pool minimum is 1 and the remaining hook meets it. Carried to the Y8 bank:
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
-| `hook.parallel.car-park` | `geom.angles.parallel-transversal` | Supermarket car-park lines are painted parallel, and the kerb cuts across them. Ben says every angle where they meet must be equal. Some look bigger. Which ones really are equal? | `mis.parallel.all-equal` | | needs a figure |
+| `hook.parallel.car-park` | `geom.angles.parallel-transversal` | Supermarket car-park lines are painted parallel, and the kerb cuts across them. Ben says every angle where they meet must be equal. Some look bigger. Which ones really are equal? | `mis.parallel.all-equal` | | needs a figure. **Cut 2026-10-07**, replaced by `hook.parallel.exercise-book` (bay lines stop at the kerb, so the scene has no eight-angle figure); see `chain-hooks.md` |
 
 ### `chain.geom.transformations` (3 skills, 4 activities → 3; bank holds 2)
 

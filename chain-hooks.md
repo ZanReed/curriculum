@@ -142,7 +142,45 @@ Before activity 02. Shape: prediction (screened Y7 bank concept, Zan 30 Sep): th
 
 ---
 
-## Remaining 15 chains
+## chain.geom.parallel-lines — **approved, landing in v0.17.18**
+
+Approved by Zan 2026-10-07, with hook 2 reworded to a prediction. The next Y7 geometry chain after
+triangles-polygons (D38 amendment order).
+
+Pool minimum: 2 under the per-skill rule (D42 amendment, 2026-10-03): two skills, two
+activities, no consolidation. One hook per skill, so neither day opens empty.
+
+### `hook.angles.squashed-x` → `geom.angles.relationships`
+
+> Draw two long straight lines that cross, like a squashed X. Find the narrowest of the four angles. Kiri says the angle directly across from it must be the widest one, so the two balance each other out. Is she right?
+
+Chain opener, before activity 01. Shape: do, then a fictional student's claim to evaluate. Sets up mis.angles.vertical-as-supplementary: "balance each other out" is that error in a student's words. She treats the opposite angle as the partner that makes up a straight line. Doesn't name vertically opposite or adjacent angles, and gives no number, so neither "equal" nor 180° is front-loaded; the lesson earns both. Answered once activity 01's worked example shows vertically opposite angles are equal. No figure: students draw their own. New concept; the Y7 bank had none for this skill.
+
+### `hook.parallel.exercise-book` → `geom.angles.parallel-transversal`
+
+> Ben rules a slanted line across two lines in his exercise book. That makes eight angles. He measures one of the sharp ones: 50°. "The book lines are parallel," he says, "so all eight are 50°." Before you measure anything: which of his eight angles do you think are 50°?
+
+Before activity 02. Shape: a fictional student's wrong answer, then a prediction. Zan's rewording (2026-10-07): predict, don't measure, so the hook stays under a minute and the rule isn't found with a protractor. Sets up mis.parallel.all-equal as students actually make the error: copying the one given angle into every position. **Stays open after activity 01**, but only in part. A student fresh from 01 can fix the four angles at Ben's first crossing: the angle opposite is 50°, and the two beside it are not. Ben's "all eight" is already refuted at a single crossing. What 01 can't settle is the second crossing: whether any angle at the other book line matches, and which. That is the lesson. Answer: the four sharp angles are 50° and the four wide ones are 130°. Doesn't name corresponding, alternate or co-interior angles. Gives no total: 50° is a measurement, not a rule. Answered once activity 02 is done. No figure: students rule their own line across their own book lines, which really are parallel. Replaces the bank's `hook.parallel.car-park` (cut below).
+
+**Not covered, deliberately:**
+- `mis.angles.complement-supplement-swapped` is a mix-up of two names. A hook can't set it up without naming both terms and their totals, which is the lesson's content. It belongs to activity 01's items.
+- `mis.parallel.assumed` (lines that look parallel but aren't marked) isn't set up by either hook. It's better carried by activity 02: an error-analysis item applying the angle rules to unmarked lines.
+
+### Cut, with reasons
+
+**`hook.parallel.car-park` (Y7 bank concept, never merged).** Replaced, not finished. The id
+stays unused.
+1. **The context isn't the figure.** Car-park bay lines stop at the kerb; they don't cross it,
+   so each meeting point has two angles, not four. The real scene can't produce the eight-angle
+   figure the lesson teaches, and §11 says contexts are real and checked.
+2. It only works for slanted bays. With square-on parking every angle is 90° and Ben is right.
+3. "Some look bigger" gave away half the answer.
+4. It was marked "needs a figure", and a hook is text only: the platform doesn't render hooks,
+   so students draw or picture it.
+
+---
+
+## Remaining 14 chains
 
 No pools authored. Under the authoring-order rule each is owed one at chain creation. From
 2026-09-29 hooks arrive in year batches (D42): a screened concept bank per year, then each
