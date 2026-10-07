@@ -46,7 +46,8 @@ the hand-carried-copy failure with a new name. This repo carries
    the chunking plan's skill set equals the graph's, every registry id
    exists in the graph (`parts` defaults to 1 when undeclared), every
    `= n` matches the graph, chain-registry folder names resolve, no id in
-   `external-prereq-retired.txt` or `skill-ids-retired.txt` is back in use (D45, D48), and the
+   `external-prereq-retired.txt` or `skill-ids-retired.txt` is back in use (D45, D48), every Y7–10 skill
+   resolves a reporting strand that agrees with its NZC statements (K, D51), and the
    skill registry's declared parts total equals `sum(parts)` — 51 at seed,
    the burndown denominator. Extracting zero ids from a present registry
    is itself a failure (the vacuity guard).
@@ -78,7 +79,8 @@ the hand-carried-copy failure with a new name. This repo carries
 9. **Teacher guides** (D50) —
    `python3 scripts/check_guides.py <catalogue> --graph curriculum-graph.json`:
    every catalogue activity ends with exactly one ```` ```teacher-guide ```` fence;
-   sections, order and word cap read from `activity_defaults.teacher_guide`; Marking
+   sections, order and word cap read from `activity_defaults.teacher_guide` (the
+   assessment shape for `type: quiz` / `type: exam` files, D51); Marking
    exactly when the DoL has a rubric; no `.guides/` folder left over. The catalogue
    has no CI, so run it there before every batch import; CI runs it against
    `tests/fixtures/guides-catalogue` so the script can't rot.

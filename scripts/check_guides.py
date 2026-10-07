@@ -18,8 +18,11 @@ Assertions:
      is retired)
   C. the guide's `## ` headings are the sections `teacher_guide.sections` names,
      in that order and only those; `marking` is present exactly when the
-     activity carries a rubric (`teacher_guide.conditional_sections`)
+     activity carries a rubric (`teacher_guide.conditional_sections`). An
+     assessment file (```meta `type:` in `teacher_guide.assessment_types`, D51)
+     takes `assessment_sections` instead, with `practice link` on quizzes only
   D. the guide's body is at most `teacher_guide.max_words` words
+     (`assessment_max_words` for an assessment file)
   E. no rule citations (§-numbers, D-numbers) and no [[term]] markup (D50 ruling 5)
 
 The sections and the cap are read from the graph, never restated (D25).
@@ -37,6 +40,7 @@ import sys
 from pathlib import Path
 
 META_KEY = re.compile(r"^key:\s*(\S+)\s*$", re.M)
+META_TYPE = re.compile(r"^type:\s*(\S+)\s*$", re.M)
 META_FENCE = re.compile(r"^```meta\n(.*?)^```", re.M | re.S)
 GUIDE_FENCE = re.compile(r"^```teacher-guide[ \t]*\n(.*?)^```[ \t]*$", re.M | re.S)
 RUBRIC = re.compile(r"^rubric:", re.M)
@@ -65,6 +69,10 @@ def main() -> int:
     sections = [s.lower() for s in tg["sections"]]
     conditional = {s.lower() for s in tg.get("conditional_sections", {})}
     max_words = tg["max_words"]
+    assessment_types = set(tg["assessment_types"])
+    assessment_sections = [s.lower() for s in tg["assessment_sections"]]
+    assessment_max_words = tg["assessment_max_words"]
+    quiz_only = {s.lower() for s in tg.get("assessment_conditional_sections", {})}
 
     root = args.catalogue
     errors: list[str] = []
@@ -97,14 +105,21 @@ def main() -> int:
         without_guide = text[: guide.start()] + text[guide.end():]
         has_rubric = bool(RUBRIC.search(without_guide))
 
-        want = [s for s in sections if s not in conditional or has_rubric]
+        kind = META_TYPE.search(meta.group(1))
+        kind = kind.group(1) if kind else None
+        if kind in assessment_types:
+            want = [s for s in assessment_sections if s not in quiz_only or kind == "quiz"]
+            cap = assessment_max_words
+        else:
+            want = [s for s in sections if s not in conditional or has_rubric]
+            cap = max_words
         got = [h.lower() for h in HEADING.findall(body)]
         if got != want:
             errors.append(f"C: {rel}: sections {got}, expected {want}")
 
         words = len(body.split())
-        if words > max_words:
-            errors.append(f"D: {rel}: guide is {words} words, cap is teacher_guide.max_words ({max_words})")
+        if words > cap:
+            errors.append(f"D: {rel}: guide is {words} words, cap is {cap} (teacher_guide)")
 
         if CITATION.search(body):
             errors.append(f"E: {rel}: rule citation (§ or D-number) in a guide")
