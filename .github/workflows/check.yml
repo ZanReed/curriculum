@@ -68,3 +68,8 @@ jobs:
         run: |
           python3 scripts/check_glossary.py glossary.md --retired glossary-retired.txt \
             --base "${{ github.event.pull_request.base.sha || github.event.before }}"
+
+      - name: "Teacher guides — the check script against its fixture catalogue (D50)"
+        # Real guides live in the catalogue, which has no CI; the check runs there
+        # before every batch import. This step keeps the script itself working.
+        run: python3 scripts/check_guides.py tests/fixtures/guides-catalogue --graph curriculum-graph.json

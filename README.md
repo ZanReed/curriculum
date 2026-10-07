@@ -25,7 +25,7 @@ live in the catalogue). By ruling (curriculum side,
 the hand-carried-copy failure with a new name. This repo carries
 `decision-log-additions.md` (D18–D42 plus amendments).
 
-## The eight checks (`.github/workflows/check.yml`)
+## The nine checks (`.github/workflows/check.yml`)
 
 1. **Principles sync** — the graph's `authoring_principles` field is
    byte-identical to `authoring-principles.md`. Single-source rule
@@ -75,6 +75,14 @@ the hand-carried-copy failure with a new name. This repo carries
    and a pin bump (opened by the platform, with pre-merge notice) is the only
    way derived fields change.
 
+9. **Teacher guides** (D50) —
+   `python3 scripts/check_guides.py <catalogue> --graph curriculum-graph.json`:
+   every catalogue activity has a guide at `.guides/<chain folder>/<activity key>.md`
+   and every guide an activity; sections, order and word cap read from
+   `activity_defaults.teacher_guide`; Marking exactly when the DoL has a rubric. The
+   catalogue has no CI, so run it there before every batch import; CI runs it against
+   `tests/fixtures/guides-catalogue` so the script can't rot.
+
 To retire a glossary entry, delete it from `glossary.md` and append its id to
 `glossary-retired.txt` in the same commit; never edit an `id:` line.
 
@@ -109,6 +117,8 @@ To retire a glossary entry, delete it from `glossary.md` and append its id to
 | `scripts/check_principles.py` | check 1 (verify + `--fix` sync) |
 | `scripts/check_integrity.py` | check 4 |
 | `scripts/check_glossary.py` | the glossary step (D40): well-formed, unique ids/terms/variants, NZ-only bodies, caps, retire-not-rename against the git base |
+| `scripts/check_guides.py` | check 9: teacher guides against a catalogue folder (D50) |
+| `tests/fixtures/guides-catalogue/` | a fixture catalogue for check 9, not real activities |
 | `scripts/check_capabilities.py` | check 8, plus the drift report the scheduled `capability-drift.yml` runs |
 | `validate.js` | the curriculum-owned §11 thread checks — runs in CI (`node validate.js <graph>`); green against v0.13.0 on joining (2026-09-02) |
 | `builder.html` | the authoring UI (serve over HTTP, never `file://`). Provenance caveat: this is the July 2026 workspace copy, joined 2026-09-02 so its Save & load prompt text is diffable; reconcile if the Claude project holds a newer descendant |
