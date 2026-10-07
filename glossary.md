@@ -497,4 +497,32 @@ sum of every quadrilateral is 360°.
 id: gloss.diagonal
 term: diagonal
 A straight line segment joining two corners of a shape that are not next to each other.
+---
+id: gloss.adjacent-angles
+term: adjacent angles
+Two angles side by side that share a corner and the line between them, without
+overlapping.
+---
+id: gloss.supplementary-angles
+term: supplementary angles
+Two angles that add to 180°. Two adjacent angles on a straight line are supplementary.
+---
+id: gloss.complementary-angles
+term: complementary angles
+Two angles that add to 90°. Two adjacent angles that fill a right angle are
+complementary.
+---
+id: gloss.vertically-opposite-angles
+term: vertically opposite angles
+The angles across from each other where two straight lines cross. Vertically opposite
+angles are equal.
+---
+id: gloss.parallel-lines
+term: parallel lines
+Straight lines that go in the same direction and never meet, however far they are
+extended. On a diagram, matching arrows on two lines show that they are parallel.
+---
+id: gloss.transversal
+term: transversal
+A straight line that crosses two or more other lines.
 ```
