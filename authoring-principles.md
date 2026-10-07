@@ -250,6 +250,10 @@ to make room; it is the beat that looks most optional and is least.
   misconception **ids** keep whatever spelling they were minted with (`linear.slope.*`,
   `mis.form.m-b-swapped`) because ids are keys, not prose; every label, definition and
   narration a student can see uses the NZ term.
+- An activity's tags are glossary terms, written as the glossary writes them
+  (`activity_defaults.tags`). Teachers filter by them, so one idea has one tag: never a
+  plural, a process word or a bare number beside the term. A topic with no glossary term
+  gets its glossary entry first.
 
 ## 12. The human gate
 
