@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.17.17",
+  "version": "0.17.18",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -3391,7 +3391,24 @@
           "geom.angles.parallel-transversal"
         ],
         "activities": 2,
-        "hooks": []
+        "hooks": [
+          {
+            "id": "hook.angles.squashed-x",
+            "connects_to": [
+              "geom.angles.relationships"
+            ],
+            "prompt": "Draw two long straight lines that cross, like a squashed X. Find the narrowest of the four angles. Kiri says the angle directly across from it must be the widest one, so the two balance each other out. Is she right?",
+            "note": "Chain opener, before activity 01. Shape: do, then a fictional student's claim to evaluate. Sets up mis.angles.vertical-as-supplementary: 'balance each other out' is the opposite angle treated as the partner that makes a straight line. Names no angle type and gives no number, so neither 'equal' nor 180° is front-loaded. Answered once activity 01's worked example shows vertically opposite angles are equal. No figure: students draw their own."
+          },
+          {
+            "id": "hook.parallel.exercise-book",
+            "connects_to": [
+              "geom.angles.parallel-transversal"
+            ],
+            "prompt": "Ben rules a slanted line across two lines in his exercise book. That makes eight angles. He measures one of the sharp ones: 50°. \"The book lines are parallel,\" he says, \"so all eight are 50°.\" Before you measure anything: which of his eight angles do you think are 50°?",
+            "note": "Before activity 02. Shape: a fictional student's wrong answer, then a prediction (Zan 2026-10-07: predict, don't measure, so the hook stays under a minute and the rule isn't found by protractor). Sets up mis.parallel.all-equal (the given angle copied into every position). Stays open after activity 01 in part: 01 fixes the four angles at Ben's first crossing, but not which angles at the second crossing match. Answer: the four sharp angles are 50°, the four wide ones 130°. Names no corresponding, alternate or co-interior angles and gives no total. Answered once activity 02 is done. No figure: students rule a line across their own book lines, which really are parallel."
+          }
+        ]
       },
       {
         "chain_id": "chain.geom.transformations",
