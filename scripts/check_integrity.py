@@ -30,6 +30,12 @@ Retired skills (D48 note, 2026-10-06):
   J. no id in skill-ids-retired.txt appears as a skill, a prereq or a chunking-plan
      entry; the ledger must exist and yield at least one id
 
+Reporting strands (D51):
+  K. every thread's `strand` is null or one of `assessment.reporting.strands`, as is
+     any skill's own `strand`; every Y7–Y10 skill resolves a strand (its own, else its
+     thread's); where a skill has NZC phase statements, the resolved strand is one of
+     theirs
+
 Non-vacuity guard: an extraction that yields zero ids from a present registry
 is itself a failure — an extractor that silently matches nothing would pass
 while checking nothing.
@@ -232,6 +238,36 @@ def main() -> int:
                     failures.append(f"J chain {c.get('chain_id')} lists a retired skill: {sid}")
     else:
         failures.append("J missing ledger: skill-ids-retired.txt")
+
+    # K — every Y7–Y10 skill reports into one strand (D51)
+    strands = set(doc.get("activity_defaults", {}).get("assessment", {})
+                  .get("reporting", {}).get("strands", []))
+    if not strands:
+        failures.append("K extracted zero strands from activity_defaults.assessment.reporting.strands")
+    thread_strand = {t.get("id"): t.get("strand") for t in threads if isinstance(t, dict)}
+    for tid, st in thread_strand.items():
+        if st is not None and st not in strands:
+            failures.append(f"K thread {tid} names unknown strand: {st}")
+    skill_thread = {sid: c.get("thread") for c in plan.get("chains", [])
+                    for sid in c.get("skills", [])}
+    reported = 0
+    for s in skills:
+        sid, own = s.get("id"), s.get("strand")
+        if own is not None and own not in strands:
+            failures.append(f"K skill {sid} names unknown strand: {own}")
+        resolved = own or thread_strand.get(skill_thread.get(sid))
+        if s.get("band_nz") in ("Y7", "Y8", "Y9", "Y10"):
+            if not resolved:
+                failures.append(f"K Y7–Y10 skill resolves no strand: {sid}")
+                continue
+            reported += 1
+        phases = (s.get("alignment") or {}).get("nzc_phase") or []
+        nzc = {re.sub(r"^P\d\.Y\d+\.", "", p).split(":")[0].lower() for p in phases}
+        if resolved and nzc and resolved not in nzc:
+            failures.append(f"K skill {sid} reports into {resolved}, but its NZC phase "
+                            f"statements are {sorted(nzc)}")
+    if skills and not reported:
+        failures.append("K resolved a strand for zero Y7–Y10 skills")
 
     if failures:
         print(f"check 4 FAIL — {len(failures)} finding(s):", file=sys.stderr)

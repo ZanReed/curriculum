@@ -2069,3 +2069,193 @@ on a missing, doubled or non-final fence and on any `.guides/` folder left in th
 Chain 1's four guides moved into their activity files the same day. A guide still never goes into
 a file before the platform's field is live. That condition is met, so the triangle drafts carry
 their guides as fences.
+
+**D51 (ratified 2026-10-07). The curriculum supplies printed assessments a school can report: a
+termly exam and a short quiz about every two weeks. Both are authored as seeded templates and
+printed in several forms, each with its own answer key. They come from their own item pools, map
+every item to a skill so results can be reported by strand, and allow no graphing calculator at
+Y7–10. On-screen testing is not designed for.** (amends D49's *Assessment* kind and its Q3; §18
+amended; `activity_defaults.assessment` new; `teacher_guide` gains an assessment shape; threads and
+one skill gain `strand`; check 4 K new)
+Ruled by Zan 2026-10-07 on the builder's draft: the exam-and-quiz pattern, paper, four forms,
+calculators and design-for-any-reporting in the draft's brief; the grading defaults, descriptor
+reporting and practice link (rulings 7, 10, 11); then, on this side's review, five fixes (an
+assessment guide shape, a reporting strand for every Y7–10 skill, §18 citing keys, calculator bands
+listed as banned, D49's on-screen test wish withdrawn), the draft's open points 1–3 and 5 (seeded
+forms; quizzes in the practice minutes; no reasoning items on quizzes; the first numbers), its open
+point 4 dropped as superseded by ruling 10, and `type: quiz` / `type: exam` (B-107). The platform
+gave no hold (B-107, platform main 2ed624eb).
+*The gap.* D49 made the cumulative test "a reading for the teacher, not a grade", and left anything
+beyond that to the school. But a teacher has to report, and nothing in the curriculum produces a
+mark that can be reported. The DoLs are two-item exit checks, the banks are practice and the
+diagnostic is a reading by design.
+*Why paper.* An on-screen test in an ordinary classroom can't stop a student opening another tab,
+and a lockdown browser is a large build for a small platform. Paper needs what the platform already
+ships: authored print with a name/date header and work space, and an answer-key copy. It also makes
+monitoring a room easy. The cost is hand marking until scan grading exists (ruling 9).
+*Why quizzes as well as an exam.* Zan's reason is measurement: more marks make a more reliable
+grade, and no single day decides it. The learning case is real but smaller here than in most
+courses. Classroom quizzing has a medium effect on achievement (Yang et al. 2021, 222 studies,
+g ≈ 0.50), but most of the gain comes from having some tests rather than none, and returns fall
+quickly after that (Bangert-Drowns, Kulik & Kulik 1991). This curriculum already gives daily
+retrieval (review, DoL, mixed practice), so a quiz adds mainly a mark and a check, not much new
+learning. That's why quizzes are short and fortnightly, not weekly.
+*Ruled:*
+1. **Two instruments.**
+   - **Exam:** one per term per year level (`assessment.exam`), in a D49 assessment period,
+     fitting inside one period. It covers everything taught to the end of the term, weighted
+     toward that term (the term-1 exam has no earlier terms, so all its weight is on term 1).
+   - **Quiz:** about every two weeks (`assessment.quiz.every_weeks`). It covers the chains finished
+     since the last quiz, plus a few items from earlier chains for spacing. It runs in the minutes
+     the period shape gives to the fluency sprint and mixed practice that day (§17), so it costs no
+     teaching time.
+2. **Seeded templates, printed forms.** Each item is written as a template whose numbers come from
+   seed lists, like the §17 banks, with the same exactness rules. The platform prints each form from
+   its own fixed seed, with its own evaluated answer key; its print route already does this
+   per test, separately from the per-student screen seed (B-107). So several forms cost about the
+   same to author as one.
+   - Items keep the same order on every form, so marking follows one layout; numbers, contexts and
+     multiple-choice order differ.
+   - Figure items can't be seeded yet (figure labels aren't a seeded field), so a figure item is
+     the same on every form. Keep figure items to a minority of each test.
+   - The seeds are fixed per test, never per student. A printed copy and its key must match, and
+     per-student values don't survive a photocopier.
+   - Seed lists are checked over every combination before a test is approved, as bank templates
+     are.
+3. **Their own pools.** Exam items and quiz items come from separate pools, and neither ever reuses
+   a bank item, a DoL item or each other's items (§17: an item a student has seen measures recall
+   of that item). A quiz is not a preview of the exam.
+4. **What goes on them.** Items that work on paper and mark quickly by hand:
+   - mostly short answers with working space, with units where the question has a context (§8);
+   - multiple choice only where the distractors diagnose a named misconception;
+   - figures and charts as in activities; graph-drawing items on a printed grid, with the correct
+     graph on the key;
+   - on the exam only, a few reasoning items ("explain", "is this claim right?") with a short
+     rubric (`assessment.exam.reasoning_items_max`). At Y7–10 these stay a small share, for D41's
+     reason: written justification measures writing as much as mathematics. Quizzes have none, so
+     they mark in minutes;
+   - nothing that only works on screen (drag to plot, drag to order).
+5. **Calculators.** No graphing calculator on any Y7–10 assessment or activity
+   (`assessment.calculators.graphing_banned_bands`): it does the task the item exists to test
+   (plotting a line, finding an intercept, checking proportionality).
+   - **Exams** have two sections: calculator-free (facts, mental strategies, reasonable written
+     methods), then a section allowing a basic or scientific calculator, for items where the
+     arithmetic isn't the point (239 × 573, a messy contextual rate).
+   - **Quizzes** are calculator-free unless an item is in the calculator section of its skill's
+     activity.
+   - **Activities** keep setting `calculator:` per skill (`off` while the arithmetic is the skill,
+     `scientific` when it isn't), never `graphing` at Y7–10. The platform takes the calculator only
+     from that line, never from the course (B-107).
+   - *Evidence:* meta-analyses don't find long-term harm to operational skills from calculator use
+     (Hembree & Dessart 1986, 79 studies; Ellington 2003). The exception is while basic facts are
+     still being learned (grade 4 in Hembree & Dessart), which is why the calculator-free section
+     stays and why D43's fact work is calculator-free. The graphing ban rests on validity, not on
+     harm.
+   - *Open, for later:* NCEA externals allow an approved calculator. Before the Y11 chains are
+     drafted, check what NZQA approves and make sure students have practised with it.
+6. **Marking.** Every assessment has an answer key per form (the platform prints it) and a
+   marking guide in its teacher guide (D50), in the assessment shape
+   (`teacher_guide.assessment_sections`, `assessment_max_words`): marks per item, method marks,
+   partial credit, and the common wrong answers with the misconception each signals. A quiz's guide
+   also has the practice link (ruling 11). Each assessment has a fixed total. An activity's
+   sections don't fit a test (it has no example sequence), and a test's marking guide doesn't fit
+   an activity's cap.
+7. **Reporting in the national descriptors, by strand.** From 2026, Years 0–10 maths is reported
+   at least twice a year on five descriptors (Emerging, Developing, Consolidating, Proficient,
+   Exceeding), judged against year-level Progress Markers in six strands. From 1 Jan 2027 the
+   regulations require progress by strand in the report.
+   - Every item names one skill (`x_item_skills`, in item order), and every Y7–10 skill resolves a
+     reporting strand: its own `strand` if it declares one, else its thread's. Check 4 K enforces
+     this, and that the strand is one of the skill's NZC phase strands where it has any. *Why not
+     derive it from `alignment.nzc_phase` alone:* seven Y9–10 skills (`linear.form.*`,
+     `function.*`) have no NZC statements, and one has statements in two strands. Thread-level
+     strand with a skill override covers all of them with eight thread values and one override
+     (`rate.unit-rate`, number in the rate-of-change thread).
+   - Each assessment comes with a class results sheet: one row per student, one column per strand.
+     A descriptor guide per strand says what each descriptor looks like in that strand's scores.
+   - The guide is guidance for the teacher's judgement, never an automatic cut score: the
+     descriptor is an overall teacher judgement from several sources, and the Ministry and NZCER both
+     say so. The same score reads differently mid-year (below Proficient can be on track) and at
+     year end (Proficient is the goal), so the guide gives both readings.
+   - Where a school runs PAT, NZCER's published Proficient thresholds (PATM 65.3 at Y9, 70.8 at Y10)
+     sanity-check the guide.
+   - An alternative view maps the same results to N/A/M/E, because some schools grade junior tests
+     that way (Botany Downs).
+   - Exams and quizzes are evidence for the judgement, alongside the school's own tools (SMART, PAT)
+     where it runs them. Their windows (Term 2 and Term 4, weeks 1–5) are left clear of exams.
+   - *Source:* `docs/research-school-assessment-2026-10.md` (Ministry, NZCER and eleven schools,
+     7 Oct 2026).
+8. **The diagnostic stays a reading.** The start-of-term class diagnostic is unchanged (D43, D49).
+   Exams and quizzes are the reportable instruments.
+9. **Scan grading is the long-term path, and nothing waits on it.** Seeded forms are what a scan
+   workflow needs: each printed page carries its form number, so a scanned page can be marked
+   against the right key. The platform's photo-grading design already plans this (designed, not
+   built). Until it ships, the teacher marks by hand against the key and records marks in the
+   school's system.
+10. **Recommended grading defaults** (`assessment.grading_defaults`). How a school grades is its
+    own call. These are the defaults the curriculum recommends to a teacher who has none, from the
+    grading research (Brookhart, Guskey et al. 2016; Butler & Nisan 1986; Carey & Carifio 2012;
+    Kulik, Kulik & Bangert-Drowns 1990):
+    - **Achievement only.** The grade or descriptor comes from exams and quizzes. Effort,
+      completion and behaviour are reported on their own line (work habits or learning
+      attributes), never mixed in.
+    - **Practice is never graded.** That covers activities, DoLs, banks, mixed practice and
+      homework. Practice targets about 80% success, which only works when mistakes cost nothing.
+    - **The exam weighs more than the quizzes,** because the exam measures what students kept weeks
+      later and a quiz comes days after teaching. Weights are set explicitly; by raw marks, the
+      quizzes would outweigh the exams.
+    - **One quiz resit,** on a different form, after the student completes that chain's corrective
+      (ruling 11). The higher score counts. Exams aren't resat: they are the cumulative check.
+    - **No zeros averaged in.** A missed quiz is recorded as missing and sat later on another form.
+    - Teachers translate these into descriptors per ruling 7, not into a percentage.
+11. **Making the link between ungraded practice and quiz results.** Students are not left to infer
+    it, because the ones who most need the link are the least likely to draw it: novices misjudge
+    their own learning, and a failed quiz is more often read as "I'm bad at maths" than "I skipped
+    the practice". Four parts:
+    - **Daily work is classwork.** The activity, the number facts practice and mixed practice
+      happen in class with the teacher present. Ungraded doesn't mean optional, and homework stays
+      optional (§17).
+    - **Quiz items look like practice items.** Each quiz template is the same item type as bank
+      items on its skill, with new numbers and contexts (still never a bank item, ruling 3). The
+      quiz's teacher guide names one practice item and the quiz item it became, to show the class
+      after marking.
+    - **Students see their own data.** After each quiz, each student gets their practice record
+      for the quiz's skills beside their quiz score, and the class sees an anonymous chart of
+      practice done against quiz score, described honestly as a correlation.
+    - **The corrective is the price of a resit** (ruling 10). Practice earns a better grade without
+      itself being graded.
+12. **Files and release.** An assessment is a catalogue file whose ```meta says `type: quiz` or
+    `type: exam` (`assessment.type_field`). No such file is imported until the platform ships the
+    two values (B-107); the trigger is before the first assessment file is drafted. An assessment
+    is printed from its draft and never published or shared: any signed-in student can open a
+    published activity by its id (the platform's standing OV-9 ruling), and the print route reads
+    the draft, so an unpublished test never reaches a student. A release gate is needed only if a
+    test is ever taken on screen, which this entry doesn't design for.
+*D49 amended.* D49's *Assessment* kind and its Q3 ruling made the cumulative test an auto-scored
+reading only. The exam replaces it, and `year_plan.assessment_per_term.cumulative_test` now points
+to `assessment.exam.per_term` rather than holding a second copy (D25). The platform has withdrawn
+D49 wish (3), the on-screen auto-scored test session (B-107).
+*Not done:* on-screen testing, a lockdown browser, a test after every chain, and per-student seeded
+paper copies.
+*Cost, accepted knowingly.*
+- **Authoring,** per year level per year: a termly exam and about a quiz a fortnight, so roughly
+  200 item templates, each checked over its seeds. A term's exam and its quizzes can't be written
+  until the chains they test are drafted.
+- **Hand marking** until scan grading ships: about 10 minutes a class per quiz with an answer-only
+  key, about an hour a class per exam.
+- Y7 first, in step with its chains.
+*Platform asks* (C-85; their state per B-107, each filed with its trigger):
+1. Print form k from fixed seed k, with its own key: built (forms A–D). Owed: the form number on
+   every page, and later a code a scanner can read.
+2. Assessment files hidden from students: not needed (ruling 12).
+3. Assessment print layout: the header lines exist. Owed: a cover page, marks beside each item,
+   and a page break before the calculator section, in one design pass when the first quiz or exam
+   is drafted.
+4. `calculator: graphing` kept for senior use, never inferred from the course: built.
+5. Later: scan grading per the photo-grading design, reading the form number, with per-item scores
+   so results can be reported by skill. Importing `x_item_skills` rides with 5 or 6.
+6. A per-student practice record for a set of skills, printable beside a quiz score, plus a class
+   chart of practice against quiz score (ruling 11). Trigger: mixed practice's gate.
+7. Corrective completion visible to the teacher per student and misconception, so a resit can
+   be conditional on it (ruling 10). Trigger: the first corrective drafted.
+8. `type: quiz` and `type: exam`, before the first assessment file is drafted.
