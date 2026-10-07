@@ -1,6 +1,7 @@
 ```meta
 key: act.fixture.rubric
 skill: fixture.rubric
+tags: rate, unit rate, ratio
 ```
 
 # Fixture activity whose DoL carries a rubric

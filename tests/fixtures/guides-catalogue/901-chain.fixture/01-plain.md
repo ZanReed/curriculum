@@ -1,6 +1,7 @@
 ```meta
 key: act.fixture.plain
 skill: fixture.plain
+tags: rate, unit rate, ratio
 ```
 
 # Fixture activity with no rubric

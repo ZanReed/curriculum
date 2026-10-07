@@ -2259,3 +2259,28 @@ paper copies.
 7. Corrective completion visible to the teacher per student and misconception, so a resit can
    be conditional on it (ruling 10). Trigger: the first corrective drafted.
 8. `type: quiz` and `type: exam`, before the first assessment file is drafted.
+
+**D52 (ratified 2026-10-07). An activity's tags are glossary terms: three to six per activity,
+written exactly as the glossary writes them.** (§11 amended; `activity_defaults.tags` new;
+`scripts/check_tags.py` new)
+Ruled by Zan 2026-10-07, on the platform's note (B-117) that the Activity Bank shows `tags:` to
+every teacher as filter chips.
+*The gap.* Tags were a filing aid nobody saw, and they drifted: chain 1 used both "proportional
+relationship" and "proportional relationships" (two chips for one idea), and the six imported
+activities carried process words ("classify", "consolidation"), bare numbers ("180 degrees") and
+an equation ("y = kx"). A teacher filtering the Bank sees every one of those as a separate topic.
+*Why the glossary.* It is already the curriculum's single list of topic words: lowercase,
+singular, NZ-spelled, one id per term, retired rather than renamed (D40). Drawing tags from it
+makes them consistent by construction and checkable, and a topic that deserves a chip but has no
+term gets a glossary entry first, which a student can use too. The cost is that a chip can't be
+broader than the glossary: there is no "triangle" chip, only the six named triangles.
+*Ruled:*
+1. Every tag in an activity's ```meta `tags:` is a `term:` in `glossary.md`, character for
+   character.
+2. Between `tags.min` and `tags.max` tags, no repeats. Pick the terms a teacher would search for:
+   the skill's own vocabulary first.
+3. Assessment files (`type: quiz|exam`) are exempt: the Bank never lists them (D51 ruling 12).
+4. `scripts/check_tags.py <catalogue> --graph curriculum-graph.json --glossary glossary.md` runs
+   beside `check_guides.py` before every batch import; CI runs it against the fixture catalogue.
+*Done the same day:* the six imported activities' tags were rewritten to the rule in the
+catalogue (only their `tags:` lines changed), for the next import.

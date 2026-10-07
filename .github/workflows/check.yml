@@ -73,3 +73,6 @@ jobs:
         # Real guides live in the catalogue, which has no CI; the check runs there
         # before every batch import. This step keeps the script itself working.
         run: python3 scripts/check_guides.py tests/fixtures/guides-catalogue --graph curriculum-graph.json
+
+      - name: "Tags — the check script against its fixture catalogue (D52)"
+        run: python3 scripts/check_tags.py tests/fixtures/guides-catalogue --graph curriculum-graph.json --glossary glossary.md

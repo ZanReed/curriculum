@@ -25,7 +25,7 @@ live in the catalogue). By ruling (curriculum side,
 the hand-carried-copy failure with a new name. This repo carries
 `decision-log-additions.md` (D18–D42 plus amendments).
 
-## The nine checks (`.github/workflows/check.yml`)
+## The ten checks (`.github/workflows/check.yml`)
 
 1. **Principles sync** — the graph's `authoring_principles` field is
    byte-identical to `authoring-principles.md`. Single-source rule
@@ -85,6 +85,11 @@ the hand-carried-copy failure with a new name. This repo carries
    has no CI, so run it there before every batch import; CI runs it against
    `tests/fixtures/guides-catalogue` so the script can't rot.
 
+10. **Tags** (D52) —
+   `python3 scripts/check_tags.py <catalogue> --graph curriculum-graph.json --glossary glossary.md`:
+   every activity's `tags:` are glossary terms, `tags.min`–`tags.max` of them (assessment files
+   exempt). Run with check 9 before every batch import; CI runs it against the fixture.
+
 To retire a glossary entry, delete it from `glossary.md` and append its id to
 `glossary-retired.txt` in the same commit; never edit an `id:` line.
 
@@ -120,7 +125,8 @@ To retire a glossary entry, delete it from `glossary.md` and append its id to
 | `scripts/check_integrity.py` | check 4 |
 | `scripts/check_glossary.py` | the glossary step (D40): well-formed, unique ids/terms/variants, NZ-only bodies, caps, retire-not-rename against the git base |
 | `scripts/check_guides.py` | check 9: teacher guides against a catalogue folder (D50) |
-| `tests/fixtures/guides-catalogue/` | a fixture catalogue for check 9, not real activities |
+| `scripts/check_tags.py` | check 10: activity tags against the glossary (D52) |
+| `tests/fixtures/guides-catalogue/` | a fixture catalogue for checks 9 and 10, not real activities |
 | `scripts/check_capabilities.py` | check 8, plus the drift report the scheduled `capability-drift.yml` runs |
 | `validate.js` | the curriculum-owned §11 thread checks — runs in CI (`node validate.js <graph>`); green against v0.13.0 on joining (2026-09-02) |
 | `builder.html` | the authoring UI (serve over HTTP, never `file://`). Provenance caveat: this is the July 2026 workspace copy, joined 2026-09-02 so its Save & load prompt text is diffable; reconcile if the Claude project holds a newer descendant |
