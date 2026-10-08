@@ -103,8 +103,10 @@ only on the skill's `misconceptions` list in the graph (PR #5).
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
 | `hook.area.mara-kai` | `measure.area.rect-triangle` | The school māra kai gets 20 m of fencing. One plan is a 9 m × 1 m bed; the other is 5 m × 5 m. Same fence, so the same amount of garden? | `mis.area.same-perimeter-same-area` (added to the stubs 30 Sep) | NZ | 9 m² vs 25 m² |
-| `hook.area.cut-rectangle` | `measure.area.rect-triangle` | Cut a rectangle along its diagonal. Leilani says each triangle has the same area as the rectangle "because it has the same base and height." Agree? | `mis.area.triangle-no-half` | | a second hook on the same skill. Screening could move one to `measure.area.composite` instead |
-| `hook.volume.two-boxes` | `measure.volume.cuboid` | Two boxes: 4 × 4 × 4 and 8 × 2 × 4. Which holds more? Most pick the long one. | `mis.volume.adds-dimensions` (4+4+4 = 12 < 8+2+4 = 14) | | both hold 64. Two options |
+| `hook.area.cut-rectangle` | `measure.area.rect-triangle` | Cut a rectangle along its diagonal. Leilani says each triangle has the same area as the rectangle "because it has the same base and height." Agree? | `mis.area.triangle-no-half` | | a second hook on the same skill. Screening could move one to `measure.area.composite` instead. **Cut at screening (8 Oct):** intuition answers it on the rect-triangle day, and it's closed by the composite day. Id unused. |
+| `hook.volume.two-boxes` | `measure.volume.cuboid` | Two boxes: 4 × 4 × 4 and 8 × 2 × 4. Which holds more? Most pick the long one. | `mis.volume.adds-dimensions` (4+4+4 = 12 < 8+2+4 = 14) | | both hold 64. Two options. **Reworded at screening (8 Oct):** units added (40/80/20 cm, 64 L each); "most pick the long one" moved to the note. |
+| `hook.perimeter.patio-edge` | `measure.perimeter.polygons` | Mele counts 12 edge stones round a 4 × 4 patio and says the edge is 12 stone-lengths. | `mis.perimeter.counts-squares` | | **New at screening (8 Oct)**; landed v0.17.20 |
+| `hook.area.l-deck` | `measure.area.composite` | Rangi orders 22 m² for an L-shaped deck (arms 2 m wide, 6 m and 5 m along the outside). | `mis.area.composite-overlap` | | **New at screening (8 Oct)**; landed v0.17.20 |
 
 ### `chain.measure.time` (2 skills, 2 activities → 2; bank holds 1)
 
@@ -215,9 +217,9 @@ its pool minimum is 1 and the remaining hook meets it. Carried to the Y8 bank:
      `number.divisibility.rules`, `number.integers.subtract`, `number.fractions.to-decimal`.
    - Algebra: `algebra.expressions.substitute`, `algebra.equations.one-step`,
      `coord.four-quadrant`.
-   - Measurement: `measure.perimeter.polygons` or `measure.area.composite` (whichever
-     `hook.area.cut-rectangle` doesn't move to), `measure.time.timetables`.
-   - Geometry: `geom.angles.relationships`, `geom.transform.rotate`.
+   - Measurement: `measure.time.timetables`. (Area-volume's two are done: `hook.perimeter.patio-edge`
+     and `hook.area.l-deck`, landed 8 Oct, v0.17.20.)
+   - Geometry: `geom.transform.rotate`. (`geom.angles.relationships` is done: `hook.angles.squashed-x`, v0.17.18.)
    - Statistics: `stats.summary.mean`, `stats.display.categorical`, `stats.display.dot-plot`.
    Two of these follow directly from the D48 audit, and their targets are already named in the
    graph: `number.integers.subtract` (`mis.integers.subtract-always-smaller`) and

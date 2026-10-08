@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.17.19",
+  "version": "0.17.20",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -3350,7 +3350,40 @@
           "measure.volume.cuboid"
         ],
         "activities": 5,
-        "hooks": []
+        "hooks": [
+          {
+            "id": "hook.perimeter.patio-edge",
+            "connects_to": [
+              "measure.perimeter.polygons"
+            ],
+            "prompt": "A square patio is laid 4 paving stones long and 4 stones wide. Mele wants edging all the way round it. She counts the stones around the outside, gets 12, and says the edge is 12 stone-lengths long. Is she right?",
+            "note": "Chain opener, before activity 01. Shape: a fictional student's claim. Sets up mis.perimeter.counts-squares: each corner stone is counted once though it has two outside edges. Answer: 16 stone-lengths, 4 short, one per corner (a 4 x 4 square has 12 edge stones). Doesn't say 'add the sides' or name perimeter. Answered once activity 01 is done. No figure: students sketch a 4 x 4 square."
+          },
+          {
+            "id": "hook.area.mara-kai",
+            "connects_to": [
+              "measure.area.rect-triangle"
+            ],
+            "prompt": "The school māra kai gets 20 m of fencing. One plan is a bed 9 m long and 1 m wide. The other is a square, 5 m by 5 m. Same fence, so the same amount of garden?",
+            "note": "Before activity 02. Shape: a surprising claim. Sets up mis.area.same-perimeter-same-area. Both fences are 20 m; the gardens are 9 m² and 25 m². Gives no formula and no unit; the reveal in m² also opens mis.units.area-as-linear. Open on day 2 only if activity 01's items for the shared misconception don't compare the areas of equal-perimeter rectangles. Answered once activity 02 is done. No figure."
+          },
+          {
+            "id": "hook.area.l-deck",
+            "connects_to": [
+              "measure.area.composite"
+            ],
+            "prompt": "An L-shaped deck has two arms, each 2 m wide. Measured along the outside, one arm is 6 m long and the other is 5 m long. Rangi works out 6 × 2 = 12 and 5 × 2 = 10, and orders 22 m² of decking. Too much, too little, or just right?",
+            "note": "Before activity 03. Shape: a fictional student's wrong answer. Sets up mis.area.composite-overlap: both rectangles contain the 2 m x 2 m corner. Answer: 18 m², 4 m² too much. Stays open after activity 02: a student who can find a rectangle's area agrees with Rangi. The lesson earns splitting without overlap and the missing length (5 - 2 = 3). No figure: students sketch the L."
+          },
+          {
+            "id": "hook.volume.two-boxes",
+            "connects_to": [
+              "measure.volume.cuboid"
+            ],
+            "prompt": "Two boxes. One is a cube, 40 cm long, 40 cm wide and 40 cm high. The other is 80 cm long, 20 cm wide and 40 cm high. Which one holds more?",
+            "note": "Before activity 04. Shape: two options. Sets up mis.volume.adds-dimensions (120 vs 140 makes the long box look bigger). Answer: the same, 64 000 cm³ (64 L) each. Open after activities 01-03: equal base areas don't yet mean equal volume until activity 04's layers. Gives no formula and no cubic unit. No figure."
+          }
+        ]
       },
       {
         "chain_id": "chain.measure.time",
