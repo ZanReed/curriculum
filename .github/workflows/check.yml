@@ -76,3 +76,8 @@ jobs:
 
       - name: "Tags — the check script against its fixture catalogue (D52)"
         run: python3 scripts/check_tags.py tests/fixtures/guides-catalogue --graph curriculum-graph.json --glossary glossary.md
+
+      - name: "Hook registry — regenerates with no diff, plain-text and id-permanence gate (D50 note 2026-10-08)"
+        run: |
+          python3 scripts/generate_hook_registry.py curriculum-graph.json --retired hook-ids-retired.txt
+          git diff --exit-code -- hook-registry.json

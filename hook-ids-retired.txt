@@ -1,0 +1,7 @@
+# Retired hook ids — hand-maintained, append-only (C-97, 2026-10-08).
+# A hook id is never used again once it has been in the graph OR was cut at screening, because
+# the platform's per-class "used" marks point at hook ids. scripts/generate_hook_registry.py
+# fails if an id here appears in the graph. One id per line; a trailing comment says why.
+
+hook.parallel.car-park      # cut at screening 2026-10-07: bay lines stop at the kerb, no eight-angle figure (chain-hooks.md)
+hook.area.cut-rectangle     # cut at screening 2026-10-08: open on no day (chain-hooks.md)
