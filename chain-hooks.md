@@ -180,7 +180,74 @@ stays unused.
 
 ---
 
-## Remaining 14 chains
+## chain.measure.area-volume — **approved, landing in v0.17.20**
+
+Approved by Zan 2026-10-08 as drafted. The next Y7 chain in the geometry/measurement build order
+(triangles-polygons → parallel-lines → area-volume).
+
+Pool minimum: 4 under the per-skill rule (D42 amendment, 2026-10-03): four skills, five
+activities (four parts and a consolidation). One hook per skill, so no part day opens empty.
+The consolidation day has no hook of its own (see the end of this section).
+
+### `hook.perimeter.patio-edge` → `measure.perimeter.polygons`
+
+> A square patio is laid 4 paving stones long and 4 stones wide. Mele wants edging all the way round it. She counts the stones around the outside, gets 12, and says the edge is 12 stone-lengths long. Is she right?
+
+Chain opener, before activity 01. Shape: a fictional student's claim to evaluate. Sets up mis.perimeter.counts-squares as students actually make it: counting the squares along the edge, so each corner stone counts once though it has two outside edges. Answer: 16 stone-lengths, so Mele is 4 short, one at each corner. Numbers check: a 4 × 4 square has 16 stones, 4 inside and 12 around the edge. Doesn't say "add the sides" or name perimeter; the lesson earns both. Answered once activity 01's worked example measures round the edge rather than counting tiles. No figure: students sketch a 4 × 4 square or picture a paved patio. New concept; the Y7 bank had none for this skill.
+
+### `hook.area.mara-kai` → `measure.area.rect-triangle`
+
+> The school māra kai gets 20 m of fencing. One plan is a bed 9 m long and 1 m wide. The other is a square, 5 m by 5 m. Same fence, so the same amount of garden?
+
+Before activity 02. Shape: a surprising claim to evaluate. Sets up mis.area.same-perimeter-same-area: "same fence, same garden" is that error in words. Numbers check: both fences are 2 × (9 + 1) = 4 × 5 = 20 m, which a student fresh from activity 01 can confirm, and the gardens are 9 m² and 25 m², nearly three times as much. Gives no area formula and no unit; the lesson earns square units, and the reveal in m² opens mis.units.area-as-linear too. **Open on day 2 only if activity 01 leaves it open.** The misconception is attached to both skills, so activity 01's items for it stay on the perimeter side (shapes that look different but have the same perimeter) and don't compare the areas of equal-perimeter rectangles. If they do, this hook is closed before it's fired. Answered once activity 02 is done. No figure: students picture or sketch the two beds. From the Y7 bank, unchanged except the wording of the two plans.
+
+### `hook.area.l-deck` → `measure.area.composite`
+
+> An L-shaped deck has two arms, each 2 m wide. Measured along the outside, one arm is 6 m long and the other is 5 m long. Rangi works out 6 × 2 = 12 and 5 × 2 = 10, and orders 22 m² of decking. Too much, too little, or just right?
+
+Before activity 03. Shape: a fictional student's wrong answer. Sets up mis.area.composite-overlap: Rangi's two rectangles both contain the 2 m × 2 m corner. Answer: 18 m² (6 × 2 + 3 × 2), so he's ordered 4 m² too much. **Stays open after activity 02**, which is the point: a student who can find a rectangle's area confidently does Rangi's two multiplications and agrees. The lesson earns splitting without overlap and finding the missing length (5 − 2 = 3), neither of which the hook gives. It does show *a* split, which is the strategy's outline; the hook's question is whether that split was right, so the method isn't handed over. No figure: students sketch the L from the spoken lengths. New concept; the Y7 bank had none for this skill.
+
+### `hook.volume.two-boxes` → `measure.volume.cuboid`
+
+> Two boxes. One is a cube, 40 cm long, 40 cm wide and 40 cm high. The other is 80 cm long, 20 cm wide and 40 cm high. Which one holds more?
+
+Before activity 04. Shape: two options. Sets up mis.volume.adds-dimensions: adding gives 120 against 140, so the long box looks bigger. Answer: they hold the same, 64 000 cm³ each, which is 64 litres. **Open after activities 01–03:** a student who can find areas might spot that both bases are 1600 cm² (or both ends are 800 cm²), but turning that into "how much it holds" is the layers idea activity 04 teaches. Gives no formula and no cubic unit. No figure. From the Y7 bank, reworded (see Cut, with reasons).
+
+**Not covered, deliberately:**
+- `mis.area.triangle-no-half` is a slip in using ½ × b × h. A hook can't set it up without stating the formula, and the intuitive version (`cut-rectangle`, below) is one students get right. It belongs to activity 02's and 03's items.
+- `mis.area.slant-as-height` needs a non-right triangle with its slant side and height both visible. Spoken aloud, the hook would have to describe the figure and name base and height, which is the lesson. It belongs to items with figures.
+- `mis.units.area-as-linear` and `mis.units.volume-as-square` get no hook of their own. The mara-kai reveal is in m² and the two-boxes reveal in cm³ and litres, so the teacher meets both errors in the answers; the consolidation sorts them out.
+
+**Consolidation day (activity 05): no hook.** The day's content is telling perimeter, area and volume and their units apart, and all three are taught by the end of day 4. A question about which measure or unit fits is answerable by any student who has done 01–04, so it isn't open on day 5. The one that stays open (double every length of a box: twice as much?) asks about scaling, which this chain doesn't teach, so the lesson can't earn its answer. The teacher opens day 5 on the activity's review, which already retrieves all three measures. Nothing is lost by firing no hook; §4 says quality beats coverage.
+
+### Cut, with reasons
+
+**`hook.area.cut-rectangle` (Y7 bank concept, never merged).** Cut, not moved. The id stays
+unused. Two problems, the first decisive:
+1. **There's no day it's open.** On the rect-triangle day, intuition answers it correctly:
+   picture the cut, see two matching triangles, so each is half. A hook earns its lesson by
+   making intuition visibly insufficient, and here intuition is fine. On the composite day,
+   which the bank suggested, it's closed: activity 02 has just taught that a triangle is half
+   its rectangle.
+2. **Its answer is the lesson.** "Each triangle is half the rectangle" is the worked example's
+   key move for ½ × b × h. A hook that a class answers correctly hands over the method.
+   The misconception it aimed at is now "Not covered, deliberately" above.
+
+**`hook.volume.two-boxes`: reworded, not cut.** Three changes:
+1. **Units added.** "4 × 4 × 4 and 8 × 2 × 4" had no units, so it had no context to be real
+   (§11). At 40, 80 and 20 cm both boxes hold 64 litres, which is a size students can picture
+   and a check that works out.
+2. **"Most pick the long one" moved out of the prompt.** Said aloud, it tells students the
+   popular answer is wrong.
+3. **The skill and the misconception are unchanged.**
+
+**`hook.area.mara-kai`: kept on its bank skill.** Moving it to `measure.perimeter.polygons` was
+considered and not taken: the perimeter is given in the prompt, so the perimeter lesson can't
+answer it.
+
+---
+
+## Remaining 13 chains
 
 No pools authored. Under the authoring-order rule each is owed one at chain creation. From
 2026-09-29 hooks arrive in year batches (D42): a screened concept bank per year, then each
