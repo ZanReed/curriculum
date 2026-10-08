@@ -438,6 +438,31 @@ term: milli
 A prefix on a metric unit's name that means a thousandth of that unit. A
 millimetre (mm) is a thousandth of a metre, and a millilitre (mL) is a thousandth
 of a litre.
+---
+id: gloss.perimeter
+term: perimeter
+The total distance around the outside edge of a flat shape. It is a length, so it is
+measured in units of length, such as centimetres (cm) or metres (m).
+---
+id: gloss.area
+term: area
+The amount of flat surface a shape covers. It is measured in square units, such as
+square centimetres (cm²) or square metres (m²).
+---
+id: gloss.volume
+term: volume
+The amount of space a solid object takes up. It is measured in cubic units, such as
+cubic centimetres (cm³) or cubic metres (m³).
+---
+id: gloss.square-unit
+term: square unit
+A square with sides one unit long, used to measure area. A square 1 cm long and 1 cm
+wide is one square centimetre, written 1 cm².
+---
+id: gloss.cubic-unit
+term: cubic unit
+A cube with edges one unit long, used to measure volume. A cube 1 cm long, 1 cm wide
+and 1 cm high is one cubic centimetre, written 1 cm³.
 ```
 
 ## Geometry
@@ -525,4 +550,37 @@ extended. On a diagram, matching arrows on two lines show that they are parallel
 id: gloss.transversal
 term: transversal
 A straight line that crosses two or more other lines.
+---
+id: gloss.polygon
+term: polygon
+A flat, closed shape with three or more straight sides. Triangles, quadrilaterals and
+hexagons are all polygons.
+---
+id: gloss.composite-shape
+term: composite shape
+A shape made of two or more simpler shapes joined together, such as rectangles and
+triangles. An L-shape is a composite shape made of two rectangles.
+---
+id: gloss.base
+term: base
+In a shape, the side that a height is measured from. It is often drawn along the
+bottom, but any side can be the base. In a solid such as a cuboid, the base is the face
+it stands on.
+In a power such as $3^4$, the base is the number that is multiplied by itself: here, 3.
+---
+id: gloss.height
+term: height
+The distance from a base to the opposite corner or side, measured at right angles to
+the base. The height of a triangle is not always one of its sides: it is the straight
+distance from the base to the top corner. The height of a solid is how tall it is.
+---
+id: gloss.cuboid
+term: cuboid
+A solid shaped like a box, with six rectangular faces. Opposite faces match. A cuboid
+has a length, a width and a height. It is also called a rectangular prism.
+---
+id: gloss.cube
+term: cube
+A cuboid whose length, width and height are all the same, so all six of its faces are
+squares. A dice is a cube.
 ```
