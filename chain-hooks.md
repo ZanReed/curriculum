@@ -21,6 +21,12 @@ is owed — which makes hooks free, and free things get written last and badly. 
 retrofitted filler D9 rejected per-activity hooks to avoid. This rule is the counterweight and
 no validator enforces it.
 
+**Hook ids are permanent.** An id is never reused once it has been in the graph or was cut at
+screening, because the platform's per-class "used" marks point at hook ids. A cut or retired id
+goes in `hook-ids-retired.txt`, and `scripts/generate_hook_registry.py` fails if it reappears.
+The graph's pools are generated into `hook-registry.json` for the platform's teacher-only chain
+view; students never see hooks.
+
 **Screening.** Every hook here is a draft until a human marks it approved. This doc is the
 holding pen; the pool is `chains[].hooks` in the thread JSON.
 
@@ -175,8 +181,8 @@ stays unused.
    figure the lesson teaches, and §11 says contexts are real and checked.
 2. It only works for slanted bays. With square-on parking every angle is 90° and Ben is right.
 3. "Some look bigger" gave away half the answer.
-4. It was marked "needs a figure", and a hook is text only: the platform doesn't render hooks,
-   so students draw or picture it.
+4. It was marked "needs a figure", and a hook is text only: students never see a hook on screen
+   (teachers will, in the platform's chain view), so students draw or picture it.
 
 ---
 

@@ -2284,3 +2284,18 @@ broader than the glossary: there is no "triangle" chip, only the six named trian
    beside `check_guides.py` before every batch import; CI runs it against the fixture catalogue.
 *Done the same day:* the six imported activities' tags were rewritten to the rule in the
 catalogue (only their `tags:` lines changed), for the next import.
+
+**D50 note (2026-10-08). Chain hook pools are generated for the platform's teacher view, and hook
+ids are permanent.** On the platform's proposal (B-124, Zan's platform ruling of 2026-10-08) for
+D50 ask 3's hook slice: a teacher-only chain page showing the hook pool, with per-class "used"
+marks. Students never see hooks. Contract agreed in C-97:
+- `hook-registry.json` is generated from `chunking_plan.chains[].hooks` by
+  `scripts/generate_hook_registry.py`, with the fact-scope registry's header and revision rule.
+  Chains without a pool are omitted; hooks keep their authored order (opener first);
+  `connects_to` carries each skill's graph label; prompts and notes are plain text (the generator
+  refuses markup). CI fails on a diff.
+- Only approved hooks are in the graph (`chain-hooks.md` and the concept banks are the holding
+  pen), so the file has no status field.
+- A catalogue folder is `<ordinal>-<chain_id>` (D46; check 4 F), the join the platform uses.
+- A hook id is never reused once it has been in the graph or was cut at screening.
+  `hook-ids-retired.txt` is the append-only ledger; the generator fails if a ledger id reappears.

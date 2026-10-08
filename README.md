@@ -25,7 +25,7 @@ live in the catalogue). By ruling (curriculum side,
 the hand-carried-copy failure with a new name. This repo carries
 `decision-log-additions.md` (D18–D42 plus amendments).
 
-## The ten checks (`.github/workflows/check.yml`)
+## The eleven checks (`.github/workflows/check.yml`)
 
 1. **Principles sync** — the graph's `authoring_principles` field is
    byte-identical to `authoring-principles.md`. Single-source rule
@@ -90,6 +90,13 @@ the hand-carried-copy failure with a new name. This repo carries
    every activity's `tags:` are glossary terms, `tags.min`–`tags.max` of them (assessment files
    exempt). Run with check 9 before every batch import; CI runs it against the fixture.
 
+11. **Hook registry** (D50 note 2026-10-08; C-97) —
+   `python3 scripts/generate_hook_registry.py curriculum-graph.json --retired hook-ids-retired.txt`
+   regenerates `hook-registry.json` from the graph's chain hook pools for the platform's
+   teacher-only chain view; CI fails on any diff. The generator fails, writing nothing, on a
+   missing field, a reused or retired hook id, a `connects_to` outside the hook's chain, or
+   markup in a prompt or note (hooks are plain text).
+
 To retire a glossary entry, delete it from `glossary.md` and append its id to
 `glossary-retired.txt` in the same commit; never edit an `id:` line.
 
@@ -125,6 +132,9 @@ To retire a glossary entry, delete it from `glossary.md` and append its id to
 | `scripts/check_integrity.py` | check 4 |
 | `scripts/check_glossary.py` | the glossary step (D40): well-formed, unique ids/terms/variants, NZ-only bodies, caps, retire-not-rename against the git base |
 | `scripts/check_guides.py` | check 9: teacher guides against a catalogue folder (D50) |
+| `hook-registry.json` | GENERATED — never hand-edit. Chain hook pools for the platform's teacher view, header revision = sha256 of the canonical body |
+| `hook-ids-retired.txt` | retired hook ids — hand-maintained, append-only, never reused (includes ids cut at screening) |
+| `scripts/generate_hook_registry.py` | produces `hook-registry.json`, with the hook gate (check 11) |
 | `scripts/check_tags.py` | check 10: activity tags against the glossary (D52) |
 | `tests/fixtures/guides-catalogue/` | a fixture catalogue for checks 9 and 10, not real activities |
 | `scripts/check_capabilities.py` | check 8, plus the drift report the scheduled `capability-drift.yml` runs |
