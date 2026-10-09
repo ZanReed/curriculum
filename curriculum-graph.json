@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.17.20",
+  "version": "0.17.21",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -3548,7 +3548,7 @@
       "label": "Coordinate-plane answer",
       "medium": "electronic",
       "affords": "Student graphs a line/curve/point/region/inequality; auto-graded. The question may carry a fixed shown shape (show: lines beside answer:, in the figure line grammar), such as a triangle to reflect, its mirror line or a centre of rotation; a plotted image is marked as a set of points in any order.",
-      "constraints": "Grades the curve families in the pinned capability facts (`prose_facts.graded_curve_families`); its cubic and quartic families are graded_polynomial. Built-in mistake feedback on by default; a mistake: line can carry a misconception id and must be the whole wrong image. Shown shapes are never marked and draw in slate, not blue (the student's ink); show: expression and cuboid are not allowed beside an answer.",
+      "constraints": "Grades the curve families in the pinned capability facts (`prose_facts.graded_curve_families`); its cubic and quartic families are graded_polynomial. The built-in mistake hints do not reach students yet (B-133), so only authored mistake: lines give feedback; a mistake: line can carry a misconception id and must be the whole wrong image. Shown shapes are never marked and draw in slate, not blue (the student's ink); show: expression and cuboid are not allowed beside an answer.",
       "status": "shipped",
       "grading": {
         "scoring": "auto",
@@ -3831,7 +3831,7 @@
       "label": "Geometry figure",
       "medium": "either",
       "status": "shipped",
-      "affords": "One static labelled picture in the worksheet body, from a ```figure fence: named points, polygon outlines or shaded regions, segments (solid or dashed), side labels, angle marks (a degree value, right, quoted text, or the arc alone; reflex for the larger angle), equal-length ticks, parallel arrows and free text. Drawn without a grid at one scale unless plane: on.",
+      "affords": "One static labelled picture in the worksheet body, from a ```figure fence: named points, polygon outlines or shaded regions, segments (solid, dashed or arrowed, `arrow` putting the head at the second point for a translation vector), side labels, angle marks (a degree value, right, quoted text, or the arc alone; reflex for the larger angle), equal-length ticks, parallel arrows and free text. Drawn without a grid at one scale unless plane: on.",
       "constraints": "Display only: the blank, mc or graph question beside it carries the grading. alt: is required and never holds an answer. Captioned \"Not to scale\" unless to scale is written; caption: adds a short bold label. Not inside an mc or match choice, or on the reference sheet: for figures as choices, put lettered figure columns in a columns row and ask with a keep-order mc. A mistyped figure line skips the whole file in a batch import.",
       "grading": {
         "scoring": "none",
@@ -3850,6 +3850,19 @@
         "scoring": "none",
         "captures_response": false,
         "score_shape": "none"
+      }
+    },
+    {
+      "id": "draw_vector",
+      "label": "Draw a vector (graded)",
+      "medium": "electronic",
+      "status": "shipped",
+      "affords": "In a ```graph fence with answer: vector dx, dy, the student drags a tail handle and an arrowhead to draw one vector, auto-marked on its displacement alone, so it can be drawn anywhere on the grid. Fits translation by a vector: shown shapes (show: lines, including an arrowed segment) can sit beside it. Each mistake: vector dx, dy line catches one wrong displacement, such as the reversed or the swapped vector, and can carry a misconception id.",
+      "constraints": "One vector per question, right or wrong, with no partial credit. The drawn order is the answer, so a reversed vector is wrong. Components may be negative or decimal; vector 0, 0 and the bracketed form vector (3, 2) are refused. Every mistake: on a vector question must itself be a vector line; a point or equation mistake is refused. The student sheet prints the grid and the shown shapes only; the answer key draws one example of the vector.",
+      "grading": {
+        "scoring": "auto",
+        "captures_response": true,
+        "score_shape": "boolean"
       }
     }
   ],
