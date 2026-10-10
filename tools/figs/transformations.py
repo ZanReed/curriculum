@@ -84,9 +84,9 @@ def grid(name, alt, lines, caption=None, include=()):
     """A coordinate figure. A choice figure (with a caption) is read by counting squares, since
     three or four to a row show no axis numbers, so it keeps the platform's auto-fit."""
     extra = ["plane: on"]
-    if caption:
-        extra.insert(0, f"caption: {caption}")
-    else:
+    # A choice figure sits in a `figure: A` column, which supplies its caption; a second
+    # `caption:` line would silently win if it ever differed (B-151), so none is written.
+    if not caption:
         extra.append(window(lines, include))
     fig(name, alt, lines, extra=extra)
 

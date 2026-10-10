@@ -52,6 +52,9 @@ WORD = re.compile(r"^[a-z]{3,}$")
 NUM = re.compile(r'^"(\d+(?:\.\d+)?)\s*(mm|cm|m|km)"$')
 
 
+COLUMN = "\x00column"  # marks a figure that sits in a `figure:` column (blocks() prepends it)
+
+
 def blocks(md):
     for m in re.finditer(r"^```figure\n(.*?)^```", md, re.M | re.S):
         yield m.group(1).splitlines()
@@ -59,7 +62,7 @@ def blocks(md):
         for col in re.split(r"^---$", m.group(1), flags=re.M):
             lines = col.strip("\n").splitlines()
             if lines and lines[0].startswith("figure:"):
-                yield lines[1:]
+                yield [COLUMN] + lines[1:]
 
 
 def pt(tok, names):
@@ -100,9 +103,14 @@ def check(lines, answers):
     alt = None
     segs, dashed, parallels, texts, ticks = [], [], [], {}, {}
     sides_num, sides_txt, text_lengths = [], {}, []
+    in_column = bool(lines) and lines[0] == COLUMN
     for raw in lines:
         line = raw.strip()
-        if not line:
+        if not line or line == COLUMN:
+            continue
+        if in_column and line.lower().startswith("caption:"):
+            problems.append("caption: inside a `figure:` column (the column's `figure: X` is the caption; "
+                            "a second one silently wins if it differs: B-151)")
             continue
         if "\\circ" in line:
             problems.append(f"^\\circ in figure line {line!r}")
