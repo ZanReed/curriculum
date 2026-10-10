@@ -141,8 +141,11 @@ its pool minimum is 1 and the remaining hook meets it. Carried to the Y8 bank:
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
-| `hook.reflect.ambulance` | `geom.transform.reflect` | Why is AMBULANCE written backwards on the front of the van? Try writing your name so it reads correctly in a mirror. | `mis.reflect.translates` | NZ | St John ambulances carry it. Answering well needs the lesson; engaging with it doesn't |
-| `hook.transform.kowhaiwhai` | `geom.transform.translate` (consolidation's terminal skill) | Look at a kōwhaiwhai panel: which move takes one koru to the next one? A slide, a flip or a turn? | the reflect vs 180° rotation mix-up (no single id; the consolidation names it) | NZ | needs an image of a real panel, **but not until the hook is finished** (stage 2). Candidate source: Te Papa Collections Online, where Creative Commons images are downloadable and taonga images are requested for educational use only. Pick the panel with colleagues, alongside the Pacific-context review |
+| `hook.reflect.ambulance` | `geom.transform.reflect` | Why is AMBULANCE written backwards on the front of the van? Try writing your name so it reads correctly in a mirror. | `mis.reflect.translates` | NZ | St John ambulances carry it. Answering well needs the lesson; engaging with it doesn't **Reworded at screening (10 Oct):** one question with three options; "many ambulances", NZ tag dropped (St John livery unconfirmed); landed v0.17.22. |
+| `hook.transform.kowhaiwhai` | `geom.transform.translate` (consolidation's terminal skill) | Look at a kōwhaiwhai panel: which move takes one koru to the next one? A slide, a flip or a turn? | the reflect vs 180° rotation mix-up (no single id; the consolidation names it) | NZ | needs an image of a real panel, **but not until the hook is finished** (stage 2). Candidate source: Te Papa Collections Online, where Creative Commons images are downloadable and taonga images are requested for educational use only. Pick the panel with colleagues, alongside the Pacific-context review **Held (Zan, 10 Oct):** not in the pool, not retired; needs a real panel chosen with colleagues. |
+| `hook.translate.domino-gap` | `geom.transform.translate` | Sione says a domino moved 3 squares (it moved 5: count to its own image, not the gap). | `mis.translate.counts-gaps` | | **New at screening (10 Oct)**; landed v0.17.22 |
+| `hook.rotate.pencil-turn` | `geom.transform.rotate` | Half-turn a pencil pinned at the eraser, then at its middle: same spot? | `mis.rotate.centre-ignored` | | **New at screening (10 Oct)**; landed v0.17.22 |
+| `hook.transform.playing-card` | `geom.transform.reflect`, `geom.transform.rotate` | Playing-card king: mirror image or half turn? | `mis.reflect.half-turn-confused` | | **New at screening (10 Oct)**; landed v0.17.22 |
 
 ### `chain.geom.nets` (1 skill, 1 activity → 1; bank holds 1)
 
@@ -219,7 +222,7 @@ its pool minimum is 1 and the remaining hook meets it. Carried to the Y8 bank:
      `coord.four-quadrant`.
    - Measurement: `measure.time.timetables`. (Area-volume's two are done: `hook.perimeter.patio-edge`
      and `hook.area.l-deck`, landed 8 Oct, v0.17.20.)
-   - Geometry: `geom.transform.rotate`. (`geom.angles.relationships` is done: `hook.angles.squashed-x`, v0.17.18.)
+   - Geometry: none (`geom.angles.relationships`: `hook.angles.squashed-x`, v0.17.18; `geom.transform.rotate`: `hook.rotate.pencil-turn`, v0.17.22).
    - Statistics: `stats.summary.mean`, `stats.display.categorical`, `stats.display.dot-plot`.
    Two of these follow directly from the D48 audit, and their targets are already named in the
    graph: `number.integers.subtract` (`mis.integers.subtract-always-smaller`) and

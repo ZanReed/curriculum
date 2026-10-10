@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.17.21",
+  "version": "0.17.22",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -3453,12 +3453,46 @@
         "chain_id": "chain.geom.transformations",
         "thread": "thread.geometry-trig",
         "skills": [
+          "geom.transform.translate",
           "geom.transform.reflect",
-          "geom.transform.rotate",
-          "geom.transform.translate"
+          "geom.transform.rotate"
         ],
         "activities": 4,
-        "hooks": []
+        "hooks": [
+          {
+            "id": "hook.translate.domino-gap",
+            "connects_to": [
+              "geom.transform.translate"
+            ],
+            "prompt": "On squared paper, draw a domino covering two squares side by side. Draw it again further to the right, so there are three empty squares between the old domino and the new one. Sione says the domino has moved three squares. Is he right?",
+            "note": "Chain opener, before activity 01. Shape: do, then a fictional student's claim. Sets up mis.translate.counts-gaps. Answer: no, five squares; each end, and every point, moved five (old domino on squares 1 and 2, gap 3 to 5, new domino on 6 and 7). Doesn't say follow one corner or give a vector. Answered once activity 01 is done. No figure: students draw it."
+          },
+          {
+            "id": "hook.reflect.ambulance",
+            "connects_to": [
+              "geom.transform.reflect"
+            ],
+            "prompt": "On the front of many ambulances, the word AMBULANCE is printed back to front, so a driver ahead can read it in their rear-view mirror. To write your own name that way, do you reverse the order of the letters, flip each letter over, or both?",
+            "note": "Before activity 02. Shape: prediction from three options, then try it. Sets up mis.reflect.translates: reversing the letter order but leaving each letter facing the same way moves each letter without flipping it, which is a slide. Answer: both. Open after activity 01, which teaches that a slide keeps every letter facing the same way but not what a mirror does. Names no mirror line and doesn't say each point lands the same distance away on the other side. Answered once activity 02's worked example reflects a shape and shows its image facing the other way. No figure: students write their own name."
+          },
+          {
+            "id": "hook.rotate.pencil-turn",
+            "connects_to": [
+              "geom.transform.rotate"
+            ],
+            "prompt": "Lay a pencil flat on your desk. You'll give it a half turn twice: once with the eraser end pinned in place, and once with the middle of the pencil pinned in place. Before you try it: will the pencil end up in the same spot both times?",
+            "note": "Before activity 03. Shape: prediction, then do. Sets up mis.rotate.centre-ignored (a half turn is a half turn, wherever you turn it). Answer: no. Pinned at the eraser, it ends up a whole pencil-length away, on the far side of the pinned end; pinned in the middle, it stays put, pointing the other way. Open after activities 01 and 02, which teach slides and flips, not turns. Names no centre of rotation, angle or direction and shows no grid method. Answered once activity 03's worked examples rotate the same shape about two different centres. No figure: students use their own pencil."
+          },
+          {
+            "id": "hook.transform.playing-card",
+            "connects_to": [
+              "geom.transform.reflect",
+              "geom.transform.rotate"
+            ],
+            "prompt": "The king on a playing card is printed twice, once each way up, so the card looks the same whichever way you hold it. Is the bottom king a mirror image of the top one, or the top one given a half turn?",
+            "note": "Before activity 04, the consolidation. Shape: two options. Sets up mis.reflect.half-turn-confused: the kings look like a reflection in the middle line. Answer: a half turn. The card looks the same upside down, which is what a half turn does; with a mirror image in the middle line, both kings would face the same way, and the card would look different upside down. Check with a real card: whichever way the top king faces, the bottom king faces the other way. Open after activities 01 to 03, which never compare the two. No figure: a real card or students picture one."
+          }
+        ]
       },
       {
         "chain_id": "chain.geom.nets",

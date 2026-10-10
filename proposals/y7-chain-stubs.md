@@ -258,7 +258,10 @@ skills. The original note:
 | `geom.transform.rotate` | Rotate a shape by 90°, 180° or 270° about a given centre | `coord.four-quadrant` | `mis.rotate.centre-ignored`; `mis.coord.axes-swapped`; `mis.reflect.half-turn-confused` | 1 |
 | `geom.transform.translate` | Translate a shape by a given vector or description | `coord.four-quadrant` | `mis.translate.counts-gaps` (counts the empty squares between shape and image, not how far one vertex moves); `mis.coord.axes-swapped` | 1 |
 
-**Consolidation** (terminal skill `geom.transform.translate`), earned by confusability:
+*Reordered 2026-10-10 (Zan): translation is taught first, so the chain runs translate → reflect →
+rotate and the consolidation's terminal skill is `geom.transform.rotate` (graph v0.17.22).*
+
+**Consolidation** (terminal skill `geom.transform.rotate` since the reordering; originally `geom.transform.translate`), earned by confusability:
 identifying *which* single transformation maps one shape to another. Reflection vs 180°
 rotation is the mix-up.
 
