@@ -18,10 +18,12 @@ length checks. For each ```figure fence and each `figure:` column:
 - no ^\\circ anywhere in a figure.
 
 Moved into the repo 2026-10-10 (tools/): a lettered label ("x", "a") with no answers listed is
-now a failure, not a note; the line kinds mirror the platform's figure grammar
-(packages/app/src/lib/figureFence.ts LINE_KINDS, plus the show: lines a figure falls back to:
-line, curve and ray), and `expression` is refused, as the importer refuses it (B-140). The list
-is a copy until the platform publishes the grammar as data (filed on its side).
+now a failure, not a note. The figure grammar is read from the PINNED platform capability facts
+(platform-pins/capability-facts.json, prose_facts.figure_grammar: B-142, B-144), so it can't
+drift: settings (all written `name: value` except the bare `to scale`: B-143), line kinds, the
+show: kinds a figure falls back to, refused kinds, and each kind's flag words. A lowercase word on
+a line that isn't a flag of its kind (e.g. `segment A B open`) is reported, as the importer
+refuses or drops it.
 
 Usage: python3 tools/check_figures.py DRAFT.md [ANSWERS.json]
 """
@@ -32,10 +34,21 @@ import sys
 from pathlib import Path
 
 TOK = re.compile(r'\(\s*-?[\d.]+\s*,\s*-?[\d.]+\s*\)|"[^"]*"|\S+')
-# Mirrors figureFence.ts LINE_KINDS plus the show: fallback (line, curve, ray): B-140.
-KNOWN = ("alt:", "caption:", "point", "polygon", "region", "segment", "side", "angle", "ticks",
-         "parallel", "text", "cuboid", "to scale", "plane:", "axes:", "hidden:",
-         "line ", "curve ", "ray ")
+def _grammar():
+    """The platform's figure grammar, from the pinned capability facts (B-144)."""
+    pin = Path(__file__).resolve().parent.parent / "platform-pins" / "capability-facts.json"
+    g = json.loads(pin.read_text(encoding="utf-8"))["prose_facts"]["figure_grammar"]
+    settings = tuple(s if s == "to scale" else f"{s}:" for s in g["settings"])
+    drawn = tuple(f"{k} " for k in g["line_kinds"] + g["fallback_kinds"])
+    if not settings or not drawn:
+        raise SystemExit("figure_grammar in the pin is empty (vacuity guard)")
+    return settings, drawn, tuple(g["refused_kinds"]), g["flags"]
+
+
+SETTINGS, DRAWN, REFUSED, FLAGS = _grammar()
+KNOWN = SETTINGS + DRAWN
+FALLBACK = tuple(f"{k} " for k in json.loads((Path(__file__).resolve().parent.parent / "platform-pins" / "capability-facts.json").read_text(encoding="utf-8"))["prose_facts"]["figure_grammar"]["fallback_kinds"])
+WORD = re.compile(r"^[a-z]{3,}$")
 NUM = re.compile(r'^"(\d+(?:\.\d+)?)\s*(mm|cm|m|km)"$')
 
 
@@ -93,16 +106,21 @@ def check(lines, answers):
             continue
         if "\\circ" in line:
             problems.append(f"^\\circ in figure line {line!r}")
-        if line.startswith("expression"):
-            problems.append(f"expression is refused in a figure (it needs the calculator): {line!r}")
+        if line.split(" ", 1)[0].lower() in REFUSED:
+            problems.append(f"refused in a figure (the importer skips it): {line!r}")
             continue
-        if not line.startswith(KNOWN):
+        if not line.lower().startswith(KNOWN):
             problems.append(f"unknown figure line {line!r}")
             continue
         if line.startswith("alt:"):
             alt = line[4:].strip()
             continue
-        if line.startswith(("caption:", "to scale", "plane:", "axes:", "hidden:", "line ", "curve ", "ray ")):
+        kind = line.split(" ", 1)[0].lower()
+        if kind in FLAGS and not line.lower().startswith(("line ", "curve ")):
+            for tok in TOK.findall(line)[1:]:
+                if WORD.match(tok) and tok not in FLAGS[kind]:
+                    problems.append(f"{kind} has no flag {tok!r} (flags: {', '.join(FLAGS[kind])}): {line!r}")
+        if line.lower().startswith(tuple(s for s in SETTINGS if s != "alt:") + FALLBACK):
             continue
         t = TOK.findall(line)
         try:
