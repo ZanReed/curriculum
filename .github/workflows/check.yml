@@ -81,3 +81,13 @@ jobs:
         run: |
           python3 scripts/generate_hook_registry.py curriculum-graph.json --retired hook-ids-retired.txt
           git diff --exit-code -- hook-registry.json
+
+      - name: "Draft tools — sources build, lint and pass the figure check; fixtures pass and fail as they should (tools/, 2026-10-10)"
+        # The catalogue comparison (--check CATALOGUE) runs locally before each import;
+        # the catalogue is not in this repo.
+        run: |
+          python3 tools/build_drafts.py
+          python3 tools/check_bank.py tests/fixtures/tools/bank-unit.md
+          python3 tools/lint_draft.py tests/fixtures/tools/bank-unit.md .
+          ! python3 tools/check_figures.py tests/fixtures/tools/bad-side-label.md
+          ! python3 tools/lint_draft.py tests/fixtures/tools/bad-binding.md .

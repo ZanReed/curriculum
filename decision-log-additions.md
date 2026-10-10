@@ -2299,3 +2299,21 @@ marks. Students never see hooks. Contract agreed in C-97:
 - A catalogue folder is `<ordinal>-<chain_id>` (D46; check 4 F), the join the platform uses.
 - A hook id is never reused once it has been in the graph or was cut at screening.
   `hook-ids-retired.txt` is the append-only ledger; the generator fails if a ledger id reappears.
+
+**Note (2026-10-10). The builder's draft tools live in the repo, and drafts are built from
+sources.** On Zan's request; the builder agreed the layout and supplied three fixes; the platform
+answered the two source questions (C-107, B-140). Ruled by Zan the same day: the
+source-to-catalogue comparison runs locally before each import, not in CI.
+- `tools/lint_draft.py`, `tools/check_figures.py` and `tools/check_bank.py` are the single
+  copies. The lint reads its allowed fences from the pinned capability facts (the union of every
+  `reached_by.fence` and `exempt_fences`, complete by the platform's CI: B-140), so no second list
+  can drift. The figure check still mirrors the platform's figure grammar, with a comment naming
+  the source, until the platform publishes it as data (filed on its side; queueing it is Zan's
+  call).
+- Each generated chain has sources at `drafts/<chain folder>/*.src.md` and a figure module in
+  `tools/figs/`. The sources for parallel-lines and area-volume were recovered from the catalogue
+  files themselves (not the builder's drafts, which predate the D52 tag and guide edits) and
+  rebuild them byte for byte. Answers files are a build output and are not committed.
+- `python3 tools/build_drafts.py --check <catalogue>` runs before every batch import, beside
+  `check_guides.py` and `check_tags.py`. An edit made to a catalogue file during a read goes into
+  its source file; otherwise the check fails before the import.
