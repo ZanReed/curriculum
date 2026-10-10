@@ -267,14 +267,18 @@ In geometry, a vertex is also a corner point of a shape, where two sides meet.
 ```definitions
 id: gloss.transformation
 term: transformation
-A change that moves, stretches or flips a shape or a graph. Translations,
-stretches and reflections are all transformations.
+A change that moves every point of a shape to a new place. A translation slides a
+shape, a reflection flips it and a rotation turns it. After any of these three, the
+shape is the same size and the same shape as before. Graphs can be transformed too,
+and a stretch is a transformation that changes a graph's size.
 ---
 id: gloss.translation
 term: translation
-A transformation that slides every point the same distance in the same
-direction, without changing the shape. For a graph, $f(x) + k$ moves it up by
-$k$, and $f(x - h)$ moves it right by $h$.
+A transformation that slides every point of a shape the same distance in the same
+direction. The shape doesn't turn or flip, so it ends up facing the same way. A
+translation is given by how far it moves across and how far up or down, such as
+3 right and 2 up.
+For a graph, $f(x) + k$ moves it up by $k$, and $f(x - h)$ moves it right by $h$.
 ---
 id: gloss.stretch
 term: stretch
@@ -284,8 +288,51 @@ stretches it horizontally by a factor of $\frac{1}{b}$.
 ---
 id: gloss.reflection
 term: reflection
-A transformation that flips a shape or graph over a mirror line. For a graph,
-$-f(x)$ reflects it in the x-axis, and $f(-x)$ reflects it in the y-axis.
+A transformation that flips a shape over a mirror line. Each point of the image is
+on the other side of the mirror line, the same distance from it as the point it came
+from, measured straight across at right angles to the line. So the image faces the
+opposite way.
+For a graph, $-f(x)$ reflects it in the x-axis, and $f(-x)$ reflects it in the y-axis.
+---
+id: gloss.rotation
+term: rotation
+A transformation that turns a shape about a fixed point, called the centre of
+rotation. Every point turns through the same angle, in the same direction, and stays
+the same distance from the centre. A quarter turn is 90°, a half turn is 180° and a
+three-quarter turn is 270°. The direction is clockwise or anticlockwise.
+---
+id: gloss.image
+term: image
+The shape you get after a transformation. The shape you started with is called the
+object. If the object's corners are labelled A, B and C, the image's matching corners
+are labelled A′, B′ and C′.
+---
+id: gloss.mirror-line
+term: mirror line
+The line that a shape is reflected in. It works like a mirror: the image is on the
+other side of the line, and each point of the image is as far from the line as the
+point it came from. A mirror line can be vertical, horizontal or diagonal.
+---
+id: gloss.centre-of-rotation
+term: centre of rotation
+The fixed point that a shape turns about in a rotation. It is the only point that
+doesn't move. It can be a corner of the shape, a point inside the shape or a point
+outside it.
+---
+id: gloss.vector
+term: vector
+An amount of movement in a direction, drawn as an arrow from where the movement
+starts to where it ends. In a translation, a vector such as "3 right, 2 up" says how
+far every point moves across and how far it moves up or down.
+---
+id: gloss.clockwise
+term: clockwise
+Turning in the same direction as the hands of a clock.
+---
+id: gloss.anticlockwise
+term: anticlockwise
+us: counterclockwise
+Turning in the opposite direction to the hands of a clock.
 ---
 id: gloss.vertex-form
 term: vertex form
