@@ -90,4 +90,5 @@ jobs:
           python3 tools/check_bank.py tests/fixtures/tools/bank-unit.md
           python3 tools/lint_draft.py tests/fixtures/tools/bank-unit.md .
           ! python3 tools/check_figures.py tests/fixtures/tools/bad-side-label.md
+          ! python3 tools/check_figures.py tests/fixtures/tools/bad-flag.md
           ! python3 tools/lint_draft.py tests/fixtures/tools/bad-binding.md .
