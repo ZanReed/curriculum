@@ -3,7 +3,7 @@
 # A bare id is a one-part skill; `id = n` declares a skill delivered across n
 # activities (D23). External prerequisites are NOT here — valid review and DoL
 # targets, never taught, never counted toward coverage.
-# Generated from curriculum-graph.json v0.17.21 — 96 skills, 102 parts, 36 chains. Do not hand-edit: regenerate.
+# Generated from curriculum-graph.json v0.17.22 — 96 skills, 102 parts, 36 chains. Do not hand-edit: regenerate.
 
 
 # chain.rate.proportional  (3 skills, 4 activities projected)
@@ -148,9 +148,9 @@ geom.angles.relationships                 # Use supplementary, complementary, ve
 geom.angles.parallel-transversal          # Find angles where a transversal crosses parallel lines
 
 # chain.geom.transformations  (3 skills, 4 activities projected)
+geom.transform.translate                  # Translate a shape by a given vector or description
 geom.transform.reflect                    # Reflect a shape in a horizontal, vertical or diagonal mirror line
 geom.transform.rotate                     # Rotate a shape by 90°, 180° or 270° about a given centre
-geom.transform.translate                  # Translate a shape by a given vector or description
 
 # chain.geom.nets  (1 skills, 1 activities projected)
 geom.nets.identify                        # Identify and complete nets of cubes, prisms and pyramids

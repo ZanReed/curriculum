@@ -253,7 +253,67 @@ answer it.
 
 ---
 
-## Remaining 13 chains
+## chain.geom.transformations — **approved, landing in v0.17.22**
+
+Approved by Zan 2026-10-10 as drafted. The next Y7 geometry chain after area-volume (D38
+amendment order). **Translation is taught first** (Zan, 2026-10-10): 01 translate, 02 reflect,
+03 rotate, 04 consolidation. The graph's skill order follows, so the consolidation's terminal
+skill is `geom.transform.rotate`.
+
+Pool minimum: 3 under the per-skill rule (D42 amendment, 2026-10-03): three skills, four
+activities (three parts and a consolidation). One hook per skill, and one for the consolidation
+day because the reflect vs half-turn mix-up is still open then. Kept above the minimum by Zan's
+ruling: a teacher who wants a review-only day simply doesn't fire a hook.
+
+### `hook.translate.domino-gap` → `geom.transform.translate`
+
+> On squared paper, draw a domino covering two squares side by side. Draw it again further to the right, so there are three empty squares between the old domino and the new one. Sione says the domino has moved three squares. Is he right?
+
+Chain opener, before activity 01. Shape: do, then a fictional student's claim to evaluate. Sets up mis.translate.counts-gaps exactly as the registry describes it: counting the empty squares between the shape and its image. Answer: no, it has moved five squares. Its left end moved five, its right end moved five, and so did every point of it. Numbers check: the old domino covers squares 1 and 2, the gap is squares 3 to 5, and the new domino covers 6 and 7. Doesn't say "follow one corner" or give a vector; the lesson earns that a translation is measured from a point to its own image. Answered once activity 01 is done. No figure: students draw it. New concept.
+
+### `hook.reflect.ambulance` → `geom.transform.reflect`
+
+> On the front of many ambulances, the word AMBULANCE is printed back to front, so a driver ahead can read it in their rear-view mirror. To write your own name that way, do you reverse the order of the letters, flip each letter over, or both?
+
+Before activity 02. Shape: prediction from three options, then try it. Sets up mis.reflect.translates as students actually make it: reversing the order of the letters but leaving each letter facing the same way, which moves each letter without flipping it: a slide, not a reflection. Answer: both. **Open after activity 01**, and sharper for it: the class has just learned that a slide keeps every letter facing the same way. Doesn't name a mirror line or say each point lands the same distance away on the other side. Answered once activity 02's worked example reflects a shape and shows its image facing the other way. **Constraint on activity 01:** its items don't compare a slide with a flip. No figure: students write their own name. From the Y7 bank, reworded (see Cut, with reasons).
+
+### `hook.rotate.pencil-turn` → `geom.transform.rotate`
+
+> Lay a pencil flat on your desk. You'll give it a half turn twice: once with the eraser end pinned in place, and once with the middle of the pencil pinned in place. Before you try it: will the pencil end up in the same spot both times?
+
+Before activity 03. Shape: prediction, then do. Sets up mis.rotate.centre-ignored: "a half turn is a half turn" is the belief that the turn alone decides where the image lands. Answer: no. Pinned at the eraser, the pencil swings round and ends up on the far side of the pinned end; pinned in the middle, it stays where it was, pointing the other way. Open after activities 01 and 02, which teach slides and flips and say nothing about turning. Doesn't name a centre of rotation, give an angle or a direction, or show how to rotate on a grid. Answered once activity 03's worked examples rotate the same shape about two different centres. No figure: students use their own pencil. New concept.
+
+### `hook.transform.playing-card` → `geom.transform.reflect`, `geom.transform.rotate`
+
+> The king on a playing card is printed twice, once each way up, so the card looks the same whichever way you hold it. Is the bottom king a mirror image of the top one, or the top one given a half turn?
+
+Before activity 04 (the consolidation). Shape: two options. Sets up mis.reflect.half-turn-confused: the two kings look like a reflection in the card's middle line, and most students will say so. Answer: a half turn. The card looks the same turned upside down, which is what a half turn does; with a mirror image in the middle line, both kings would face the same way, and the card would look different upside down. The teacher checks it with a real card: whichever way the top king faces, the bottom king faces the other way. Open after activities 01 to 03. **Constraint on activity 03:** its items don't set a half turn beside a horizontal reflection of the same shape. Answered once activity 04 has compared the two. No figure: a real card in the teacher's hand. New concept.
+
+**Not covered, deliberately:**
+- `mis.reflect.diagonal-as-vertical` needs a diagonal mirror line on a grid, which spoken aloud is activity 02's figure. It belongs to activity 02's items.
+- `mis.coord.axes-swapped` is a slip in writing coordinates; a hook can't set it up without giving coordinates. It belongs to the items in all three part activities.
+
+### Held, not cut
+
+**`hook.transform.kowhaiwhai` (Y7 bank concept, never merged).** Held by Zan's ruling,
+2026-10-10: not in this pool and not retired, so its id stays free to land later. It works only
+with a real panel in front of the class, chosen with colleagues alongside the Pacific-context
+review. The playing-card hook covers the consolidation day until then.
+
+### Cut, with reasons
+
+**`hook.reflect.ambulance`: reworded, not cut.**
+1. **One question, not two.** The bank asked "why is it written backwards?" and "try writing your
+   name". The prompt now gives the why and asks one question with three answers.
+2. **"Many ambulances", not St John's.** Back-to-front lettering on ambulance fronts is well
+   documented; whether every current Hato Hone St John vehicle carries it isn't confirmed, so the
+   prompt doesn't claim it (§11). This drops the bank's NZ tag.
+3. **The choice makes the misconception visible:** it separates students who reverse only the
+   order (the slide) from those who flip each letter.
+
+---
+
+## Remaining 12 chains
 
 No pools authored. Under the authoring-order rule each is owed one at chain creation. From
 2026-09-29 hooks arrive in year batches (D42): a screened concept bank per year, then each
