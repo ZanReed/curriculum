@@ -25,7 +25,7 @@ live in the catalogue). By ruling (curriculum side,
 the hand-carried-copy failure with a new name. This repo carries
 `decision-log-additions.md` (D18–D42 plus amendments).
 
-## The eleven checks (`.github/workflows/check.yml`)
+## The twelve checks (`.github/workflows/check.yml`)
 
 1. **Principles sync** — the graph's `authoring_principles` field is
    byte-identical to `authoring-principles.md`. Single-source rule
@@ -97,6 +97,15 @@ the hand-carried-copy failure with a new name. This repo carries
    missing field, a reused or retired hook id, a `connects_to` outside the hook's chain, or
    markup in a prompt or note (hooks are plain text).
 
+12. **Draft tools** (moved from the builder's zips, 2026-10-10) —
+   `python3 tools/build_drafts.py` rebuilds every chain with sources under `drafts/` from
+   `tools/figs/<module>.py` and runs `tools/lint_draft.py` and `tools/check_figures.py` on each;
+   CI runs it and the `tests/fixtures/tools/` fixtures (one must pass, two must fail).
+   **Before every batch import**, run `python3 tools/build_drafts.py --check <catalogue>`
+   beside checks 9 and 10: each built draft must match its catalogue file byte for byte, so
+   an edit made during a read goes into the `.src.md`, not the catalogue.
+   `tools/check_bank.py` checks a practice bank over every seed combination.
+
 To retire a glossary entry, delete it from `glossary.md` and append its id to
 `glossary-retired.txt` in the same commit; never edit an `id:` line.
 
@@ -135,6 +144,11 @@ To retire a glossary entry, delete it from `glossary.md` and append its id to
 | `hook-registry.json` | GENERATED — never hand-edit. Chain hook pools for the platform's teacher view, header revision = sha256 of the canonical body |
 | `hook-ids-retired.txt` | retired hook ids — hand-maintained, append-only, never reused (includes ids cut at screening) |
 | `scripts/generate_hook_registry.py` | produces `hook-registry.json`, with the hook gate (check 11) |
+| `drafts/<chain folder>/*.src.md` | chain sources: the catalogue file with each figure as a `@@FENCE name@@` / `@@COL name@@` placeholder (check 12) |
+| `tools/build_drafts.py` | check 12: builds drafts from sources, lints and figure-checks them; `--check` diffs against the catalogue |
+| `tools/figs/` | figure generators: `core.py` (shared) and one module per chain |
+| `tools/lint_draft.py`, `tools/check_figures.py`, `tools/check_bank.py` | draft lint (fences from the pinned capability facts), figure check (mirrors the platform's figure grammar), bank seed check |
+| `tests/fixtures/tools/` | fixtures for check 12 |
 | `scripts/check_tags.py` | check 10: activity tags against the glossary (D52) |
 | `tests/fixtures/guides-catalogue/` | a fixture catalogue for checks 9 and 10, not real activities |
 | `scripts/check_capabilities.py` | check 8, plus the drift report the scheduled `capability-drift.yml` runs |
