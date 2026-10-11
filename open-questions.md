@@ -148,6 +148,7 @@ in the graph now carries at least one anticipated error, where ten carried none.
 *confusability between its own skills*, not when it has a spare slot. All 17 audited; 26
 slack activities allocated as 13 consolidations and 14 additional skill parts.
 
-**Hooks for `chain.rate.proportional`** — closed. Two screened and merged at v0.13.0. Quoting
-the artifact, as required: `chains[].hooks` now holds `hook.rate.better-value` and
-`hook.rate.doubles-or-not`.
+**Hooks for `chain.rate.proportional`** — closed. Two screened and merged at v0.13.0. The D42
+amendment (one hook per skill) owed a third, which was screened and merged at v0.17.24 (PR #66,
+8806609). Quoting the artifact, as required: `chains[].hooks` now holds `hook.rate.better-value`,
+`hook.rate.one-number-sign` and `hook.rate.doubles-or-not`.
