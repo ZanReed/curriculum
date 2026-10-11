@@ -151,7 +151,8 @@ its pool minimum is 1 and the remaining hook meets it. Carried to the Y8 bank:
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
-| `hook.nets.cross-or-line` | `geom.nets.identify` | Six squares joined in a cross, and six squares in a straight line. Both have six faces' worth. Do both fold into a cube? | `mis.nets.any-six-squares` | | needs a figure |
+| `hook.nets.cross-or-line` | `geom.nets.identify` | Six squares joined in a cross, and six squares in a straight line. Both have six faces' worth. Do both fold into a cube? | `mis.nets.any-six-squares` | | needs a figure. **Reworked at screening (11 Oct):** students draw both shapes (no figure); the cross is given square by square; the trap wording is dropped; landed v0.17.23. |
+| `hook.nets.pyramid-card` | `geom.nets.identify` | Hemi says a closed card model of an Egyptian pyramid needs only four triangles. | none (candidate `mis.nets.base-omitted`) | | **New at screening (11 Oct)**; alternative opener; landed v0.17.23 |
 
 ---
 

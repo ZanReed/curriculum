@@ -313,7 +313,44 @@ review. The playing-card hook covers the consolidation day until then.
 
 ---
 
-## Remaining 12 chains
+## chain.geom.nets — **approved, landing in v0.17.23**
+
+Approved by Zan 2026-10-11 as drafted.
+
+The last Y7 geometry chain (D38 amendment order). One skill, one activity, kept at one by Zan's
+ruling (1 Oct).
+
+Pool minimum: 1. Two hooks, both before the one activity: the teacher picks the one that suits
+the class. Kept above the minimum on the standing ruling that a surplus costs nothing.
+
+### `hook.nets.cross-or-line` → `geom.nets.identify`
+
+> On squared paper, draw two shapes, each made of six squares. Shape 1 is a column of four squares, with one more square on each side of the second square from the top. Shape 2 is six squares in one long row. If you cut them out, could you fold each of them into a cube?
+
+Chain opener, before activity 01. Shape: do, then predict. Sets up mis.nets.any-six-squares: both shapes have six squares and a cube has six faces, so "six squares, so yes" is the trap. Answer: only shape 1. Folding the row wraps four squares round into a tube, and the last two squares land on top of the first two, leaving both ends open. Shape 1 folds: its column wraps round as four sides of the cube, and the two side squares close the ends. Timing: drawing twelve squares takes about 40 seconds, and the prediction is a yes or no for each shape, so the hook fits inside a minute; students who would rather picture the shapes from the words can. Cutting out and folding take two or three minutes, so they don't belong to the hook: the teacher guide puts a pre-cut sheet of both shapes at the first worked example, which folds them. Doesn't say how to check a net (fold from one face, nothing may land twice), and doesn't say that a cube net can't have five squares in a row; the lesson earns both. Answered once activity 01's first two worked examples are done. No figure: students draw it. From the Y7 bank, reworked (see Cut, with reasons).
+
+### `hook.nets.pyramid-card` → `geom.nets.identify`
+
+> Hemi is making a card model of one of the pyramids of Egypt. He wants it closed all round, so it can be picked up. He says he only needs to cut out four triangles. Is he right?
+
+Alternative opener, before activity 01. Shape: a fictional student's claim to evaluate. Sets up forgetting the face a solid stands on: no registered id (candidate: mis.nets.base-omitted, named in the activity notes). Answer: no. He also needs a square for the bottom. The pyramids at Giza stand on square bases, so a closed model has four triangles and one square, five faces in all. "Closed all round" is in the prompt because a model with an open bottom really does need only four triangles. Doesn't name a base, a face or a net, and doesn't say that a pyramid has one triangle for each side of its base; the lesson earns both. Answered once activity 01's third worked example (the square-based pyramid) is done. No figure: most students can picture an Egyptian pyramid. New concept.
+
+**Not covered, deliberately:**
+- Wrong-sized faces in a cuboid or prism net (edges that meet in the fold aren't the same length) have no registered id, and a hook would have to give the measurements. They belong to the activity's items.
+
+### Cut, with reasons
+
+**hook.nets.cross-or-line: reworked, not cut.** Three changes:
+1. **No figure.** The bank's version needed one; hooks are text only. Students draw both shapes, so
+   the figure is theirs.
+2. **"A cross" made exact.** Six squares can make several crosses, and a plus sign uses only five.
+   The prompt gives the shape square by square, and this shape (the usual cube net) really folds.
+3. **"Both have six faces' worth" dropped.** The bank's wording said the trap out loud. Students
+   now meet it themselves: each shape has six squares.
+
+---
+
+## Remaining 11 chains
 
 No pools authored. Under the authoring-order rule each is owed one at chain creation. From
 2026-09-29 hooks arrive in year batches (D42): a screened concept bank per year, then each
