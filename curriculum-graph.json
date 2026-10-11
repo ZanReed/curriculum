@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.17.23",
+  "version": "0.17.24",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -3036,6 +3036,14 @@
             ],
             "prompt": "Two shops sell the same lollies. One sells a bag of 5 for $4. The other sells a bag of 12 for $10. Which bag is better value — and are you sure?",
             "note": "80c vs about 83c. The bigger bag looks like the obvious deal and is not, so the guess is worth committing to and the reveal is a real surprise. Does not disclose the divide-to-compare method. Not open after activity 01."
+          },
+          {
+            "id": "hook.rate.one-number-sign",
+            "connects_to": [
+              "rate.constant-of-proportionality"
+            ],
+            "prompt": "A roadside stall sells bags of kūmara. Its sign lists a price for bags of 1, 2, 5, 10 and 20 kg. The owner says she could swap the whole sign for just one number. Could she?",
+            "note": "Before activity 02. Shape: a claim to evaluate. Sets up mis.proportional.one-pair-assumed-constant: most students say yes, the price of 1 kg, after looking at one line, without asking whether every line keeps that price per kg (a bulk discount breaks it). Doesn't name k, y = kx or dividing, and gives no numbers to divide; the lesson earns that the one number is k and that every row has to agree. Answered once activity 02's worked example checks every row of a table for the same k. Teacher follow-up once guesses are in: Is there any sign where she couldn't? No figure."
           },
           {
             "id": "hook.rate.doubles-or-not",
