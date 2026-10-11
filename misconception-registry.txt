@@ -1,6 +1,6 @@
 # Misconception registry — the valid mis.* id set.
 #
-# Generated from curriculum-graph.json v0.17.22. Do not hand-edit: regenerate.
+# Generated from curriculum-graph.json v0.17.23. Do not hand-edit: regenerate.
 # An id-shaped token not listed here warns, and fails under --strict.
 
 mis.angles.complement-supplement-swapped          # Uses 180° for complementary angles, or 90° for supplementary
@@ -50,7 +50,7 @@ mis.limit.one-sided-superscript-ignored           # Reads x → a⁻ and x → a
 mis.mean.drops-zeros                              # Leaves zero values out when calculating the mean
 mis.median.even-count                             # With an even number of values, picks one of the two middle values instead of their mean
 mis.median.unsorted                               # Takes the middle value without putting the data in order first
-mis.nets.any-six-squares                          # Believes any arrangement of six squares folds into a cube
+mis.nets.any-six-squares                          # Believes any arrangement of the right faces folds into the solid (e.g. any six squares into a cube)
 mis.notation.juxtaposition-as-digits              # Reads 3n with n = 4 as 34 instead of 3 × 4
 mis.notation.letter-as-object                     # Reads a letter as an object or a label rather than a number (a = apples)
 mis.order.left-to-right                           # Works strictly left to right, ignoring the order of operations (6 + 4 × 2 = 20)

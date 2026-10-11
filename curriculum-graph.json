@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.17.22",
+  "version": "0.17.23",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -433,7 +433,7 @@
     },
     {
       "id": "mis.nets.any-six-squares",
-      "label": "Believes any arrangement of six squares folds into a cube"
+      "label": "Believes any arrangement of the right faces folds into the solid (e.g. any six squares into a cube)"
     },
     {
       "id": "mis.stats.digits-are-numerical",
@@ -3501,7 +3501,24 @@
           "geom.nets.identify"
         ],
         "activities": 1,
-        "hooks": []
+        "hooks": [
+          {
+            "id": "hook.nets.cross-or-line",
+            "connects_to": [
+              "geom.nets.identify"
+            ],
+            "prompt": "On squared paper, draw two shapes, each made of six squares. Shape 1 is a column of four squares, with one more square on each side of the second square from the top. Shape 2 is six squares in one long row. If you cut them out, could you fold each of them into a cube?",
+            "note": "Chain opener, before activity 01. Shape: do, then predict. Sets up mis.nets.any-six-squares (six squares and six faces, so yes). Answer: only shape 1. The row wraps four squares into a tube and the last two land on the first two, leaving both ends open; shape 1's column wraps round as four sides and the side squares close the ends. About 40 seconds to draw; cutting and folding come at activity 01's first worked example (pre-cut sheet, teacher guide). Doesn't say how to check a net. Answered once activity 01's first two worked examples are done. No figure: students draw it."
+          },
+          {
+            "id": "hook.nets.pyramid-card",
+            "connects_to": [
+              "geom.nets.identify"
+            ],
+            "prompt": "Hemi is making a card model of one of the pyramids of Egypt. He wants it closed all round, so it can be picked up. He says he only needs to cut out four triangles. Is he right?",
+            "note": "Alternative opener, before activity 01. Shape: a fictional student's claim. Sets up forgetting the face a solid stands on (no registered id; candidate mis.nets.base-omitted). Answer: no, he also needs a square for the bottom: four triangles and one square, five faces. 'Closed all round' is there because an open-bottomed model really needs only four triangles. Names no base, face or net. Answered once activity 01's square-based pyramid example is done. No figure."
+          }
+        ]
       },
       {
         "chain_id": "chain.stats.data-displays",
