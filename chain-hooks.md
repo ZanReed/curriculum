@@ -32,13 +32,13 @@ holding pen; the pool is `chains[].hooks` in the thread JSON.
 
 ---
 
-## chain.rate.proportional — **screened and merged (v0.13.0)**
+## chain.rate.proportional — **screened and merged (v0.13.0; third hook v0.17.24)**
 
 Skills: `rate.unit-rate` · `rate.constant-of-proportionality` · `rate.proportional-graph`
-Two hooks, matching `ceil(4 / 2)` on the projection. This chain has two conceptual leaps
-worth a hook — comparing rates, and proportional versus not. The constant of proportionality
-needs no hook of its own (*k is the unit rate, renamed*), so any unit-rate hook already opens
-that day.
+Three hooks, one per skill, under the D42 amendment (2026-10-03): the minimum is
+`max(3, ceil(4 / 2))` = 3. The v0.13.0 pool held two, on the reasoning that the constant of
+proportionality needed no hook of its own (*k is the unit rate, renamed*). The amendment
+reversed that, and `hook.rate.one-number-sign` was screened and approved by Zan on 2026-10-12.
 
 **`hook.rate.better-value`** → `rate.unit-rate`
 
@@ -49,6 +49,21 @@ that day.
 worth committing to and the reveal is a genuine surprise. Does not disclose the
 divide-to-compare method. Not open after activity 01, which is correct for the chain's
 opening hook.
+
+**`hook.rate.one-number-sign`** → `rate.constant-of-proportionality`
+
+> A roadside stall sells bags of kūmara. Its sign lists a price for bags of 1, 2, 5, 10 and
+> 20 kg. The owner says she could swap the whole sign for just one number. Could she?
+
+Before activity 02. A claim to evaluate. It sets up `mis.proportional.one-pair-assumed-constant`:
+the intuitive "yes, the price of 1 kg" comes from reading one line and assuming the rest, when a
+bulk discount breaks it. It names no k, no equation and no division, and gives no numbers to
+compute. **Open after activity 01** (a unit-rate student has only half the answer) and closed by
+activity 02, which checks every row for the same k. It's separated from `doubles-or-not` by day,
+not idea: that one asks for a prediction and stays open after 02. No fixed fee, so it doesn't
+front-load activity 04's DoL. Teacher follow-up: "Is there any sign where she couldn't?" It shares
+a price-sign prop with the bank concept `hook.percent.sale-signs` (a different question); Zan kept
+the kūmara context over the no-money cordial fallback.
 
 **`hook.rate.doubles-or-not`** → `rate.proportional-graph`
 
@@ -182,7 +197,7 @@ stays unused.
 2. It only works for slanted bays. With square-on parking every angle is 90° and Ben is right.
 3. "Some look bigger" gave away half the answer.
 4. It was marked "needs a figure", and a hook is text only: students never see a hook on screen
-   (teachers will, in the platform's chain view), so students draw or picture it.
+   (teachers do, in the platform's chain view), so students draw or picture it.
 
 ---
 
