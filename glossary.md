@@ -259,7 +259,8 @@ id: gloss.vertex
 term: vertex
 The turning point of a parabola: its lowest point when the curve opens upward,
 and its highest point when it opens downward.
-In geometry, a vertex is also a corner point of a shape, where two sides meet.
+In geometry, a vertex is also a corner point of a shape: where two sides of a flat
+shape meet, or where three or more edges of a solid meet. The plural is vertices.
 ```
 
 ## Transformations
@@ -630,4 +631,31 @@ id: gloss.cube
 term: cube
 A cuboid whose length, width and height are all the same, so all six of its faces are
 squares. A dice is a cube.
+---
+id: gloss.net
+term: net
+A flat shape that folds up to make a solid, with no gaps and no overlaps. Each face of
+the solid appears once in the net, and the pieces are joined along the lines where they
+fold. One solid can have many different nets.
+---
+id: gloss.face
+term: face
+One of the flat surfaces of a solid. The faces of a cuboid are rectangles, and the faces
+of a prism or a pyramid are polygons.
+---
+id: gloss.edge
+term: edge
+A straight line where two faces of a solid meet.
+---
+id: gloss.prism
+term: prism
+A solid with two matching ends, facing each other, joined by rectangles. The ends are
+the same polygon, and a prism is named after it: a triangular prism has triangular ends,
+and a pentagonal prism has pentagons for ends. A cuboid is a prism with rectangular ends.
+---
+id: gloss.pyramid
+term: pyramid
+A solid with a polygon for its base and triangular faces that meet at one vertex at the
+top. A pyramid is named after the shape of its base: a square-based pyramid has a square
+base.
 ```
