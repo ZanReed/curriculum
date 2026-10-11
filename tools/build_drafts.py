@@ -42,6 +42,7 @@ CHAINS = {
     "710-chain.measure.area-volume": "area_volume",
     "713-chain.geom.parallel-lines": "parallel_lines",
     "714-chain.geom.transformations": "transformations",
+    "715-chain.geom.nets": "nets",
 }
 
 
