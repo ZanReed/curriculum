@@ -488,8 +488,8 @@ after it make the part that is less than one.
 ---
 id: gloss.round
 term: round
-To replace a number with a simpler number near it, to a given place. 68 rounded to the
-nearest ten is 70, because 68 is nearer to 70 than to 60.
+To replace a number with a simpler number near it, to a given place. 19 rounded to the
+nearest ten is 20, because 19 is nearer to 20 than to 10.
 ---
 id: gloss.kilo
 term: kilo
