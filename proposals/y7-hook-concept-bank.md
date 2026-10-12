@@ -29,12 +29,13 @@ only on the skill's `misconceptions` list in the graph (PR #5).
 
 ## Thread 02: Number (10)
 
-### `chain.number.place-value` (3 skills, 3 activities → 3; bank holds 2)
+### `chain.number.place-value` (3 skills, 3 activities → 3; bank holds 2; landed 3 at v0.17.25)
 
 | id | connects to | concept | sets up | NZ | notes |
 |---|---|---|---|---|---|
-| `hook.place-value.long-jump` | `number.place-value.decimals` | School athletics: Mere jumps 3.45 m, Leilani 3.5 m. Mere says she won "because 45 is more than 5." Who gets the ribbon? | `mis.place-value.longer-is-larger` | | claim to evaluate |
-| `hook.round.dairy-cash` | `number.round.cash` | At the dairy your total is $4.97 and you pay cash. Do you hand over $4.97, $4.90 or $5.00? And would buying the items one at a time cost more? | `mis.round.cash-per-item` | NZ | NZ has had no 1c/2c/5c coins since 2006; students often haven't noticed the rounding |
+| `hook.place-value.long-jump` | `number.place-value.decimals` | School athletics: Mere jumps 3.45 m, Leilani 3.5 m. Mere says she won "because 45 is more than 5." Who gets the ribbon? | `mis.place-value.longer-is-larger` | | claim to evaluate. **Reworded at screening (12 Oct):** results called out, not written (a sheet would print 3.50); landed v0.17.25. |
+| `hook.round.dairy-cash` | `number.round.cash` | At the dairy your total is $4.97 and you pay cash. Do you hand over $4.97, $4.90 or $5.00? And would buying the items one at a time cost more? | `mis.round.cash-per-item` | NZ | NZ has had no 1c/2c/5c coins since 2006; students often haven't noticed the rounding. **Cut to one question at screening (12 Oct):** the one-at-a-time question went to 03's E rubric line; now sets up `mis.round.truncates`; landed v0.17.25. |
+| `hook.place-value.card-stack` | `number.place-value.powers-of-ten` | Nikau says 10 sheets of 0.3 mm card make a 0.30 mm stack, "because times 10 means you put a zero on the end." How thick is the stack really? | `mis.place-value.append-zero` | | **New at screening (12 Oct)**; the question reworded by Zan so it stays open after 01; landed v0.17.25 |
 
 ### `chain.number.powers` (2 skills, 2 activities → 2; bank holds 1)
 

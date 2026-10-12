@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.17.24",
+  "version": "0.17.25",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -3261,7 +3261,32 @@
           "number.round.cash"
         ],
         "activities": 3,
-        "hooks": []
+        "hooks": [
+          {
+            "id": "hook.place-value.long-jump",
+            "connects_to": [
+              "number.place-value.decimals"
+            ],
+            "prompt": "At the school athletics day, the teacher calls out two long-jump results: Mere jumped 3.45 m and Leilani jumped 3.5 m. Mere says she won, \"because 45 is more than 5.\" Who gets the ribbon?",
+            "note": "Chain opener, before activity 01. Shape: a fictional student's claim. Sets up mis.place-value.longer-is-larger. Answer: Leilani; 3.5 m is 3.50 m, 5 cm further than 3.45 m. Called out, not written, because a results sheet would print 3.50. Doesn't say to write a zero or compare place by place. Answered by activity 01's comparison examples."
+          },
+          {
+            "id": "hook.place-value.card-stack",
+            "connects_to": [
+              "number.place-value.powers-of-ten"
+            ],
+            "prompt": "A sheet of thin card is 0.3 mm thick. Nikau stacks 10 sheets and says the stack is 0.30 mm thick, \"because times 10 means you put a zero on the end.\" How thick is the stack really?",
+            "note": "Before activity 02. Shape: a fictional student's claim. Sets up mis.place-value.append-zero. Answer: 3 mm; 0.30 mm is just 0.3 mm, one sheet's thickness. Open after activity 01: a student can now see that 0.30 = 0.3, so Nikau is wrong, but not yet how to get 3 mm. Doesn't say the digits shift or the point moves. Thin card is about 0.3 mm. Follow-up: how thick would 100 sheets be?"
+          },
+          {
+            "id": "hook.round.dairy-cash",
+            "connects_to": [
+              "number.round.cash"
+            ],
+            "prompt": "At the dairy, your total comes to $4.97, and you pay in cash. Do you pay $4.97, $4.90 or $5.00?",
+            "note": "Before activity 03. Shape: a choice. Sets up mis.round.truncates ($4.90). Answer: $5.00. No 1c, 2c or 5c coins since 2006, so a cash total rounds to the nearest 10c, and 97c is nearer $1.00. Never turns on a 5c ending. Follow-up: does cash rounding ever make you pay less? (Yes, endings of 1c to 4c round down.) Doesn't say the total, not each item, is rounded. Answered by activity 03's cash examples."
+          }
+        ]
       },
       {
         "chain_id": "chain.number.powers",

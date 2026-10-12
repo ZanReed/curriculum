@@ -365,7 +365,81 @@ Alternative opener, before activity 01. Shape: a fictional student's claim to ev
 
 ---
 
-## Remaining 11 chains
+## chain.number.place-value — **approved and merged (v0.17.25)**
+
+Approved by Zan 2026-10-12, with one change at screening: card-stack asks "How thick is the stack really?" in place of "Is he right?", which activity 01 already answers (0.30 = 0.3). Mere kept.
+
+The first Y7 number chain (Zan, 12 Oct: the remaining Y7 strands in catalogue order, 701 → 719).
+Three skills, three activities, no consolidation.
+
+Pool minimum: 3 (one per skill, D42 amendment). Three hooks, one per skill, each fired before its
+own activity.
+
+### `hook.place-value.long-jump` → `number.place-value.decimals`
+
+> At the school athletics day, the teacher calls out two long-jump results: Mere jumped 3.45 m and Leilani jumped 3.5 m. Mere says she won, "because 45 is more than 5." Who gets the ribbon?
+
+Chain opener, before activity 01. Shape: a fictional student's claim to evaluate. Sets up
+mis.place-value.longer-is-larger. Answer: Leilani. 3.5 m is 3 m and 5 tenths, which is 3.50 m;
+Mere's 3.45 m is 5 cm shorter. The results are called out, not written: a results sheet measured
+to the centimetre would print 3.50, and "50 is more than 45" would answer it. Spoken, "three point
+five" is what a teacher says. A Year 7 long jump of about 3.5 m is typical. Doesn't say to write a
+zero on the end or to compare place by place; the lesson earns both. Answered by activity 01's
+comparison examples. From the Y7 bank, reworded (see Cut, with reasons).
+
+### `hook.place-value.card-stack` → `number.place-value.powers-of-ten`
+
+> A sheet of thin card is 0.3 mm thick. Nikau stacks 10 sheets and says the stack is 0.30 mm thick, "because times 10 means you put a zero on the end." How thick is the stack really?
+
+Before activity 02. Shape: a fictional student's claim. Sets up mis.place-value.append-zero, in
+the student's own words. Answer: 3 mm. Nikau's 0.30 mm is the same number as 0.3 mm, so his stack would be
+as thin as one sheet. **Open after activity 01**, which is the property it needs:
+01 teaches that 0.30 and 0.3 are equal, so a student can now see that Nikau is wrong, but not yet
+how to get 3 mm or why. The lesson earns that. Doesn't say that digits shift or that the point
+moves. Thin card is about 0.3 mm thick (300 gsm card is 0.3 to 0.4 mm), so the numbers are
+real. Teacher follow-up: "How thick would 100 sheets be?" No
+figure. New concept (the bank held none for this skill).
+
+### `hook.round.dairy-cash` → `number.round.cash`
+
+> At the dairy, your total comes to $4.97, and you pay in cash. Do you pay $4.97, $4.90 or $5.00?
+
+Before activity 03. Shape: a choice between options. Sets up mis.round.truncates ($4.90).
+Answer: $5.00. New Zealand has had no 1c, 2c or 5c coins since 2006, so a cash total is rounded to
+the nearest 10 cents, and 97c is nearer to $1.00 than to 90c. $4.97 can't be paid exactly in coins,
+which is the surprise. The total ends in 7c, so the answer never turns on the 5c case (the shop's
+choice). Teacher follow-up: "Does cash rounding ever make you pay less than your total?" (Yes: a
+total ending in 1c to 4c rounds down.) Doesn't say which way each ending rounds, or that the total
+is rounded rather than each item; the lesson earns both. Answered by activity 03's cash examples.
+Open on 03's day: activities 01 and 02 don't round. From the Y7 bank, cut to one question (see
+Cut, with reasons).
+
+**Not covered, deliberately:**
+- mis.round.cash-per-item has no hook. The bank's second question carried it, and it is cut (below).
+  Activity 03 carries it on an mc and in the DoL's E line.
+
+### Cut, with reasons
+
+**hook.round.dairy-cash: second question cut, not moved to the follow-up.** The bank asked two
+questions; §4 allows one. "Would buying the items one at a time cost more?" goes because:
+1. **Its honest answer blurs the misconception it was meant to set up.** Paying for items one at a
+   time is a separate cash payment each time, and each payment really is rounded. So per-item
+   rounding is *right* for separate payments and wrong only inside one sale. A hook can't make
+   that distinction in a minute, and a class that answers "yes, it can" has learned the opposite
+   of mis.round.cash-per-item.
+2. **It front-loads activity 03.** Answering it needs the rounding rule for each ending, which is
+   03's worked example.
+3. **It works better as 03's Excellence line.** "Is it ever cheaper to pay for items one at a time?"
+   asks for a generalisation and a limitation, the E descriptor, so it moves to 03's DoL rubric
+   instead of being lost.
+
+**hook.place-value.long-jump: reworded, not cut.** "Mere jumps 3.45 m, Leilani 3.5 m" was a
+written list, and a written result to the centimetre would be 3.50 m, which answers the hook. The
+results are now called out by the teacher.
+
+---
+
+## Remaining 10 chains
 
 No pools authored. Under the authoring-order rule each is owed one at chain creation. From
 2026-09-29 hooks arrive in year batches (D42): a screened concept bank per year, then each
