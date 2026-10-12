@@ -93,7 +93,7 @@ jobs:
           ! python3 tools/check_bank.py tests/fixtures/tools/bad-bank-where-unscoped.md
           ! python3 tools/check_bank.py tests/fixtures/tools/bad-bank-where-empty.md
           ! python3 tools/check_bank.py tests/fixtures/tools/bad-bank-derived-forward.md
-          ! python3 tools/check_bank.py tests/fixtures/tools/bad-bank-two-stars.md
+          python3 tools/check_bank.py tests/fixtures/tools/banks/bank-two-stars.md
           ! python3 tools/check_bank.py tests/fixtures/tools/bad-bank-unused.md
           ! python3 tools/check_bank.py tests/fixtures/tools/bad-bank-no-status.md
           ! python3 tools/check_bank.py tests/fixtures/tools/bad-bank-retired.md --retired tests/fixtures/tools/bank-retired-fixture.txt

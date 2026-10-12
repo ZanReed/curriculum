@@ -28,8 +28,7 @@ variable; a forward reference; a reserved name; a template with no valid combina
 than CAP combinations. Also checked: headings match [a-z][a-z0-9-]* and are unique; no variable
 is shared by two templates (they would share a draw); the file's name matches its `skill:` (or
 `<chain>.discrimination` for `role: discrimination`), and a `kind: bank` file has a status and
-(for a discrimination bank) no `skill:`; no declared variable goes unused; no blank holds two
-unescaped * (markdown would read them as emphasis; B-163); with --retired, no item id
+(for a discrimination bank) no `skill:`; no declared variable goes unused; with --retired, no item id
 (<file stem>#<heading>) is in the bank ledger (PB-3: ids are never reused). Each template's
 report says how many combinations its `where` lines rejected.
 
@@ -191,11 +190,8 @@ def main(path, retired_path=None):
         body = re.sub(r"```(mc|graph)\n.*?```", "", sec, flags=re.S)
         used = set(re.findall(r"(?<!\{)\{([a-z][a-z0-9_]*)\}(?!\})", body))
         blanks = re.findall(r"\{\{=(.*?)\}\}", body)
-        for b in blanks:
-            # Markdown reads two bare stars in one blank as emphasis and the blank becomes text
-            # (B-163 erratum); escape the others as \*, which imports as a plain *.
-            if len(re.findall(r"(?<!\\)\*", b)) > 1:
-                problems.append(f"{title}: two unescaped * in one blank (write \\* for all but one): {b[:50]!r}")
+        # Blank bodies are literal on the platform since 694584ec (B-170), so any number of bare *
+        # is fine; an escaped \* still imports as a plain *.
         blanks = [b.replace("\\*", "*") for b in blanks]
         names = set()
         for b in blanks:
