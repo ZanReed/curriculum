@@ -88,6 +88,12 @@ jobs:
         run: |
           python3 tools/build_drafts.py
           python3 tools/check_bank.py tests/fixtures/tools/bank-unit.md
+          python3 tools/check_bank.py tests/fixtures/tools/banks/rate.unit-rate.md --retired bank-item-ids-retired.txt
+          ! python3 tools/check_bank.py tests/fixtures/tools/bad-bank-where-scope.md
+          ! python3 tools/check_bank.py tests/fixtures/tools/bad-bank-where-unscoped.md
+          ! python3 tools/check_bank.py tests/fixtures/tools/bad-bank-where-empty.md
+          ! python3 tools/check_bank.py tests/fixtures/tools/bad-bank-derived-forward.md
+          ! python3 tools/check_bank.py tests/fixtures/tools/bad-bank-retired.md --retired tests/fixtures/tools/bank-retired-fixture.txt
           python3 tools/lint_draft.py tests/fixtures/tools/bank-unit.md .
           ! python3 tools/check_figures.py tests/fixtures/tools/bad-side-label.md
           ! python3 tools/check_figures.py tests/fixtures/tools/bad-flag.md

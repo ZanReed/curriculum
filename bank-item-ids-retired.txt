@@ -1,0 +1,6 @@
+# Retired practice-bank item ids — hand-maintained, append-only (D43 bank format, PB-3; C-123 / B-161, 2026-10-12).
+# An item id is <file stem>#<heading>: rate.unit-rate#t1, or chain.rate.proportional.discrimination#d1.
+# It is never used again once it has been imported, because mastery and practice records point at
+# item ids. Renaming a heading makes a new item and retires the old one, so the old id goes here.
+# tools/check_bank.py --retired fails if a bank reuses an id here. Lines starting with '#' are
+# comments; otherwise one id per line, then optionally a space and a note saying why.

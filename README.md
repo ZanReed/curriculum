@@ -104,7 +104,10 @@ the hand-carried-copy failure with a new name. This repo carries
    **Before every batch import**, run `python3 tools/build_drafts.py --check <catalogue>`
    beside checks 9 and 10: each built draft must match its catalogue file byte for byte, so
    an edit made during a read goes into the `.src.md`, not the catalogue.
-   `tools/check_bank.py` checks a practice bank over every seed combination.
+   `tools/check_bank.py` checks a practice bank over every valid seed combination, including
+   derived variables and `where <heading>:` constraints (the D43 bank format, agreed with the
+   platform in C-123 / B-161). Bank files live in the catalogue (`banks/<chain-folder>/`); this
+   repo keeps the tool and `bank-item-ids-retired.txt` (pass it with `--retired`).
 
 To retire a glossary entry, delete it from `glossary.md` and append its id to
 `glossary-retired.txt` in the same commit; never edit an `id:` line.
