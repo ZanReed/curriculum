@@ -39,6 +39,7 @@ import lint_draft  # noqa: E402
 
 # chain folder -> figure module in tools/figs
 CHAINS = {
+    "701-chain.number.place-value": "place_value",
     "710-chain.measure.area-volume": "area_volume",
     "713-chain.geom.parallel-lines": "parallel_lines",
     "714-chain.geom.transformations": "transformations",
