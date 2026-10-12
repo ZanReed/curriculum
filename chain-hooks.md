@@ -163,7 +163,7 @@ Before activity 02. Shape: prediction (screened Y7 bank concept, Zan 30 Sep): th
 
 ---
 
-## chain.geom.parallel-lines — **approved, landing in v0.17.18**
+## chain.geom.parallel-lines — **approved and merged (v0.17.18)**
 
 Approved by Zan 2026-10-07, with hook 2 reworded to a prediction. The next Y7 geometry chain after
 triangles-polygons (D38 amendment order).
@@ -201,7 +201,7 @@ stays unused.
 
 ---
 
-## chain.measure.area-volume — **approved, landing in v0.17.20**
+## chain.measure.area-volume — **approved and merged (v0.17.20)**
 
 Approved by Zan 2026-10-08 as drafted. The next Y7 chain in the geometry/measurement build order
 (triangles-polygons → parallel-lines → area-volume).
@@ -268,7 +268,7 @@ answer it.
 
 ---
 
-## chain.geom.transformations — **approved, landing in v0.17.22**
+## chain.geom.transformations — **approved and merged (v0.17.22)**
 
 Approved by Zan 2026-10-10 as drafted. The next Y7 geometry chain after area-volume (D38
 amendment order). **Translation is taught first** (Zan, 2026-10-10): 01 translate, 02 reflect,
@@ -328,7 +328,7 @@ review. The playing-card hook covers the consolidation day until then.
 
 ---
 
-## chain.geom.nets — **approved, landing in v0.17.23**
+## chain.geom.nets — **approved and merged (v0.17.23)**
 
 Approved by Zan 2026-10-11 as drafted.
 
