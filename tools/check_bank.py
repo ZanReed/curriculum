@@ -16,8 +16,12 @@ The seed grammar, all inside the ONE ```seed fence (PB-5, PB-6):
     p: list 1.50, 2.25              drawn
     k: = a * p                      derived, over EARLIER names only, evaluated in order
     where t3: mod(a, 2) == 0        template-scoped; only that template's variables
-Predicates and derived expressions use the platform's (mathjs) expression language: comparisons,
-and / or / not, ^ for powers, and mod, gcd, lcm, abs, round, floor, ceil, min, max. A template
+Predicates and derived expressions use the platform's seed-expression language (mathjs syntax;
+B-162, BE-1): comparisons, and / or / not, ^ for powers, and mod, gcd, lcm, abs, round, floor,
+ceil, min, max. round is the platform's floor(x + 1/2). This tool computes in exact Fractions,
+the platform in doubles with a 1e-12 relative epsilon on comparisons; they can differ only at an
+exact boundary, and the platform's valid/total count per template is the authority. Derived
+variables and where are BANKS-ONLY (B-162, BE-2): lint_draft refuses them in an activity. A template
 that references a derived variable also references its sources. Refused, as the importer refuses
 them: an unscoped `where:` in a bank; a `where` naming an unknown heading or another template's
 variable; a forward reference; a reserved name; a template with no valid combination, or more
@@ -66,7 +70,7 @@ FUNCS = {
     "gcd": lambda a, b: math.gcd(_int(a), _int(b)),
     "lcm": lambda a, b: abs(_int(a) * _int(b)) // math.gcd(_int(a), _int(b)),
     "abs": abs, "min": min, "max": max,
-    "round": lambda a: round(Fraction(a)),
+    "round": lambda a: math.floor(Fraction(a) + Fraction(1, 2)),  # the platform's: half up, so -2.5 -> -2 (B-162)
     "floor": lambda a: math.floor(Fraction(a)),
     "ceil": lambda a: math.ceil(Fraction(a)),
     "true": True, "false": False,
@@ -107,6 +111,8 @@ def seed_spec(md):
             derived.append((name, expr))
         elif spec.startswith("list"):
             drawn[name] = [Fraction(v.strip()) for v in spec[4:].split(",")]
+        elif spec.startswith("sample"):
+            problems.append(f"seed: {name}: sample variables are refused in banks (B-162, BE-5)")
         elif spec.startswith("int"):
             a, b = spec[3:].split("..")
             drawn[name] = [Fraction(i) for i in range(int(a), int(b) + 1)]
