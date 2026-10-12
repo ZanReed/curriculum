@@ -27,7 +27,9 @@ them: an unscoped `where:` in a bank; a `where` naming an unknown heading or ano
 variable; a forward reference; a reserved name; a template with no valid combination, or more
 than CAP combinations. Also checked: headings match [a-z][a-z0-9-]* and are unique; no variable
 is shared by two templates (they would share a draw); the file's name matches its `skill:` (or
-`<chain>.discrimination` for `role: discrimination`); with --retired, no item id
+`<chain>.discrimination` for `role: discrimination`), and a `kind: bank` file has a status and
+(for a discrimination bank) no `skill:`; no declared variable goes unused; no blank holds two
+unescaped * (markdown would read them as emphasis; B-163); with --retired, no item id
 (<file stem>#<heading>) is in the bank ledger (PB-3: ids are never reused). Each template's
 report says how many combinations its `where` lines rejected.
 
@@ -154,8 +156,13 @@ def main(path, retired_path=None):
         item_stem = f"{info.get('chain', info.get('x_chain', ''))}.discrimination"
     else:
         item_stem = info.get("skill", "")
-    if info.get("kind") == "bank" and stem != item_stem:
-        problems.append(f"file name {stem}.md: a bank file is named {item_stem}.md (PB-1)")
+    if info.get("kind") == "bank":
+        if stem != item_stem:
+            problems.append(f"file name {stem}.md: a bank file is named {item_stem}.md (PB-1)")
+        if info.get("status") not in ("draft", "ratified"):
+            problems.append("status: draft or status: ratified is required in a bank (PB-10, B-163)")
+        if info.get("role") == "discrimination" and "skill" in info:
+            problems.append("a discrimination bank has no skill: line (PB-7)")
     retired = set()
     if retired_path:
         for line in open(retired_path, encoding="utf-8"):
@@ -184,6 +191,12 @@ def main(path, retired_path=None):
         body = re.sub(r"```(mc|graph)\n.*?```", "", sec, flags=re.S)
         used = set(re.findall(r"(?<!\{)\{([a-z][a-z0-9_]*)\}(?!\})", body))
         blanks = re.findall(r"\{\{=(.*?)\}\}", body)
+        for b in blanks:
+            # Markdown reads two bare stars in one blank as emphasis and the blank becomes text
+            # (B-163 erratum); escape the others as \*, which imports as a plain *.
+            if len(re.findall(r"(?<!\\)\*", b)) > 1:
+                problems.append(f"{title}: two unescaped * in one blank (write \\* for all but one): {b[:50]!r}")
+        blanks = [b.replace("\\*", "*") for b in blanks]
         names = set()
         for b in blanks:
             names |= names_in(b.split("|")[0].split(" unit:")[0].split("+-")[0])
@@ -256,6 +269,8 @@ def main(path, retired_path=None):
         elif lo is not None:
             kept = f", {n - valid} rejected by where ({(n - valid) / n:.0%})" if preds else ""
             print(f"{title}: {valid} of {n} combinations{kept}, answers {float(lo):g} to {float(hi):g}")
+    for name in sorted(declared - set(owner)):
+        problems.append(f"seed: {name} is declared and no template uses it")
     for p in problems:
         print(f"PROBLEM {p}")
     print(f"{path}: {len(problems)} problems")
