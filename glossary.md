@@ -471,6 +471,26 @@ term: thousandth
 One of a thousand equal parts of a whole: $\frac{1}{1000}$, or $0.001$. In a
 decimal, the third digit after the point counts thousandths.
 ---
+id: gloss.digit
+term: digit
+One of the ten symbols 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9 that numbers are written with.
+The number 407 has three digits: 4, 0 and 7.
+---
+id: gloss.place-value
+term: place value
+The value a digit has because of the place it is in. In 72.6, the 7 is in the tens
+place, so it is worth 70, and the 6 is in the tenths place, so it is worth 6 tenths.
+---
+id: gloss.decimal-point
+term: decimal point
+The dot in a decimal. The digits before it make the whole-number part, and the digits
+after it make the part that is less than one.
+---
+id: gloss.round
+term: round
+To replace a number with a simpler number near it, to a given place. 19 rounded to the
+nearest ten is 20, because 19 is nearer to 20 than to 10.
+---
 id: gloss.kilo
 term: kilo
 A prefix on a metric unit's name that means a thousand of that unit. A kilometre
