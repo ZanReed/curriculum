@@ -16,14 +16,20 @@ The seed grammar, all inside the ONE ```seed fence (PB-5, PB-6):
     p: list 1.50, 2.25              drawn
     k: = a * p                      derived, over EARLIER names only, evaluated in order
     where t3: mod(a, 2) == 0        template-scoped; only that template's variables
-Predicates and derived expressions use the platform's (mathjs) expression language: comparisons,
-and / or / not, ^ for powers, and mod, gcd, lcm, abs, round, floor, ceil, min, max. A template
+Predicates and derived expressions use the platform's seed-expression language (mathjs syntax;
+B-162, BE-1): comparisons, and / or / not, ^ for powers, and mod, gcd, lcm, abs, round, floor,
+ceil, min, max. round is the platform's floor(x + 1/2). This tool computes in exact Fractions,
+the platform in doubles with a 1e-12 relative epsilon on comparisons; they can differ only at an
+exact boundary, and the platform's valid/total count per template is the authority. Derived
+variables and where are BANKS-ONLY (B-162, BE-2): lint_draft refuses them in an activity. A template
 that references a derived variable also references its sources. Refused, as the importer refuses
 them: an unscoped `where:` in a bank; a `where` naming an unknown heading or another template's
 variable; a forward reference; a reserved name; a template with no valid combination, or more
 than CAP combinations. Also checked: headings match [a-z][a-z0-9-]* and are unique; no variable
 is shared by two templates (they would share a draw); the file's name matches its `skill:` (or
-`<chain>.discrimination` for `role: discrimination`); with --retired, no item id
+`<chain>.discrimination` for `role: discrimination`), and a `kind: bank` file has a status and
+(for a discrimination bank) no `skill:`; no declared variable goes unused; no blank holds two
+unescaped * (markdown would read them as emphasis; B-163); with --retired, no item id
 (<file stem>#<heading>) is in the bank ledger (PB-3: ids are never reused). Each template's
 report says how many combinations its `where` lines rejected.
 
@@ -66,7 +72,7 @@ FUNCS = {
     "gcd": lambda a, b: math.gcd(_int(a), _int(b)),
     "lcm": lambda a, b: abs(_int(a) * _int(b)) // math.gcd(_int(a), _int(b)),
     "abs": abs, "min": min, "max": max,
-    "round": lambda a: round(Fraction(a)),
+    "round": lambda a: math.floor(Fraction(a) + Fraction(1, 2)),  # the platform's: half up, so -2.5 -> -2 (B-162)
     "floor": lambda a: math.floor(Fraction(a)),
     "ceil": lambda a: math.ceil(Fraction(a)),
     "true": True, "false": False,
@@ -107,6 +113,8 @@ def seed_spec(md):
             derived.append((name, expr))
         elif spec.startswith("list"):
             drawn[name] = [Fraction(v.strip()) for v in spec[4:].split(",")]
+        elif spec.startswith("sample"):
+            problems.append(f"seed: {name}: sample variables are refused in banks (B-162, BE-5)")
         elif spec.startswith("int"):
             a, b = spec[3:].split("..")
             drawn[name] = [Fraction(i) for i in range(int(a), int(b) + 1)]
@@ -148,8 +156,13 @@ def main(path, retired_path=None):
         item_stem = f"{info.get('chain', info.get('x_chain', ''))}.discrimination"
     else:
         item_stem = info.get("skill", "")
-    if info.get("kind") == "bank" and stem != item_stem:
-        problems.append(f"file name {stem}.md: a bank file is named {item_stem}.md (PB-1)")
+    if info.get("kind") == "bank":
+        if stem != item_stem:
+            problems.append(f"file name {stem}.md: a bank file is named {item_stem}.md (PB-1)")
+        if info.get("status") not in ("draft", "ratified"):
+            problems.append("status: draft or status: ratified is required in a bank (PB-10, B-163)")
+        if info.get("role") == "discrimination" and "skill" in info:
+            problems.append("a discrimination bank has no skill: line (PB-7)")
     retired = set()
     if retired_path:
         for line in open(retired_path, encoding="utf-8"):
@@ -178,6 +191,12 @@ def main(path, retired_path=None):
         body = re.sub(r"```(mc|graph)\n.*?```", "", sec, flags=re.S)
         used = set(re.findall(r"(?<!\{)\{([a-z][a-z0-9_]*)\}(?!\})", body))
         blanks = re.findall(r"\{\{=(.*?)\}\}", body)
+        for b in blanks:
+            # Markdown reads two bare stars in one blank as emphasis and the blank becomes text
+            # (B-163 erratum); escape the others as \*, which imports as a plain *.
+            if len(re.findall(r"(?<!\\)\*", b)) > 1:
+                problems.append(f"{title}: two unescaped * in one blank (write \\* for all but one): {b[:50]!r}")
+        blanks = [b.replace("\\*", "*") for b in blanks]
         names = set()
         for b in blanks:
             names |= names_in(b.split("|")[0].split(" unit:")[0].split("+-")[0])
@@ -250,6 +269,8 @@ def main(path, retired_path=None):
         elif lo is not None:
             kept = f", {n - valid} rejected by where ({(n - valid) / n:.0%})" if preds else ""
             print(f"{title}: {valid} of {n} combinations{kept}, answers {float(lo):g} to {float(hi):g}")
+    for name in sorted(declared - set(owner)):
+        problems.append(f"seed: {name} is declared and no template uses it")
     for p in problems:
         print(f"PROBLEM {p}")
     print(f"{path}: {len(problems)} problems")

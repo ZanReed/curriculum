@@ -125,8 +125,16 @@ def main(draft, repo, extra):
 
     meta = re.search(r"```meta\n(.*?)```", act, re.S)
     meta = meta.group(1) if meta else ""
-    if "x_kind: bank" not in meta and not re.search(r"^key:\s*act\.", meta, re.M):
+    is_bank = bool(re.search(r"^(x_)?kind:\s*bank\s*$", meta, re.M))
+    if not is_bank and not re.search(r"^key:\s*act\.", meta, re.M):
         problems.append("no key: act.* in the meta fence")
+    seed = re.search(r"```seed\n(.*?)```", act, re.S)
+    if seed and not is_bank:
+        # Derived variables and where are banks-only until an activity needs them (B-162, BE-2):
+        # the importer refuses either in an activity file.
+        for line in seed.group(1).splitlines():
+            if re.match(r"\s*where\b", line) or re.match(r"\s*[a-z][a-z0-9_]*\s*:\s*=", line):
+                problems.append(f"seed: {line.strip()!r}: derived variables and where are banks-only (B-162)")
     if re.search(r"^unit:", meta, re.M):
         problems.append("unit: key present (the chain registry sets it)")
 
