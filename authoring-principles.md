@@ -327,6 +327,10 @@ pairing fixes the *pool* (skills taught to this point in the sequence), not the 
 intervals. Confusable skills (D24, §14) appear together so the item forces the choice of
 method; unrelated skills mixed together are spacing, which is fine, but it isn't interleaving.
 Target about 80% success: practice that mostly fails is rehearsing errors.
+A skill enters a student's pool on the practice day after *that student* first checks its
+activity, never on a classmate's check or the teacher's add. The step rule, intervals,
+session size and "struggling" are graph keys (`activity_defaults.mixed_*`, D43 amendment
+2026-10-20).
 
 **Every skill owes a practice bank**, authored per chain *after* its activities, because
 activity authoring is where the misconceptions surface. The bank:
@@ -338,6 +342,8 @@ activity authoring is where the misconceptions surface. The bank:
 - covers every misconception attached to the skill in at least one item. Most items are
   clean: the tags are there for diagnosis, not to catch students out.
 - adds discrimination items ("which method fits?") per consolidation, for confusable sets.
+- gives every procedural item a worked solution of 2–4 lines in its seeded values, and every
+  fixed item its answer plus one line on why. The solution is shown after the first try.
 
 **Fluency is per class and per student, and set by diagnostics, not by year level.**
 - A class diagnostic runs at the start of each term. It covers the cumulative fact set up to
@@ -363,6 +369,7 @@ are not. Each activity is capped at `activity_defaults.duration_min`.
 | period | shape |
 |---|---|
 | 50 min | fluency 5 · hook 2–3 · activity (cap) · mixed ~8–10 |
+| 55 min | fluency 5 · hook 2–3 · activity (cap) · mixed ~13–15 |
 | 60 min | fluency 5 · hook 2–3 · activity (cap) · mixed ~18–20 |
 | 100 min | fluency 5 · hook 2–3 · activity (cap) · mixed ~12 · activity (cap) · mixed ~12 |
 

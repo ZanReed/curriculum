@@ -2317,3 +2317,95 @@ source-to-catalogue comparison runs locally before each import, not in CI.
 - `python3 tools/build_drafts.py --check <catalogue>` runs before every batch import, beside
   `check_guides.py` and `check_tags.py`. An edit made to a catalogue file during a read goes into
   its source file; otherwise the check fails before the import.
+
+**D43 amendment (2026-10-20). How mixed practice is scheduled: steps, the pool, session fill,
+"struggling", and worked solutions.**
+Ruled by Zan 2026-10-19, on the platform's twelve asks for its mixed-practice design pass (B-185;
+the platform's record is `docs/design/mixed-practice.md`, MP-1 to MP-15 and ER-1 to ER-14).
+Answered in C-145 and accepted in full by the platform in B-186 (2026-10-20). The values land as
+seven `activity_defaults.mixed_*` keys, guarded by check 4 L. This entry fills §17's undefined
+"expanding intervals" for skills and the bank's solution rule, as the 2026-10-06 entry did for
+facts.
+1. *Intervals.* `mixed_step_intervals` = [1, 3, 7, 14, 28] calendar days, in the class teacher's
+   timezone, as the sprint's. Not the sprint's [1, 2, 4, 8, 16]: the best gap grows with how long
+   the learning must last, roughly 5–20% of that span for tests weeks to a year away (Cepeda, Vul,
+   Rohrer, Wixted & Pashler 2008), and skills must hold to the term exam (D51) and to NCEA. The
+   shape is expanding because the early, short gaps catch fast forgetting cheaply; expanding gaps
+   show no reliable long-term advantage over equal gaps (Balota et al. 2006; Karpicke & Roediger
+   2007; Latimier, Peyre & Ramus 2021), so reaching long gaps is what matters. The top step is
+   maintenance: it recurs every 28 days until the year ends, because exams are cumulative. Five
+   steps suffice: successive relearning finds most of the benefit in about three successful spaced
+   retrievals (Rawson & Dunlosky).
+2. *Step rule.* The whole practice day is judged per (class, student, skill), as the platform's
+   ER-6. A day with every first try right moves the skill up one step, at most once a practice day.
+   A day with any wrong first try moves it **down one step** (`mixed_wrong_drop` = 1), not to step
+   0 as in the sprint. A skill item is a multi-step procedure with fresh numbers, so one miss is a
+   noisier signal than a missed fact; a reset would bring the skill back daily and crowd out other
+   due skills; and relearning after forgetting is faster than first learning. A default to
+   recalibrate against classroom data, as the sprint's drop was. Discrimination banks keep their
+   own step (ER-11) under the same intervals and rule.
+3. *The pool.* A skill enters a student's pool on the practice day after **that student** first
+   checks an activity whose primary `skill:` is that skill. This reverses the platform's ER-10
+   (the class's first check). One student working ahead must not open a skill for the class:
+   practice before initial learning fails D47's "spacing needs initial learning first" and §17's
+   80% target. An absent student gets no practice on the skill until they check its activity; the
+   missed activity is the catch-up. A future "mark as taught" applies to students present, never
+   the roll. "Skills taught to this point in the sequence" (§17) means skills actually taught:
+   skipped skills, `supporting_skills:` and earlier-year skills never taught here do not enter.
+   Prerequisite gaps reach mixed practice through the diagnostic (§17).
+4. *Session size and fill.* `mixed_items_per_session` = 6, from the 50-minute shape (about 8–10
+   minutes at 60–90 seconds, rounded down for transitions); longer periods take a larger count
+   through the platform's per-class setting (MP-8). That is arithmetic, not a research figure.
+   A session fills in this order:
+   - skills on their first spaced retrieval (taught the previous practice day), then backlogged
+     skills, at most `mixed_new_skills_per_session` = 2 new skills a session. The first relearning
+     gives the largest single gain. A bank ratified after its chain was taught drains at the
+     teaching pace: backlogged skills enter at step 0, in chain order;
+   - due skills, lowest step first, ties to the most overdue;
+   - at most `mixed_max_discrimination` = 1 discrimination item, when eligible and due. It is
+     eligible only when ALL its `discriminates` skills are in the student's pool.
+
+   One item per skill per session: a second is massed practice. A session with fewer due skills
+   than its size ends early, as the sprint's does. Items from confusable skills sit next to each
+   other (D24, §14), because the interleaving effect comes from choosing the method on ordinary
+   problems (Rohrer, Dedrick, Hartwig & Cheung 2020); never two in a row from one skill where
+   avoidable. Within a skill, templates rotate in plain order, skipping the last one seen:
+   varied practice supports transfer (Paas & van Merriënboer 1994). Weighting towards a student's
+   misconceptions belongs to the Corrective period (§18), not daily practice.
+5. *Discrimination credit.* A discrimination answer moves no skill step. A wrong choice shows the
+   student picked the wrong method, not that they cannot do either skill. It is kept as the
+   per-(class, student, discrimination bank) record that §18's Corrective period reads. No format
+   change.
+6. *Struggling* (the teacher's class view): fewer than `mixed_struggling_min_right` = 3 of the last
+   `mixed_struggling_window` = 5 first tries on a skill right. A student truly at §17's 80% is
+   flagged about 6% of the time (binomial); a student at 50% surfaces within a few windows. A
+   statistical choice, not a research cut-off; recalibrate on classroom data.
+7. *Worked solutions* (§17 bank rule, new). Every procedural item carries a worked solution of
+   2–4 lines in its seeded values; every fixed item, its answer plus one line on why. Showing the
+   correct answer after an error is the minimum (Pashler, Cepeda, Wixted & Rohrer 2005; Butler &
+   Roediger 2008); for multi-step problems, feedback that shows the steps helps more (Shute 2008;
+   van der Kleij, Feskens & Eggen 2015). Owed: chain 1's 17 items without a `solution` are
+   retrofitted before the gate.
+8. *Graded toggle* (the platform's MP-9, the author's ruling there). "Practice is never graded"
+   stays the default. When a teacher turns grading on, the score is right ÷ items **planned**,
+   shown with "answered n of N", labelled "practice score" and kept apart from attainment grades.
+   Right ÷ answered would reward leaving hard items. Sessions are adaptive, so the score does not
+   compare students. Grades lowered achievement and motivation compared with comments in a
+   meta-analysis of school students (Koenka et al. 2021), which is why the default stays off.
+9. *Named departure* (the platform's MP-11). Mixed v1 carries no fluency facts, though D43 says
+   students below criterion "still get fluency items, inside their own mixed practice". Until it
+   lands, a below-criterion student in a class with the sprint off gets no fluency work. Trigger:
+   the first class to switch mixed practice on while its sprint is off.
+10. *55-minute periods.* A row is added to §17's shapes: fluency 5 · hook 2–3 · activity (cap) ·
+    mixed ~13–15 (about 9–10 items). Recorded now because the author's school runs 55-minute
+    periods; the build direction that follows from his placement is a separate decision, pending
+    the school's schemes.
+*The gate is unchanged:* the platform builds nothing until a second chain's bank is ratified. It
+will be a Y9-or-above chain, named once the school's schemes arrive; chain 1 (Y8) counts towards
+it as prerequisite review.
+*Sources:* Balota, Duchek, Sergent-Marshall & Roediger (2006); Butler & Roediger (2008); Cepeda,
+Vul, Rohrer, Wixted & Pashler (2008); Karpicke & Roediger (2007); Koenka et al. (2021); Latimier,
+Peyre & Ramus (2021); Paas & van Merriënboer (1994); Pashler, Cepeda, Wixted & Rohrer (2005);
+Rawson & Dunlosky (successive relearning; review in *Current Directions in Psychological
+Science*, 2022); Rohrer, Dedrick, Hartwig & Cheung (2020); Shute (2008); van der Kleij, Feskens &
+Eggen (2015).
