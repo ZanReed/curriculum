@@ -36,6 +36,11 @@ Reporting strands (D51):
      thread's); where a skill has NZC phase statements, the resolved strand is one of
      theirs
 
+Mixed-practice keys (D43; C-145 / B-186, 2026-10-20):
+  L. the seven `mixed_*` keys in `activity_defaults` are all present or all absent,
+     no other `mixed_*` key exists, and each is well-formed (intervals a strictly
+     increasing list of whole days; counts whole numbers within their bounds)
+
 Non-vacuity guard: an extraction that yields zero ids from a present registry
 is itself a failure — an extractor that silently matches nothing would pass
 while checking nothing.
@@ -268,6 +273,38 @@ def main() -> int:
                             f"statements are {sorted(nzc)}")
     if skills and not reported:
         failures.append("K resolved a strand for zero Y7–Y10 skills")
+
+    # L — mixed-practice keys (D43, C-145 / B-186): all or none, well-formed
+    mixed_keys = ["mixed_step_intervals", "mixed_wrong_drop", "mixed_items_per_session",
+                  "mixed_max_discrimination", "mixed_new_skills_per_session",
+                  "mixed_struggling_window", "mixed_struggling_min_right"]
+    defaults = doc.get("activity_defaults", {})
+    present = [k for k in mixed_keys if k in defaults]
+    if present and len(present) != len(mixed_keys):
+        failures.append(f"L mixed keys are all or none; missing "
+                        f"{[k for k in mixed_keys if k not in defaults]}")
+    stray = [k for k in defaults if k.startswith("mixed_") and k not in mixed_keys]
+    if stray:
+        failures.append(f"L unknown mixed key(s) {stray} (a new key goes to the platform first)")
+    if len(present) == len(mixed_keys):
+        isint = lambda v: isinstance(v, int) and not isinstance(v, bool)
+        iv = defaults["mixed_step_intervals"]
+        if not (isinstance(iv, list) and iv and all(isint(x) and x >= 1 for x in iv)
+                and all(a < b for a, b in zip(iv, iv[1:]))):
+            failures.append("L mixed_step_intervals must be a non-empty, strictly "
+                            "increasing list of whole numbers >= 1")
+            iv = [1]
+        n, w = defaults["mixed_items_per_session"], defaults["mixed_struggling_window"]
+        for k, lo, hi in (("mixed_wrong_drop", 0, len(iv)),
+                          ("mixed_items_per_session", 1, None),
+                          ("mixed_max_discrimination", 0, n if isint(n) else None),
+                          ("mixed_new_skills_per_session", 0, n if isint(n) else None),
+                          ("mixed_struggling_window", 1, None),
+                          ("mixed_struggling_min_right", 1, w if isint(w) else None)):
+            v = defaults[k]
+            if not (isint(v) and v >= lo and (hi is None or v <= hi)):
+                failures.append(f"L {k} must be a whole number >= {lo}"
+                                + (f" and <= {hi}" if hi is not None else ""))
 
     if failures:
         print(f"check 4 FAIL — {len(failures)} finding(s):", file=sys.stderr)
