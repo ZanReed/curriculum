@@ -343,7 +343,8 @@ activity authoring is where the misconceptions surface. The bank:
   clean: the tags are there for diagnosis, not to catch students out.
 - adds discrimination items ("which method fits?") per consolidation, for confusable sets.
 - gives every procedural item a worked solution of 2–4 lines in its seeded values, and every
-  fixed item its answer plus one line on why. The solution is shown after the first try.
+  fixed item its answer plus one line on why. The solution is shown after the first try: open
+  after a wrong or skipped try, one tap away after a right one (C-146).
 
 **Fluency is per class and per student, and set by diagnostics, not by year level.**
 - A class diagnostic runs at the start of each term. It covers the cumulative fact set up to
