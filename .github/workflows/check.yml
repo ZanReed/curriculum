@@ -53,6 +53,13 @@ jobs:
           python3 scripts/generate_fact_registry.py curriculum-graph.json --retired fact-ids-retired.txt
           git diff --exit-code -- fact-scope-registry.json
 
+      - name: "Practice registry — regenerates with no diff (D43 amendment 2026-10-20, B-193)"
+        # The seven mixed_* keys, re-encoded for the platform's importer, which reads
+        # generated registries and never the graph. Their bounds are check 4's L.
+        run: |
+          python3 scripts/generate_practice_registry.py curriculum-graph.json
+          git diff --exit-code -- practice-registry.json
+
       - name: "Capabilities — derived fields match the pinned platform facts, shape check (B14)"
         # Gated against the PINNED copy in platform-pins/, never a live fetch:
         # green here must be decidable from this repo's own artifacts. The
