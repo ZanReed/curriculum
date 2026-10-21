@@ -39,7 +39,7 @@ School tier (D66, 2026-10-21; position agreed with the platform in B-197): a tem
 `tier: D|C|P|E` as the first non-blank line under its heading, one uppercase letter. A `tier:`
 line anywhere else outside a fence is refused (it would render as text). With --graph, the tag
 is REQUIRED on every template of a bank whose skill (or, for a discrimination bank, any skill in
-its `discriminates:`) has `band_nz` Y9 or later: the school-first sequence (D55) starts at Y9,
+its one-line `discriminates: a, b`, no brackets: B-199) has `band_nz` Y9 or later: the school-first sequence (D55) starts at Y9,
 and chain 1's ratified Y8 bank stays valid untagged.
 
 Usage: python3 tools/check_bank.py BANK.md [--retired bank-item-ids-retired.txt] [--graph curriculum-graph.json]
@@ -211,11 +211,13 @@ def main(path, retired_path=None, graph_path=None):
             problems.append(f"{item_stem}#{h} is retired in {retired_path}; bank item ids are never reused")
     for h in {h for h in headings if headings.count(h) > 1}:
         problems.append(f"heading {h} is used twice (PB-3)")
+    if re.search(r"[\[\]]", info.get("discriminates", "")):
+        problems.append("discriminates: is written `a, b` on one line, without brackets (B-199: the importer splits on commas)")
     tier_required = False
     if graph_path:
         bands = {s["id"]: s.get("band_nz") for s in json.load(open(graph_path, encoding="utf-8"))["skills"]}
         covered = [info.get("skill", "")] if info.get("skill") else \
-            [s.strip() for s in info.get("discriminates", "").strip("[]").split(",") if s.strip()]
+            [s.strip() for s in info.get("discriminates", "").split(",") if s.strip()]
         tier_required = any(bands.get(s) in TIER_FROM for s in covered)
     for sec, h in zip(sections, headings):
         problems += tier_problems(h, sec, tier_required)

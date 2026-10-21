@@ -104,6 +104,8 @@ jobs:
           ! python3 tools/check_bank.py tests/fixtures/tools/banks-tier/bad-position/algebra.terms.multiply.md --graph curriculum-graph.json
           ! python3 tools/check_bank.py tests/fixtures/tools/banks-tier/bad-value/algebra.terms.multiply.md --graph curriculum-graph.json
           python3 tools/check_bank.py tests/fixtures/tools/banks/rate.unit-rate.md --retired bank-item-ids-retired.txt --graph curriculum-graph.json
+          python3 tools/check_bank.py tests/fixtures/tools/banks-tier/good-discrimination/chain.algebra.terms.discrimination.md --graph curriculum-graph.json
+          ! python3 tools/check_bank.py tests/fixtures/tools/banks-tier/bad-brackets/chain.algebra.terms.discrimination.md --graph curriculum-graph.json
           ! python3 tools/check_bank.py tests/fixtures/tools/bad-bank-derived-forward.md
           python3 tools/check_bank.py tests/fixtures/tools/banks/bank-two-stars.md
           ! python3 tools/check_bank.py tests/fixtures/tools/bad-bank-unused.md
