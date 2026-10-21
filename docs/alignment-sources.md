@@ -20,6 +20,15 @@ Value grammar:
   and "feeds into" relations are deliberately not recorded: feeds-into is derivable from the
   graph's prerequisite edges plus these values, and derivable state is never hand-declared.
   An empty array is data — it says NCEA does not directly assess this skill.
+  `null` means **not read** (D75): nobody has yet read the standards' explanatory notes for this
+  skill, so no claim is made either way. A later read sets the array.
+
+**Attribution (D76).** Quoted NZC statements are © Ministry of Education (Crown copyright),
+re-used under the Creative Commons Attribution-NonCommercial 4.0 International licence
+(Tāhūrangi copyright notice, `https://newzealandcurriculum.tahurangi.education.govt.nz/copyright`,
+read 2026-10-21). The licence excludes logos, emblems, design elements, imagery and third-party
+material, and it is non-commercial: if this curriculum or the platform is ever sold, the quotes
+need another look (the pointers themselves are fine).
 
 Neither value is checkable by CI. The field makes the claim recordable (D24 audit, §2), and
 whether a DoL actually assesses at the level the standard asks is a human read.
@@ -119,8 +128,9 @@ Page: `https://newzealandcurriculum.tahurangi.education.govt.nz/5637291579.p`
 
 **S28–S37 (read 2026-10-21, D63).** Read from the page's own text and table cells, then each
 statement checked against the page by Zan the same day. They are recorded by **cell location and
-paraphrase**, not quotation: the page is © 2026 Ministry of Education and its reuse licence was not
-confirmed at the read. Each entry names its table, row, column and bullet, so it can be found and
+paraphrase**, because the reuse licence wasn't confirmed at the read. It has been since: D76
+restores them as verbatim quotes like S15–S27, under the attribution above, pasted from the page by
+hand (pending: until then the paraphrase stands). Each entry names its table, row, column and bullet, so it can be found and
 checked. The page wins if they differ.
 
 **P4.Y9.Number**

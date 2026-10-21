@@ -42,11 +42,8 @@
 901-chain.linear.slope                = Gradient
 902-chain.linear.forms                = Forms of a Linear Equation
 903-chain.linear.model                = Modelling with Linear Functions
-904-chain.algebra.terms               = Multiplying and Dividing Terms
-905-chain.algebra.brackets            = Expanding and Factorising
-906-chain.algebra.equations-multistep = Solving Multi-Step Equations
-907-chain.algebra.forming             = Forming Equations and Rearranging Formulae
-908-chain.algebra.inequations         = Inequations
+904-chain.algebra.manipulation        = Simplifying, Expanding and Factorising
+905-chain.algebra.solving             = Equations, Formulae and Inequations
 1001-chain.function.definition        = What Is a Function?
 1002-chain.function.notation          = Function Notation
 1003-chain.function.representations   = Representations of a Function

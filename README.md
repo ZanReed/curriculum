@@ -23,9 +23,9 @@ live in the catalogue). By ruling (curriculum side,
 2026-09-02): `decision-log.md` D1–D17 stays in the catalogue repo's
 `.docs/` and this pointer is the durable answer — a second copy would be
 the hand-carried-copy failure with a new name. This repo carries
-`decision-log-additions.md` (D18–D42 plus amendments).
+`decision-log-additions.md` (D18 onward, plus amendments).
 
-## The twelve checks (`.github/workflows/check.yml`)
+## The thirteen checks (`.github/workflows/check.yml`)
 
 1. **Principles sync** — the graph's `authoring_principles` field is
    byte-identical to `authoring-principles.md`. Single-source rule
@@ -80,7 +80,7 @@ the hand-carried-copy failure with a new name. This repo carries
    `python3 scripts/check_guides.py <catalogue> --graph curriculum-graph.json`:
    every catalogue activity ends with exactly one ```` ```teacher-guide ```` fence;
    sections, order and word cap read from `activity_defaults.teacher_guide` (the
-   assessment shape for `type: quiz` / `type: exam` files, D51); Marking
+   assessment shape for the `type:` values in `teacher_guide.assessment_types`: quiz, test, assignment; D51, D74); Marking
    exactly when the DoL has a rubric; no `.guides/` folder left over. The catalogue
    has no CI, so run it there before every batch import; CI runs it against
    `tests/fixtures/guides-catalogue` so the script can't rot.
@@ -111,6 +111,12 @@ the hand-carried-copy failure with a new name. This repo carries
    `--graph curriculum-graph.json` too: a template's `tier: D|C|P|E` line (D66) is then required
    in every bank whose skill is Y9 or later.
 
+13. **Practice registry** (D43 amendment 2026-10-20; B-193) —
+   `python3 scripts/generate_practice_registry.py curriculum-graph.json` regenerates
+   `practice-registry.json`, the seven `activity_defaults.mixed_*` keys re-encoded for the
+   platform's importer (which reads generated registries, never the graph). CI fails on any diff;
+   the keys' bounds are check 4 L.
+
 To retire a glossary entry, delete it from `glossary.md` and append its id to
 `glossary-retired.txt` in the same commit; never edit an `id:` line.
 
@@ -120,7 +126,7 @@ To retire a glossary entry, delete it from `glossary.md` and append its id to
 | --- | --- |
 | `curriculum-graph.json` | the graph — the `threads` registry, skills, edges, misconceptions, `activity_defaults`, `chunking_plan` (each chain tagged with its `thread`), capabilities. One file for every thread (D39). Single source of truth. |
 | `authoring-principles.md` | the pedagogy prose — single edit surface, injected into the graph by check 1's `--fix` |
-| `decision-log-additions.md` | D18–D42 + amendments (D1–D17 live in the catalogue repo's `.docs/decision-log.md`) |
+| `decision-log-additions.md` | D18 onward + amendments (D1–D17 live in the catalogue repo's `.docs/decision-log.md`) |
 | `open-questions.md` | what is unresolved, and who decides |
 | `chain-hooks.md` | the hook holding pen |
 | `misconception-proposals-ten-skills.md` | the reasoning behind the 13 ids ratified at v0.12.0 |
@@ -146,6 +152,8 @@ To retire a glossary entry, delete it from `glossary.md` and append its id to
 | `scripts/check_integrity.py` | check 4 |
 | `scripts/check_glossary.py` | the glossary step (D40): well-formed, unique ids/terms/variants, NZ-only bodies, caps, retire-not-rename against the git base |
 | `scripts/check_guides.py` | check 9: teacher guides against a catalogue folder (D50) |
+| `practice-registry.json` | GENERATED — never hand-edit. The seven `mixed_*` scheduling keys for the platform's importer (check 13) |
+| `scripts/generate_practice_registry.py` | produces `practice-registry.json` |
 | `hook-registry.json` | GENERATED — never hand-edit. Chain hook pools for the platform's teacher view, header revision = sha256 of the canonical body |
 | `hook-ids-retired.txt` | retired hook ids — hand-maintained, append-only, never reused (includes ids cut at screening) |
 | `scripts/generate_hook_registry.py` | produces `hook-registry.json`, with the hook gate (check 11) |
@@ -176,7 +184,7 @@ copy is retired with a pointer here. Authored capability prose (`label`,
 Once CI is green on `main`, the platform side's boundary page carries:
 
 > Canonical: `<raw URL>` · Generation stamp: commit `<sha>`, `<timestamp>` ·
-> sha256 `<hash>` · Currency guarantee: the eight checks fail CI on drift,
+> sha256 `<hash>` · Currency guarantee: the checks above fail CI on drift,
 > so the copy on `main` is current by construction.
 
 Refreshing that stamp after changes is part of landing them, same as the
