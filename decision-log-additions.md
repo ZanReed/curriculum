@@ -2409,3 +2409,184 @@ Peyre & Ramus (2021); Paas & van Merriënboer (1994); Pashler, Cepeda, Wixted & 
 Rawson & Dunlosky (successive relearning; review in *Current Directions in Psychological
 Science*, 2022); Rohrer, Dedrick, Hartwig & Cheung (2020); Shute (2008); van der Kleij, Feskens &
 Eggen (2015).
+
+---
+
+## Ratified 2026-10-20 and 2026-10-21 (school-first overhaul, C-147 to C-154)
+
+Ruled by Zan item by item from three drafts held in the Claude project: the decision draft
+"school-first sequencing and hook concept banks per unit", the Y9 algebra chain stubs (now
+`proposals/y9-algebra-chain-stubs.md`), and the Modern Classroom wishlist. D53 and D54 are taken
+elsewhere; this series starts at D55. The working list with each ruling's wording is
+`proposals/overhaul-decision-items.md`. Platform letters: C-147 to C-154; answers B-195 to B-198.
+
+**D55 (ratified 2026-10-20). Authoring follows the school's programme: Y9 first, a school unit
+at a time. The school's schemes are the scope authority and the NZC is the alignment reference.
+D38's bottom-up order is superseded; D38's scope is not.**
+Zan has a post at a school whose youngest year is Y9, with 55-minute periods, and its 2026 Y9
+and Y10 schemes are in hand (in the Claude project only: they are the school's internal
+documents). D38 chose bottom-up because the placement was unknown, and that reason has lapsed.
+1. *Year order.* Y9 first, then Y10, then upward. The Y7 and Y8 chains stay as they are, as full
+   lessons (`role: lesson`, D38): nothing is re-authored or down-roled. Under the school's tiers
+   they are Y9's Developing-tier lessons and the review pool's ancestors.
+2. *Unit order within a year.* One school unit at a time, with every chain the unit needs stubbed
+   together. The first unit is Y9 Algebra: Expressions and Equations. It is the only Y9 unit with
+   known timing (2025: 14–17 lessons, test included). Measurement, patterns and graphs, and
+   geometry all assume it. It needs no figure capability. The order of the other units follows
+   the school's 2027 planner, which does not exist yet.
+3. *Scope authority.* For a year the school teaches, a skill is in scope when the school's scheme
+   names it in a core tier (Developing, Consolidating or Proficient). Exceeding earns harder items
+   and contexts inside existing skills, not new skills, unless it names a separately assessable
+   idea. D36 (NZ documents only) stands.
+4. *Banding when the school and the NZC disagree.* `band_nz` is the year the school teaches the
+   skill in a core tier. `nzc_phase` still records the NZC statement and its year, so the
+   disagreement stays visible in the data. The stub notes it on the skill.
+5. *Tier tags.* Each stubbed skill lists the school section and tier(s) it serves as a short code.
+   Quoted scheme text stays in the private project; a code reveals no more than a topic list. The
+   code lives in the stub only (D67 adds no graph field; tier letters reach the platform through
+   D66's template tags).
+6. *Chain ordinals stay provisional.* New Y9 chains take free 9xx ordinals. One renumbering pass
+   follows the planner, as path-only moves with every `key:` kept (B-195 item 2). The platform
+   gets the full move list and dry-runs it before merge (B-196).
+7. *In-flight Y7 work* (place value, area and volume, transformations, nets, parallel lines) is
+   finished when its Y9 unit comes up, as that unit's Developing-tier lesson.
+8. *Not ruled here; each gets its own decision when its unit comes up:* the assessment model
+   (per-unit tests, five bands, per-paper cut-offs vs D51's term exam); rebanding the five
+   `linear.*` skills the school doesn't teach in Y9 (a `band_nz` change on live skills, with its
+   own letter); the `linear.form.point-slope` method mismatch; a statistics investigation format.
+*Cost.* Y7–8 work drops in priority. Dot plots, mean and median, and probability lose their Y9
+home; their Y7 chains stay as written.
+
+**D56 (ratified 2026-10-20). Hook concept banks are written per school unit, not per year
+(amends D42).**
+Under D55 a year's chains are stubbed one unit at a time, so a year bank would hold up the first
+unit's hooks until every unit had been stubbed.
+1. When a unit's chains are stubbed, one pass writes a concept for every chain in the unit,
+   screened as a set with D42's fields.
+2. Each later unit's bank is screened against the earlier banks of the same year, for repeated
+   settings and the spread of Aotearoa/Pacific contexts. D42's year-level check happens
+   cumulatively.
+3. Unchanged: a chain's full hooks are finished just before its activities; one hook per skill
+   (D42 amendment, 2026-10-03); `activity_defaults.hook_contract`.
+4. D42's deferred check of `chain.linear.slope`'s pool now runs against the Y9 Patterns and
+   Graphs unit bank.
+No platform change.
+
+**D57 (ratified 2026-10-20). A consolidation may include one skill from an earlier chain (amends
+D24).** Text: *A consolidation may include one skill from an earlier chain when the confusion it
+targets is named and attached to both skills under §7.* First case: `chain.algebra.terms` ends
+with "collect or multiply?", discriminating `algebra.expressions.like-terms` (chain 707) and
+`algebra.terms.multiply`, with `algebra.terms.divide` once taught. The named confusion is both
+directions of a pair: `mis.like-terms.adds-to-power` and `mis.terms.product-as-sum`.
+*Eligibility (Zan, same day):* a discrimination item is eligible once every skill it covers has
+been **taught**, so a covered skill doesn't need its own ratified bank. In Zan's words, "this
+lets me know if students need more attention in a specific area". This is the D43 amendment of
+2026-10-20, item 4, as written. The platform's slice 1 had read it more strictly and now follows
+it (B-196, platform 4d17b9af). A bank's `discriminates` may cross chains; the bank file still
+sits in its own chain's folder (PB-7).
+
+**D58 (ratified 2026-10-20). The Y9 algebra unit: five chains, 12 skills, 13 activities (graph
+v0.18.0).** As stubbed in `proposals/y9-algebra-chain-stubs.md`: `904-chain.algebra.terms`
+(2 skills, 2 practice + 1 consolidation), `905-chain.algebra.brackets` (3),
+`906-chain.algebra.equations-multistep` (3), `907-chain.algebra.forming` (2) and
+`908-chain.algebra.inequations` (2). Every skill is 1 part, `band_nz: Y9`, on
+`thread.algebra-equations`. Ordinals are provisional (D55 item 6). `algebra.equations.brackets`
+stays its own skill until drafting shows it can't fill an activity (D48 test 2 in reverse).
+Alignment pointers (`nzc_phase`) are added with D63's statements. `ncea` is `null`, meaning not
+read, not `[]` (D31: an empty array claims NCEA does not assess it).
+
+**D59 (ratified 2026-10-21). Fourteen new misconception ids.** The stubs' 13, with their
+attachments, plus `mis.inequations.sign-reversed-unneeded` (reverses the sign when no negative
+multiplier or divisor is involved). That is the over-generalised mirror of
+`mis.inequations.sign-not-reversed`. Each label names its own direction, so §7's pair rule is met
+by wording. It attaches to both inequation skills. `mis.forming.order-reversed` also attaches to
+the Y7 `algebra.notation.write`, the only change to an existing skill's attachments. It reaches
+the AI grader through `misconception-attachments.txt`, so the platform gets a pre-merge notice.
+
+**D60 (ratified 2026-10-21). A binding on the FORM of an answer needs a grader that checks form
+(§7).** Where a skill's point is the form of its answer, an equivalence blank accepts the
+question itself and every equivalent wrong form, so the binding cannot fire. Carry the form on
+gaps inside the target form, exact alternates, or an mc distractor. A general rule, not a unit
+note: "simplest form" (`number.fractions.equivalent`) has the same hole. The platform wish to grade
+"equivalent and in the stated form" is on the to-do list in `proposals/overhaul-decision-items.md`,
+not sent. Zan's priority note: building features is worth more than authoring activities until
+the HoD meeting.
+
+**D61 (ratified 2026-10-21). The Y7 like-terms label widens to "Collect like terms, including
+negative coefficients"** when that activity is drafted, so the school's A1 Consolidating row is
+covered. The skill id is unchanged; the label change gets the usual registry notice.
+
+**D62 (ratified 2026-10-21). Twelve glossary words for the Y9 algebra unit,** written per chain
+before that chain's activities (D40): term, like terms, index (variants: power, exponent),
+expand, factorise, common factor, highest common factor, inequation (variant: inequality),
+solution set, subject, formula, substitute. *Why "power" is a variant:* first ruled to keep
+"power" free for the powers chain (702). Revised the same day after the D63 read: the NZC
+Phase 4 Number knowledge says index, power and exponent are used interchangeably, and its Y9 word
+list introduces *index*.
+
+**D63 (ratified 2026-10-21). Alignment statements for the unit come from a read of the page's
+own text, checked by Zan.** RATIFICATION_LOG (2026-09-03) voided values populated through
+summarising fetches. So Claude read the Phase 4 page's own text and table cells on 2026-10-21, and
+Zan ticks each statement against the page (`proposals/d63-nzc-phase4-check-sheet.md`). S28–S33
+matched and sat where the stubs said. S34 is cited for the product and quotient rules only. S35
+to S37 are added from the read. `ncea` stays unset. The statements and the skills' `nzc_phase`
+pointers land in a follow-up commit after the tick. The read also found integer × and ÷ in Y9
+Practices (bears on D45 item 2's missing skill) and `P4.Y9.Algebra:S19` sitting in the Y10 cell
+(`open-questions.md`).
+
+**D64 (ratified 2026-10-21). Catch-up videos with pause points: build now, pilot on the
+platform.** Scope: catch-up after absence, late joiners, revision before a unit test, the Y10
+spiral; never first teaching, Exceeding content or the hook. Eight rules: the script is the
+activity's worked beat; a video goes stale when its activity's worked beat changes; one example
+per clip, a few minutes at most; example before the try; fading carries across pause points
+(the activity's own faded items); wrong answers route by misconception id; first tries at a pause
+point feed the struggling rule; handwriting with voice-over, captions on, phone-first. The video
+is hosted outside the platform and embedded, with a hosting-agnostic player (C-152). The pilot
+uses 1–2 live activities (701 or a Y7 geometry chain). *Open before any build:* the platform
+flags (B-198) that an embedded YouTube player loads third-party code and cookies on the devices
+of students under 13. That is a data and compliance question for the school, beyond the hosting
+policy Zan assumed from the school's Khan Academy references.
+
+**D65 (ratified 2026-10-21). Every DoL is seeded, with one retake.** A student who misses the DoL
+gets targeted practice on the misconception they showed, then one retake as a fresh draw of the
+same items. Both attempts are stored, and the teacher sees the latest and the best. *Passed:* the
+primary-skill item alone decides it, on the best attempt. The review-pool item feeds its own
+skill's data and never blocks. *Rubric items:* a retake re-asks the same prompt with the first
+answer hidden, marked as before. The platform leans to lifting B-162's BE-2 (derived and `where`
+seed lines in activities) so that the DoL stays a section (B-198). The targeted practice draws on
+the skill's bank, filtered by misconception id; §17 already requires a bank to cover every
+misconception attached to its skill.
+
+**D66 (ratified 2026-10-21). Practice-bank templates carry the school's tier.**
+1. Per template, `tier: D | C | P | E` is the first non-blank line under its heading, and nowhere
+   else outside a fence (B-197). Only the letter appears in files.
+2. Optional in the format: chain 1's ratified Y8 bank stays valid unchanged. `tools/check_bank.py
+   --graph` requires it in every bank whose skill (or, in a discrimination bank, any
+   `discriminates:` skill) is Y9 or later.
+3. Selection: per (student, skill), the criterion is passing the DoL (D65's rule). Before it, D
+   and C templates; after it, P and E are added and D and C stay as maintenance. Untagged
+   templates are never filtered.
+4. E material sits in skill banks as E templates. Each unit's multi-skill Exceeding problem set is
+   separate, for early finishers, and doesn't feed mixed practice.
+The platform reads the tag now (0590aa27), and stores and selects on it later, in one slice with
+D65's "DoL passed" signal.
+
+**D67 (ratified 2026-10-21). A student-facing unit tracker,** digitising the school's student
+overview. Rows are keyed by our skill ids, grouped by chain within the platform's `unit`. The
+teacher enters the school's row wording in the platform, where it stays private; rows fall back to
+the skill label. Statuses: not taught, taught (the D43 pool), DoL passed (best attempt),
+struggling. "What to practise next" comes from D66's unlock. No school text enters this repo, and
+no tier field enters the graph (B-198: derived from the template tags).
+
+**D68 (ratified 2026-10-21). A "who needs me" teacher view during practice blocks.** A live list:
+struggling students first, then students repeating one misconception id within the session (with
+its label). The platform will build it inside its mixed-practice teacher slice, with
+per-session misconception counts (B-198). Sprint answers carry no misconceptions, so ordering by
+misconception applies to mixed practice only.
+
+**D69 (2026-10-21). Mastery in reported grades is parked for the HoD meeting** (`open-questions.md`).
+
+*Not adopted* (recorded so they aren't reopened): video as first teaching; whole-unit
+self-pacing (students spread across a unit can't share a hook or a live worked example, which is
+the core of explicit instruction; MCP handles fixed test dates itself, so that is not the
+reason); unlimited retakes; students choosing their own skill order.

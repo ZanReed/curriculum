@@ -3,7 +3,7 @@
 # A bare id is a one-part skill; `id = n` declares a skill delivered across n
 # activities (D23). External prerequisites are NOT here — valid review and DoL
 # targets, never taught, never counted toward coverage.
-# Generated from curriculum-graph.json v0.17.27 — 96 skills, 102 parts, 36 chains. Do not hand-edit: regenerate.
+# Generated from curriculum-graph.json v0.18.0 — 108 skills, 114 parts, 41 chains. Do not hand-edit: regenerate.
 
 
 # chain.rate.proportional  (3 skills, 4 activities projected)
@@ -128,6 +128,28 @@ algebra.formulae.rearrange                # Rearrange a simple formula to make a
 coord.four-quadrant                       # Plot and read points in all four quadrants
 pattern.linear.rule                       # Find the rule t = a × n + d for a linear pattern from a sequence or table
 pattern.linear.graph                      # Graph a linear pattern and connect the step to the steepness and d to the start
+
+# chain.algebra.terms  (2 skills, 3 activities projected)
+algebra.terms.multiply                    # Multiply algebraic terms: multiply the coefficients and add the indices of the same letter (4a × 3b = 12ab, c² × c⁵ = c⁷, 4ab² × 3ab⁵ = 12a²b⁷)
+algebra.terms.divide                      # Divide algebraic terms written as a fraction: divide the coefficients, subtract the indices of the same letter, and cancel (p⁶ ÷ p² = p⁴, 16ab² ÷ 4a²b = 4b/a)
+
+# chain.algebra.brackets  (3 skills, 3 activities projected)
+algebra.expand.single                     # Expand a single bracket with a positive multiplier, including a letter multiplier (2(x + 3) = 2x + 6, x(x + 3) = x² + 3x)
+algebra.expand.negative                   # Expand a bracket with a negative multiplier, and expand and simplify two brackets (−4(3b + 2c), 5(x + 4) − 2(3x − 5))
+algebra.factorise.common-factor           # Factorise by taking out the highest common factor, including letters, and check by expanding (18x − 12 = 6(3x − 2), x²y³ − 2x = x(xy³ − 2))
+
+# chain.algebra.equations-multistep  (3 skills, 3 activities projected)
+algebra.equations.both-sides              # Solve linear equations with the unknown on both sides (5x − 3 = 2x + 9), and check by substituting
+algebra.equations.brackets                # Solve linear equations that contain brackets, including a negative multiplier, by expanding first (5x + 3(x − 4) = 7x + 2)
+algebra.equations.fraction-coefficients   # Solve linear equations with fractional coefficients and rational solutions (x/3 + 2 = 5, −⅖x + 3 = 11, 3x = 7 → x = 7/3)
+
+# chain.algebra.forming  (2 skills, 2 activities projected)
+algebra.equations.form-from-words         # Form a linear equation from a worded or geometric situation (perimeter, angles, consecutive numbers), solve it, and answer in context
+algebra.formulae.rearrange-two-step       # Rearrange a two-step formula to make another letter the subject (P = 2l + 2w for w), and find an unknown by substituting first and then solving
+
+# chain.algebra.inequations  (2 skills, 2 activities projected)
+algebra.inequations.solve                 # Solve linear inequations with positive coefficients, including the unknown on both sides, and show the solution set on a number line (3x − 5 < 19, 5x − 3 ≥ 2x + 9)
+algebra.inequations.negative-coefficient  # Solve linear inequations where multiplying or dividing by a negative number reverses the sign (−2x < 6, −3x − 5(x + 2) < 19)
 
 # chain.measure.area-volume  (4 skills, 5 activities projected)
 measure.perimeter.polygons                # Find the perimeter of polygons, including missing side lengths

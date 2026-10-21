@@ -2,17 +2,45 @@
 #
 # One `skill.id   mis.id` pair per line; a misconception may attach to several
 # skills. Descriptions live in misconception-registry.txt, not here.
-# Generated from curriculum-graph.json v0.17.27. Do not hand-edit: regenerate.
+# Generated from curriculum-graph.json v0.18.0. Do not hand-edit: regenerate.
 
+algebra.equations.both-sides              mis.equations.one-side-only
+algebra.equations.both-sides              mis.equations.same-operation
+algebra.equations.brackets                mis.equations.same-operation
+algebra.equations.brackets                mis.expand.first-term-only
+algebra.equations.brackets                mis.expand.negative-sign-dropped
+algebra.equations.form-from-words         mis.forming.order-reversed
+algebra.equations.fraction-coefficients   mis.equations.fraction-coefficient-partial
+algebra.equations.fraction-coefficients   mis.equations.partial-divide
 algebra.equations.one-step                mis.equations.same-operation
 algebra.equations.two-step                mis.equations.one-side-only
 algebra.equations.two-step                mis.equations.partial-divide
 algebra.equations.two-step                mis.equations.same-operation
+algebra.expand.negative                   mis.expand.first-term-only
+algebra.expand.negative                   mis.expand.negative-sign-dropped
+algebra.expand.single                     mis.expand.first-term-only
 algebra.expressions.like-terms            mis.like-terms.adds-to-power
 algebra.expressions.like-terms            mis.like-terms.combine-unlike
 algebra.expressions.substitute            mis.notation.juxtaposition-as-digits
+algebra.factorise.common-factor           mis.algebra.cancelled-to-zero
+algebra.factorise.common-factor           mis.factorise.not-highest
 algebra.formulae.rearrange                mis.equations.same-operation
+algebra.formulae.rearrange-two-step       mis.equations.partial-divide
+algebra.formulae.rearrange-two-step       mis.equations.same-operation
+algebra.inequations.negative-coefficient  mis.inequations.answer-as-equation
+algebra.inequations.negative-coefficient  mis.inequations.sign-not-reversed
+algebra.inequations.negative-coefficient  mis.inequations.sign-reversed-unneeded
+algebra.inequations.solve                 mis.equations.same-operation
+algebra.inequations.solve                 mis.inequations.answer-as-equation
+algebra.inequations.solve                 mis.inequations.endpoint-type
+algebra.inequations.solve                 mis.inequations.sign-reversed-unneeded
+algebra.notation.write                    mis.forming.order-reversed
 algebra.notation.write                    mis.notation.letter-as-object
+algebra.terms.divide                      mis.algebra.cancelled-to-zero
+algebra.terms.divide                      mis.exponent.indices-divided
+algebra.terms.multiply                    mis.exponent.indices-multiplied
+algebra.terms.multiply                    mis.terms.coefficients-added
+algebra.terms.multiply                    mis.terms.product-as-sum
 coord.four-quadrant                       mis.coord.axes-swapped
 deriv.definition.at-a-point               mis.limit.h-set-to-zero-early
 deriv.f-prime-as-function                 mis.deriv.f-prime-is-a-number

@@ -167,6 +167,14 @@ misconception ids** via distractor maps, and the map is what turns feedback from
   value, or a response type that accepts units and an item that demands them. Same family as
   the auto-scored rule above — a binding that cannot fire does not mean what it appears to
   mean.
+- **Where the point of a skill is the FORM of its answer** (factorised, expanded, simplified,
+  simplest form), never grade the answer with an equivalence blank (`==`). Equivalence accepts
+  the question itself and every equivalent wrong form: "factorise 18x − 12" marks `18x − 12` and
+  the not-highest `2(9x − 6)` right, so the binding on the wrong form can never fire. Carry the
+  form instead: gaps inside the target form (`gap_equation`, e.g. `6(3x − 2)` with the 6 and the
+  2 as gaps), exact-match alternates listing each acceptable ordering, or an mc whose distractor
+  is the wrong form. Same family as the units rule above. It holds until the platform grades
+  "equivalent and in the stated form" (D60).
 - Use only ids that exist in the registry. Never invent one inline — describe the
   anticipated error in a note instead, so a human can promote it to an id.
 - **Distractor maps go only on auto-scored, per-item captured types** (multiple
