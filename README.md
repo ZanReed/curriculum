@@ -107,7 +107,9 @@ the hand-carried-copy failure with a new name. This repo carries
    `tools/check_bank.py` checks a practice bank over every valid seed combination, including
    derived variables and `where <heading>:` constraints (the D43 bank format, agreed with the
    platform in C-123 / B-161). Bank files live in the catalogue (`banks/<chain-folder>/`); this
-   repo keeps the tool and `bank-item-ids-retired.txt` (pass it with `--retired`).
+   repo keeps the tool and `bank-item-ids-retired.txt` (pass it with `--retired`). Pass
+   `--graph curriculum-graph.json` too: a template's `tier: D|C|P|E` line (D66) is then required
+   in every bank whose skill is Y9 or later.
 
 To retire a glossary entry, delete it from `glossary.md` and append its id to
 `glossary-retired.txt` in the same commit; never edit an `id:` line.

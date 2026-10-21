@@ -1,8 +1,9 @@
 # Misconception registry — the valid mis.* id set.
 #
-# Generated from curriculum-graph.json v0.17.27. Do not hand-edit: regenerate.
+# Generated from curriculum-graph.json v0.18.1. Do not hand-edit: regenerate.
 # An id-shaped token not listed here warns, and fails under --strict.
 
+mis.algebra.cancelled-to-zero                     # Treats a factor divided by itself as 0 or nothing instead of 1 (8a ÷ 8a = 0; 3x + 3 = 3(x))
 mis.angles.complement-supplement-swapped          # Uses 180° for complementary angles, or 90° for supplementary
 mis.angles.sum-depends-on-size                    # Believes a larger triangle has a larger angle sum
 mis.angles.vertical-as-supplementary              # Treats vertically opposite angles as adding to 180° instead of being equal
@@ -19,16 +20,23 @@ mis.deriv.tangent-touches-once                    # Believes a tangent line may 
 mis.deriv.units-dropped                           # Interprets f′(a) without units in a contextual problem
 mis.display.order-meaningful                      # Reads a trend across categories whose order means nothing
 mis.divisibility.last-digit-only                  # Uses only the last digit where the test needs the digit sum or the last two or three digits (3, 4, 8, 9)
+mis.equations.fraction-coefficient-partial        # Undoes only the numerator or only the denominator of a fractional coefficient (⅖x = 6 → x = 3, or x = 30)
 mis.equations.one-side-only                       # Applies an operation to one side of the equation only
 mis.equations.partial-divide                      # Divides only some terms on one side (2x + 7 = 31 → x + 7 = 15.5)
 mis.equations.same-operation                      # Applies the operation shown instead of its inverse (x + 5 = 12 → x = 17)
+mis.expand.first-term-only                        # Multiplies only the first term inside the bracket (3(4b − c) = 12b − c)
+mis.expand.negative-sign-dropped                  # Does not apply a negative multiplier's sign to every term (−2(3x − 5) = −6x − 10)
+mis.exponent.indices-divided                      # Divides the indices when dividing powers of the same base (p⁶ ÷ p² = p³)
+mis.exponent.indices-multiplied                   # Multiplies the indices when multiplying powers of the same base (c² × c⁵ = c¹⁰)
 mis.exponent.multiplies-base                      # Multiplies the base by the exponent (3⁴ = 12, 7² = 14)
+mis.factorise.not-highest                         # Takes out a common factor that is not the highest (18x − 12 = 2(9x − 6))
 mis.factors.hcf-lcm-swapped                       # Gives the HCF when the LCM is asked for, or the reverse
 mis.factors.lcm-is-product                        # Gives the product as the LCM when a smaller common multiple exists (6 and 8 → 48, not 24)
 mis.family.any-member-is-parent                   # Treats any member of a family as the parent rather than the untransformed one — any line for y = x, any parabola for y = x²
 mis.form.intercept-wrong-variable                 # Sets the wrong variable to zero when finding an intercept
 mis.form.m-b-swapped                              # Reads the intercept as the gradient and vice versa in y = mx + c
 mis.form.standard-slope-sign                      # Reads the gradient of Ax + By = C as A/B, dropping the negative
+mis.forming.order-reversed                        # Reverses the order of a “less than” or “subtracted from” phrase (five less than n → 5 − n)
 mis.fractions.add-same                            # Adds the same number to top and bottom to make an equivalent fraction (2/3 = 4/5)
 mis.fractions.digits-as-decimal                   # Writes a fraction's digits as a decimal or percentage (3/5 = 3.5, 1/4 = 14%)
 mis.function.context-restriction-ignored          # Gives the mathematical domain of the formula, ignoring what the context permits
@@ -39,6 +47,10 @@ mis.function.f-of-a-plus-h-distributed            # Writes f(a+h) as f(a)+f(h)
 mis.function.needs-a-formula                      # Rejects a correspondence as a function because no equation defines it
 mis.function.notation-multiplication              # Reads f(x) as f times x
 mis.function.one-to-one-required                  # Requires each output to have exactly one input — rejects y = x² as a function, or applies the test horizontally
+mis.inequations.answer-as-equation                # Gives the boundary value as an equation (x = 8) instead of the solution set (x < 8)
+mis.inequations.endpoint-type                     # Uses a closed endpoint for a strict inequation, or an open one for ≤ or ≥
+mis.inequations.sign-not-reversed                 # Keeps the inequality sign after multiplying or dividing by a negative (−2x < 6 → x < −3)
+mis.inequations.sign-reversed-unneeded            # Reverses the inequality sign when no negative multiplier or divisor is involved (x − 3 > −5 → x < −2; 2x < −6 → x > −3)
 mis.integers.larger-digit-larger                  # Orders negative numbers by size, ignoring the sign (−8 > −3)
 mis.integers.sign-ignored                         # Adds the sizes and keeps the sign when the signs differ (−4 + 9 = −13)
 mis.integers.subtract-always-smaller              # Believes subtracting always gives a smaller number (5 − (−2) < 5)
@@ -93,6 +105,8 @@ mis.slope.subtraction-order                       # Mismatches subtraction order
 mis.slope.units-dropped                           # Reports the gradient as a bare number, no units, in a contextual problem
 mis.stats.digits-are-numerical                    # Classifies data labelled with numbers as numerical (postcodes, jersey numbers)
 mis.summary.measures-swapped                      # Calculates one summary measure when another is asked for
+mis.terms.coefficients-added                      # Adds the coefficients when multiplying terms (4a × 3b = 7ab)
+mis.terms.product-as-sum                          # Writes a repeated letter in a product as a sum (a × a = 2a)
 mis.time.24h-convert                              # Converts 24-hour time by subtracting 10 (15:00 = 5 pm)
 mis.time.decimal-hours                            # Treats hours and minutes as a decimal (1:30 as 1.30 h; 13:20 − 10:45 = 2.75)
 mis.timeseries.joins-categories                   # Uses a line graph for categorical data

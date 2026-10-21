@@ -119,6 +119,22 @@ can inspect.
 drift between it and its source. Delete this reminder when the builder loads from that URL —
 not before, and not on the assumption that it has.
 
+**Should part of a reported band come from mastery, not only the unit test? (D69, parked
+2026-10-21 for the HoD meeting.)**
+The Modern Classroom wishlist item 6: part of each student's reported band would come from their
+best DoL results across the unit (D65 stores the best attempt), so one test doesn't decide the
+grade. It depends on the assessment-model ruling that D55 item 8 leaves open (per-unit tests,
+five bands, per-paper cut-offs vs D51's term exam), and on the department agreeing. Zan raises it
+with the HoD. No platform letter until then.
+
+**Is `P4.Y9.Algebra:S19` in the right year? (Found 2026-10-21, D63 read.)**
+On the Phase 4 page, the statement S19 quotes (the constant rate of change of a linear graph)
+sits in the Algebra *Knowledge Y10* cell, beside the inequality-reversal statement (S33), and
+not in Y9. `linear.slope.interpret-context` cites it as `P4.Y9.Algebra:S19`. This repo's own
+fix: re-file S19 under P4.Y10.Algebra and re-point the skill. It is held for D55 item 8's
+linear rebanding ruling, which reviews those skills' years together. Changing `nzc_phase` changes
+no registry the platform reads.
+
 ---
 
 ## Closed

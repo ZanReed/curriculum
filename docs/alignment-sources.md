@@ -117,6 +117,12 @@ not a literal placement — see D32 and the open question on the middle of the s
 
 Page: `https://newzealandcurriculum.tahurangi.education.govt.nz/5637291579.p`
 
+**S28–S37 (read 2026-10-21, D63).** Read from the page's own text and table cells, then each
+statement checked against the page by Zan the same day. They are recorded by **cell location and
+paraphrase**, not quotation: the page is © 2026 Ministry of Education and its reuse licence was not
+confirmed at the read. Each entry names its table, row, column and bullet, so it can be found and
+checked. The page wins if they differ.
+
 **P4.Y9.Number**
 **S15**
 > A rate proportionally compares two quantities that have different units of measure; when
@@ -129,6 +135,10 @@ Page: `https://newzealandcurriculum.tahurangi.education.govt.nz/5637291579.p`
 **S17**
 > Representing proportional relationships using whole-number ratios, including reducing the
 > ratios to their simplest form
+
+**S34** (Number › Number structures and operations › Knowledge, During Year 10): exponent rules
+govern operations with exponents. The page's list names five rules; this repo cites S34 **for the
+product and quotient rules only** (D63). The school dropped the exponent-of-exponents rule from Y9.
 
 **P4.Y9.Algebra**
 **S18**
@@ -150,6 +160,26 @@ Page: `https://newzealandcurriculum.tahurangi.education.govt.nz/5637291579.p`
 **S22**
 > … tables and graphs in the coordinate plane (showing all four quadrants)
 
+*Algebra › Equations and relationships › Practices, During Year 9:*
+
+**S28** (bullet 1, with its three sub-bullets): simplifying and manipulating algebraic
+expressions with sums, products, differences and positive integer powers, by collecting like
+terms, factorising with common factors, and expanding products including a single term times a
+bracket.
+
+**S37** (bullet 2): generalising the properties of operations with variables, with
+distributivity over subtraction as the example.
+
+**S29** (bullet 3): multiplying or dividing by −1 in inequalities.
+
+**S30** (bullet 4): forming and solving linear equations with rational number coefficients, and
+linear inequalities with positive coefficients.
+
+**S32** (bullet 5): using substitution to find the value of an expression or formula from the
+values of its variables.
+
+**S31** (bullet 6): rearranging formulae, with P = 2l + 2w solved for w as the example.
+
 **P4.Y10.Algebra**
 **S23**
 > The gradient m of a straight line can be determined with the formula m = rise/run = Δy/Δx.
@@ -168,6 +198,20 @@ Page: `https://newzealandcurriculum.tahurangi.education.govt.nz/5637291579.p`
 **S27**
 > Determining the effect on graphs in the coordinate plane of changing the coefficient of x²
 > and the fixed value c, for a range of quadratic equations
+
+*Algebra › Equations and relationships › Knowledge, During Year 10 (the Year 9 knowledge cell of
+that row is empty):*
+
+**S33** (first sentence): multiplying or dividing by a negative number reverses an inequality.
+
+**S35** (last sentence): the solution to a linear inequality is a set of values, which may be
+shown on a number line.
+
+*Algebra › Equations and relationships › Practices, During Year 10:*
+
+**S36** (bullet 2): forming and solving linear equations and linear inequalities with rational
+number coefficients, giving exact or rounded solutions, and representing the solution on a number
+line.
 
 *Note the absences:* no function notation, no domain/range, no exponential graphs, no
 point–gradient or general form of a line anywhere in Years 9–10. Those enter at Phase 5 and

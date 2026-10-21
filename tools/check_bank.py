@@ -35,10 +35,17 @@ report says how many combinations its `where` lines rejected.
 Moved into the repo 2026-10-10 (tools/): a unit blank ({{=n unit: cm}}) is read for its value
 only, and the reserved !unit-missing / !unit-wrong segments are skipped (they are outcomes, not
 expressions; the old script crashed on them).
+School tier (D66, 2026-10-21; position agreed with the platform in B-197): a template may carry
+`tier: D|C|P|E` as the first non-blank line under its heading, one uppercase letter. A `tier:`
+line anywhere else outside a fence is refused (it would render as text). With --graph, the tag
+is REQUIRED on every template of a bank whose skill (or, for a discrimination bank, any skill in
+its one-line `discriminates: a, b`, no brackets: B-199) has `band_nz` Y9 or later: the school-first sequence (D55) starts at Y9,
+and chain 1's ratified Y8 bank stays valid untagged.
 
-Usage: python3 tools/check_bank.py BANK.md [--retired bank-item-ids-retired.txt]
+Usage: python3 tools/check_bank.py BANK.md [--retired bank-item-ids-retired.txt] [--graph curriculum-graph.json]
 """
 import itertools
+import json
 import math
 import os
 import re
@@ -48,6 +55,8 @@ from fractions import Fraction
 CAP = 10000
 NAME = r"[a-z][a-z0-9_]*"
 HEADING = re.compile(r"[a-z][a-z0-9-]*")
+TIERS = {"D", "C", "P", "E"}
+TIER_FROM = {"Y9", "Y10", "Y11", "Y12", "Y13"}  # D55: the school's programme starts at Y9
 # The platform's RESERVED_SEED_NAMES (packages/schema/src/seed-vars.ts), plus `where` (PB-6).
 RESERVED = {
     "e", "pi", "tau", "phi", "i", "x", "y",
@@ -139,7 +148,31 @@ def meta(md):
     return out
 
 
-def main(path, retired_path=None):
+def tier_problems(title, sec, required):
+    """D66: `tier: X` is the first non-blank line under the heading, and nowhere else outside a fence."""
+    out = []
+    lines = sec.splitlines()[1:]
+    first = next((i for i, ln in enumerate(lines) if ln.strip()), None)
+    fenced, tagged = False, False
+    for i, ln in enumerate(lines):
+        if ln.lstrip().startswith("```"):
+            fenced = not fenced
+            continue
+        if fenced or not re.match(r"\s*tier\s*:", ln):
+            continue
+        if i != first:
+            out.append(f"{title}: a tier: line must be the first line under the heading (B-197); elsewhere it renders as text")
+            continue
+        value = ln.split(":", 1)[1].strip()
+        if value not in TIERS:
+            out.append(f"{title}: tier: {value!r} is not one of D, C, P, E (one uppercase letter, D66)")
+        tagged = True
+    if required and not tagged:
+        out.append(f"{title}: no tier: line; a bank for a Y9-or-later skill tags every template (D66)")
+    return out
+
+
+def main(path, retired_path=None, graph_path=None):
     md = open(path, encoding="utf-8").read()
     drawn, derived, wheres, problems = seed_spec(md)
     dsrc = {}  # derived name -> every drawn and derived name it rests on
@@ -178,6 +211,16 @@ def main(path, retired_path=None):
             problems.append(f"{item_stem}#{h} is retired in {retired_path}; bank item ids are never reused")
     for h in {h for h in headings if headings.count(h) > 1}:
         problems.append(f"heading {h} is used twice (PB-3)")
+    if re.search(r"[\[\]]", info.get("discriminates", "")):
+        problems.append("discriminates: is written `a, b` on one line, without brackets (B-199: the importer splits on commas)")
+    tier_required = False
+    if graph_path:
+        bands = {s["id"]: s.get("band_nz") for s in json.load(open(graph_path, encoding="utf-8"))["skills"]}
+        covered = [info.get("skill", "")] if info.get("skill") else \
+            [s.strip() for s in info.get("discriminates", "").split(",") if s.strip()]
+        tier_required = any(bands.get(s) in TIER_FROM for s in covered)
+    for sec, h in zip(sections, headings):
+        problems += tier_problems(h, sec, tier_required)
     for scope, pred in wheres:
         if scope is None:
             problems.append(f"where: {pred}: an unscoped where is refused in a bank; write `where <heading>:` (PB-6)")
@@ -275,9 +318,13 @@ def main(path, retired_path=None):
 
 if __name__ == "__main__":
     args = sys.argv[1:]
-    retired = None
+    retired = graph = None
     if "--retired" in args:
         i = args.index("--retired")
         retired = args[i + 1]
         del args[i:i + 2]
-    sys.exit(main(args[0], retired))
+    if "--graph" in args:
+        i = args.index("--graph")
+        graph = args[i + 1]
+        del args[i:i + 2]
+    sys.exit(main(args[0], retired, graph))
