@@ -1,7 +1,7 @@
 ```meta
 kind: bank
 role: discrimination
-chain: chain.algebra.terms
+chain: chain.algebra.manipulation
 discriminates: [algebra.expressions.like-terms, algebra.terms.multiply]
 title: Discrimination fixture — brackets refused (B-199)
 status: draft

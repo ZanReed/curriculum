@@ -2,7 +2,7 @@
 #
 # One `skill.id   mis.id` pair per line; a misconception may attach to several
 # skills. Descriptions live in misconception-registry.txt, not here.
-# Generated from curriculum-graph.json v0.18.1. Do not hand-edit: regenerate.
+# Generated from curriculum-graph.json v0.19.0. Do not hand-edit: regenerate.
 
 algebra.equations.both-sides              mis.equations.one-side-only
 algebra.equations.both-sides              mis.equations.same-operation

@@ -2590,3 +2590,109 @@ misconception applies to mixed practice only.
 self-pacing (students spread across a unit can't share a hook or a live worked example, which is
 the core of explicit instruction; MCP handles fixed test dates itself, so that is not the
 reason); unlimited retakes; students choosing their own skill order.
+
+---
+
+## Ratified 2026-10-21 (review fixes after the overhaul)
+
+Ruled by Zan on his post-merge review of D55–D69, on `main` at a503b87 (graph v0.18.1). The four
+open points were ruled the same day: the D24 wording in D70, writing the like-terms bank (D71),
+the D74 names, and restoring quotes (D76).
+
+**D70 (ratified 2026-10-21). The Y9 algebra unit is two chains, not five (amends D58 and D24).**
+*Why.* `year_plan.corrective_per_chain` gives every chain a corrective period. Five chains need
+13 activities + 5 correctives + 1 test = 19 periods. The school's window is 14–17 periods
+(2025, test included). Two chains need 13 + 2 + 1 = 16, which fits.
+`review_share_of_periods` and `buffer_min_share_of_periods` are read across the year, not
+within a unit: their periods sit between units and at the end of term.
+- `904-chain.algebra.manipulation`, *Simplifying, Expanding and Factorising*:
+  - `algebra.terms.multiply`, `algebra.terms.divide`;
+  - then the "collect or multiply?" consolidation (D57);
+  - then `algebra.expand.single`, `algebra.expand.negative`, `algebra.factorise.common-factor`.
+  - 5 practice activities + 1 consolidation = 6.
+- `905-chain.algebra.solving`, *Equations, Formulae and Inequations*: the seven equation,
+  formula and inequation skills in the stubs' order, 7 activities.
+- The split follows the school's unit name: Expressions is sections A1–A5, Equations is A6–A10.
+- No skill, misconception or edge changes. Hooks stay one per skill, 12 in all.
+- `chain.algebra.terms`, `.brackets`, `.equations-multistep`, `.forming` and `.inequations` are
+  replaced. Nothing was authored or hooked under them, and no ledger holds chain ids.
+- In `chain-registry.txt`, rows 906–908 go and 904–905 are retitled.
+*D24 amendment (the wording ruled the same day).* A consolidation may sit mid-chain, directly
+after the last skill it discriminates; its primary skill is that skill. D24's "the chain's
+terminal skill" and "sits at the chain's end" remain the default. Here the primary skill is
+`algebra.terms.divide`, at position 3.
+*Platform:* a pre-merge notice. Five rows become two, and no `key:` exists yet, so there is no
+move list.
+
+**D71 (ratified 2026-10-21). A consolidation's check admits the skills it discriminates into the
+pool (amends the D43 amendment of 2026-10-20, item 3).** *When a student checks a consolidation
+activity, each skill it discriminates that is not yet in that student's pool enters it on the
+next practice day, as if its own activity had been checked.*
+*Why.* Under D55, a Y7 skill reviewed inside Y9 work is never taught by its own activity, so
+without this rule D57's "collect or multiply?" could never become eligible.
+*Bank (Zan: write it).* `algebra.expressions.like-terms` gets a practice bank written with the Y9
+unit, ahead of its own Y7 activity. That is an exception to §17's "bank after its activities",
+and it is safe because the skill's misconceptions are already named in the graph. Eligibility
+alone wouldn't need the bank: a covered skill without one still counts (B-196). The bank is so
+that a Y9 student who slips on collecting gets spaced practice on it. Its templates carry tier
+tags by choice. `check_bank` doesn't require them, because the skill is Y7.
+*Platform:* a letter, because it changes the pool rule the platform implements.
+
+**D72 (ratified 2026-10-21). Edge `algebra.expand.negative` → `algebra.inequations.negative-coefficient`.**
+The label's −3x − 5(x + 2) < 19 can't be done without expanding by a negative multiplier, and the
+edge lets review and the diagnostic reach the skill. `algebra.equations.form-from-words` stays
+without geometry edges: its angle and perimeter items state the fact they rely on, because the
+item tests forming the equation, not recalling the fact. That note goes in the activity's notes.
+*Platform:* none, because edges reach no registry.
+
+**D73 (ratified 2026-10-21). D64 reworded: build now, show students later.** *Catch-up videos
+with pause points: the player and the pilot clips are built now; students see a video only
+after the school clears how it is hosted.* Only one thing waits: serving any video to students
+before the school answers the under-13 hosting question (B-198). These proceed: the player,
+tested with teacher accounts; recording the pilot clips; and the eight authoring rules.
+*Platform:* none, because B-198 already holds the question.
+
+**D74 (ratified 2026-10-21). The reportable instrument is the school's unit test (supersedes D51's
+term exam as the default; §18 amended).**
+1. One printed test per school unit, sat on the school's date. Some units are assessed by an
+   assignment instead, and the same rules apply, except that an assignment has one form and is
+   marked with a rubric.
+2. *Kept from D51:* printed and supervised; seeded templates; `assessment.forms` forms, each with
+   its own key; a pool apart from banks, DoLs and quizzes; one skill per item; a marking guide
+   in the teacher guide; no graphing calculators in Y7–10.
+3. *The grade is a band* on `reporting.scale`, read from the test's percentage through cut-offs
+   set per paper. The cut-offs go on the paper's own ```meta as `cutoffs:`: four ascending
+   percentages, the lower bounds of Developing, Consolidating, Proficient and Exceeding. They are
+   not a graph constant, because the department's papers differ (Y10 Number uses 20/50/70/90 and
+   Y10 Measurement 20/40/60/80), and D25 puts a threshold in one place.
+4. *A second track.* `track: basic` marks a basic paper, capped at Consolidating, with its own
+   `cutoffs:`.
+5. *Changed from D51:*
+   - `assessment.exam` gives way to `assessment.test` (and `assessment.assignment`), with
+     `types` = quiz, test, assignment;
+   - the 70/30 term weighting goes, because a unit test covers its unit;
+   - §18's "evidence for the teacher's judgement rather than a cut score" goes, because the band
+     is the cut score;
+   - reporting stays on the five-band scale, now per unit test;
+   - `year_plan.assessment_per_term` keeps the diagnostic only, and `year_plan.unit_test` points
+     at `assessment.test`.
+6. Quizzes stay as practice and a check, not reportable unless the department agrees (D69,
+   parked). `grading_defaults.weights` is unit tests only, until then.
+*Platform:* a letter. The assessment types change (B-107's list gains `test` and `assignment`),
+there are two new meta keys (`cutoffs:` and `track:`), and the results sheet is per unit and band.
+
+**D75 (ratified 2026-10-21). `ncea: null` means "not read".** The value grammar in
+`docs/alignment-sources.md` gains that sentence. The 49 Y7 skills carried `[]` from stubbing,
+without the read D31 requires behind an empty array, and they now carry `null`. A later read
+sets each. *Platform:* none, because `ncea` reaches no registry.
+
+**D76 (ratified 2026-10-21). NZC statements may be quoted, with attribution.** The Tāhūrangi
+copyright notice (read 2026-10-21) licenses its content under CC BY-NC 4.0, credited to the
+Ministry of Education. It excludes logos, emblems, design elements, imagery and third-party
+material. `docs/alignment-sources.md` carries the attribution. S28–S37 are restored as verbatim
+quotes, matching S15–S27, pasted from the page by hand. The non-commercial condition is the
+standing constraint: if the curriculum or platform is ever sold, the quotes need another look.
+
+*Not a decision, recorded:* `702-chain.number.powers` keeps "Powers" in its display title. Its
+activities are tagged `index` (D52), and a tap on "power" resolves through `index`'s variant.
+README fixed: the log runs from D18 onward, and there are thirteen checks.

@@ -1,4 +1,5 @@
 ---
+chains_superseded: 2026-10-21 by D70 (two chains: 904-chain.algebra.manipulation, 905-chain.algebra.solving); the skills, misconceptions and edges below stand, plus D72's edge
 status: ratified 2026-10-20 (D58), in the graph at v0.18.0; misconceptions ratified 2026-10-21 (D59, 14 ids)
 written_against: ZanReed/curriculum main @ 2990ba1 (20 Oct 2026), graph v0.17.27
 depends_on: D55 and D56 (decision-log-additions.md); D43 amendment 2026-10-20 item 3

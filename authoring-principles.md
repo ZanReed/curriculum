@@ -402,14 +402,18 @@ activity is one of these kinds, not empty time and not a reason to add parts (§
   discrimination items, then harder mixed items. A corrective is written once per
   misconception id, not per activity.
 - **Assessment**: the class diagnostic (§17), a reading for the teacher, and the reportable
-  instruments: a termly exam and short, frequent quizzes. Both are printed and sat on paper,
-  written as seeded templates and printed in several forms, each with its own key. They come
-  from their own item pools, never from the practice banks, the DoLs or each other. Every item
-  names the skill it tests, so results are reported by strand on the national descriptors, as
-  evidence for the teacher's judgement rather than a cut score. Practice is never graded, and
-  students are shown the link between practice and quiz results rather than left to infer it.
-  No graphing calculator where the item tests what the calculator would do. Cadence, forms,
-  sizes and the calculator bands are in `activity_defaults.assessment`.
+  instrument: the school's **unit test**, one per school unit, sat on the school's date (or the
+  unit's assignment, where the school assesses a unit that way). A test is printed and sat on
+  paper, written as seeded templates and printed in several forms, each with its own key. Its
+  grade is a band on the five-band scale, read from its percentage through the cut-offs written
+  on that paper's own metadata, because the department's papers differ. A unit may also have a
+  basic paper, capped lower, with its own cut-offs. Tests, assignments and quizzes come from
+  their own item pools, never from the practice banks, the DoLs or each other, and every item
+  names the skill it tests. Quizzes stay as practice and a check, not reportable unless the
+  department agrees. Practice is never graded, and students are shown the link between practice
+  and test results rather than left to infer it. No graphing calculator where the item tests what
+  the calculator would do. Forms, keys, the cut-off key and the calculator bands are in
+  `activity_defaults.assessment`.
 - **Transfer**: problem solving across skills, only after fluency, and rationed: rich tasks
   earn their keep at the end of a topic, not during acquisition (§1).
 - **Buffer**: deliberately unplanned. Interruptions are certain; a plan without buffer
