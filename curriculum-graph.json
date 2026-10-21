@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.18.0",
+  "version": "0.18.1",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -2142,7 +2142,10 @@
         "mis.exponent.indices-multiplied"
       ],
       "alignment": {
-        "nzc_phase": [],
+        "nzc_phase": [
+          "P4.Y9.Algebra:S28",
+          "P4.Y10.Number:S34"
+        ],
         "ncea": null,
         "ccss": [],
         "teks": []
@@ -2163,7 +2166,10 @@
         "mis.algebra.cancelled-to-zero"
       ],
       "alignment": {
-        "nzc_phase": [],
+        "nzc_phase": [
+          "P4.Y9.Algebra:S28",
+          "P4.Y10.Number:S34"
+        ],
         "ncea": null,
         "ccss": [],
         "teks": []
@@ -2182,7 +2188,10 @@
         "mis.expand.first-term-only"
       ],
       "alignment": {
-        "nzc_phase": [],
+        "nzc_phase": [
+          "P4.Y9.Algebra:S28",
+          "P4.Y9.Algebra:S37"
+        ],
         "ncea": null,
         "ccss": [],
         "teks": []
@@ -2204,7 +2213,10 @@
         "mis.expand.negative-sign-dropped"
       ],
       "alignment": {
-        "nzc_phase": [],
+        "nzc_phase": [
+          "P4.Y9.Algebra:S28",
+          "P4.Y9.Algebra:S37"
+        ],
         "ncea": null,
         "ccss": [],
         "teks": []
@@ -2226,7 +2238,9 @@
         "mis.algebra.cancelled-to-zero"
       ],
       "alignment": {
-        "nzc_phase": [],
+        "nzc_phase": [
+          "P4.Y9.Algebra:S28"
+        ],
         "ncea": null,
         "ccss": [],
         "teks": []
@@ -2247,7 +2261,9 @@
         "mis.equations.one-side-only"
       ],
       "alignment": {
-        "nzc_phase": [],
+        "nzc_phase": [
+          "P4.Y9.Algebra:S30"
+        ],
         "ncea": null,
         "ccss": [],
         "teks": []
@@ -2269,7 +2285,9 @@
         "mis.equations.same-operation"
       ],
       "alignment": {
-        "nzc_phase": [],
+        "nzc_phase": [
+          "P4.Y9.Algebra:S30"
+        ],
         "ncea": null,
         "ccss": [],
         "teks": []
@@ -2291,7 +2309,9 @@
         "mis.equations.partial-divide"
       ],
       "alignment": {
-        "nzc_phase": [],
+        "nzc_phase": [
+          "P4.Y9.Algebra:S30"
+        ],
         "ncea": null,
         "ccss": [],
         "teks": []
@@ -2311,7 +2331,9 @@
         "mis.forming.order-reversed"
       ],
       "alignment": {
-        "nzc_phase": [],
+        "nzc_phase": [
+          "P4.Y9.Algebra:S30"
+        ],
         "ncea": null,
         "ccss": [],
         "teks": []
@@ -2331,7 +2353,10 @@
         "mis.equations.same-operation"
       ],
       "alignment": {
-        "nzc_phase": [],
+        "nzc_phase": [
+          "P4.Y9.Algebra:S31",
+          "P4.Y9.Algebra:S32"
+        ],
         "ncea": null,
         "ccss": [],
         "teks": []
@@ -2354,7 +2379,11 @@
         "mis.equations.same-operation"
       ],
       "alignment": {
-        "nzc_phase": [],
+        "nzc_phase": [
+          "P4.Y9.Algebra:S30",
+          "P4.Y10.Algebra:S35",
+          "P4.Y10.Algebra:S36"
+        ],
         "ncea": null,
         "ccss": [],
         "teks": []
@@ -2376,7 +2405,11 @@
         "mis.inequations.answer-as-equation"
       ],
       "alignment": {
-        "nzc_phase": [],
+        "nzc_phase": [
+          "P4.Y9.Algebra:S29",
+          "P4.Y10.Algebra:S33",
+          "P4.Y10.Algebra:S36"
+        ],
         "ncea": null,
         "ccss": [],
         "teks": []

@@ -203,8 +203,9 @@ Labels are in the graph. Existing ids attached to new skills: `mis.equations.sam
 
 ## Alignment (D63)
 
-Statements S28–S37 and the skills' `nzc_phase` pointers land after Zan's tick on
-`proposals/d63-nzc-phase4-check-sheet.md`. S34 is cited for the product and quotient rules only.
+Zan ticked all ten on 2026-10-21. S28–S37 are in `docs/alignment-sources.md`, recorded by cell
+location and paraphrase, and the pointers are in the graph from v0.18.1. S34 is cited for the
+product and quotient rules only.
 
 ## Glossary words (D62; per chain, before that chain's activities)
 

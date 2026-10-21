@@ -1,5 +1,5 @@
 ---
-status: check sheet for Zan (D63, option b). Uncommitted.
+status: ticked by Zan 2026-10-21, all ten rows (S28–S37), answered in chat; landed in docs/alignment-sources.md and graph v0.18.1
 page: NZC – Mathematics and Statistics Phase 4 (Years 9–10), https://newzealandcurriculum.tahurangi.education.govt.nz/5637291579.p
 read: 2026-10-21, built-in browser. The page's own text and its table cells were read, not a model
   summary. Each statement's column was resolved from the table's row and column spans.
@@ -16,13 +16,13 @@ matches. Zan: open the page, find each one by its location below, and tick it.
 
 | S | stubs' location | location on page | wording vs stubs | tick |
 |---|---|---|---|---|
-| S28 | Y9 Algebra · Do | Algebra › Equations and relationships › Practices Y9, 1st bullet (with its 3 sub-bullets) | matches word for word | ☐ |
-| S29 | Y9 Algebra · Do | same cell, 3rd bullet | matches (the page has no space after "e.g.") | ☐ |
-| S30 | Y9 Algebra · Do | same cell, 4th bullet | matches | ☐ |
-| S31 | Y9 Algebra · Do | same cell, 6th (last) bullet | matches | ☐ |
-| S32 | Y9 Algebra · Do | same cell, 5th bullet | matches | ☐ |
-| S33 | Y10 Algebra · Know | Algebra › Equations and relationships › Knowledge Y10 (the Knowledge Y9 cell of that row is empty), 1st sentence | matches | ☐ |
-| S34 | Y10 Number · Know | Number › Number structures and operations › Knowledge Y10, the "Exponent rules…" sentence | **the stubs truncate it.** On the page the sentence continues ("…and include:") into five named rules: product, quotient, exponent-of-exponents, negative exponent, zero exponent | ☐ |
+| S28 | Y9 Algebra · Do | Algebra › Equations and relationships › Practices Y9, 1st bullet (with its 3 sub-bullets) | matches word for word | ✓ |
+| S29 | Y9 Algebra · Do | same cell, 3rd bullet | matches (the page has no space after "e.g.") | ✓ |
+| S30 | Y9 Algebra · Do | same cell, 4th bullet | matches | ✓ |
+| S31 | Y9 Algebra · Do | same cell, 6th (last) bullet | matches | ✓ |
+| S32 | Y9 Algebra · Do | same cell, 5th bullet | matches | ✓ |
+| S33 | Y10 Algebra · Know | Algebra › Equations and relationships › Knowledge Y10 (the Knowledge Y9 cell of that row is empty), 1st sentence | matches | ✓ |
+| S34 | Y10 Number · Know | Number › Number structures and operations › Knowledge Y10, the "Exponent rules…" sentence | **the stubs truncate it.** On the page the sentence continues ("…and include:") into five named rules: product, quotient, exponent-of-exponents, negative exponent, zero exponent | ✓ |
 
 All seven sit in the year and column the stubs give, so the banding notes in the stubs hold.
 
