@@ -135,6 +135,14 @@ fix: re-file S19 under P4.Y10.Algebra and re-point the skill. It is held for D55
 linear rebanding ruling, which reviews those skills' years together. Changing `nzc_phase` changes
 no registry the platform reads.
 
+
+**Does Y9 get a school-band locale? (Found 2026-10-24, alignment review.)**
+DoL rubric lines are tagged with the locale's levels (§8). Y9 DoLs still use `nz-ncea`'s A/M/E, so
+the platform's pass prefill reads `A` (DL-11). The school reports on D/C/P/E bands (D66, D74). A
+school-band locale would tag rubric lines against those, and the base level for a pass would
+become a band. It works as built today. This is a ruling for Zan, likely with the assessment
+model's first unit test.
+
 ---
 
 ## Closed

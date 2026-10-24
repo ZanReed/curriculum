@@ -17,6 +17,10 @@ Checks the activity inside the draft (from its ```meta fence to the end of its
   so a binding never reports against a skill it doesn't belong to;
 - a ```meta key: is present;
 - no unit: key; no ^\\circ inside a figure; no student-facing "sprint".
+- D65 grammar (2026-10-24, the platform's DL-4 and DL-17): `dol_skills:` ids are registered; derived seed
+  values and `where` appear only in the DoL section's seed fence (the `{checkpoint dol}` heading), and
+  `where` is spelled `where dol:`; a DoL item uses no activity-level seed variable; a seed reference
+  inside $...$ is written \\seed{name}.
 
 Moved into the repo 2026-10-10 (tools/): the allowed fences now come from the pinned platform
 capability facts (the union of every capability's reached_by.fence and exempt_fences, which the
@@ -48,6 +52,71 @@ def ids(path):
         line = line.split("#", 1)[0].strip()
         if line:
             out.add(line.split()[0])
+    return out
+
+
+SEED_NAME = r"[a-z][a-z0-9_]*"
+DOL_HEADING = re.compile(r"^## .*\{[^}]*\bdol\b[^}]*\}\s*$", re.M)
+
+
+def dol_span(act):
+    """The DoL section: from its `{checkpoint dol}` heading to the next ## heading or the guide (D65, DL-1)."""
+    m = DOL_HEADING.search(act)
+    if not m:
+        return None
+    end = re.search(r"^## |^```teacher-guide", act[m.end():], re.M)
+    return m.start(), m.end() + (end.start() if end else len(act) - m.end())
+
+
+def seed_problems(act):
+    """D65 grammar in an activity's seed fences (DL-4, DL-17; B-162 BE-2 lifted for the DoL only).
+
+    - Outside the DoL, a seed fence takes drawn variables only: derived values and `where` stay
+      banks-only.
+    - Inside the DoL, derived values are allowed, and `where dol:` is the only `where` spelling.
+    - A DoL item may not use an activity-level variable: it would not redraw on a retake.
+    - A seed reference inside $...$ is written \\seed{name}; a bare {name} there is not substituted
+      (LaTeX reads it as a group), and \\seed{} must name a declared variable.
+    """
+    out = []
+    span = dol_span(act)
+    outer, inner = set(), set()
+    for fm in re.finditer(r"```seed\n(.*?)```", act, re.S):
+        in_dol = span is not None and span[0] <= fm.start() < span[1]
+        for line in fm.group(1).splitlines():
+            s = line.strip()
+            if not s:
+                continue
+            w = re.match(r"where\b\s*(\S*?)\s*:", s)
+            if w or s.startswith("where"):
+                if not in_dol:
+                    out.append(f"seed: {s!r}: where is allowed only in the DoL's seed fence, as `where dol:` (D65, DL-4)")
+                elif not w or w.group(1) != "dol":
+                    out.append(f"seed: {s!r}: in an activity, where is spelled `where dol:` (DL-4; C-123's unscoped form is retracted)")
+                continue
+            d = re.match(rf"({SEED_NAME})\s*:\s*(=?)", s)
+            if not d:
+                continue
+            if d.group(2) and not in_dol:
+                out.append(f"seed: {s!r}: derived values are allowed only in the DoL's seed fence (D65; B-162 BE-2)")
+            (inner if in_dol else outer).add(d.group(1))
+    if span is not None:
+        dol = re.sub(r"```seed\n.*?```", "", act[span[0]:span[1]], flags=re.S)
+        used = set(re.findall(rf"(?<!\{{)\{{({SEED_NAME})\}}(?!\}})", dol)) | set(re.findall(rf"\\seed\{{({SEED_NAME})\}}", dol))
+        for b in re.findall(r"\{\{=(.*?)\}\}", dol):
+            used |= set(re.findall(rf"\b({SEED_NAME})\b", b.split("::")[0]))
+        for n in sorted((used & outer) - inner):
+            out.append(f"DoL uses {n}, an activity-level seed variable, so it would not redraw on a retake (D65, DL-4)")
+    declared = outer | inner
+    body = re.sub(r"```(meta|teacher-guide|seed).*?```", "", act, flags=re.S).replace("\\$", "")
+    for m in re.finditer(r"\$\$(.+?)\$\$|\$(.+?)\$", body, re.S):
+        math = m.group(0)
+        for n in re.findall(rf"(?<!\\seed)\{{({SEED_NAME})\}}", math):
+            if n in declared:
+                out.append(f"seed reference {{{n}}} inside maths: write \\seed{{{n}}} (DL-17)")
+        for n in re.findall(rf"\\seed\{{({SEED_NAME})\}}", math):
+            if n not in declared:
+                out.append(f"\\seed{{{n}}} names no declared seed variable (DL-17)")
     return out
 
 
@@ -128,13 +197,8 @@ def main(draft, repo, extra):
     is_bank = bool(re.search(r"^(x_)?kind:\s*bank\s*$", meta, re.M))
     if not is_bank and not re.search(r"^key:\s*act\.", meta, re.M):
         problems.append("no key: act.* in the meta fence")
-    seed = re.search(r"```seed\n(.*?)```", act, re.S)
-    if seed and not is_bank:
-        # Derived variables and where are banks-only until an activity needs them (B-162, BE-2):
-        # the importer refuses either in an activity file.
-        for line in seed.group(1).splitlines():
-            if re.match(r"\s*where\b", line) or re.match(r"\s*[a-z][a-z0-9_]*\s*:\s*=", line):
-                problems.append(f"seed: {line.strip()!r}: derived variables and where are banks-only (B-162)")
+    if not is_bank:
+        problems += seed_problems(act)
     if re.search(r"^unit:", meta, re.M):
         problems.append("unit: key present (the chain registry sets it)")
 
@@ -154,7 +218,7 @@ def main(draft, repo, extra):
         problems.append(f"skill: {m.group(1) if m else None} is not registered")
     else:
         named.add(m.group(1))
-    for key, val in re.findall(r"^(x_\w*skills|supporting_skills):\s*(.+)$", meta, re.M):
+    for key, val in re.findall(r"^(x_\w*skills|supporting_skills|dol_skills):\s*(.+)$", meta, re.M):
         for sid in [v.strip() for v in val.split(",")]:
             if sid in retired:
                 problems.append(f"{key}: {sid} is retired")

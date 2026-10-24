@@ -171,10 +171,18 @@ misconception ids** via distractor maps, and the map is what turns feedback from
   simplest form), never grade the answer with an equivalence blank (`==`). Equivalence accepts
   the question itself and every equivalent wrong form: "factorise 18x − 12" marks `18x − 12` and
   the not-highest `2(9x − 6)` right, so the binding on the wrong form can never fire. Carry the
-  form instead: gaps inside the target form (`gap_equation`, e.g. `6(3x − 2)` with the 6 and the
-  2 as gaps), exact-match alternates listing each acceptable ordering, or an mc whose distractor
-  is the wrong form. Same family as the units rule above. It holds until the platform grades
-  "equivalent and in the stated form" (D60).
+  form instead, with a carrier that can bind the misconception:
+  - **numeric blanks inside the target form**, one per coefficient, laid out in the prose
+    (`{{=g | !h :: … :: mis…}}( {{=a}}x − {{=b}} )`): the layout holds the form and each blank
+    binds its own wrong value. This works seeded or fixed;
+  - **an mc whose distractors are the wrong forms**, seeded or fixed;
+  - unseeded only: an exact-match blank listing each acceptable ordering (`12ab | 12ba`). A
+    seeded blank can't hold a form, because its answer is evaluated to a number (B-210).
+
+  A `gap_equation` gap keeps the student inside the form, but it takes only a literal answer, no
+  `!mistake` and no seeding (B-210), so it never names the misconception. Use it for unbound faded
+  steps only. Same family as the units rule above. It holds until the platform grades
+  "equivalent and in the stated form" (D60), or gaps take seeded answers and bindings.
 - Use only ids that exist in the registry. Never invent one inline — describe the
   anticipated error in a note instead, so a human can promote it to an id.
 - **Distractor maps go only on auto-scored, per-item captured types** (multiple

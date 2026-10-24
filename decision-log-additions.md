@@ -2696,3 +2696,65 @@ standing constraint: if the curriculum or platform is ever sold, the quotes need
 *Not a decision, recorded:* `702-chain.number.powers` keeps "Powers" in its display title. Its
 activities are tagged `index` (D52), and a tap on "power" resolves through `index`'s variant.
 README fixed: the log runs from D18 onward, and there are thirteen checks.
+
+---
+
+## Amendments added 2026-10-24 (the platform's D65 and D68 rulings; Zan's alignment review)
+
+On the platform's design passes (dol-retake.md DL-1–DL-17, ruled; mixed-practice-teacher-panel.md
+W-1–W-11, ruled; platform main d36560c5), C-162 to C-164, and B-207 to B-210.
+
+**D65 note (2026-10-24). The DoL retake as ruled.**
+- *Grammar* (the platform's DL-1, DL-4 and DL-17; lint in `tools/lint_draft.py`):
+  - The DoL section's heading carries `{checkpoint dol}`.
+  - `dol_skills:` replaces `x_dol_skills:`. Its order maps item to skill, and the first item is
+    primary.
+  - `dol_rubric_levels:` replaces `x_dol_rubric_levels:`.
+  - The DoL's own seed fence may hold derived values and `where dol:`, which is the only `where`
+    spelling in an activity: C-123's unscoped form is retracted for activities. B-162's BE-2 is
+    lifted for that fence only.
+  - A DoL item may not use an activity-level seed variable, because it wouldn't redraw.
+  - Inside `$…$`, a seed reference is written `\seed{name}`.
+  - The capability row and the pin bump follow the platform's push (B14).
+- *Items* (DL-2): an item is a gradable block in the DoL, and the count equals `dol_skills`. The
+  primary block carries two or three blanks or parts on the skill, and it is right only when all
+  of them are right. The 21 live DoLs pass the count (B-210).
+- *Parallel forms* (DL-4, DL-5): a retake redraws the DoL's seed fence. The fence's `where` lines
+  remove the cases that change difficulty: a coefficient of 1, a common factor of 1, answers that
+  are integers on one form and not another. An unseeded DoL gets the pass signal but no retake,
+  and loses free re-checks on its next republish. Y9 DoLs are written seeded, and the live Y7–8
+  DoLs are seeded as each file is next touched.
+- *Between attempts* (DL-8): verdicts and mistake feedback show, but not worked solutions. The
+  retake opens on the next practice day, in the **activity owner's** timezone. That departs from
+  C-163's class timezone, and is accepted because a section check has no class context.
+- *Rubric primary items* (DL-11): the teacher ticks "passed", prefilled when every line tagged at
+  the locale's base level is met. There is no `pass:` key. `801/04` has no rubric levels, so it
+  gets its `dol_rubric_levels:` when the file is next touched.
+- *Pass on a multi-part skill:* asked of the platform in C-164. A pass should count only on the
+  skill's final part (D48 ruling 6), and B-211 is owed on it.
+
+**D68 amendment (2026-10-24). "Same mistake twice" uses the struggling rule's window, and the
+wording is "Getting stuck on".** Group 2 is the same misconception id on two or more of the
+student's last `mixed_struggling_window` first tries, across days, listed only for students who
+practised today (C-162, W-4). Group 1 stays today. The sprint contributes only "needs a
+strategy", shown by fact family and never merged with mixed practice's signal. "Struggling" no
+longer appears on screen; the keys keep their names. *Open:* the platform's 0068 counts the
+window per skill. C-164 asks for it across skills, because pair attachments were half the
+reason. "Within the session", in D68 as first written, is superseded.
+
+**D70 amendment (2026-10-24). At most one consolidation per chain.** Zan's ruling, on the review
+finding that the platform admits a consolidation's skills from its chain's discrimination bank
+(D71 as built), and that bank naming (`<chain>.discrimination.md`) allows one bank per chain. With
+one consolidation per chain, "per chain" equals "per consolidation", and the build is correct. A
+chain that needs a second consolidation writes to the platform first; the fix would key the bank
+to its consolidation activity.
+
+**D60 amendment (2026-10-24). The carriers for an answer's form, corrected to the platform's facts
+(B-210).** A seeded blank can't hold a form, because its answer is evaluated to a number. A
+`gap_equation` gap takes only a literal answer, with no binding and no seed. So the carriers are:
+numeric blanks inside the target form, an mc whose distractors are the wrong forms, or, unseeded
+only, exact-match alternates. §7 is rewritten to match. Wish filed with the platform: seeded
+answers and bindings in `gap_equation`, triggered when 904 activity 01 is drafted.
+
+*Owed (recorded so it isn't lost):* the `algebra.expressions.like-terms` bank (D71: the skill
+enters Y9 pools with nothing to serve until it exists), and `801/04`'s `dol_rubric_levels:`.
