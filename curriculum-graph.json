@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.19.1",
+  "version": "0.19.2",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -4280,6 +4280,20 @@
         "scoring": "none",
         "captures_response": false,
         "score_shape": "none"
+      }
+    },
+    {
+      "id": "dol_retake",
+      "label": "DoL with a retake",
+      "medium": "electronic",
+      "affords": "Marks an activity's Check for understanding as its DoL: the heading carries {checkpoint dol}, and meta lists dol_skills (the primary skill first, then the review skill, one per gradable block in order) and, for a rubric primary item, dol_rubric_levels. A seeded DoL gives the student a second attempt, a fresh draw of the DoL's own seed fence, on their next practice day. The primary block decides \"passed\" for the skill (D65), which unlocks P and E templates in mixed practice (D66).",
+      "constraints": "One DoL per activity, always its own check group. The gradable blocks equal dol_skills in number; the primary block is right only when all its blanks are right, and carries two or three of them. Only the DoL's own seed fence may hold derived values and where dol:; its variables reach the primary block, leave at least two valid draws per group, and never reuse an activity-level name. Inside maths a seed reference is \\seed{name}. An unseeded DoL gets one attempt. Worked solutions stay hidden until the retake or a pass. A rubric primary item's retake also waits for the released grade; its pass is the teacher's tick, prefilled from the base-level lines. Only a skill's final part grants a pass; a consolidation never does.",
+      "status": "shipped",
+      "grading": {
+        "scoring": "none",
+        "captures_response": false,
+        "score_shape": "none",
+        "note": "A flow capability, like columns: the items inside the DoL carry the grading."
       }
     },
     {
