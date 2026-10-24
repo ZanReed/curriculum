@@ -56,19 +56,36 @@ def ids(path):
 
 
 SEED_NAME = r"[a-z][a-z0-9_]*"
-DOL_HEADING = re.compile(r"^## .*\{[^}]*\bdol\b[^}]*\}\s*$", re.M)
 
 
-def dol_span(act):
+def dol_grammar(repo):
+    """The D65 DoL grammar, read from the pinned capability facts (prose_facts.dol_grammar, B-214)."""
+    facts = json.loads((Path(repo) / "platform-pins" / "capability-facts.json").read_text(encoding="utf-8"))
+    g = (facts.get("prose_facts") or {}).get("dol_grammar")
+    if not g:
+        raise SystemExit("no prose_facts.dol_grammar in platform-pins/capability-facts.json (vacuity guard)")
+    marker = g["heading_marker"]                       # "{checkpoint dol}"
+    scope = g["where_spelling"].split()[1].rstrip(":")  # "where dol:" -> "dol"
+    macro = g["math_reference"].split("{", 1)[0]       # "\\seed{name}" -> "\\seed"
+    return {
+        "heading": re.compile(r"^## .*" + re.escape(marker) + r"\s*$", re.M),
+        "scope": scope,
+        "where": g["where_spelling"],
+        "macro": macro,
+        "meta_keys": list(g["meta_keys"]),
+    }
+
+
+def dol_span(act, gram):
     """The DoL section: from its `{checkpoint dol}` heading to the next ## heading or the guide (D65, DL-1)."""
-    m = DOL_HEADING.search(act)
+    m = gram["heading"].search(act)
     if not m:
         return None
     end = re.search(r"^## |^```teacher-guide", act[m.end():], re.M)
     return m.start(), m.end() + (end.start() if end else len(act) - m.end())
 
 
-def seed_problems(act):
+def seed_problems(act, gram):
     """D65 grammar in an activity's seed fences (DL-4, DL-17; B-162 BE-2 lifted for the DoL only).
 
     - Outside the DoL, a seed fence takes drawn variables only: derived values and `where` stay
@@ -79,7 +96,8 @@ def seed_problems(act):
       (LaTeX reads it as a group), and \\seed{} must name a declared variable.
     """
     out = []
-    span = dol_span(act)
+    span = dol_span(act, gram)
+    W, M = gram["where"], gram["macro"]
     outer, inner = set(), set()
     for fm in re.finditer(r"```seed\n(.*?)```", act, re.S):
         in_dol = span is not None and span[0] <= fm.start() < span[1]
@@ -90,9 +108,9 @@ def seed_problems(act):
             w = re.match(r"where\b\s*(\S*?)\s*:", s)
             if w or s.startswith("where"):
                 if not in_dol:
-                    out.append(f"seed: {s!r}: where is allowed only in the DoL's seed fence, as `where dol:` (D65, DL-4)")
-                elif not w or w.group(1) != "dol":
-                    out.append(f"seed: {s!r}: in an activity, where is spelled `where dol:` (DL-4; C-123's unscoped form is retracted)")
+                    out.append(f"seed: {s!r}: where is allowed only in the DoL's seed fence, as `{W}` (D65, DL-4)")
+                elif not w or w.group(1) != gram["scope"]:
+                    out.append(f"seed: {s!r}: in an activity, where is spelled `{W}` (DL-4; C-123's unscoped form is retracted)")
                 continue
             d = re.match(rf"({SEED_NAME})\s*:\s*(=?)", s)
             if not d:
@@ -102,7 +120,7 @@ def seed_problems(act):
             (inner if in_dol else outer).add(d.group(1))
     if span is not None:
         dol = re.sub(r"```seed\n.*?```", "", act[span[0]:span[1]], flags=re.S)
-        used = set(re.findall(rf"(?<!\{{)\{{({SEED_NAME})\}}(?!\}})", dol)) | set(re.findall(rf"\\seed\{{({SEED_NAME})\}}", dol))
+        used = set(re.findall(rf"(?<!\{{)\{{({SEED_NAME})\}}(?!\}})", dol)) | set(re.findall(re.escape(M) + rf"\{{({SEED_NAME})\}}", dol))
         for b in re.findall(r"\{\{=(.*?)\}\}", dol):
             used |= set(re.findall(rf"\b({SEED_NAME})\b", b.split("::")[0]))
         for n in sorted((used & outer) - inner):
@@ -111,12 +129,12 @@ def seed_problems(act):
     body = re.sub(r"```(meta|teacher-guide|seed).*?```", "", act, flags=re.S).replace("\\$", "")
     for m in re.finditer(r"\$\$(.+?)\$\$|\$(.+?)\$", body, re.S):
         math = m.group(0)
-        for n in re.findall(rf"(?<!\\seed)\{{({SEED_NAME})\}}", math):
+        for n in re.findall(rf"(?<!{re.escape(M)})\{{({SEED_NAME})\}}", math):
             if n in declared:
-                out.append(f"seed reference {{{n}}} inside maths: write \\seed{{{n}}} (DL-17)")
-        for n in re.findall(rf"\\seed\{{({SEED_NAME})\}}", math):
+                out.append(f"seed reference {{{n}}} inside maths: write {M}{{{n}}} (DL-17)")
+        for n in re.findall(re.escape(M) + rf"\{{({SEED_NAME})\}}", math):
             if n not in declared:
-                out.append(f"\\seed{{{n}}} names no declared seed variable (DL-17)")
+                out.append(f"{M}{{{n}}} names no declared seed variable (DL-17)")
     return out
 
 
@@ -144,6 +162,7 @@ def main(draft, repo, extra):
     problems = []
 
     allowed = allowed_fences(repo)
+    gram = dol_grammar(repo)
     for tag in re.findall(r"^```([\w-]*)", act, re.M):
         if tag and tag not in allowed:
             problems.append(f"fence not allowed: {tag}")
@@ -198,7 +217,7 @@ def main(draft, repo, extra):
     if not is_bank and not re.search(r"^key:\s*act\.", meta, re.M):
         problems.append("no key: act.* in the meta fence")
     if not is_bank:
-        problems += seed_problems(act)
+        problems += seed_problems(act, gram)
     if re.search(r"^unit:", meta, re.M):
         problems.append("unit: key present (the chain registry sets it)")
 
@@ -218,7 +237,8 @@ def main(draft, repo, extra):
         problems.append(f"skill: {m.group(1) if m else None} is not registered")
     else:
         named.add(m.group(1))
-    for key, val in re.findall(r"^(x_\w*skills|supporting_skills|dol_skills):\s*(.+)$", meta, re.M):
+    skill_keys = "|".join(re.escape(k) for k in gram["meta_keys"] if k.endswith("skills"))
+    for key, val in re.findall(rf"^(x_\w*skills|supporting_skills|{skill_keys}):\s*(.+)$", meta, re.M):
         for sid in [v.strip() for v in val.split(",")]:
             if sid in retired:
                 problems.append(f"{key}: {sid} is retired")

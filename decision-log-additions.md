@@ -2758,3 +2758,5 @@ answers and bindings in `gap_equation`, triggered when 904 activity 01 is drafte
 
 *Owed (recorded so it isn't lost):* the `algebra.expressions.like-terms` bank (D71: the skill
 enters Y9 pools with nothing to serve until it exists), and `801/04`'s `dol_rubric_levels:`.
+
+**D65 note (2026-10-25). The DoL retake is live, and the pin follows it.** The platform shipped D65 (B-214, platform main 71510584). The capability-facts pin moves to `7b685b58` (sha256 `94a9e150…`), adding one capability, `dol_retake`: a flow capability like `columns`, shipped, with scoring none. Its prose is ours, written from the ruled rules (B-211, B-213). The pin also adds `prose_facts.dol_grammar`, and `tools/lint_draft.py` now reads the marker, the `where` spelling and the maths macro from it instead of copying them. *From this pin on,* activities are written with `dol_skills:`, `dol_rubric_levels:` and the `{checkpoint dol}` marker, not the `x_` keys. An unseeded DoL re-imported with the marker gets one attempt, so a live file is seeded before it gets the marker (C-163: as each file is next touched).
