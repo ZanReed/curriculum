@@ -117,3 +117,8 @@ jobs:
           ! python3 tools/check_figures.py tests/fixtures/tools/bad-caption.md
           ! python3 tools/lint_draft.py tests/fixtures/tools/bad-binding.md .
           ! python3 tools/lint_draft.py tests/fixtures/tools/bad-activity-derived.md .
+          python3 tools/lint_draft.py tests/fixtures/tools/dol/good-dol.md .
+          ! python3 tools/lint_draft.py tests/fixtures/tools/dol/bad-dol-where-unscoped.md .
+          ! python3 tools/lint_draft.py tests/fixtures/tools/dol/bad-dol-derived-outside.md .
+          ! python3 tools/lint_draft.py tests/fixtures/tools/dol/bad-dol-outer-variable.md .
+          ! python3 tools/lint_draft.py tests/fixtures/tools/dol/bad-dol-math-reference.md .
