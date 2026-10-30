@@ -305,6 +305,10 @@ def main() -> int:
             if not (isint(v) and v >= lo and (hi is None or v <= hi)):
                 failures.append(f"L {k} must be a whole number >= {lo}"
                                 + (f" and <= {hi}" if hi is not None else ""))
+    # L — targeted-practice dose (D65 slice 2, TP-3; C-167): 2–8 items
+    dpi = defaults.get("dol_practice_items")
+    if not (isinstance(dpi, int) and not isinstance(dpi, bool) and 2 <= dpi <= 8):
+        failures.append("L dol_practice_items must be a whole number >= 2 and <= 8")
 
     if failures:
         print(f"check 4 FAIL — {len(failures)} finding(s):", file=sys.stderr)

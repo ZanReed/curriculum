@@ -349,14 +349,17 @@ session size and "struggling" are graph keys (`activity_defaults.mixed_*`, D43 a
 2026-10-20).
 
 **Every skill owes a practice bank**, authored per chain *after* its activities, because
-activity authoring is where the misconceptions surface. The bank:
+activity authoring is where the misconceptions surface, and ratified *before* the chain reaches
+students: mixed practice serves the skill the next practice day, and the DoL's targeted practice
+draws from the bank. The bank:
 - is separate from the DoL items. A DoL rehearsed in practice measures nothing.
 - is auto-scorable only, at every year. Nobody hand-marks practice.
 - holds short items, about 60–90 seconds each.
 - uses parametric templates for procedural skills (4–6 per skill) and fixed items for
   context skills.
-- covers every misconception attached to the skill in at least one item. Most items are
-  clean: the tags are there for diagnosis, not to catch students out.
+- covers every misconception attached to the skill in at least one item, including every one
+  the skill's DoL binds (the import check fails otherwise). Most items are clean: the tags are
+  there for diagnosis, not to catch students out.
 - adds discrimination items ("which method fits?") per consolidation, for confusable sets.
 - gives every procedural item a worked solution of 2–4 lines in its seeded values, and every
   fixed item its answer plus one line on why. The solution is shown after the first try: open

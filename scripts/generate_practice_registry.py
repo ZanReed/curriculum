@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 """
 Generate practice-registry.json from the graph's seven `activity_defaults.mixed_*` keys
-(D43 amendment 2026-10-20; contract B-193).
+(D43 amendment 2026-10-20; contract B-193) and `dol_practice_items` (D65 targeted practice,
+TP-3; C-167).
 
 The graph is the only edit surface. The platform's importer reads generated registries,
-never the graph, so this re-encodes the seven keys for it. The body is exactly those keys,
+never the graph, so this re-encodes those eight keys for it. The body is exactly those keys,
 flat, copied unchanged. The header's revision is the sha256 of the canonical JSON body
 (header excluded), the same rule as fact-scope-registry.json, so the same id always means
 the same content.
 
-It writes nothing if any of the seven keys is missing. Their bounds are integrity check L's
+It writes nothing if any of the eight keys is missing. Their bounds are integrity check L's
 job (scripts/check_integrity.py), which runs under the same CI.
 
 Usage:
@@ -23,6 +24,7 @@ import sys
 MIXED_KEYS = ["mixed_step_intervals", "mixed_wrong_drop", "mixed_items_per_session",
               "mixed_max_discrimination", "mixed_new_skills_per_session",
               "mixed_struggling_window", "mixed_struggling_min_right"]   # D43 2026-10-20; check L
+DOL_KEYS = ["dol_practice_items"]   # D65 slice 2 targeted practice (TP-3, C-167); check L
 
 
 def main():
@@ -34,13 +36,13 @@ def main():
     with open(args.graph, encoding="utf-8") as fh:
         g = json.load(fh)
     defaults = g.get("activity_defaults", {})
-    missing = [k for k in MIXED_KEYS if k not in defaults]
+    missing = [k for k in MIXED_KEYS + DOL_KEYS if k not in defaults]
     if missing:
         print(f"PRACTICE  activity_defaults missing {missing}", file=sys.stderr)
         print("\nNothing written.", file=sys.stderr)
         sys.exit(1)
 
-    body = {k: defaults[k] for k in MIXED_KEYS}
+    body = {k: defaults[k] for k in MIXED_KEYS + DOL_KEYS}
     canonical = json.dumps(body, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     revision = hashlib.sha256(canonical.encode("utf-8")).hexdigest()
     doc = {
