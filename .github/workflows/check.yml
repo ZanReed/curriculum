@@ -122,3 +122,11 @@ jobs:
           ! python3 tools/lint_draft.py tests/fixtures/tools/dol/bad-dol-derived-outside.md .
           ! python3 tools/lint_draft.py tests/fixtures/tools/dol/bad-dol-outer-variable.md .
           ! python3 tools/lint_draft.py tests/fixtures/tools/dol/bad-dol-math-reference.md .
+          ! python3 tools/lint_draft.py tests/fixtures/tools/dol/bad-dol-first-skill.md .
+          ! python3 tools/lint_draft.py tests/fixtures/tools/dol/bad-dol-item-count.md .
+          ! python3 tools/lint_draft.py tests/fixtures/tools/dol/bad-dol-primary-blanks.md .
+          ! python3 tools/lint_draft.py tests/fixtures/tools/dol/bad-dol-primary-unseeded.md .
+          ! python3 tools/lint_draft.py tests/fixtures/tools/dol/bad-dol-one-row.md .
+          ! python3 tools/lint_draft.py tests/fixtures/tools/dol/bad-dol-reused-name.md .
+          python3 tools/lint_draft.py tests/fixtures/tools/dol/good-dol.md . --banks tests/fixtures/tools/dol/banks-good
+          ! python3 tools/lint_draft.py tests/fixtures/tools/dol/bad-dol-bank-binding.md . --banks tests/fixtures/tools/dol/banks-bad

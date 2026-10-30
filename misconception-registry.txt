@@ -1,6 +1,6 @@
 # Misconception registry — the valid mis.* id set.
 #
-# Generated from curriculum-graph.json v0.19.2. Do not hand-edit: regenerate.
+# Generated from curriculum-graph.json v0.19.3. Do not hand-edit: regenerate.
 # An id-shaped token not listed here warns, and fails under --strict.
 
 mis.algebra.cancelled-to-zero                     # Treats a factor divided by itself as 0 or nothing instead of 1 (8a ÷ 8a = 0; 3x + 3 = 3(x))

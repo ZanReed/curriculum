@@ -2760,3 +2760,24 @@ answers and bindings in `gap_equation`, triggered when 904 activity 01 is drafte
 enters Y9 pools with nothing to serve until it exists), and `801/04`'s `dol_rubric_levels:`.
 
 **D65 note (2026-10-25). The DoL retake is live, and the pin follows it.** The platform shipped D65 (B-214, platform main 71510584). The capability-facts pin moves to `7b685b58` (sha256 `94a9e150…`), adding one capability, `dol_retake`: a flow capability like `columns`, shipped, with scoring none. Its prose is ours, written from the ruled rules (B-211, B-213). The pin also adds `prose_facts.dol_grammar`, and `tools/lint_draft.py` now reads the marker, the `where` spelling and the maths macro from it instead of copying them. *From this pin on,* activities are written with `dol_skills:`, `dol_rubric_levels:` and the `{checkpoint dol}` marker, not the `x_` keys. An unseeded DoL re-imported with the marker gets one attempt, so a live file is seeded before it gets the marker (C-163: as each file is next touched).
+
+## Amendments added 2026-10-30 (D65 slice 2, targeted practice; C-167)
+
+**D65 note (2026-10-30). Targeted practice before the retake, and its dose is a graph key.** The
+platform shipped slice 2 (B-216, platform d47dca95): after a missed first try, the DoL offers
+"Practise this skill (N questions)" from the primary skill's ratified bank, templates that bind
+the misconceptions the student showed first, tier-filtered as in mixed practice. N is the graph
+key `activity_defaults.dol_practice_items` = 4, carried in `practice-registry.json` and bounded
+2–8 by check 4 L (C-167). The platform keeps its constant until its importer accepts the eighth
+key, so the registry change waits on that. *A consolidation never grants a DoL pass* (confirmed
+2026-10-30): its DoL tests choosing between skills, and the pass belongs to a skill's final part.
+The import check B-198 promised (TP-8) is live: every `mis.*` a DoL binds must be bound by a
+ratified template of the primary skill's bank, when that bank exists. `tools/lint_draft.py
+--banks` checks the same rule first. Known case: 801/03 binds
+`mis.proportional.one-pair-assumed-constant`, which `rate.proportional-graph`'s bank does not, so
+the id is attached to that skill and a bank template binds it before 801/03 gets the marker.
+
+**D43 note (2026-10-30). A skill's bank is ratified before its chain reaches students.** It is
+still written after the activity (§17). Without it, mixed practice has nothing to serve the day
+after the chain is taught, and the DoL's practice offer never shows. The
+`algebra.expressions.like-terms` bank (D71) is first in the queue.

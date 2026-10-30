@@ -21,18 +21,29 @@ Checks the activity inside the draft (from its ```meta fence to the end of its
   values and `where` appear only in the DoL section's seed fence (the `{checkpoint dol}` heading), and
   `where` is spelled `where dol:`; a DoL item uses no activity-level seed variable; a seed reference
   inside $...$ is written \\seed{name}.
+- D65 DoL shape (2026-10-30, mirrors the platform's dolImport.ts so a draft fails here first):
+  `dol_skills:` starts with `skill:`; the DoL has one gradable item per `dol_skills:` entry; a
+  fill-in primary item has 2–3 blanks (C-163); a seeded DoL's primary item uses a DoL seed variable
+  (DE-8) and each variable group it uses has at least 2 valid rows (DE-13); a DoL seed variable
+  never reuses an activity-level name (DE-6); with --banks DIR, every mis.* the DoL binds is bound
+  by a ratified template of the primary skill's bank, when that bank exists (TP-8, C-167).
 
 Moved into the repo 2026-10-10 (tools/): the allowed fences now come from the pinned platform
 capability facts (the union of every capability's reached_by.fence and exempt_fences, which the
 platform's CI keeps complete: B-140), not a copied list; a bank file (x_kind: bank in its meta)
 is exempt from the act.* key check again (the 6 Oct rule, lost in the 7 Oct rebuild).
 
-Usage: python3 tools/lint_draft.py DRAFT.md CURRICULUM_REPO [EXTRA_GLOSSARY.md ...]
+Usage: python3 tools/lint_draft.py DRAFT.md CURRICULUM_REPO [--banks CATALOGUE/banks] [EXTRA_GLOSSARY.md ...]
 """
+import itertools
 import json
 import re
 import sys
+from fractions import Fraction
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from check_bank import CAP, ev, names_in, seed_spec  # noqa: E402  the bank's seed reader and evaluator
 
 def allowed_fences(repo):
     """Fence tags the platform importer accepts, from the pinned capability facts (B-140)."""
@@ -138,6 +149,127 @@ def seed_problems(act, gram):
     return out
 
 
+GRADABLE_FENCES = {"mc", "match", "correspond", "order", "numberline", "explain", "graph", "dataplot"}
+
+
+def dol_items(dol):
+    """The DoL's gradable items in order, as (kind, text): a fence the importer grades, or a
+    paragraph or list item carrying a {{blank}} (it becomes fill_in_blank). A graph or dataplot
+    with `interaction: display` is not gradable (isGradeable)."""
+    out, pos = [], 0
+    for f in re.finditer(r"^```([\w-]*)\n(.*?)^```", dol, re.M | re.S):
+        out += [("blank", c) for c in re.split(r"\n\s*\n|\n(?=[-*] |\d+\. )", dol[pos:f.start()]) if "{{" in c]
+        tag, body = f.group(1), f.group(2)
+        if tag in GRADABLE_FENCES and not re.search(r"^interaction:\s*display\s*$", body, re.M):
+            out.append((tag, body))
+        pos = f.end()
+    out += [("blank", c) for c in re.split(r"\n\s*\n|\n(?=[-*] |\d+\. )", dol[pos:]) if "{{" in c]
+    return out
+
+
+def seed_rows(fence):
+    """{frozenset(group): valid rows} for a DoL seed fence, grouped as dolImport.ts does: a derived
+    value links to its sources, a `where dol:` links every name it uses. None for a group over CAP."""
+    drawn, derived, wheres, _ = seed_spec("```seed\n" + fence + "```")
+    names = set(drawn) | {n for n, _ in derived}
+    parent = {n: n for n in names}
+
+    def find(n):
+        while parent[n] != n:
+            n = parent[n]
+        return n
+    links = [[d] + sorted(names_in(e) & names) for d, e in derived] + [sorted(names_in(p) & names) for _, p in wheres]
+    for ln in links:
+        for o in ln[1:]:
+            parent[find(o)] = find(ln[0])
+    groups = {}
+    for n in names:
+        groups.setdefault(find(n), set()).add(n)
+    out = {}
+    for g in groups.values():
+        vs = sorted(g & set(drawn))
+        total = 1
+        for v in vs:
+            total *= len(drawn[v])
+        if total > CAP:
+            out[frozenset(g)] = None
+            continue
+        preds = [p for _, p in wheres if names_in(p) <= g]
+        valid = 0
+        for combo in itertools.product(*(drawn[v] for v in vs)):
+            env = dict(zip(vs, combo))
+            try:
+                for d, e in derived:
+                    if d in g:
+                        env[d] = Fraction(ev(e, env))
+                if all(ev(p, env) for p in preds):
+                    valid += 1
+            except Exception:  # noqa: BLE001  a row the platform would also drop
+                continue
+        out[frozenset(g)] = valid
+    return out
+
+
+def bank_bindings(banks, skill):
+    """mis.* ids bound in the ratified bank for `skill` under a catalogue banks/ folder, or None
+    when there is no ratified bank (TP-8 is silent then: banks lag activities)."""
+    for f in sorted(Path(banks).glob(f"*/{skill}.md")):
+        md = f.read_text(encoding="utf-8")
+        m = re.search(r"```meta\n(.*?)```", md, re.S)
+        if m and re.search(r"^status:\s*ratified\s*$", m.group(1), re.M):
+            return set(re.findall(r"::\s*(mis\.[\w.-]+)", md))
+    return None
+
+
+def dol_shape_problems(act, gram, meta, banks):
+    """The D65 DoL shape rules (see the module docstring)."""
+    span = dol_span(act, gram)
+    if span is None:
+        return []
+    out = []
+    dol = act[span[0]:span[1]]
+    sk = re.search(r"^skill:\s*(\S+)", meta, re.M)
+    ds = re.search(r"^dol_skills:\s*(.+)$", meta, re.M)
+    skills = [v.strip() for v in ds.group(1).split(",")] if ds else []
+    if not skills:
+        out.append("DoL: the {checkpoint dol} section needs a dol_skills: line, primary skill first (DL-2)")
+    elif sk and skills[0] != sk.group(1):
+        out.append(f"DoL: dol_skills: starts with {skills[0]}, but skill: is {sk.group(1)} (DL-2)")
+    fences = re.findall(r"```seed\n(.*?)```", dol, re.S)
+    items = dol_items(re.sub(r"```seed\n.*?```", "", dol, flags=re.S))
+    if skills and len(items) != len(skills):
+        out.append(f"DoL: {len(items)} gradable item(s), but dol_skills: names {len(skills)}: one item per skill, in order (DL-2)")
+    if not items:
+        return out
+    kind, primary = items[0]
+    if kind == "blank" and not 2 <= primary.count("{{") <= 3:
+        out.append(f"DoL: the primary item has {primary.count('{{')} blank(s); a DoL primary item has 2–3 (C-163)")
+    if fences:
+        dvars = {d.group(1) for f in fences for d in re.finditer(rf"^\s*({SEED_NAME})\s*:", f, re.M)} - {"where"}
+        outer_fences = re.findall(r"```seed\n(.*?)```", act[:span[0]] + act[span[1]:], re.S)
+        outer = {d.group(1) for f in outer_fences for d in re.finditer(rf"^\s*({SEED_NAME})\s*:", f, re.M)} - {"where"}
+        for n in sorted(dvars & outer):
+            out.append(f"DoL seed: {n} is also an activity-level seed variable; a DoL variable may not reuse its name (DE-6)")
+        refs = set(re.findall(rf"\{{({SEED_NAME})\}}", primary))
+        for b in re.findall(r"\{\{=(.*?)\}\}", primary):
+            refs |= names_in(b.split("::")[0])
+        rows = seed_rows(fences[0])
+        used = [(g, r) for g, r in rows.items() if g & refs & dvars]
+        if not used:
+            out.append("DoL: the primary item uses no DoL seed variable, so a retake would re-ask the same numbers (DE-8)")
+        for g, r in used:
+            if r is None:
+                out.append(f"DoL seed: group {sorted(g)} has over {CAP} combinations")
+            elif r < 2:
+                out.append(f"DoL seed: group {sorted(g)} has {r} valid row(s); a retake needs at least 2 (DE-13)")
+    if banks and skills:
+        bound = bank_bindings(banks, skills[0])
+        if bound is not None:
+            for mid in sorted(set(re.findall(r"::\s*(mis\.[\w.-]+)", dol)) - bound):
+                out.append(f"DoL binds {mid}, which no ratified template of {skills[0]}'s bank binds (TP-8; --strict fails at import)")
+    return out
+
+
 def activity_text(md):
     start = md.find("```meta")
     if start < 0:
@@ -157,6 +289,10 @@ def blanks(text):
 
 def main(draft, repo, extra):
     repo = Path(repo)
+    banks = None
+    if "--banks" in extra:
+        i = extra.index("--banks")
+        banks, extra = extra[i + 1], extra[:i] + extra[i + 2:]
     md = Path(draft).read_text(encoding="utf-8")
     act = activity_text(md)
     problems = []
@@ -218,6 +354,7 @@ def main(draft, repo, extra):
         problems.append("no key: act.* in the meta fence")
     if not is_bank:
         problems += seed_problems(act, gram)
+        problems += dol_shape_problems(act, gram, meta, banks)
     if re.search(r"^unit:", meta, re.M):
         problems.append("unit: key present (the chain registry sets it)")
 
