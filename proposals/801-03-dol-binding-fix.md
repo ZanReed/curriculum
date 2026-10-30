@@ -1,5 +1,5 @@
 ---
-status: draft for Zan's ratification (2026-10-30). Applied to the catalogue bank only after the ruling.
+status: t7 ratified by Zan as drafted 2026-10-30; C-170 notice sent. Applied to the catalogue bank after #82 merges.
 fixes: 801/03's DoL binds mis.proportional.one-pair-assumed-constant, which rate.proportional-graph's bank does not bind (TP-8; C-167, B-217)
 ---
 
