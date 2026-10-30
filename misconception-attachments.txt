@@ -2,7 +2,7 @@
 #
 # One `skill.id   mis.id` pair per line; a misconception may attach to several
 # skills. Descriptions live in misconception-registry.txt, not here.
-# Generated from curriculum-graph.json v0.19.3. Do not hand-edit: regenerate.
+# Generated from curriculum-graph.json v0.19.4. Do not hand-edit: regenerate.
 
 algebra.equations.both-sides              mis.equations.one-side-only
 algebra.equations.both-sides              mis.equations.same-operation
@@ -165,6 +165,7 @@ prob.theoretical.equally-likely           mis.prob.equiprobability
 rate.constant-of-proportionality          mis.proportional.one-pair-assumed-constant
 rate.constant-of-proportionality          mis.rate.ratio-inverted
 rate.proportional-graph                   mis.proportional.line-misses-origin
+rate.proportional-graph                   mis.proportional.one-pair-assumed-constant
 rate.unit-rate                            mis.rate.compares-totals
 rate.unit-rate                            mis.rate.ratio-inverted
 roc.average.from-table                    mis.roc.uses-endpoint-value
