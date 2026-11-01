@@ -2797,13 +2797,17 @@ decides the pass (amends D35, D41 and §8).**
    response builds the habit, and keeping it out of the pass keeps the D65 loop from waiting on
    marking.
 4. *Format.* A `shortanswer` with a one- or two-line rubric and an `answer:` key. Marking is
-   optional, and marked answers become labelled examples for the AI grader. *Fallback:* an
-   `explain` fence (captured, never marked), if the platform reports that an unmarked `shortanswer`
-   shows anyone a waiting state (asked in C-173).
+   optional, and marked answers become labelled examples for the AI grader. The platform derives
+   "optional" from the document (B-224): in a DoL, a rubric item that isn't the primary shows
+   "Recorded", leaves the to-grade counts and stays markable on Responses. Until that fix is live
+   it still shows as owed marking; that is the only difference. After a retake, Responses lists
+   only the latest attempt, so first-try answers aren't marked, though both are stored.
 5. *Spelling.* The primary skill is listed again as the last `dol_skills:` entry, so the one item
    per entry rule (DL-2) holds with no new key. Only the first entry decides the pass. Its rubric
-   lines carry no level tags: `dol_rubric_levels:` describes a rubric primary only. The platform's
-   confirmation is asked in C-173.
+   lines carry no level tags, and `dol_rubric_levels:` is left out, because the import refuses it
+   on an auto-scored primary. Confirmed in B-224. Nothing on the platform reads the repeated entry
+   today; if per-item skill data is ever built, an explanation would count twice, so tell the
+   platform first.
 6. *Writing rule.* The prompt asks why, not what: the student's own method, or what went wrong in
    the planted error (§16). It gives away no blank's answer, binds no misconception, and names the
    context but no new numbers, so it reads correctly on every draw without a seed.
