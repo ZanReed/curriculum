@@ -149,21 +149,23 @@ def seed_problems(act, gram):
     return out
 
 
-GRADABLE_FENCES = {"mc", "match", "correspond", "order", "numberline", "explain", "graph", "dataplot"}
+GRADABLE_FENCES = {"mc", "match", "correspond", "order", "numberline", "explain", "shortanswer", "essay", "faded", "graph", "dataplot"}
 
 
 def dol_items(dol):
-    """The DoL's gradable items in order, as (kind, text): a fence the importer grades, or a
-    paragraph or list item carrying a {{blank}} (it becomes fill_in_blank). A graph or dataplot
-    with `interaction: display` is not gradable (isGradeable)."""
+    """The DoL's gradable items in order, as (kind, text), following the platform's isGradeable: a
+    fence the importer grades, a table with a {{blank}} in a cell, a paragraph or list item carrying
+    a {{blank}} (it becomes fill_in_blank), or an equation with a \\gap. A graph or dataplot with
+    `interaction: display` is not gradable."""
+    has_blank = lambda c: "{{" in c or "\\gap" in c
     out, pos = [], 0
     for f in re.finditer(r"^```([\w-]*)\n(.*?)^```", dol, re.M | re.S):
-        out += [("blank", c) for c in re.split(r"\n\s*\n|\n(?=[-*] |\d+\. )", dol[pos:f.start()]) if "{{" in c]
+        out += [("blank", c) for c in re.split(r"\n\s*\n|\n(?=[-*] |\d+\. )", dol[pos:f.start()]) if has_blank(c)]
         tag, body = f.group(1), f.group(2)
-        if tag in GRADABLE_FENCES and not re.search(r"^interaction:\s*display\s*$", body, re.M):
+        if (tag in GRADABLE_FENCES and not re.search(r"^interaction:\s*display\s*$", body, re.M)) or (tag == "table" and "{{" in body):
             out.append((tag, body))
         pos = f.end()
-    out += [("blank", c) for c in re.split(r"\n\s*\n|\n(?=[-*] |\d+\. )", dol[pos:]) if "{{" in c]
+    out += [("blank", c) for c in re.split(r"\n\s*\n|\n(?=[-*] |\d+\. )", dol[pos:]) if has_blank(c)]
     return out
 
 
