@@ -27,6 +27,8 @@ Checks the activity inside the draft (from its ```meta fence to the end of its
   (DE-8) and each variable group it uses has at least 2 valid rows (DE-13); a DoL seed variable
   never reuses an activity-level name (DE-6); with --banks DIR, every mis.* the DoL binds is bound
   by a ratified template of the primary skill's bank, when that bank exists (TP-8, C-167).
+- D77 (2026-11-02): the primary skill repeated as the last `dol_skills:` entry marks a written
+  explanation: the last item is a shortanswer or explain, binds nothing, and a rubric primary gets none.
 
 Moved into the repo 2026-10-10 (tools/): the allowed fences now come from the pinned platform
 capability facts (the union of every capability's reached_by.fence and exempt_fences, which the
@@ -244,6 +246,14 @@ def dol_shape_problems(act, gram, meta, banks):
     if not items:
         return out
     kind, primary = items[0]
+    if len(skills) > 2 and skills[-1] == skills[0]:  # D77: the written explanation comes last
+        last_kind, last = items[-1]
+        if last_kind not in ("shortanswer", "explain"):
+            out.append("DoL: the repeated primary skill in dol_skills: marks a written explanation, so the last item must be a shortanswer or explain (D77)")
+        if kind in ("shortanswer", "essay"):
+            out.append("DoL: a rubric primary item doesn't get a written explanation as well (D77)")
+        if re.search(r"mis\.[\w.-]+", last):
+            out.append("DoL: a written explanation binds no misconception (D77)")
     if kind == "blank" and not 2 <= primary.count("{{") <= 3:
         out.append(f"DoL: the primary item has {primary.count('{{')} blank(s); a DoL primary item has 2–3 (C-163)")
     if fences:

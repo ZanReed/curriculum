@@ -2781,3 +2781,43 @@ the id is attached to that skill and a bank template binds it before 801/03 gets
 still written after the activity (§17). Without it, mixed practice has nothing to serve the day
 after the chain is taught, and the DoL's practice offer never shows. The
 `algebra.expressions.like-terms` bank (D71) is first in the queue.
+
+## Ratified 2026-11-02 (written explanations in the DoL)
+
+**D77 (ratified 2026-11-02). Every lesson DoL ends with one written explanation, which never
+decides the pass (amends D35, D41 and §8).**
+1. *What.* After its auto-scored items, a Y7–10 lesson DoL ends with one open-response question
+   asking the student to explain the reasoning behind the primary item, in more than one sentence.
+2. *What it doesn't do.* The pass, the retake, targeted practice and every D65–D67 signal stay on
+   the seeded auto-scored primary. The explanation never decides "passed", never blocks it, and
+   never holds the retake.
+3. *Why.* NZ assessment rewards explaining, and the school's unit test, not the co-requisite, is
+   now the reportable instrument (D74). D35 placed justification only at chain finals because the
+   nearest Y9 assessment was procedural; that premise no longer holds on its own. A daily open
+   response builds the habit, and keeping it out of the pass keeps the D65 loop from waiting on
+   marking.
+4. *Format.* A `shortanswer` with a one- or two-line rubric and an `answer:` key. Marking is
+   optional, and marked answers become labelled examples for the AI grader. The platform derives
+   "optional" from the document (B-224): in a DoL, a rubric item that isn't the primary shows
+   "Recorded", leaves the to-grade counts and stays markable on Responses. Until that fix is live
+   it still shows as owed marking; that is the only difference. After a retake, Responses lists
+   only the latest attempt, so first-try answers aren't marked, though both are stored.
+5. *Spelling.* The primary skill is listed again as the last `dol_skills:` entry, so the one item
+   per entry rule (DL-2) holds with no new key. Only the first entry decides the pass. Its rubric
+   lines carry no level tags, and `dol_rubric_levels:` is left out, because the import refuses it
+   on an auto-scored primary. Confirmed in B-224. Nothing on the platform reads the repeated entry
+   today; if per-item skill data is ever built, an explanation would count twice, so tell the
+   platform first.
+6. *Writing rule.* The prompt asks why, not what: the student's own method, or what went wrong in
+   the planted error (§16). It gives away no blank's answer, binds no misconception, and names the
+   context but no new numbers, so it reads correctly on every draw without a seed.
+7. *Scope.* Y7–10 lesson DoLs. A chain final or consolidation whose primary is already a rubric
+   item doesn't get a second one. Y11–13 DoLs stay justification-weighted as now.
+8. *Time.* `phase_budget_min` moves 2 minutes from `independent` to `dol`, and the cap holds (§10:
+   the faded beat is not compressed). The budget is an authoring estimate; nothing times students.
+   Live activities lose one independent-practice item when next touched, and each guide's "If time
+   runs short" already names it.
+9. *Amends.* D35 and D41: Y7–10 DoLs are auto-scored items plus an error-analysis item plus one
+   written explanation. §8 and the `nz-ncea` locale's `dol_rule` follow. Zan's 15 October note in a
+   project chat, that written explanations go in practice and not the DoL, is superseded.
+Chain 1 (801/01–04) waits on the platform's answer, so its files republish once.
