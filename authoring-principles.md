@@ -206,14 +206,22 @@ argument under another.
   evidence. A rubric-graded justification for a Merit/Excellence locale; auto-scored
   items for a procedural one. What each grade level requires is stated on the locale
   itself (`activity_defaults.locales`, the `levels` entry) — read it there, and tag
-  every rubric line with the level it evidences so the claim is recorded, not implied.
+  every rubric line of a rubric primary item with the level it evidences so the claim is
+  recorded, not implied.
 - Know the data cost: auto-scored DoLs feed misconception aggregates immediately;
   rubric-graded DoLs capture text now and yield structured per-criterion scores only
   after a human grades. Neither is wrong. A chain whose every DoL is rubric-graded
   is a deliberate marking-load decision, not a default.
-- A DoL has exactly 2 items: one on the primary skill, one on a review-pool skill far
+- A DoL has 2 items, then one written explanation: one on the primary skill, one on a review-pool skill far
   enough back, per `activity_defaults.review_selection.constraint` and its floor clause.
   Contextual items require units in the answer.
+- **The written explanation (Y7–10 lesson DoLs, D77)** comes last. It is a `shortanswer` on the
+  primary skill, with a one- or two-line rubric and an `answer:` key, listed as the primary skill
+  again at the end of `dol_skills:`. It never decides the pass, and marking it is optional. The
+  prompt asks why, not what: the student's own method, or what went wrong in the planted error
+  (§16). It gives away no blank's answer, binds no misconception, and names the context but no
+  new numbers, so it reads correctly on every draw without a seed. A DoL whose primary is already
+  a rubric item doesn't get one. Y11–13 DoLs stay justification-weighted.
 
 ## 9. Compose only from shipped capabilities
 
