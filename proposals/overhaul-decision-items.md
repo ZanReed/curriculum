@@ -228,3 +228,6 @@ whole-unit self-pacing, unlimited retakes, and students choosing their own skill
   "Equivalent but the wrong form" must be distinguishable from "not equivalent", so that
   `mis.factorise.not-highest` can fire. Send as a C-letter when Zan says go.
 
+
+- [ ] **Seed 801/01's t6 (`mis.rate.compares-totals`), next time `rate.unit-rate`'s bank is opened** (Zan, 2026-11-02). It is a fixed item with one row, so the first-and-last repeat (B-228) can't fire for that mistake, which 801/01's DoL binds. A second row switches it on. 801/02's t5 stays as it is: that DoL can't show `one-pair`.
+- [ ] **Targeted practice has no per-mistake guarantee (TP-3): not sent, for Zan's go.** It ranks templates by how many shown-mistake bindings they hold, then bank order, and takes four. No chain 1 student loses a mistake today: a student showing both of 801/03's gets t7 first, only because t7 holds two bindings to the others' one. Trigger: a bank where one mistake has four or more templates and the other's template doesn't outrank them. The ask would be one template for each shown mistake before filling the rest.
