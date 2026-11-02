@@ -2821,3 +2821,17 @@ decides the pass (amends D35, D41 and §8).**
    written explanation. §8 and the `nz-ncea` locale's `dol_rule` follow. Zan's 15 October note in a
    project chat, that written explanations go in practice and not the DoL, is superseded.
 Chain 1 (801/01–04) waits on the platform's answer, so its files republish once.
+
+**D64 note (2026-11-02). One idea per clip, up to 5 minutes of talking (amends D64 rule 3).** D64
+said "one example per clip, a few minutes at most". The lesson teaches one idea through a short
+sequence of worked examples (§10), and the platform's pause-point design (B-229, not yet ruled) puts
+a section's faded blocks on one clip. So:
+1. *Rule 3 now reads:* one idea per clip, with up to 5 minutes of talking, not counting pauses. The
+   number stands in for "a few", because the reason for the limit is watching on a phone.
+2. *Rule 1 stands:* the script is the activity's worked beat. We looked at leaving out worked
+   examples that don't lead directly into the faded blocks, and 701/01 shows why not. Its first
+   example teaches tenths and hundredths, and the comparison examples are told in those words, so a
+   returning student needs it. Its four worked examples read aloud in about 2.2 minutes at 130 words
+   a minute, and the section's whole text before the first faded block in about 3.9. That leaves
+   room under the cap, though writing by hand will take longer than reading.
+Told to the platform in C-176. The rest of the D64 design waits for Zan's ruling.
