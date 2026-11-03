@@ -2457,6 +2457,19 @@ documents). D38 chose bottom-up because the placement was unknown, and that reas
 *Cost.* Y7–8 work drops in priority. Dot plots, mean and median, and probability lose their Y9
 home; their Y7 chains stay as written.
 
+**D55 amendment (2026-11-04). Number comes before Algebra (amends items 2 and 7).** Zan's ruling,
+on the curriculum project's reading of the school's 2026 Y9 Number scheme: Number is Term 1 and
+Algebra follows from week 9.
+1. *Unit order.* The first unit to stub and draft is Y9 Number, then Algebra: Expressions and
+   Equations. The Algebra stubs stay as they are. The order of the later units still waits for the
+   school's planner.
+2. *The Y7 base.* Chains 702–706 are finished for this unit, as its Developing-tier lessons. Item 7
+   didn't name them, because they weren't in flight. That is about 14 activities, so Number is a
+   much larger job than Algebra.
+3. *Order of work.* In each chain the activities come first and the bank after, as §17 says. D71's
+   exception for one bank isn't extended to these 14 or so.
+4. *Timing.* Features still come first, until the HoD meeting.
+
 **D56 (ratified 2026-10-20). Hook concept banks are written per school unit, not per year
 (amends D42).**
 Under D55 a year's chains are stubbed one unit at a time, so a year bank would hold up the first
