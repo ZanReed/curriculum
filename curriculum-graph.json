@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.19.5",
+  "version": "0.19.6",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -4361,6 +4361,19 @@
         "scoring": "auto",
         "captures_response": true,
         "score_shape": "boolean"
+      }
+    },
+    {
+      "id": "video",
+      "label": "Catch-up video with pause points (display)",
+      "medium": "electronic",
+      "status": "shipped",
+      "affords": "One externally hosted catch-up clip from a ```video fence, placed in the lesson section above the worked beat, with a title, a url, recorded_against and one pause: line for each ```faded block after it, in order. A pause stops the clip at that block; an optional rewind m:ss sets where a wrong answer goes back to, and without it the clip rewinds to the previous pause or the start. It adds no new items. The script is the activity's worked beat, with one idea per clip and up to 5 minutes of talking, not counting pauses (D64).",
+      "constraints": "Captures no response itself. The importer refuses a clip with no pause, a pause count that differs from the faded count, times that don't ascend, or a fence outside a lesson section; it also refuses one in a DoL section, a quiz or exam, or a submission: locked file. Clip length is not checked. The clip goes stale when a worked block's text, or a faded block's blank count or answer keys, changes: a person reviews it and updates recorded_against from a dry run, then imports and publishes. A stale clip isn't shown to students. Not shown to students at all until the school clears its hosting (D73). The pause check isn't live yet: for now a pause only stops the clip at the block with a Keep going button.",
+      "grading": {
+        "scoring": "none",
+        "captures_response": false,
+        "score_shape": "none"
       }
     }
   ],
