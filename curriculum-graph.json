@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.19.6",
+  "version": "0.19.7",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -4374,6 +4374,20 @@
         "scoring": "none",
         "captures_response": false,
         "score_shape": "none"
+      }
+    },
+    {
+      "id": "practice_bank",
+      "label": "Practice bank (file kind)",
+      "medium": "electronic",
+      "status": "shipped",
+      "affords": "A file with kind: bank in its meta, not a fence, that holds a skill's mixed-practice items: one bank per skill, plus a chain's discrimination bank with role: discrimination, chain: and discriminates:. Items can be seeded templates or fixed items, and each carries its worked solution or answer. Mixed practice and the DoL's targeted practice draw from it, and students are served only items from a bank marked status: ratified (§17, D43).",
+      "constraints": "Auto-scorable items only. An item may hold blanks, \\gap{}, mc, match, order, a graded graph, numberline, correspond or dataplot; the importer refuses shortanswer, essay, explain, worked, faded and objectives by name. Bank items never reuse DoL items. Item ids are never reused: retired ones go in bank-item-ids-retired.txt. No activity lists this capability in uses_capabilities, because a bank isn't an activity.",
+      "grading": {
+        "scoring": "none",
+        "captures_response": false,
+        "score_shape": "none",
+        "note": "A flow capability, like dol_retake: the items carry the grading under their own capabilities, with the same grader as a section check. The one practice rule: an item is right when every graded part is right."
       }
     }
   ],
