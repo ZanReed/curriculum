@@ -2839,5 +2839,12 @@ Told to the platform in C-176. The rest of the D64 design waits for Zan's ruling
 **D64 note (2026-11-03). The `video` fence is pinned; students still can't see a clip.** Pin bump to
 platform ca46308b (B-231), adding one capability and changing no other field. Graph v0.19.6. Added
 since B-230: a clip is also refused in a `submission: locked` file, because a pause must not give a
-verdict before a check that can't be redone. The platform told Zan, and it can still be reversed. No
+verdict before a check that can't be redone. Zan ruled that it stays for now (B-232); if a locked file ever needs a clip, it's raised again. No
 catalogue file is locked today. The pause check is its third build slice, and D73's gate stays closed.
+
+**D43 note (2026-11-04). Practice banks are a pinned capability.** Pin bump to platform c24240c9
+(B-235), adding the `practice_bank` row and changing no other field. Graph v0.19.7. The row exists
+now that mixed practice serves students (the platform's MP-15 and PB-12). A bank is a file kind, so
+the row is reached by a new `reached_by.bank` key, which the gate needed no change to accept. It
+derives no scoring, as `dol_retake` doesn't: the items are graded under their own capabilities. One
+row covers skill and discrimination banks (C-178). Nothing changes for authors.
