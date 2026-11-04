@@ -2417,8 +2417,8 @@ period assembly is a convenience and not a D43 obligation.
 1. *Keys.* `activity_defaults.period_shapes` holds §17's table, with its rules beside it.
    `mixed_seconds_per_item` = [60, 90] converts minutes to items; suggested sizes use 90, which
    gives about 6 items at 50 minutes, 9–10 at 55, 12–13 at 60, and 8 per block on a double. Both
-   stay out of `practice-registry.json` until the platform's importer learns them. Item 4's default
-   of 6 and the per-class setting don't change.
+   are mirrored in `practice-registry.json` (B-241), for the teacher's suggested-size line only;
+   the scheduler reads neither. Item 4's default of 6 and the per-class setting don't change.
 2. *Hook.* §17's order stands: fluency, hook, activity, mixed. §4 now says the hook comes before
    the day's activity.
 3. *Exhausted sessions.* A second or later session the same day tops up to its size once due skills
