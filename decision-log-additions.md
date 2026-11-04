@@ -2458,8 +2458,9 @@ documents). D38 chose bottom-up because the placement was unknown, and that reas
 home; their Y7 chains stay as written.
 
 **D55 amendment (2026-11-04). Number comes before Algebra (amends items 2 and 7).** Zan's ruling,
-on the curriculum project's reading of the school's 2026 Y9 Number scheme: Number is Term 1 and
-Algebra follows from week 9.
+on the curriculum project's reading of the school's 2026 Y9 Number scheme, which puts Number in
+Term 1. The scheme comes from the department's documents, and the department hasn't yet confirmed
+this order for 2027 (to-do, HoD meeting).
 1. *Unit order.* The first unit to stub and draft is Y9 Number, then Algebra: Expressions and
    Equations. The Algebra stubs stay as they are. The order of the later units still waits for the
    school's planner.
