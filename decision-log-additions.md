@@ -2410,6 +2410,32 @@ Rawson & Dunlosky (successive relearning; review in *Current Directions in Psych
 Science*, 2022); Rohrer, Dedrick, Hartwig & Cheung (2020); Shute (2008); van der Kleij, Feskens &
 Eggen (2015).
 
+**D43 amendment (2026-11-04). Period shapes as keys, and exhausted sessions (amends §4, §17 and
+item 4 above).** Zan's rulings, with the curriculum project's view, on the platform's period
+assembly design (PA-1 to PA-12; C-180 to C-183, B-237). "Runs premade" in D43 is about content, so
+period assembly is a convenience and not a D43 obligation.
+1. *Keys.* `activity_defaults.period_shapes` holds §17's table, with its rules beside it.
+   `mixed_seconds_per_item` = [60, 90] converts minutes to items; suggested sizes use 90, which
+   gives about 6 items at 50 minutes, 9–10 at 55, 12–13 at 60, and 8 per block on a double. Both
+   stay out of `practice-registry.json` until the platform's importer learns them. Item 4's default
+   of 6 and the per-class setting don't change.
+2. *Hook.* §17's order stands: fluency, hook, activity, mixed. §4 now says the hook comes before
+   the day's activity.
+3. *Exhausted sessions.* A second or later session the same day tops up to its size once due skills
+   run out, one item per skill: due skills, then not-yet-due skills (stalest first), then skills
+   already practised today. A first session still ends early (item 4).
+4. *Early items.* A not-yet-due item changes the schedule only when wrong.
+   - Right: no step up, and the due date stays. A day with any early attempt can't step up.
+   - Wrong: drops a step.
+   - Skipped: doesn't drop a step, because the session added the skill to fill itself, but still
+     shows as a skip.
+5. *Two readings per skill.* The last scheduled practice sets the due date. The last practice of
+   any kind sets staleness and "practised today". The platform derives both from its attempts, with
+   no new stored date (B-237).
+*Why.* Early retrieval is less efficient than retrieval at the scheduled gap (Cepeda et al. 2006)
+but better than none (the testing effect; Adesope, Trevisan & Sundararajan 2017). No step-up keeps
+the cost to that.
+
 ---
 
 ## Ratified 2026-10-20 and 2026-10-21 (school-first overhaul, C-147 to C-154)

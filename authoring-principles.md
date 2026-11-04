@@ -63,7 +63,7 @@ negotiable, because each position has a mechanism:
 ## 4. The hook
 
 Every teaching day opens with a hook: an interesting question, relevant to the day's
-content, that students think about before anything else. It is an engagement device,
+content, that students think about before the day's activity (§17 sets the order). It is an engagement device,
 not an instruction device — it buys attention and a reason to care; it does not teach.
 
 **Hooks are a chain-level pool; activities never carry them.** Each chain holds a pool
@@ -403,7 +403,10 @@ are not. Each activity is capped at `activity_defaults.duration_min`.
 
 One hook per day (§4), so the second activity in a double period has none. A double period
 uses two activities from the sequence. Leftover minutes go to transitions, then to mixed
-practice.
+practice. A class with the fluency block off gives those minutes to mixed practice.
+
+The table is `activity_defaults.period_shapes`. `mixed_seconds_per_item` converts minutes to
+items; suggested session sizes use its slower end, 90 seconds.
 
 **Homework** is optional extra spacing, drawn from the same scheduler. Nothing relies on
 it being completed.

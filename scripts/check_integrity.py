@@ -283,7 +283,8 @@ def main() -> int:
     if present and len(present) != len(mixed_keys):
         failures.append(f"L mixed keys are all or none; missing "
                         f"{[k for k in mixed_keys if k not in defaults]}")
-    stray = [k for k in defaults if k.startswith("mixed_") and k not in mixed_keys]
+    stray = [k for k in defaults if k.startswith("mixed_")
+             and k not in mixed_keys + ["mixed_seconds_per_item"]]
     if stray:
         failures.append(f"L unknown mixed key(s) {stray} (a new key goes to the platform first)")
     if len(present) == len(mixed_keys):
@@ -309,6 +310,40 @@ def main() -> int:
     dpi = defaults.get("dol_practice_items")
     if not (isinstance(dpi, int) and not isinstance(dpi, bool) and 2 <= dpi <= 8):
         failures.append("L dol_practice_items must be a whole number >= 2 and <= 8")
+    # L — period shapes (D43 amendment 2026-11-04). Graph-only until the platform's
+    # importer learns them, so neither key is in practice-registry.json yet.
+    isrange = lambda v: (isinstance(v, list) and len(v) == 2
+                         and all(isinstance(x, int) and not isinstance(x, bool) and x >= 1 for x in v)
+                         and v[0] <= v[1])
+    if not isrange(defaults.get("mixed_seconds_per_item")):
+        failures.append("L mixed_seconds_per_item must be [low, high], whole numbers >= 1")
+    shapes = defaults.get("period_shapes")
+    lengths = shapes.get("lengths") if isinstance(shapes, dict) else None
+    if not (isinstance(lengths, dict) and lengths):
+        failures.append("L period_shapes.lengths must be a non-empty object")
+        lengths = {}
+    for length, blocks in lengths.items():
+        where = f"L period_shapes {length}"
+        kinds = [b.get("kind") for b in blocks]
+        if not (length.isdigit() and kinds[:1] == ["fluency"] and kinds.count("hook") == shapes.get("hooks_per_day")
+                and "activity" in kinds and kinds[-1] == "mixed"):
+            failures.append(f"{where}: needs a whole-minute length, fluency first, "
+                            "hooks_per_day hooks, an activity, and mixed last")
+            continue
+        if kinds.index("hook") > kinds.index("activity"):
+            failures.append(f"{where}: the hook comes before the first activity (§4)")
+        most = 0
+        for b in blocks:
+            m = b.get("minutes")
+            if b["kind"] == "activity" and m == "duration_min":
+                most += defaults.get("duration_min", 0)
+            elif b["kind"] != "activity" and isrange(m):
+                most += m[1]
+            else:
+                failures.append(f"{where}: bad minutes {m!r} on {b['kind']} "
+                                '(an activity is "duration_min", others [low, high])')
+        if most > int(length):
+            failures.append(f"{where}: blocks can reach {most} minutes")
 
     if failures:
         print(f"check 4 FAIL — {len(failures)} finding(s):", file=sys.stderr)
