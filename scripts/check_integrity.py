@@ -310,8 +310,7 @@ def main() -> int:
     dpi = defaults.get("dol_practice_items")
     if not (isinstance(dpi, int) and not isinstance(dpi, bool) and 2 <= dpi <= 8):
         failures.append("L dol_practice_items must be a whole number >= 2 and <= 8")
-    # L — period shapes (D43 amendment 2026-11-04). Graph-only until the platform's
-    # importer learns them, so neither key is in practice-registry.json yet.
+    # L — period shapes (D43 amendment 2026-11-04; mirrored in practice-registry.json, B-241).
     isrange = lambda v: (isinstance(v, list) and len(v) == 2
                          and all(isinstance(x, int) and not isinstance(x, bool) and x >= 1 for x in v)
                          and v[0] <= v[1])
