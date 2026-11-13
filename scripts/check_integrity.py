@@ -310,6 +310,10 @@ def main() -> int:
     dpi = defaults.get("dol_practice_items")
     if not (isinstance(dpi, int) and not isinstance(dpi, bool) and 2 <= dpi <= 8):
         failures.append("L dol_practice_items must be a whole number >= 2 and <= 8")
+    # L — activity cap (§10; mirrored in practice-registry.json, B-247): a whole number >= 1
+    cap = defaults.get("duration_min")
+    if not (isinstance(cap, int) and not isinstance(cap, bool) and cap >= 1):
+        failures.append("L duration_min must be a whole number >= 1")
     # L — period shapes (D43 amendment 2026-11-04; mirrored in practice-registry.json, B-241).
     isrange = lambda v: (isinstance(v, list) and len(v) == 2
                          and all(isinstance(x, int) and not isinstance(x, bool) and x >= 1 for x in v)
