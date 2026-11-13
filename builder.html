@@ -274,6 +274,10 @@ function depths(){
 }
 function ancOf(n){ var P=parents(), out={}; (function go(x){ (P[x]||[]).forEach(function(p){ if(!out[p]){out[p]=1;go(p);} }); })(n); return out; }
 function stat(a){ return a.status==='approved'?'approved':'draft'; }
+/* The §10 activity cap, from the graph. An activity's `minutes` is a separate thing: the
+   approver's estimate for a typical class, review through DoL, unset until they set it. */
+function CAP(){ return (D.activity_defaults||{}).duration_min; }
+function minutesOk(m){ return Number.isInteger(m)&&m>=1&&(!CAP()||m<=CAP()); }
 function builtSet(){ var b={}; D.activities.forEach(function(a){ if(b[a.primary_skill]!=='approved') b[a.primary_skill]=stat(a); }); return b; }
 function chainCount(){ var m={}; D.activities.forEach(function(a){ var c=m[a.chain_id]=m[a.chain_id]||{draft:0,approved:0}; c[stat(a)]++; }); return m; }
 function tally(){ var t={draft:0,approved:0}; D.activities.forEach(function(a){ t[stat(a)]++; }); return t; }
@@ -431,7 +435,7 @@ function actForm(){
     +'<div class="grid3">'
       +'<label class="f"><span>Part</span><input type="number" id="a-pos" min="1" value="'+a.chain_position+'"></label>'
       +'<label class="f"><span>Of</span><input type="number" id="a-len" min="1" value="'+a.chain_length+'"></label>'
-      +'<label class="f"><span>Minutes</span><input type="number" id="a-dur" min="5" max="40" value="'+a.duration_min+'"></label>'
+      +'<label class="f"><span>Minutes, typical class</span><input type="number" id="a-dur" min="1" max="'+(CAP()||'')+'" step="1" placeholder="not set" value="'+(a.minutes!=null?a.minutes:'')+'"></label>'
     +'</div>'
 
     +'<div class="comp"><div class="comph"><span class="cn">1</span><b>Review</b><span class="cm">'+(b.review||4)+' min · what they already know</span></div>'
@@ -493,7 +497,9 @@ function actForm(){
   if(el('a-appr')) el('a-appr').onclick=function(){
     var cb=capById(), prop=(a.uses_capabilities||[]).filter(function(c){return cb[c]&&cb[c].status==='proposed';});
     if(prop.length){ toast('Blocked — needs '+cb[prop[0]].label+', not built yet'); return; }
-    el('a-save').click(); a.status='approved'; save(); renderAll(); toast('Approved'); };
+    el('a-save').click();
+    if(!minutesOk(a.minutes)){ toast('Set Minutes first: a typical class, review through DoL'); return; }
+    a.status='approved'; save(); renderAll(); toast('Approved'); };
   if(el('a-unappr')) el('a-unappr').onclick=function(){ a.status='draft'; save(); renderAll(); toast('Back to draft'); };
   if(el('a-render')) el('a-render').onclick=function(){
     var t=buildRenderPrompt(a);
@@ -512,8 +518,11 @@ function actForm(){
   box.querySelectorAll('[data-rm]').forEach(function(btn){ btn.onclick=function(){ Q.items.splice(+btn.getAttribute('data-rm'),1); save(); actForm(); }; });
   el('qadd').onclick=function(){ Q.items=Q.items||[]; Q.items.push({skill:a.primary_skill,prompt:''}); save(); actForm(); };
   el('a-save').onclick=function(){
+    var mv=el('a-dur').value.trim();
+    if(mv!==''&&!minutesOk(+mv)){ toast('Minutes must be a whole number from 1 to '+(CAP()||120)); return; }
+    a.minutes=mv===''?null:+mv; delete a.duration_min;
     a.primary_skill=el('a-prim').value; a.chain_id=el('a-chain').value;
-    a.chain_position=+el('a-pos').value; a.chain_length=+el('a-len').value; a.duration_min=+el('a-dur').value;
+    a.chain_position=+el('a-pos').value; a.chain_length=+el('a-len').value;
     R.mode=el('r-mode').value; R.items=+el('r-items').value;
     L.worked.prompt=el('w-p').value.trim();
     L.worked.shown_steps=el('w-s').value.split('\n').map(function(x){return x.trim();}).filter(Boolean);
@@ -663,7 +672,7 @@ function newAct(forSkill){
   var id=base+'.'+String(n).padStart(2,'0');
   var pos=D.activities.filter(function(a){return a.chain_id===(chain&&chain.chain_id);}).length+1;
   D.activities.push({id:id,primary_skill:sk,secondary_skills:[],chain_id:chain?chain.chain_id:'',status:'draft',
-    chain_position:pos,chain_length:pos,duration_min:D.activity_defaults.duration_min||24,schema_stress:[],
+    chain_position:pos,chain_length:pos,minutes:null,schema_stress:[],
     components:{
       review:{mode:'prereq_targeted',target_skills:[],items:3},
       lesson:{worked:{prompt:'',shown_steps:[],narration:''},faded:{prompt:'',fade_level:1},independent:{item_count:5,task:''}},
@@ -820,7 +829,7 @@ function buildPrompt(id, pos, len, chain, dur, loc){
   L.push('## Return exactly this shape');
   L.push(JSON.stringify({
     id:'act.'+id+'.NN', primary_skill:id, secondary_skills:['<ids from the list above>'],
-    chain_id:chain, chain_position:pos, chain_length:len, duration_min:dur, status:'draft',
+    chain_id:chain, chain_position:pos, chain_length:len, status:'draft',
     schema_stress:['<what this makes the platform do>'],
     components:{
       review:{mode:first?'prereq_targeted':'chain_previous', target_skills:['<ids from the pool>'], items:first?3:2},
@@ -861,7 +870,7 @@ function draftForm(){
     +'<div class="grid3">'
       +'<label class="f"><span>Part</span><input type="number" id="d-pos" min="1" value="'+(existing.length+1)+'"></label>'
       +'<label class="f"><span>Of</span><input type="number" id="d-len" min="1" value="'+Math.max(1,existing.length+1)+'"></label>'
-      +'<label class="f"><span>Minutes</span><input type="number" id="d-dur" min="5" max="40" value="'+(D.activity_defaults.duration_min||24)+'"></label>'
+      +'<label class="f"><span>Time cap</span><input type="number" id="d-dur" min="1" max="'+(CAP()||'')+'" value="'+(CAP()||'')+'"></label>'
     +'</div>'
     +'<div class="grid2">'
       +'<label class="f"><span>Chain</span><select id="d-chain">'+chainIds().map(function(c){return '<option value="'+esc(c)+'"'+(chain&&c===chain.chain_id?' selected':'')+'>'+esc(c)+'</option>';}).join('')+'</select></label>'
@@ -932,6 +941,7 @@ function draftForm(){
       if(co){ co.hooks=(co.hooks||[]).concat(staged._hooks.filter(function(x){return (co.hooks||[]).indexOf(x)<0;})); }
     }
     staged.forEach(function(a){
+      delete a.duration_min; a.minutes=null;   // the approver sets minutes, never the drafting model
       var i=D.activities.map(function(z){return z.id;}).indexOf(a.id);
       if(i>-1) D.activities[i]=a; else D.activities.push(a);
     });
@@ -989,6 +999,7 @@ function buildRenderPrompt(a){
   P.push('- **review** → an opening section. Retrieval items, mostly `mc` or fill-in-the-blank, on the skills named below. Keep it short.');
   P.push('- **lesson** → a `## Lesson {checkpoint}` section with three beats in order: a ```worked block, then a ```faded block (use {{blanks}} / \\gap{} for the faded steps), then an independent problem set.');
   P.push('- **dol** → a `## Check {checkpoint}` section. Write each item in the format its capability dictates (below).');
+  P.push('- **minutes** → the line `minutes: '+a.minutes+'` in the ```meta fence, exactly that number. It is the reviewer\'s estimate for a typical class, review through DoL; never change it.');
   P.push('');
   P.push('## Hard rules, from the capabilities this spec declares');
   P.push('Only these capabilities are in play. Do not reach for others.');
@@ -1005,7 +1016,7 @@ function buildRenderPrompt(a){
   P.push('');
   P.push('## The spec');
   P.push(JSON.stringify({id:a.id,teaches:s[a.primary_skill]?s[a.primary_skill].label:a.primary_skill,
-    chain_position:a.chain_position,chain_length:a.chain_length,duration_min:a.duration_min,
+    chain_position:a.chain_position,chain_length:a.chain_length,minutes:a.minutes,
     review:R,lesson:L,dol:Q,uses_capabilities:a.uses_capabilities},null,2));
   return P.join('\n');
 }
