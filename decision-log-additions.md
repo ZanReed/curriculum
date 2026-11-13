@@ -2888,3 +2888,19 @@ now that mixed practice serves students (the platform's MP-15 and PB-12). A bank
 the row is reached by a new `reached_by.bank` key, which the gate needed no change to accept. It
 derives no scoring, as `dol_retake` doesn't: the items are graded under their own capabilities. One
 row covers skill and discrimination banks (C-178). Nothing changes for authors.
+
+**§10 note (2026-11-14). An activity's time estimate is `minutes:` in its meta fence.** For the
+platform's period planner (B-246; answered in C-188, agreed in B-247). `minutes:` is the approver's
+estimate for a typical class to finish the activity, review through DoL (§3). The hook, the fluency
+sprint, mixed practice and transitions are left out, because the planner adds them as their own
+parts of the day. It isn't named `duration_min`, which already means the cap
+(`activity_defaults.duration_min`) and a quiz's sitting time (`assessment.quiz.duration_min`).
+1. *Who sets it.* The person who approves the activity (§12), never the drafting model; a model's
+   value would be the cap under another name. builder.html's Minutes field starts unset and won't
+   approve without it, and its drafting form now calls the cap "Time cap".
+2. *Bounds.* A whole number from 1 to the cap. Above the cap fails the lint (§10 holds for
+   consolidations too, D24); the platform's importer only warns, and reads the cap from
+   `practice-registry.json`. A teacher's own copy may hold 1–120.
+3. *Required.* A lesson or consolidation carries it before import: `tools/build_drafts.py --check`
+   fails without it, and the plain build only warns. Banks (including discrimination banks) and
+   quizzes don't carry it; quizzes are printed, and their time is `quiz.duration_min`.

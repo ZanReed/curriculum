@@ -61,7 +61,7 @@ def main():
     args = ap.parse_args()
 
     out = args.out or Path(tempfile.mkdtemp(prefix="build-drafts-"))
-    failures, built = [], 0
+    failures, built, warned = [], 0, 0
     src_root = REPO / "drafts"
     folders = sorted(p.name for p in src_root.iterdir() if p.is_dir()) if src_root.is_dir() else []
     if not folders:
@@ -80,9 +80,13 @@ def main():
             answers = out / folder / f"{name}.answers.json"
             core.build(module.define, src, draft, answers)
             built += 1
-            code, log = quiet(lint_draft.main, str(draft), str(REPO), [])
+            # --check is the pre-import gate: an imported activity is approved, so it carries
+            # minutes: (C-188). Without it, a missing minutes: is only a warning.
+            code, log = quiet(lint_draft.main, str(draft), str(REPO),
+                              ["--require-minutes"] if args.check else [])
             if code:
                 failures.append(f"{folder}/{name}: lint\n{log}")
+            warned += sum(": warning: " in line for line in log.splitlines())
             code, log = quiet(check_figures.main, str(draft), str(answers))
             if code:
                 failures.append(f"{folder}/{name}: figures\n{log}")
@@ -104,6 +108,8 @@ def main():
     where = f", output in {out}" if args.out else ""
     mode = " and match the catalogue" if args.check else ""
     print(f"OK: {built} drafts from {len(folders)} chains build, lint and pass the figure check{mode}{where}")
+    if warned:
+        print(f"  {warned} lint warning(s), e.g. drafts with no minutes: yet (needed before import)")
     return 0
 
 

@@ -27,6 +27,10 @@ Checks the activity inside the draft (from its ```meta fence to the end of its
   (DE-8) and each variable group it uses has at least 2 valid rows (DE-13); a DoL seed variable
   never reuses an activity-level name (DE-6); with --banks DIR, every mis.* the DoL binds is bound
   by a ratified template of the primary skill's bank, when that bank exists (TP-8, C-167).
+- `minutes:` (B-246/C-188, 2026-11-14): on a lesson or consolidation (not a bank, not a
+  `role:` other than lesson), a whole number from 1 to the graph's activity_defaults.duration_min
+  (§10's cap; above it fails). Missing is a warning on a draft; with --require-minutes (the
+  pre-import gate, build_drafts.py --check) it fails, because an approved activity carries it.
 - D77 (2026-11-02): the primary skill repeated as the last `dol_skills:` entry marks a written
   explanation: the last item is a shortanswer or explain, binds nothing, and a rubric primary gets none.
 
@@ -35,7 +39,7 @@ capability facts (the union of every capability's reached_by.fence and exempt_fe
 platform's CI keeps complete: B-140), not a copied list; a bank file (x_kind: bank in its meta)
 is exempt from the act.* key check again (the 6 Oct rule, lost in the 7 Oct rebuild).
 
-Usage: python3 tools/lint_draft.py DRAFT.md CURRICULUM_REPO [--banks CATALOGUE/banks] [EXTRA_GLOSSARY.md ...]
+Usage: python3 tools/lint_draft.py DRAFT.md CURRICULUM_REPO [--banks CATALOGUE/banks] [--require-minutes] [EXTRA_GLOSSARY.md ...]
 """
 import itertools
 import json
@@ -282,6 +286,27 @@ def dol_shape_problems(act, gram, meta, banks):
     return out
 
 
+def minutes_problems(meta, repo, require):
+    """`minutes:` on a lesson or consolidation (C-188): (problems, warnings)."""
+    role = re.search(r"^role:\s*(\S+)", meta, re.M)
+    if role and role.group(1) != "lesson":
+        return [], []
+    cap = json.loads((Path(repo) / "curriculum-graph.json").read_text(encoding="utf-8"))[
+        "activity_defaults"]["duration_min"]
+    found = re.findall(r"^minutes:\s*(.*?)\s*$", meta, re.M)
+    if not found:
+        msg = "no minutes: in the meta fence (an approved lesson or consolidation carries one)"
+        return ([msg], []) if require else ([], [msg])
+    if len(found) > 1:
+        return ["minutes: appears more than once"], []
+    v = found[0]
+    if not re.fullmatch(r"[1-9]\d*", v):
+        return [f"minutes: {v!r} is not a whole number >= 1"], []
+    if int(v) > cap:
+        return [f"minutes: {v} is above the activity cap of {cap} (§10; split the activity)"], []
+    return [], []
+
+
 def activity_text(md):
     start = md.find("```meta")
     if start < 0:
@@ -305,6 +330,8 @@ def main(draft, repo, extra):
     if "--banks" in extra:
         i = extra.index("--banks")
         banks, extra = extra[i + 1], extra[:i] + extra[i + 2:]
+    require_minutes = "--require-minutes" in extra
+    extra = [e for e in extra if e != "--require-minutes"]
     md = Path(draft).read_text(encoding="utf-8")
     act = activity_text(md)
     problems = []
@@ -369,6 +396,10 @@ def main(draft, repo, extra):
         problems += dol_shape_problems(act, gram, meta, banks)
     if re.search(r"^unit:", meta, re.M):
         problems.append("unit: key present (the chain registry sets it)")
+    warnings = []
+    if not is_bank:
+        mp, warnings = minutes_problems(meta, repo, require_minutes)
+        problems += mp
 
     skills = ids(repo / "skill-registry.txt")
     exts = ids(repo / "external-prereq-registry.txt")
@@ -405,6 +436,8 @@ def main(draft, repo, extra):
         if re.search(r"\bsprint", line, re.I) and not line.startswith("x_"):
             problems.append(f"student-facing 'sprint': {line[:60]!r}")
 
+    for w in warnings:
+        print(f"{draft}: warning: {w}")
     for p in problems:
         print(f"{draft}: {p}")
     print(f"{draft}: {len(problems)} problems")
