@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.19.8",
+  "version": "0.19.9",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -4153,6 +4153,19 @@
       "medium": "electronic",
       "affords": "Student completes a missing part of a $$…$$ step. Graded by math equivalence.",
       "constraints": "Lives only inside displayed math. Ideal for faded \"complete the step\".",
+      "status": "shipped",
+      "grading": {
+        "scoring": "auto",
+        "captures_response": true,
+        "score_shape": "boolean"
+      }
+    },
+    {
+      "id": "form_answer",
+      "label": "Form answer (equal, and in the stated form)",
+      "medium": "electronic",
+      "affords": "A math blank {{===…}} or a gap \\gap[form]{…} is right when the answer equals the key AND has the key's form (D60). Not form: order of terms and factors, spacing, brackets round one term, ×, · or juxtaposition, a sign on a number, a sign moved through a bracket (−6(2−3x) counts for 6(3x−2)), x/2 against ½x, and a mixed number against its improper fraction. It never distributes, collects, cancels or folds numbers, so 18x−12, 2(9x−6), 4a×3b and 4/6 are wrong form for 6(3x−2), 6(3x−2), 12ab and 2/3. A blank's !wrong entries match by meaning, in any order. The reserved !form-wrong :: … :: mis.* fires on a right value in the wrong form; with none, the student sees a built-in line saying so. Seeded keys keep their form, and seed arithmetic in a key folds (never a division).",
+      "constraints": "Write the key in the form wanted and name the form in the prompt; list another accepted form as a | alternate, or carry one layout with numeric blanks inside the structure (§7). No unit: and no +- tolerance. A gap takes no ! entries and no seeds (C-163). A wrong form is marked incorrect, with no outcome of its own. Letters are read singly (12ab is 12·a·b), and a lone e is Euler's number.",
       "status": "shipped",
       "grading": {
         "scoring": "auto",
