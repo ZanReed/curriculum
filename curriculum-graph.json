@@ -4138,8 +4138,8 @@
       "id": "fill_blank",
       "label": "Fill in the blank",
       "medium": "electronic",
-      "affords": "Typed answer inside a paragraph. Alternates via |, math-equivalence via ==, numeric via = with tolerance.",
-      "constraints": "Per-answer feedback (!wrong ::) and one hint (?…) per blank. No feedback branching beyond listed wrong answers.",
+      "affords": "Typed answer inside a paragraph. Alternates via |, math-equivalence via ==, equal-and-same-form via === (form_answer), numeric via = with tolerance.",
+      "constraints": "Per-answer feedback (!wrong ::) and one hint (?…) per blank. On a == blank a !wrong entry matches any answer equal to it. No feedback branching beyond listed wrong answers.",
       "status": "shipped",
       "grading": {
         "scoring": "auto",
@@ -4164,8 +4164,8 @@
       "id": "form_answer",
       "label": "Form answer (equal, and in the stated form)",
       "medium": "electronic",
-      "affords": "A math blank {{===…}} or a gap \\gap[form]{…} is right when the answer equals the key AND has the key's form (D60). Not form: order of terms and factors, spacing, brackets round one term, ×, · or juxtaposition, a sign on a number, a sign moved through a bracket (−6(2−3x) counts for 6(3x−2)), x/2 against ½x, and a mixed number against its improper fraction. It never distributes, collects, cancels or folds numbers, so 18x−12, 2(9x−6), 4a×3b and 4/6 are wrong form for 6(3x−2), 6(3x−2), 12ab and 2/3. A blank's !wrong entries match by meaning, in any order. The reserved !form-wrong :: … :: mis.* fires on a right value in the wrong form; with none, the student sees a built-in line saying so. Seeded keys keep their form, and seed arithmetic in a key folds (never a division).",
-      "constraints": "Write the key in the form wanted and name the form in the prompt; list another accepted form as a | alternate, or carry one layout with numeric blanks inside the structure (§7). No unit: and no +- tolerance. A gap takes no ! entries and no seeds (C-163). A wrong form is marked incorrect, with no outcome of its own. Letters are read singly (12ab is 12·a·b), and a lone e is Euler's number.",
+      "affords": "Typed answer that must equal the key AND be in the key's form (D60): {{===…}} in text, \\gap[form]{…} in an equation. These aren't form: order of terms and factors, spacing, ×, · or juxtaposition, a sign on a number or moved through a bracket, x/2 for ½x, and a mixed number for its improper fraction. Expanding, collecting, cancelling or folding numbers is form (18x−12 and 2(9x−6) are wrong form for 6(3x−2), and 4/6 is wrong form for 2/3). !wrong entries match by meaning, in any order. The reserved !form-wrong :: … :: mis.* answers any other right value in the wrong form; with none, a built-in line says so.",
+      "constraints": "Write the key in the form wanted and name that form in the prompt in words. Another accepted form goes in as a | alternate (§7). Seeded keys keep their form: seed arithmetic folds but a division never does, and when the importer warns that a row collapses, add a where line. No unit: and no +- tolerance. A gap takes no ! entries and no seeds (C-163). A wrong form scores incorrect and has no outcome of its own. Letters are read singly (12ab is 12·a·b, and x2 counts for 2x), and a lone e is Euler's number.",
       "status": "shipped",
       "grading": {
         "scoring": "auto",
