@@ -122,6 +122,11 @@ jobs:
           ! python3 tools/lint_draft.py tests/fixtures/tools/dol/good-dol.md . --require-minutes
           ! python3 tools/lint_draft.py tests/fixtures/tools/minutes/bad-minutes-over-cap.md .
           ! python3 tools/lint_draft.py tests/fixtures/tools/minutes/bad-minutes-not-number.md .
+          python3 tools/lint_draft.py tests/fixtures/tools/form/good-form.md . --require-minutes
+          ! python3 tools/lint_draft.py tests/fixtures/tools/form/bad-form-wrong-on-eq.md .
+          ! python3 tools/lint_draft.py tests/fixtures/tools/form/bad-form-wrong-twice.md .
+          ! python3 tools/lint_draft.py tests/fixtures/tools/form/bad-form-unit.md .
+          ! python3 tools/lint_draft.py tests/fixtures/tools/form/bad-form-gap-bang.md .
           python3 tools/lint_draft.py tests/fixtures/tools/dol/good-dol-rubric.md .
           python3 tools/lint_draft.py tests/fixtures/tools/dol/good-dol-explain.md .
           ! python3 tools/lint_draft.py tests/fixtures/tools/dol/bad-dol-explain-binding.md .
