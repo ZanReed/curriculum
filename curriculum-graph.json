@@ -1,6 +1,6 @@
 {
   "label": "Linear → Function → Transformation → Rate of Change → Derivative",
-  "version": "0.19.8",
+  "version": "0.19.9",
   "notes": "Vertical spine, ~Year 8 proportional reasoning through introductory calculus. Skills are the durable objects; activities are delivery chunks and may be re-authored without invalidating review pointers. Alignment values are ratified (D31, 2026-09-05) from the NZC Phase 3/4 pages and NZQA standards read 2026-09-02 — see docs/alignment-sources.md for the numbered statement each value rests on. They record a claim; they do not check one. ccss/teks stay empty until someone reads those documents.",
   "threads": [
     {
@@ -4138,8 +4138,8 @@
       "id": "fill_blank",
       "label": "Fill in the blank",
       "medium": "electronic",
-      "affords": "Typed answer inside a paragraph. Alternates via |, math-equivalence via ==, numeric via = with tolerance.",
-      "constraints": "Per-answer feedback (!wrong ::) and one hint (?…) per blank. No feedback branching beyond listed wrong answers.",
+      "affords": "Typed answer inside a paragraph. Alternates via |, math-equivalence via ==, equal-and-same-form via === (form_answer), numeric via = with tolerance.",
+      "constraints": "Per-answer feedback (!wrong ::) and one hint (?…) per blank. On a == blank a !wrong entry matches any answer equal to it. No feedback branching beyond listed wrong answers.",
       "status": "shipped",
       "grading": {
         "scoring": "auto",
@@ -4153,6 +4153,19 @@
       "medium": "electronic",
       "affords": "Student completes a missing part of a $$…$$ step. Graded by math equivalence.",
       "constraints": "Lives only inside displayed math. Ideal for faded \"complete the step\".",
+      "status": "shipped",
+      "grading": {
+        "scoring": "auto",
+        "captures_response": true,
+        "score_shape": "boolean"
+      }
+    },
+    {
+      "id": "form_answer",
+      "label": "Form answer (equal, and in the stated form)",
+      "medium": "electronic",
+      "affords": "Typed answer that must equal the key AND be in the key's form (D60): {{===…}} in text, \\gap[form]{…} in an equation. These aren't form: order of terms and factors, spacing, ×, · or juxtaposition, a sign on a number or moved through a bracket, x/2 for ½x, and a mixed number for its improper fraction. Expanding, collecting, cancelling or folding numbers is form (18x−12 and 2(9x−6) are wrong form for 6(3x−2), and 4/6 is wrong form for 2/3). !wrong entries match by meaning, in any order. The reserved !form-wrong :: … :: mis.* answers any other right value in the wrong form; with none, a built-in line says so.",
+      "constraints": "Write the key in the form wanted and name that form in the prompt in words. Another accepted form goes in as a | alternate (§7). Seeded keys keep their form: seed arithmetic folds but a division never does, and when the importer warns that a row collapses, add a where line. No unit: and no +- tolerance. A gap takes no ! entries and no seeds (C-163). A wrong form scores incorrect and has no outcome of its own. Letters are read singly (12ab is 12·a·b, and x2 counts for 2x), and a lone e is Euler's number.",
       "status": "shipped",
       "grading": {
         "scoring": "auto",

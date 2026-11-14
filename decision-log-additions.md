@@ -2906,3 +2906,10 @@ parts of the day. It isn't named `duration_min`, which already means the cap
 3. *Required.* A lesson or consolidation carries it before import: `tools/build_drafts.py --check`
    fails without it, and the plain build only warns. Banks (including discrimination banks) and
    quizzes don't carry it; quizzes are printed, and their time is `quiz.duration_min`.
+
+**D60 note (2026-11-14). Form answers are a pinned capability.** Pin bump to platform e34521e5,
+adding the `form_answer` row and `prose_facts.form_grammar`, and changing no other field. Graph
+v0.19.9. The platform built D60 from its design pass (FG-1 to FG-14, as amended by C-192's A1–A4 and B-252's A5):
+`{{===…}}` on a blank, `\gap[form]{…}` on a gap, and the reserved `!form-wrong` match. The row's
+prose was drafted by the platform and rewritten on the curriculum side; `fill_blank`'s row now records that a `!` entry on a `==` blank matches any equal answer. The §7 rewrite (C-193) can now
+name `===` as the form carrier, seeded or not, bound or not.
