@@ -2950,3 +2950,8 @@ links kept by the importer), after the builder's reading. Sent as C-195.
    The lint warns on `^`, so a justified use stays possible.
 
 Graph v0.19.10 carries both notes' principle text (§7, §15, §17); no key changes.
+
+*Update (B-257, 2026-11-17).* The author ruled no hints in a DoL on the platform side too (platform
+main 7ccc8aa5): a DoL check returns no blank or block hint on any attempt, and the served page no
+longer carries one. §7's reason now says the DoL measures unaided work and a DoL hint is dead text.
+The lint is unchanged.

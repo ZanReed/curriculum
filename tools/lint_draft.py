@@ -373,13 +373,13 @@ def authoring_rule_problems(act, student, gram):
         if not re.search(r"^hint:", m.group(2), re.M):
             continue
         if span and span[0] <= m.start() < span[1]:
-            out.append(f"hint: inside the DoL ({m.group(1)} fence): it reaches the student before the retake (§7)")
+            out.append(f"hint: inside the DoL ({m.group(1)} fence): the platform never shows it there (§7)")
         elif m.group(1) == "mc":
             warn.append("hint: in an mc fence: each wrong option's feedback hides it, so it shows only where a distractor lacks feedback (§7)")
     if span:
         for b in blanks(act[span[0]:span[1]]):
             if any(s.strip().startswith("?") for s in b.split("|")[1:]):
-                out.append(f"blank hint inside the DoL: {b[:40]!r}: it reaches the student before the retake (§7)")
+                out.append(f"blank hint inside the DoL: {b[:40]!r}: the platform never shows it there (§7)")
     body = re.sub(r"```(meta|teacher-guide).*?```", "", act, flags=re.S)
     for b in blanks(body):
         if b.lstrip().startswith("^"):
