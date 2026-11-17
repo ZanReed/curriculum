@@ -43,7 +43,9 @@ Mixed-practice keys (D43; C-145 / B-186, 2026-10-20):
      `review_*` period keys (C-196) are all present or all absent, no other `review_*` key
      exists (review_selection, the lesson's review beat, aside),
      and each is well-formed (counts whole numbers, shares in [0, 1], flags booleans,
-     review_pull_order a known order)
+     review_pull_order a known order); the four `diagnostic_*` keys likewise (B-258), and each
+     chain's `diagnostic_skills` names registered, unretired skills or external prereqs outside
+     its own chain, once each, never before a listed skill it depends on
 
 Non-vacuity guard: an extraction that yields zero ids from a present registry
 is itself a failure — an extractor that silently matches nothing would pass
@@ -338,6 +340,52 @@ def main() -> int:
               "order": lambda: v in ("elapsed_share",)}[kind]()
         if not ok:
             failures.append(f"L {k} is malformed ({kind}): {v!r}")
+    # L — the skills check (§17 note 2026-11-17, B-258): keys all or none, lists well-formed
+    diag = {"diagnostic_items_per_skill": lambda v: rint(v) and v >= 1,
+            "diagnostic_tiers": lambda v: isinstance(v, list) and v and len(set(v)) == len(v)
+                                and all(t in ("D", "C", "P", "E") for t in v),
+            "diagnostic_class_threshold": lambda v: isinstance(v, (int, float)) and not isinstance(v, bool)
+                                          and 0 < v <= 1,
+            "diagnostic_false_secure_tries": lambda v: rint(v) and v >= 1}
+    dpresent = [k for k in diag if k in defaults]
+    if dpresent and len(dpresent) != len(diag):
+        failures.append(f"L diagnostic_* keys must be all present or all absent; missing "
+                        f"{[k for k in diag if k not in defaults]}")
+    for k in [k for k in defaults if k.startswith("diagnostic_") and k not in diag]:
+        failures.append(f"L unknown diagnostic_* key {k}")
+    for k in dpresent:
+        if not diag[k](defaults[k]):
+            failures.append(f"L {k} is malformed: {defaults[k]!r}")
+    dskills = {s["id"]: s for s in doc.get("skills", [])}
+    dexts = {e["id"] for e in doc.get("external_prereqs", [])}
+    dretired = set()
+    for name in ("skill-ids-retired.txt", "external-prereq-retired.txt"):
+        rp = here / name
+        if rp.exists():
+            dretired |= {l.split("#", 1)[0].split()[0] for l in rp.read_text(encoding="utf-8").splitlines()
+                         if l.split("#", 1)[0].strip()}
+    for c in doc.get("chunking_plan", {}).get("chains", []):
+        lst = c.get("diagnostic_skills")
+        if lst is None:
+            continue
+        where = f"L {c.get('chain_id')} diagnostic_skills"
+        if not dpresent:
+            failures.append(f"{where}: present without the diagnostic_* keys")
+        if not isinstance(lst, list) or not lst:
+            failures.append(f"{where} must be a non-empty list")
+            continue
+        if len(set(lst)) != len(lst):
+            failures.append(f"{where} lists a skill twice")
+        for i, sid in enumerate(lst):
+            if sid in dretired:
+                failures.append(f"{where}: {sid} is retired")
+            elif sid not in dskills and sid not in dexts:
+                failures.append(f"{where}: {sid} is not a registered skill or external prereq")
+            if sid in c.get("skills", []):
+                failures.append(f"{where}: {sid} is the chain's own skill")
+            later = [p for p in (dskills.get(sid, {}).get("prereqs") or []) if p in lst[i + 1:]]
+            if later:
+                failures.append(f"{where}: {sid} comes before its prerequisite(s) {later}")
     # L — activity cap (§10; mirrored in practice-registry.json, B-247): a whole number >= 1
     cap = defaults.get("duration_min")
     if not (isinstance(cap, int) and not isinstance(cap, bool) and cap >= 1):

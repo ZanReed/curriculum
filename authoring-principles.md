@@ -419,7 +419,8 @@ draws from the bank. The bank:
   the student's pool when they check it, like any lesson. A gap is not seeded straight into
   practice, because spacing needs initial learning first. A *secure* skill needs no lesson and is
   seeded into the pool from day one, so a student who skips the Developing lessons still gets
-  spaced practice on those skills.
+  spaced practice on those skills. Each chain's list is its `diagnostic_skills`, and the check's
+  size, tiers and suggestion thresholds are `activity_defaults.diagnostic_*`.
 - Fluency is self-paced, with personal bests, no leaderboard and no grade.
 - When the sprint is off, its minutes go to mixed practice unless the teacher takes them
   back.
