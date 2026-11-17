@@ -37,7 +37,7 @@ Checks the activity inside the draft (from its ```meta fence to the end of its
   (gaps take none, C-163).
 - Links, block hints and exact case (§7/§15 note, 2026-11-17, on B-255): no [text](address) link in
   student-facing text except on a line beginning `Source:` (images are not links; the teacher guide
-  may link); a `hint:` line inside the DoL section fails, and one in an mc fence warns (each wrong
+  may link); a `hint:` line or a blank's `?…` hint inside the DoL section fails, and one in an mc fence warns (each wrong
   option's feedback hides it); a text blank led by `^` (exact case) warns.
 - D77 (2026-11-02): the primary skill repeated as the last `dol_skills:` entry marks a written
   explanation: the last item is a shortanswer or explain, binds nothing, and a rubric primary gets none.
@@ -376,6 +376,10 @@ def authoring_rule_problems(act, student, gram):
             out.append(f"hint: inside the DoL ({m.group(1)} fence): it reaches the student before the retake (§7)")
         elif m.group(1) == "mc":
             warn.append("hint: in an mc fence: each wrong option's feedback hides it, so it shows only where a distractor lacks feedback (§7)")
+    if span:
+        for b in blanks(act[span[0]:span[1]]):
+            if any(s.strip().startswith("?") for s in b.split("|")[1:]):
+                out.append(f"blank hint inside the DoL: {b[:40]!r}: it reaches the student before the retake (§7)")
     body = re.sub(r"```(meta|teacher-guide).*?```", "", act, flags=re.S)
     for b in blanks(body):
         if b.lstrip().startswith("^"):

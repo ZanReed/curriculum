@@ -2942,8 +2942,10 @@ links kept by the importer), after the builder's reading. Sent as C-195.
    fails any other https link outside the teacher guide (images are not links).
 2. *Block hints (§7).* A hint asks about the method, never the answer. Not on an mc, where every
    wrong option's own feedback hides it (the platform's grading/index.ts), so it shows only where a
-   distractor lacks feedback. Optional on match and order. Never in a DoL, where it reaches the
-   student before the retake. The lint warns on an mc `hint:` and fails one inside the DoL.
+   distractor lacks feedback. Optional on match and order. No hint of either kind in a DoL: B-256
+   confirmed a DoL check returns block and blank hints on every attempt, and DL-8 holds back only
+   the worked solutions. The lint warns on an mc `hint:` and fails a `hint:` line or a blank `?…`
+   inside the DoL.
 3. *Exact case (§7).* Nothing in Y7–10 needs `^`. The foreseen case is the sine and cosine rules.
    The lint warns on `^`, so a justified use stays possible.
 

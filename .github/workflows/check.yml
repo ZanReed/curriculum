@@ -132,6 +132,7 @@ jobs:
           python3 tools/lint_draft.py tests/fixtures/tools/rules/warn-rules.md . --require-minutes | grep -q "warning: ^ (exact case)"
           ! python3 tools/lint_draft.py tests/fixtures/tools/rules/bad-link.md .
           ! python3 tools/lint_draft.py tests/fixtures/tools/rules/bad-hint-dol.md .
+          ! python3 tools/lint_draft.py tests/fixtures/tools/rules/bad-blank-hint-dol.md .
           python3 tools/lint_draft.py tests/fixtures/tools/dol/good-dol-rubric.md .
           python3 tools/lint_draft.py tests/fixtures/tools/dol/good-dol-explain.md .
           ! python3 tools/lint_draft.py tests/fixtures/tools/dol/bad-dol-explain-binding.md .
