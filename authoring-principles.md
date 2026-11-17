@@ -168,21 +168,30 @@ misconception ids** via distractor maps, and the map is what turns feedback from
   the auto-scored rule above — a binding that cannot fire does not mean what it appears to
   mean.
 - **Where the point of a skill is the FORM of its answer** (factorised, expanded, simplified,
-  simplest form), never grade the answer with an equivalence blank (`==`). Equivalence accepts
-  the question itself and every equivalent wrong form: "factorise 18x − 12" marks `18x − 12` and
-  the not-highest `2(9x − 6)` right, so the binding on the wrong form can never fire. Carry the
-  form instead, with a carrier that can bind the misconception:
-  - **numeric blanks inside the target form**, one per coefficient, laid out in the prose
-    (`{{=g | !h :: … :: mis…}}( {{=a}}x − {{=b}} )`): the layout holds the form and each blank
-    binds its own wrong value. This works seeded or fixed;
-  - **an mc whose distractors are the wrong forms**, seeded or fixed;
-  - unseeded only: an exact-match blank listing each acceptable ordering (`12ab | 12ba`). A
-    seeded blank can't hold a form, because its answer is evaluated to a number (B-210).
-
-  A `gap_equation` gap keeps the student inside the form, but it takes only a literal answer, no
-  `!mistake` and no seeding (B-210), so it never names the misconception. Use it for unbound faded
-  steps only. Same family as the units rule above. It holds until the platform grades
-  "equivalent and in the stated form" (D60), or gaps take seeded answers and bindings.
+  simplest form), grade it with a form blank (`{{===…}}`), never an equivalence blank (`==`).
+  Equivalence accepts the question itself and every equivalent wrong form: "factorise 18x − 12"
+  marks `18x − 12` and the not-highest `2(9x − 6)` right, so a binding on the wrong form can never
+  fire. A form blank is right only when the answer equals the key AND is in the key's form (D60).
+  - **Write the key in the form wanted, and name the form in the prompt in words** ("factorise
+    fully", "as a single fraction", "in simplest form"). The order of terms and factors, spacing,
+    the multiplication sign, where a minus sign sits, `x/2` against `½x`, and a mixed number
+    against its improper fraction are never form.
+    Expanding, collecting, cancelling and folding numbers always are. List another acceptable form
+    as a `|` alternate.
+  - **Bind the wrong forms you can name** with `!` entries:
+    `{{===6(3x-2) | !2(9x-6) :: Take out the highest common factor. :: mis.factorise.not-highest}}`.
+    An entry matches by meaning, in any order. Any other equal answer in the wrong form gets the
+    reserved `!form-wrong :: … :: mis.*` if you write one, and the platform's built-in line if you
+    don't. `!form-wrong` is optional.
+  - **Seeded keys keep their form.** Seed arithmetic in the key is worked out, but a division never
+    is, so `p/q` stays a fraction. Where the importer warns that a row collapses the form (a zero
+    inside the bracket, an outer factor of 1, a common factor left in the bracket), add a `where`
+    line.
+  - Numeric blanks inside the target form (`{{=g}}( {{=a}}x − {{=b}} )`) and an mc whose
+    distractors are the wrong forms still carry a form. Use them when each part's value is the
+    point, or when the item is about recognising the form.
+  - A form gap (`\gap[form]{…}`) holds a form inside an equation, but a gap takes no `!` entry and
+    no seeding (C-163), so it never names the misconception. Use it for unbound faded steps.
 - Use only ids that exist in the registry. Never invent one inline — describe the
   anticipated error in a note instead, so a human can promote it to an id.
 - **Distractor maps go only on auto-scored, per-item captured types** (multiple
