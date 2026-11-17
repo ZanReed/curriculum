@@ -195,8 +195,9 @@ misconception ids** via distractor maps, and the map is what turns feedback from
   each wrong option's own feedback already names the error and hides the hint, so a hint there
   shows only where a distractor is missing its feedback, which is the gap to fix. On match and
   order, which have no feedback per item, a hint is optional and best kept for the faded beat.
-  No hint of either kind in a DoL, neither a block `hint:` nor a blank's `?…`: the platform shows
-  hints on the first attempt, before the retake.
+  No hint of either kind in a DoL, neither a block `hint:` nor a blank's `?…`: the DoL measures what
+  the student does unaided, and the platform never shows a hint there, so one written in a DoL is
+  dead text.
 - **Text answers ignore capitals.** A leading `^` (`{{^Mg}}`) makes case count. Nothing in this
   curriculum needs it yet. The one foreseen case is the sine and cosine rules, where side a sits
   opposite angle A. Justify any `^` in the notes.
