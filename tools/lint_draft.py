@@ -31,6 +31,10 @@ Checks the activity inside the draft (from its ```meta fence to the end of its
   `role:` other than lesson), a whole number from 1 to the graph's activity_defaults.duration_min
   (§10's cap; above it fails). Missing is a warning on a draft; with --require-minutes (the
   pre-import gate, build_drafts.py --check) it fails, because an approved activity carries it.
+- D60 form grammar (B-253, 2026-11-14), read from the pinned prose_facts.form_grammar: the
+  reserved `!form-wrong` sits only on a `===` blank (anywhere else it can never fire) and at most once;
+  a `===` blank takes no unit: clause and no +- tolerance; a `\\gap[form]{…}` holds no `!` entry
+  (gaps take none, C-163).
 - D77 (2026-11-02): the primary skill repeated as the last `dol_skills:` entry marks a written
   explanation: the last item is a shortanswer or explain, binds nothing, and a rubric primary gets none.
 
@@ -91,6 +95,51 @@ def dol_grammar(repo):
         "macro": macro,
         "meta_keys": list(g["meta_keys"]),
     }
+
+
+def form_grammar(repo):
+    """The D60 form grammar, read from the pinned capability facts (prose_facts.form_grammar, B-253)."""
+    facts = json.loads((Path(repo) / "platform-pins" / "capability-facts.json").read_text(encoding="utf-8"))
+    g = (facts.get("prose_facts") or {}).get("form_grammar")
+    if not g or not all(g.get(k) for k in ("blank_sigil", "gap_spelling", "reserved_match")):
+        raise SystemExit("no prose_facts.form_grammar in platform-pins/capability-facts.json (vacuity guard)")
+    m = re.match(r"^(\\gap\[[^\]]+\])\{", g["gap_spelling"])
+    if not m:
+        raise SystemExit(f"form_grammar.gap_spelling {g['gap_spelling']!r} is not a \\gap[...]{{...}} spelling")
+    return {"sigil": g["blank_sigil"], "gap": m.group(1), "reserved": g["reserved_match"]}
+
+
+def gap_bodies(text, opener):
+    """Yield the braced body after every `opener{` (braces nest, as in \\frac{2}{3})."""
+    i = text.find(opener + "{")
+    while i >= 0:
+        j, depth = i + len(opener) + 1, 1
+        while j < len(text) and depth:
+            depth += {"{": 1, "}": -1}.get(text[j], 0)
+            j += 1
+        yield text[i + len(opener) + 1:j - 1]
+        i = text.find(opener + "{", j)
+
+
+def form_problems(body, fg):
+    """D60: the reserved form match only on a form blank, once; no unit or tolerance; no ! in a form gap."""
+    out = []
+    sigil, reserved = fg["sigil"], fg["reserved"]
+    for b in blanks(body):
+        segs = [s.strip() for s in b.split("|")]
+        head = segs[0]
+        is_form = head.startswith(sigil) and not head.startswith(sigil + "=")
+        hits = [s for s in segs[1:] if re.match(re.escape(reserved) + r"(\s|::|$)", s)]
+        if hits and not is_form:
+            out.append(f"{reserved} on a blank that isn't {sigil}: it can never fire: {b[:50]!r}")
+        if len(hits) > 1:
+            out.append(f"{reserved} appears {len(hits)} times on one blank; only the first can fire: {b[:50]!r}")
+        if is_form and (" unit:" in head or "+-" in head):
+            out.append(f"a {sigil} blank takes no unit: and no +- tolerance: {b[:50]!r}")
+    for g in gap_bodies(body, fg["gap"]):
+        if "!" in g:
+            out.append(f"{fg['gap']}{{…}} holds a ! entry; a gap takes none (C-163): {g[:50]!r}")
+    return out
 
 
 def dol_span(act, gram):
@@ -364,6 +413,8 @@ def main(draft, repo, extra):
             units = head.split(" unit:", 1)[1]
             if "|" in units:
                 problems.append(f"unit list runs into a segment: {b[:50]!r}")
+
+    problems += form_problems(body, form_grammar(repo))
 
     for fig in re.findall(r"^```figure\n(.*?)^```", act, re.M | re.S) + \
             re.findall(r"^figure:.*?\n(.*?)(?=^---$|^```)", act, re.M | re.S):
