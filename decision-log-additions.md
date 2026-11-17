@@ -2955,3 +2955,22 @@ Graph v0.19.10 carries both notes' principle text (§7, §15, §17); no key chan
 main 7ccc8aa5): a DoL check returns no blank or block hint on any attempt, and the served page no
 longer carries one. §7's reason now says the DoL measures unaided work and a DoL hint is dead text.
 The lint is unchanged.
+
+**§7 note (2026-11-17). The form bullet is rewritten around `===`.** The rewrite promised to the
+form-grading sessions in C-192 (c) and C-193, now that D60 is live (B-253, platform e34521e5).
+It replaces the D60 amendment's carriers (numeric blanks inside the form, a wrong-form mc, or
+unseeded exact alternates), which were a workaround "until the platform grades equivalent and in
+the stated form". Now:
+1. A form skill is graded with a `{{===…}}` blank, never `==`. Its key is written in the form
+   wanted, and its prompt names that form in words. Another acceptable form is a `|` alternate.
+2. What is and isn't form follows the shape rule as built (B-253 §3, amendments A1–A4): order,
+   spacing, the multiplication sign, sign placement, `x/2` ≡ `½x` and mixed ≡ improper aren't
+   form, while expanding, collecting, cancelling and folding are.
+3. Named wrong forms are bound with `!` entries, which match by meaning in any order. `!form-wrong`
+   is optional; without it the platform's built-in line answers (C-192 (b)).
+4. Seeded form keys keep their form; a collapsing row gets a `where` line.
+5. Numeric blanks inside the form and wrong-form mcs remain valid carriers, for items about each
+   part's value or about recognising the form. A `\gap[form]{…}` gap holds a form but binds
+   nothing (C-163), so it stays for unbound faded steps.
+No draft in drafts/ uses a `==` blank at all, so no file changes. Still owed: the lint that a `===`
+prompt names its form in words, which needs a ruling on what wording counts.
