@@ -4,15 +4,16 @@ Generate practice-registry.json from the graph's seven `activity_defaults.mixed_
 (D43 amendment 2026-10-20; contract B-193), `dol_practice_items` (D65 targeted practice,
 TP-3; C-167), `mixed_seconds_per_item` and `period_shapes` (D43 amendment 2026-11-04;
 contract B-241, both or neither), and `duration_min`, the per-activity cap that period_shapes
-names as a string (§10; B-247, so the importer can warn on `minutes:` above it).
+names as a string (§10; B-247, so the importer can warn on `minutes:` above it), and the ten
+`review_*` keys (review periods, PA-9; C-196), each an override of the daily block's rule.
 
 The graph is the only edit surface. The platform's importer reads generated registries,
-never the graph, so this re-encodes those eleven keys for it. The body is exactly those keys,
+never the graph, so this re-encodes those twenty-one keys for it. The body is exactly those keys,
 flat, copied unchanged. The header's revision is the sha256 of the canonical JSON body
 (header excluded), the same rule as fact-scope-registry.json, so the same id always means
 the same content.
 
-It writes nothing if any of the eleven keys is missing. Their bounds are integrity check L's
+It writes nothing if any of the twenty-one keys is missing. Their bounds are integrity check L's
 job (scripts/check_integrity.py), which runs under the same CI.
 
 Usage:
@@ -29,6 +30,10 @@ MIXED_KEYS = ["mixed_step_intervals", "mixed_wrong_drop", "mixed_items_per_sessi
 DOL_KEYS = ["dol_practice_items"]   # D65 slice 2 targeted practice (TP-3, C-167); check L
 PERIOD_KEYS = ["mixed_seconds_per_item", "period_shapes"]   # D43 2026-11-04, B-241; check L
 CAP_KEYS = ["duration_min"]   # §10 activity cap; B-247 (period_shapes' "duration_min" resolves here); check L
+REVIEW_KEYS = ["review_items_max", "review_max_items_per_skill", "review_same_skill_min_gap",
+               "review_retry_after_wrong", "review_max_discrimination_share", "review_pull_order",
+               "review_pulled_step_up", "review_pulled_moves_due", "review_min_fill",
+               "review_focus_share"]   # review periods, PA-9 (C-196); overrides of the mixed_* rules; check L
 
 
 def main():
@@ -40,13 +45,13 @@ def main():
     with open(args.graph, encoding="utf-8") as fh:
         g = json.load(fh)
     defaults = g.get("activity_defaults", {})
-    missing = [k for k in MIXED_KEYS + DOL_KEYS + PERIOD_KEYS + CAP_KEYS if k not in defaults]
+    missing = [k for k in MIXED_KEYS + DOL_KEYS + PERIOD_KEYS + CAP_KEYS + REVIEW_KEYS if k not in defaults]
     if missing:
         print(f"PRACTICE  activity_defaults missing {missing}", file=sys.stderr)
         print("\nNothing written.", file=sys.stderr)
         sys.exit(1)
 
-    body = {k: defaults[k] for k in MIXED_KEYS + DOL_KEYS + PERIOD_KEYS + CAP_KEYS}
+    body = {k: defaults[k] for k in MIXED_KEYS + DOL_KEYS + PERIOD_KEYS + CAP_KEYS + REVIEW_KEYS}
     canonical = json.dumps(body, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     revision = hashlib.sha256(canonical.encode("utf-8")).hexdigest()
     doc = {
