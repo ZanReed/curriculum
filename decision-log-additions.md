@@ -2913,3 +2913,38 @@ v0.19.9. The platform built D60 from its design pass (FG-1 to FG-14, as amended 
 `{{===…}}` on a blank, `\gap[form]{…}` on a gap, and the reserved `!form-wrong` match. The row's
 prose was drafted by the platform and rewritten on the curriculum side; `fill_blank`'s row now records that a `!` entry on a `==` blank matches any equal answer. The §7 rewrite (C-193) can now
 name `===` as the form carrier, seeded or not, bound or not.
+
+**§17 note (2026-11-17). The skills diagnostic routes a gap to the Developing-tier lesson.** Zan's
+ruling, made in answering B-254 (the platform's skills-diagnostic design pass), sent as C-194.
+Amends §17's "Diagnostic gaps in prerequisites seed the mixed-practice queue from day one".
+1. *Who takes the Developing-tier lessons.* Only students who need remediation. Under the D55
+   amendment these are the Y7 chains 702–706 in the Y9 Number unit. The skills check decides who
+   needs them, as the facts check decides who gets a strategy and who goes straight to fluency.
+2. *A gap gets the lesson.* The teacher assigns it; the platform may suggest it, never assign it
+   (D49). The skill enters the student's pool when they check the lesson (C-145). A gap is not
+   seeded into practice, because spacing needs initial learning first (D47). A gap with no lesson
+   behind it (none of 702–708 is drafted yet) shows on the class grid for the teacher to teach.
+3. *A secure skill is seeded.* Maintenance seeding (the platform's SD-6 (b), held by Zan on
+   2026-11-04) is required, not optional: it is the only spaced practice a student who skips the
+   Developing lessons gets on those skills.
+4. *Owed.* Each chain's diagnostic list (its Developing-tier skills and direct prerequisites, one
+   level, prerequisites first), and the items-per-skill and tier keys, go in the graph when the
+   platform's design is ruled. C-194 proposed 1 item per skill as a blank, gap = not every blank
+   right, tiers D and C.
+
+**§7 and §15 note (2026-11-17). Links, block hints and exact case.** On B-255 (platform cf1d1edd:
+text answers ignore capitals, `^` opts back in, a `hint:` line in mc, match and order, https
+links kept by the importer), after the builder's reading. Sent as C-195.
+1. *Links (§15).* None in student-facing text: review is closed-book, a live page can show the
+   answer or change, and it can't be checked as §11 checks a context. The one exception is a line
+   beginning `Source:` that cites a real data source after the task, with every number the task
+   needs in the activity. Links for the teacher go in the teacher guide. `tools/lint_draft.py`
+   fails any other https link outside the teacher guide (images are not links).
+2. *Block hints (§7).* A hint asks about the method, never the answer. Not on an mc, where every
+   wrong option's own feedback hides it (the platform's grading/index.ts), so it shows only where a
+   distractor lacks feedback. Optional on match and order. Never in a DoL, where it reaches the
+   student before the retake. The lint warns on an mc `hint:` and fails one inside the DoL.
+3. *Exact case (§7).* Nothing in Y7–10 needs `^`. The foreseen case is the sine and cosine rules.
+   The lint warns on `^`, so a justified use stays possible.
+
+Graph v0.19.10 carries both notes' principle text (§7, §15, §17); no key changes.

@@ -144,7 +144,7 @@ answer: 1.09, 1.1, 1.15, 1.2
 solution: Write each with two places: 1.09, 1.10, 1.15 and 1.20, so count that many hundredths past 1. 1.09 is 9 ticks past 1, just before 1.1. 1.1 is 10 ticks past 1, 1.15 is 15 and 1.2 is 20. So 1.09 is the smallest, even though it has the most digits.
 ```
 
-Rope A is 2.4 m long. Rope B is 2.35 m long. The longer one is rope {{A | a | !B :: Line up the points: 2.40 and 2.35. The ones are the same, and 4 tenths beats 3 tenths, so rope A is longer. :: mis.place-value.longer-is-larger | !b :: Line up the points: 2.40 and 2.35. The ones are the same, and 4 tenths beats 3 tenths, so rope A is longer. :: mis.place-value.longer-is-larger}}.
+Rope A is 2.4 m long. Rope B is 2.35 m long. The longer one is rope {{A | !B :: Line up the points: 2.40 and 2.35. The ones are the same, and 4 tenths beats 3 tenths, so rope A is longer. :: mis.place-value.longer-is-larger}}.
 
 ```mc
 prompt: Kiri says 0.09 is larger than 0.1, "because 9 is bigger than 1." What is her error?

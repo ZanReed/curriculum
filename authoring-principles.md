@@ -190,6 +190,15 @@ misconception ids** via distractor maps, and the map is what turns feedback from
   aggregate signal until a human marks it; it is dead weight there.
 - Feedback attached to a wrong answer names the error's logic, not just the fact of
   the error. "That is the third-largest city, not the capital" beats "incorrect."
+- **A block `hint:` asks about the method, never the answer.** It never rules out an option or
+  names part of the answer ("How many centimetres are in one metre?"). Don't write one on an mc:
+  each wrong option's own feedback already names the error and hides the hint, so a hint there
+  shows only where a distractor is missing its feedback, which is the gap to fix. On match and
+  order, which have no feedback per item, a hint is optional and best kept for the faded beat.
+  Never in a DoL: the hint reaches the student before the retake.
+- **Text answers ignore capitals.** A leading `^` (`{{^Mg}}`) makes case count. Nothing in this
+  curriculum needs it yet. The one foreseen case is the sine and cosine rules, where side a sits
+  opposite angle A. Justify any `^` in the notes.
 - The misconception data is the platform's most valuable output. Every mapped
   distractor is a sensor. Author accordingly.
 
@@ -326,6 +335,13 @@ simultaneously choosing what the review may no longer ask, and the two decisions
 are usually made minutes apart by someone thinking about only one of them. Write
 the review first, then the sheet.
 
+**A link leaves the activity, so student-facing text carries none.** A live page can show the
+answer, or start showing it after it changes, and it can't be checked the way §11 checks a
+context. The one exception is citing a real data source: a line beginning `Source:` after the
+task names it and links it, and every number the task needs is already in the activity, so
+nobody has to open it. Sources, data and background for the teacher go in the teacher guide
+(§19).
+
 ## 16. Error analysis is a first-class item type
 
 "A student wrote X — find and explain the error." These test the skill and the
@@ -386,7 +402,13 @@ draws from the bank. The bank:
   (the sprint's accuracy bar, per family: D43 amendment 2026-10-06) before fluency work. A fact answered *slowly* is shown the
   same strategy, then goes straight to fluency work. The two differ in whether accuracy comes
   first.
-- Diagnostic gaps in prerequisites seed the mixed-practice queue from day one.
+- The skills half reads, for each chain starting this term and next, the skills that chain
+  needs: its Developing-tier lessons and its direct prerequisites. A *gap* on a skill means the
+  student needs that skill's Developing-tier lesson. The teacher assigns it, and the skill enters
+  the student's pool when they check it, like any lesson. A gap is not seeded straight into
+  practice, because spacing needs initial learning first. A *secure* skill needs no lesson and is
+  seeded into the pool from day one, so a student who skips the Developing lessons still gets
+  spaced practice on those skills.
 - Fluency is self-paced, with personal bests, no leaderboard and no grade.
 - When the sprint is off, its minutes go to mixed practice unless the teacher takes them
   back.
