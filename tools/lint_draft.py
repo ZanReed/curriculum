@@ -35,6 +35,10 @@ Checks the activity inside the draft (from its ```meta fence to the end of its
   reserved `!form-wrong` sits only on a `===` blank (anywhere else it can never fire) and at most once;
   a `===` blank takes no unit: clause and no +- tolerance; a `\\gap[form]{…}` holds no `!` entry
   (gaps take none, C-163).
+- Links, block hints and exact case (§7/§15 note, 2026-11-17, on B-255): no [text](address) link in
+  student-facing text except on a line beginning `Source:` (images are not links; the teacher guide
+  may link); a `hint:` line or a blank's `?…` hint inside the DoL section fails, and one in an mc fence warns (each wrong
+  option's feedback hides it); a text blank led by `^` (exact case) warns.
 - D77 (2026-11-02): the primary skill repeated as the last `dol_skills:` entry marks a written
   explanation: the last item is a shortanswer or explain, binds nothing, and a rubric primary gets none.
 
@@ -356,6 +360,33 @@ def minutes_problems(meta, repo, require):
     return [], []
 
 
+def authoring_rule_problems(act, student, gram):
+    """§15 links, §7 block hints and exact case (2026-11-17 note). Returns (problems, warnings)."""
+    out, warn = [], []
+    for line in student.splitlines():
+        if re.match(r"^\s*(?:[-*]\s+)?Source:", line):
+            continue
+        for m in re.finditer(r"(?<!!)\[([^\]\[]*)\]\(([^)\s]+)\)", line):
+            out.append(f"link in student-facing text: {m.group(2)!r} (only a Source: line may link; §15)")
+    span = dol_span(act, gram)
+    for m in re.finditer(r"^```([\w-]*)\n(.*?)^```", act, re.M | re.S):
+        if not re.search(r"^hint:", m.group(2), re.M):
+            continue
+        if span and span[0] <= m.start() < span[1]:
+            out.append(f"hint: inside the DoL ({m.group(1)} fence): it reaches the student before the retake (§7)")
+        elif m.group(1) == "mc":
+            warn.append("hint: in an mc fence: each wrong option's feedback hides it, so it shows only where a distractor lacks feedback (§7)")
+    if span:
+        for b in blanks(act[span[0]:span[1]]):
+            if any(s.strip().startswith("?") for s in b.split("|")[1:]):
+                out.append(f"blank hint inside the DoL: {b[:40]!r}: it reaches the student before the retake (§7)")
+    body = re.sub(r"```(meta|teacher-guide).*?```", "", act, flags=re.S)
+    for b in blanks(body):
+        if b.lstrip().startswith("^"):
+            warn.append(f"^ (exact case) on {b[:40]!r}: almost certainly unneeded; justify it in the notes (§7)")
+    return out, warn
+
+
 def activity_text(md):
     start = md.find("```meta")
     if start < 0:
@@ -482,6 +513,10 @@ def main(draft, repo, extra):
             problems.append(f"binding {mid} is not in the misconception registry")
         elif not attach.get(mid, set()) & named:
             problems.append(f"binding {mid} attaches to none of this activity's skills {sorted(named)}")
+
+    ap, aw = authoring_rule_problems(act, student, gram)
+    problems += ap
+    warnings += aw
 
     for line in student.splitlines():
         if re.search(r"\bsprint", line, re.I) and not line.startswith("x_"):
