@@ -39,7 +39,11 @@ Reporting strands (D51):
 Mixed-practice keys (D43; C-145 / B-186, 2026-10-20):
   L. the seven `mixed_*` keys in `activity_defaults` are all present or all absent,
      no other `mixed_*` key exists, and each is well-formed (intervals a strictly
-     increasing list of whole days; counts whole numbers within their bounds)
+     increasing list of whole days; counts whole numbers within their bounds); the ten
+     `review_*` period keys (C-196) are all present or all absent, no other `review_*` key
+     exists (review_selection, the lesson's review beat, aside),
+     and each is well-formed (counts whole numbers, shares in [0, 1], flags booleans,
+     review_pull_order a known order)
 
 Non-vacuity guard: an extraction that yields zero ids from a present registry
 is itself a failure — an extractor that silently matches nothing would pass
@@ -310,6 +314,30 @@ def main() -> int:
     dpi = defaults.get("dol_practice_items")
     if not (isinstance(dpi, int) and not isinstance(dpi, bool) and 2 <= dpi <= 8):
         failures.append("L dol_practice_items must be a whole number >= 2 and <= 8")
+    # L — review-period overrides (PA-9, C-196): all or none, well-formed
+    review = {"review_items_max": ("int", 1), "review_max_items_per_skill": ("int", 1),
+              "review_same_skill_min_gap": ("int", 1), "review_retry_after_wrong": ("int", 0),
+              "review_max_discrimination_share": ("share", None), "review_pull_order": ("order", None),
+              "review_pulled_step_up": ("bool", None), "review_pulled_moves_due": ("bool", None),
+              "review_min_fill": ("share", None), "review_focus_share": ("share", None)}
+    rpresent = [k for k in review if k in defaults]
+    if rpresent and len(rpresent) != len(review):
+        failures.append(f"L review_* keys must be all present or all absent; missing "
+                        f"{[k for k in review if k not in defaults]}")
+    rint = lambda v: isinstance(v, int) and not isinstance(v, bool)
+    rstray = [k for k in defaults if k.startswith("review_") and k not in review
+              and k != "review_selection"]   # review_selection is the lesson's review beat (§6), not a period key
+    if rstray:
+        failures.append(f"L unknown review_* key(s) {rstray}")
+    for k in rpresent:
+        kind, lo = review[k]
+        v = defaults[k]
+        ok = {"int": lambda: rint(v) and v >= lo,
+              "share": lambda: isinstance(v, (int, float)) and not isinstance(v, bool) and 0 <= v <= 1,
+              "bool": lambda: isinstance(v, bool),
+              "order": lambda: v in ("elapsed_share",)}[kind]()
+        if not ok:
+            failures.append(f"L {k} is malformed ({kind}): {v!r}")
     # L — activity cap (§10; mirrored in practice-registry.json, B-247): a whole number >= 1
     cap = defaults.get("duration_min")
     if not (isinstance(cap, int) and not isinstance(cap, bool) and cap >= 1):

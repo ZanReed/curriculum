@@ -451,7 +451,8 @@ review, correctives, assessment and room to transfer what was learned. A period 
 activity is one of these kinds, not empty time and not a reason to add parts (§10).
 
 - **Review**: the whole period is mixed practice (§17), reaching further back than the daily
-  block. The best-supported kind; give it the most periods.
+  block. The best-supported kind; give it the most periods. Its rules are graph keys
+  (`activity_defaults.review_*`), and a rule with no such key is the daily block's.
 - **Corrective**: after a chain's final DoL. Students showing a misconception get its
   corrective, which explains differently from the lesson; the rest get the chain's
   discrimination items, then harder mixed items. A corrective is written once per

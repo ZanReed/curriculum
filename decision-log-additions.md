@@ -2974,3 +2974,32 @@ the stated form". Now:
    nothing (C-163), so it stays for unbound faded steps.
 No draft in drafts/ uses a `==` blank at all, so no file changes. Still owed: the lint that a `===`
 prompt names its form in words, which needs a ruling on what wording counts.
+
+**§18 note (2026-11-17). Review-period rules are graph keys.** On B-259 (the platform's PA-9), after
+the builder's reading; Zan ruled R1–R4. Sent as C-196. A review period is the mixed scheduler (C-180),
+so the ten `activity_defaults.review_*` keys are overrides: any rule without one inherits its
+`mixed_*` value. They are mirrored in practice-registry.json and bounded by integrity check L.
+1. *Size.* (period minutes − sprint minutes) at `mixed_seconds_per_item`'s 90 s, at most
+   `review_items_max` (36). The sprint stays; when it is off its minutes go to review.
+2. *Pool.* The student's own (C-145) plus seeded secure skills (C-194), with no look-back limit.
+3. *Per skill.* At most `review_max_items_per_skill` (2), at least `review_same_skill_min_gap` (5)
+   items apart, relaxing to never adjacent when the pool is too small. The cap never rises.
+4. *Discrimination.* Up to `review_max_discrimination_share` (0.33) of the session; both skills of a
+   pair in the pool.
+5. *Order (R3).* `review_pull_order` "elapsed_share": not-yet-due skills by days since practice ÷
+   current interval, highest first (Cepeda et al. 2006). C-183's exhausted-session top-up changes
+   to the same measure.
+6. *Steps and due dates (R2).* No step up on a pulled-forward item (`review_pulled_step_up` false).
+   A right one leaves its next due date unchanged (`review_pulled_moves_due` false); a wrong one
+   drops a step (`mixed_wrong_drop`) and reschedules from today.
+7. *Re-try (R1).* A wrong answer earns `review_retry_after_wrong` (1) re-try at least the gap later,
+   outside the per-skill cap: the within-session criterion step of successive relearning (Rawson &
+   Dunlosky). Then the session ends, and unused minutes show as unassigned.
+8. *Floor.* `review_min_fill` (0.67): below it the platform doesn't suggest a review period, and one
+   the teacher places anyway serves what it has and says the pool is thin.
+9. *Scoring.* The class's mixed-practice setting (D43 amendment item 8); "planned" means the items
+   generated.
+10. *Before a test.* Up to `review_focus_share` (0.6) from the chains the teacher ticks as the test's
+   (tests are printed and never imported, so no skill list reaches the platform).
+*R4.* 36, 0.67, 0.6 and 5 are judgements, not research figures, and move with classroom data.
+Graph v0.19.11.
