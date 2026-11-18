@@ -3003,3 +3003,21 @@ so the ten `activity_defaults.review_*` keys are overrides: any rule without one
    (tests are printed and never imported, so no skill list reaches the platform).
 *R4.* 36, 0.67, 0.6 and 5 are judgements, not research figures, and move with classroom data.
 Graph v0.19.11.
+
+**§17 note, continued (2026-11-17). The skills check's keys.** For the platform's design, ruled on its
+side as B-258. Zan set the whole-class threshold at 0.5.
+1. *Per chain.* `chunking_plan.chains[].diagnostic_skills`: the skills read before that chain
+   starts, being its direct prerequisites outside itself, one level, with skills taught earlier in
+   the school year and ext ids the facts check reads left out. A skill never comes before one it
+   depends on; otherwise first use in the chain goes first. Written so far for 904
+   (algebra.notation.write, algebra.expressions.like-terms, ext.arith.signed) and 905 (adding
+   algebra.equations.two-step, ext.arith.fractions, algebra.formulae.rearrange). The Y9 Number
+   chains get theirs, the 702–706 Developing-tier skills plus ext.arith.whole-ops, when they are
+   stubbed. A skill on two ticked chains' lists is read once.
+2. *Keys.* `diagnostic_items_per_skill` 1 (a blank, gap = any blank wrong); `diagnostic_tiers` D, C
+   (untagged templates served, D66 item 3); `diagnostic_class_threshold` 0.5, the share of a class
+   with a gap on a skill above which the whole-class re-teach is suggested; and
+   `diagnostic_false_secure_tries` 2, a seeded secure skill wrong on that many first tries being
+   paused and its lesson suggested. 0.5 and 2 are judgements, not research figures.
+3. *Mirrored* in practice-registry.json (`diagnostic_skills` keyed by chain id) and bounded by check
+   L. Graph v0.19.12.
